@@ -3,7 +3,7 @@
 <h3>Integrantes</h3>
 <ul>
   <li>@jldefigueiredo</li>
-  <li>@</li>
+  <li>@Matuca</li>
   <li>@</li>
   <li>@</li>
 </ul>
