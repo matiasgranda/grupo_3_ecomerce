@@ -25,5 +25,5 @@ Publico general que busca una excelente experiencia de compra y un servicio al c
 <h4>Tareas</h4>
 
 - [x] Completar el Readme
-- [ ] Subir los Mockups de pagina principal, producto, login y registro
+- [x] Subir los Mockups de pagina principal, producto, login y registro
 - [ ] Agregar a los profes a los colaboradores
