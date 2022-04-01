@@ -26,6 +26,6 @@ Publico general que busca una excelente experiencia de compra y un servicio al c
 
 - [x] Completar el Readme
 - [x] Subir los Mockups de pagina principal, producto, login y registro
-- [ ] Agregar a los profes a los colaboradores
+- [x] Agregar a los profes a los colaboradores
 
 
