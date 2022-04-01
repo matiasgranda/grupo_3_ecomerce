@@ -4,7 +4,7 @@
 <ul>
   <li>@jldefigueiredo</li>
   <li>@Matuca</li>
-  <li>@</li>
+  <li>@manumart10</li>
   <li>@</li>
 </ul>
 <h3>Temática: E-Comerce</h3>
