@@ -34,5 +34,6 @@ Apasionado por la ciencia y la tecnología. Amantes del deporte y músico.
 Me gusta ayudar a la gente en lo que pueda e intentar sacar lo mejor de cada uno.
 <h6> Emanuel Martinez </h6>
 Estudiante de Desarrollo Web Full Stack, empezando de a poco a conocer este nuevo mundo de la informática. Futuro estudiante de Ciberseguridad. Me gusta el futbol, el atletismo y la Música.
-<h6>....</h6>
+<h6>Carlos APonte</h6>
+Estudiante de Desarrollo Web Full Stack, amante del futbol y padre de un hermoso hijo de 2 años. 
 <h6>....</h6>
