@@ -29,7 +29,9 @@ Publico general que busca una excelente experiencia de compra y un servicio al c
 - [x] Agregar a los profes a los colaboradores
 
 <h4>Biografía de nuestros integrantes</4>
-<h6>....</h6>
+<h6>Jose Luis de Figueiredo</h6>
+Apasionado por la ciencia y la tecnología. Amantes del deporte y músico.
+Me gusta ayudar a la gente en lo que pueda e intentar sacar lo mejor de cada uno.
 <h6>....</h6>
 <h6>....</h6>
 <h6>....</h6>
