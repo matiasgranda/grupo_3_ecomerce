@@ -37,4 +37,4 @@ Estudiante de Desarrollo Web Full Stack, empezando de a poco a conocer este nuev
 <h6>Carlos Aponte</h6>
 Estudiante de Desarrollo Web Full Stack, amante del futbol y padre de un hermoso hijo de 2 años. 
 <h6>Matias Granda</h6>
-Estudiante web developer, me dedique a la gastronomia durante años y estoy buscando ampliar mi conocimiento sobre la programacion, recien iniciado en este camino pero ansioso de aprender todos los dias algo nuevo. En mi tiempo libre disfruto de hacer musica, cocinar, jugar videojuegos y compartir tiempo con mis amigos y familia.
+Estudiante web developer, me dedique a la gastronomia durante años y estoy buscando ampliar mi conocimiento sobre la programacion. Recien iniciado en este camino, pero ansioso de aprender todos los dias algo nuevo. En mi tiempo libre disfruto de hacer musica, cocinar, jugar videojuegos y compartir tiempo con mis amigos y familia.
