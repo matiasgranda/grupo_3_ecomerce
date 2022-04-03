@@ -30,7 +30,7 @@ Publico general que busca una excelente experiencia de compra y un servicio al c
 
 <h4>Biografía de nuestros integrantes</4>
 <h6>Jose Luis de Figueiredo</h6>
-Apasionado por la ciencia y la tecnología. Amantes del deporte y músico.
+Apasionado por la ciencia y la tecnología. Ethical Hacker, cisco security administrator, administrador de infraestructuras. Amante del deporte y músico.
 Me gusta ayudar a la gente en lo que pueda e intentar sacar lo mejor de cada uno.
 <h6> Emanuel Martinez </h6>
 Estudiante de Desarrollo Web Full Stack, empezando de a poco a conocer este nuevo mundo de la informática. Futuro estudiante de Ciberseguridad. Me gusta el futbol, el atletismo y la Música.
