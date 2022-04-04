@@ -29,6 +29,8 @@ Publico general que busca una excelente experiencia de compra y un servicio al c
 - [x] Subir los Mockups de pagina principal, producto, login y registro
 - [x] Agregar a los profes a los colaboradores
 
+<hr>
+
 <h4>Biografía de nuestros integrantes</4>
 
 <h6>Jose Luis de Figueiredo</h6>
