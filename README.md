@@ -12,12 +12,12 @@
 <h4>Sitios de Referencia:</h4>
 
 <ul>
-  <li><a href="https://es.aliexpress.com/">Aliexpress</a><</li>
-  <li>https://www.mercadolibre.com/</li>
-  <li>https://www.amazon.com/</li>
-  <li>https://www.ebay.com/</li>
-  <li>https://spanish.alibaba.com/</li>
-  <li>https://www.pccomponentes.com/</li>
+  <li><a href="https://es.aliexpress.com/">Aliexpress</a></li>
+  <li><a href="https://www.mercadolibre.com/">Mercadolibre</a></li>
+  <li><a href="https://www.amazon.com/">Amazon</a></li>
+  <li><a href="https://www.ebay.com/">Ebay</a></li>
+  <li<a href=">https://spanish.alibaba.com/">Alibaba</a></li>
+  <li><a href="https://www.pccomponentes.com/">Pc Componentes</a></li>
 </ul>
 
 <h3>Público Objetivo</h3>
