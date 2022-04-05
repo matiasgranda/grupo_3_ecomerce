@@ -25,12 +25,21 @@ Publico general que busca una excelente experiencia de compra y un servicio al c
 
 <h4>Tareas</h4>
 
+<h3>Sprint 1</h3>
 - [x] Completar el Readme
 - [x] Subir los Mockups de pagina principal, producto, login y registro
 - [x] Agregar a los profes a los colaboradores
-
 <hr>
-
+<h3>Sprint 2</h3>
+- [ ] Archivo retro.md con el resultado de la retrospectiva.
+- [ ] Enlace al tablero de trabajo en el archivo README.md.
+- [ ] Aplicación Node.js+Express con:
+- [ ] Home (index.html)
+- [ ] Detalle del producto (productDetail.html)
+- [ ] Carrito de compras (productCart.html)
+- [ ] Formulario de registro (register.html)
+- [ ] Formulario de login (login.html)
+<hr>
 <h4>Biografía de nuestros integrantes</4>
 
 <h6>Jose Luis de Figueiredo</h6>
