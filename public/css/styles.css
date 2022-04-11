@@ -352,6 +352,8 @@ section h3 {
     background: rgb(247,205,174);
 background: linear-gradient(180deg, rgba(247,205,174,1) 0%, rgba(234,237,237,1) 70%);
     position: relative;
+    background-image: url('../img/banner2.jpg');
+    background-size:cover;
 }
 .carrito:hover {
     color: white;
