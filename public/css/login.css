@@ -28,6 +28,7 @@ body {
     align-items: center;
     position: relative;
     border-radius: 6px;
+    box-shadow: 5px 5px 10px 5px rgba(20,31,56,0.75);
 }
 
 .loginbox form {
@@ -66,7 +67,6 @@ body {
 }
 
 .registrate {
-    border: 1px solid white;
     width: 80%;
     height: 100px;
     display: flex;
@@ -93,7 +93,6 @@ body {
 .loginbutton {
     margin-top: 5%;
     margin-bottom: 10%;
-    border: 1px solid white;
     width: 40%;
     height: 60px;
     display: flex;
@@ -102,18 +101,19 @@ body {
     justify-content: center;
 }
 
+.loginbutton button {
+    width: 80%;
+    height: 30px;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
 .loginuser input, .loginpassword input {
     width: 90%;
     height: 36px;
     padding: 0px 5px;
     font-size: 16px;
     border-radius: 4px;
-}
-
-.loginbutton button {
-    width: 80%;
-    height: 30px;
-    font-size: 16px;
 }
 
 .back {
@@ -130,4 +130,10 @@ body {
 
 label {
     color: rgb(132, 147, 173);
+}
+
+@media(max-width: 420px) {
+    .loginbox {
+        min-width: 340px;
+    }
 }

@@ -4,17 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/registro.css">
     <title>Document</title>
 </head>
 <body>
     <div class="registro">
         <form action="" method="GET">
-            <img src="/img/amazona-blanco.jpg" alt="">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <a href="/"><img src="/img/amazona-blanco.png" alt=""></a> 
+            <div class="form-box">
+                <label for="userName">Nombre de usuario:</label>
+                <input type="text" name="nombreU" id="userName" placeholder="Nombre de usuario" required minlength="4" maxlength="18">
+            </div>
+            <div class="form-box">
+                <label for="userEmail">Email:</label>
+                <input type="email" name="emailU" id="userEmail" placeholder="ejemplo@correo.com" required>
+            </div>
+            <div class="form-box">
+                <label for="userPassword">Contraseña:</label>
+                <input type="password" name="contraseñaU" id="userPassword" required minlength="6">
+            </div>
+            <div class="form-box">
+                <label for="userPassword">Confirme su contraseña</label>
+                <input type="password" name="contraseñaU" id="userPassword" required minlength="6">
+            </div>
+            <div class="form-date">
+                <label for="nacimientoU">Fecha de nacimiento:</label>
+                <input type="date" id="nacimientoU" required>
+            </div>
+            <div class="form-select">
+                <label for="paisUser">Pais de residencia</label>
+                <select name="paisU" id="paisUser" required>
+                    <option name="arg" value="Argentina"  id="paisUser">Argentina</option>
+                    <option name="bol" value="Bolivia" id="paisUser">Bolivia</option>
+                    <option name="bra" value="Brasil" id="paisUser">Brasil</option>
+                    <option name="chi" value="Chile" id="paisUser">Chile</option>
+                    <option name="col" value="Colombia" id="paisUser">Colombia</option>
+                    <option name="ecu" value="Ecuador" id="paisUser">Ecuador</option>
+                    <option name="par" value="Paraguay" id="paisUser">Paraguay</option>
+                    <option name="per" value="Peru" id="paisUser">Peru</option>
+                    <option name="uru" value="Uruguay" id="paisUser">Uruguay</option>
+                    <option name="vzl" value="Venezuela" id="paisUser">Venezuela</option>
+                </select>
+            </div>
+            <div class="form-submit">
+                <button type="submit">Registrarse</button>
+            </div>
         </form>
+        <a href="/login">Ya tenes una cuenta? ingresa.</a> 
+        <a href="/">Pagina de inicio.</a>
     </div>
 </body>
 </html>
