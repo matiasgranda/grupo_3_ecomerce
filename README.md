@@ -35,14 +35,17 @@ Publico general que busca una excelente experiencia de compra y un servicio al c
 <h3>Sprint 2</h3>
 
 - [ ] Archivo retro.md con el resultado de la retrospectiva.
-- [ ] Enlace al tablero de trabajo en el archivo README.md.
-- [ ] Aplicación Node.js+Express con:
-- [ ] Home (index.html)
+- [x] Enlace al tablero de trabajo en el archivo README.md.
+- [x] Aplicación Node.js+Express con:
+- [x] Home (index.html)
 - [ ] Detalle del producto (productDetail.html)
 - [ ] Carrito de compras (productCart.html)
-- [ ] Formulario de registro (register.html)
-- [ ] Formulario de login (login.html)
+- [x] Formulario de registro (register.html)
+- [x] Formulario de login (login.html)
 
+<hr>
+<h4> Tablero de Trello </h4>
+https://trello.com/invite/b/PiDySFQK/e0192faa4a80919be537a0ddc05607ce/proyecto-integrador
 <hr>
 <h4>Biografía de nuestros integrantes</4>
 
