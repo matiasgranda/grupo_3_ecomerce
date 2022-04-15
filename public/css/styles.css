@@ -259,7 +259,8 @@ main {
     background-color: white;
     margin-bottom: 40px;
     padding: 15px;
-    box-shadow: 5px 5px 5px 5px rgba(20, 31, 56, 0.10);
+    box-shadow: 1px 0px 17px 5px rgb(20 31 56 / 10%);
+
 }
 
 .principal {
@@ -528,6 +529,9 @@ section h3 {
 }
 
 @media(max-width: 412px) {
+    header {
+        position: fixed;
+    }
     .principal article .itemswrapper div:nth-child(n + 3) {
         display: none;
         background-color: #222222;
@@ -591,6 +595,10 @@ section h3 {
     }
 }
 @media(max-width: 760px) {
+    header {
+        position: fixed;
+    }
+    
     .principal {
         position: relative;
         top: -340px;
