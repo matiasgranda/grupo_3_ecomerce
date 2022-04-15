@@ -492,6 +492,8 @@ section h3 {
     .searchbar {
         order: 2;
         margin: auto;
+        width: 90%;
+        
     }
 
     .topventas article,
