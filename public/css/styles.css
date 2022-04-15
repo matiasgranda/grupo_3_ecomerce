@@ -590,3 +590,25 @@ section h3 {
         height: fit-content;
     }
 }
+@media(max-width: 760px) {
+    .principal {
+        position: relative;
+        top: -340px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        align-content: center;
+    }
+    .principal article {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-content: space-around;
+        align-items: center;
+        width: 100%;
+    }
+
+}
