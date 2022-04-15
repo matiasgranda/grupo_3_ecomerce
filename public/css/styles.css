@@ -6,7 +6,22 @@
     padding: 0;
     font-family: 'Montserrat', sans-serif;
 }
-
+.numerocesta {
+    position: relative;
+    color: #ff8100;
+    left: -22px;
+    font-size: 18px;
+    font-weight: bolder;
+    border-radius: 50%;
+    top: -7px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
 body {
     width: 100%;
     height: 1800px;
@@ -561,8 +576,9 @@ section h3 {
         width: 100%;
     }
     .searchbar {
-        width: 260px;
-        min-width: 200px;
+        
+        width: 100%;
+        
     }
 
     .searchbar a {

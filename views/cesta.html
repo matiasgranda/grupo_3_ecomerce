@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amazona</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/cesta.css" />
+    <script src="https://kit.fontawesome.com/91393ea5bf.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="topnavbar">
+            <div class="logo-envio">
+                <a class="logo" href="#"><img src="/img/amazona-blanco.png" alt="" /></a>
+                <div class="envio">
+                    <a href="#">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </a>
+                    <p>
+                        Envio a <br />
+                        <a href="#">Argentina</a>
+                    </p>
+                </div>
+            </div>
+            <div class="searchbar">
+                <a class="linkizquierda" href="#">Categorias</a>
+                <input type="text" />
+                <a class="linkderecha" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </div>
+            <div class="login-carrito">
+                <a class="login" href="/login">
+                    <i class="fa-solid fa-user"></i>
+                    <p>
+                        Iniciar <br />
+                        sesión
+                    </p>
+                </a>
+                <a class="carrito" href="#">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="numerocesta">3</span>
+                </a>
+            </div>
+        </nav>
+        <nav class="bottomnavbar">
+            <div class="categorias">
+                <a href="#">
+                    <i class="fa-solid fa-bars"></i>
+                    <p>All</p>
+                </a>
+            </div>
+            <div class="links">
+                <ul>
+                    <li><a href="#">Ofertas del dia</a></li>
+                    <li><a href="#">Mas populares</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                    <li><a href="#">Servicio al cliente</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="contenedor">
+        <section class="cesta">
+            <article class="headitems">
+                Precio
+            </article>
+            <article class="cestaitem">
+                <div class="imagenitem">
+                    <img src="/img/gskill.jpg">
+                </div>
+                <div class="detalleitem">
+                    <div class="titulodesc">Modulo 16GB DDR4 3600Mhz</div>
+                    <div class="descripcionitem"> Memoria DDR4 OCZ Performance 3600Mhz RGB con disipador</div>
+                    <div class="opcionesitem">
+                        <div class="cantidad">
+                            <label for="selectcantidad">Cant.</label>
+                            <select name="cantidad">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                
+                            </select>
+                        </div>
+                        <div class="linksopciones"><a href="#">Eliminar</a><a href="#">Ver productos similares</a></div>
+                    </div>
+                </div>
+                <div class="precioitem">$15.000</div>
+            </article>
+            <article class="cestaitem">
+                <div class="imagenitem">
+                    <img src="/img/3090.jpg">
+                </div>
+                <div class="detalleitem">
+                    <div class="titulodesc">Geforce RTX3090 24GB</div>
+                    <div class="descripcionitem"> Placa de video RTX3090 24GB 1450Mhz OC PCIe 4.0</div>
+                    <div class="opcionesitem">
+                        <div class="cantidad">
+                            <label for="selectcantidad">Cant.</label>
+                            <select name="cantidad">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                
+                            </select>
+                        </div>
+                        <div class="linksopciones"><a href="#">Eliminar</a><a href="#">Ver productos similares</a></div>
+                    </div>
+                </div>
+                <div class="precioitem">$560.000</div>
+            </article>
+            <article class="cestaitem">
+                <div class="imagenitem">
+                    <img src="/img/ryzen.jpg">
+                </div>
+                <div class="detalleitem">
+                    <div class="titulodesc">Ryzen 9 5990X</div>
+                    <div class="descripcionitem"> Procesador AMD Ryzen 9 5990X 16 core 4.4Ghz 64Mb cache L3 </div>
+                    <div class="opcionesitem">
+                        <div class="cantidad">
+                            <label for="selectcantidad">Cant.</label>
+                            <select name="cantidad">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                
+                            </select>
+                        </div>
+                        <div class="linksopciones"><a href="#">Eliminar</a><a href="#">Ver productos similares</a></div>
+                    </div>
+                </div>
+                <div class="precioitem">$158.000</div>
+            </article>
+            <article class="total">
+                <span>Subtotal (3 Productos):<strong> $ 733.000</strong></span>
+            </article>
+        </section>
+        <section class="barralateral">
+            <article class="barralateralitem">
+                <div class="cajasubtotal">
+                    <span>Subtotal (3 Productos):<strong> $ 733.000</strong></span>
+                    <button class="botonpedido">Finalizar pedido</button>
+                </div>
+            </article>
+
+        </section>
+    </div>
+</body>
+
+</html>

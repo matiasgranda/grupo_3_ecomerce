@@ -1,0 +1,187 @@
+.contenedor {
+    display: flex;
+    width: 100%;
+    background-color: #eaeded;
+    padding: 10px;
+    margin-top: 90px;
+    padding-bottom: 30px;
+    height: fit-content;
+
+}
+
+.cesta {
+    width: 80%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.barralateral {
+    width: 20%;
+    margin-left: 10px;
+    display: flex;
+}
+
+.cestaitem {
+    display: flex;
+
+    height: fit-content;
+    width: 100%;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border-bottom: 1px solid rgb(209, 203, 203);
+}
+
+.detalleitem {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+    flex: 0.75;
+
+    padding: 10px;
+}
+
+.barralateralitem {
+    display: flex;
+    height: 100px;
+    
+    width: 100%;
+}
+
+.imagenitem {
+    overflow: hidden;
+    display: flex;
+    width: 160px;
+    height: fit-content;
+
+    flex: 0.15;
+    padding: 10px;
+}
+
+.precioitem {
+    display: flex;
+    height: 100px;
+    flex: 0.25;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-end;
+    align-items: center;
+    padding: 20px 5px;
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 20px;
+}
+
+.titulodesc {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.opcionesitem {
+    display: flex;
+
+}
+
+.linksopciones {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 3px 5px;
+}
+
+.linksopciones a {
+    display: block;
+    margin-right: 5px;
+    text-decoration: none;
+    color: rgb(48, 111, 167);
+}
+
+.linksopciones a:hover {
+    text-decoration: underline;
+}
+
+.opcionesitem select {
+    margin-left: 5px;
+    width: 100%;
+    line-height: 30px;
+    height: 30px;
+    padding: 0px 5px;
+    font-size: 16px;
+    outline: none;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid lightgrey;
+    color: rgb(85, 85, 85);
+
+}
+
+.cantidad {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.total {
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding-right: 20px;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.total span {
+    display: block;
+}
+.cajasubtotal{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    height: fit-content;
+}
+.cajasubtotal button {
+    display: flex;
+    height: 32px;
+    padding: 0 30px;
+    outline: none;
+    background-color: #FEBD6A;
+    border: 0;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top:20px;
+    color: #3a3737;
+}
+.headitems{
+    display: flex;
+    height: 50px;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    padding-right: 20px;
+    
+}
