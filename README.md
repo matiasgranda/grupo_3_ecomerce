@@ -39,7 +39,7 @@ Publico general que busca una excelente experiencia de compra y un servicio al c
 - [x] Aplicación Node.js+Express con:
 - [x] Home (index.html)
 - [ ] Detalle del producto (productDetail.html)
-- [ ] Carrito de compras (productCart.html)
+- [x] Carrito de compras (productCart.html)
 - [x] Formulario de registro (register.html)
 - [x] Formulario de login (login.html)
 
