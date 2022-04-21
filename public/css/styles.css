@@ -301,7 +301,7 @@ main {
 
 .principal article {
     padding: 15px;
-    width: 350px;
+    width: 400px;
     height: fit-content;
     background-color: white;
     margin-bottom: 10px;
@@ -337,18 +337,36 @@ main {
 }
 
 .itemswrapper div {
-    width: 150px;
-    height: 150px;
-    background-color: aliceblue;
-    margin-bottom: 20px;
-    margin-top: 10px;
+    position: relative;
+    width: 160px;
+    height: 180px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid aliceblue;
+}
+
+.itemswrapper div span {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+    width: 100%;
+    bottom: 0px;
+}
+
+.itemswrapper div img {
+    max-width: 150px;
+    max-height: 150px;
 }
 
 .topventas {
     position: relative;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-content: space-around;
     justify-content: space-around;
     align-items: center;
@@ -368,7 +386,7 @@ main {
     position: relative;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-content: space-around;
     justify-content: space-around;
     align-items: center;
@@ -401,14 +419,8 @@ section h3 {
     background-size: cover;
 }
 
-.carrito:hover {
-    color: white;
-    transition: 1s;
-}
-
-.envio a:hover {
-    color: white;
-    transition: 1s;
+.prodpopulares article:hover, .topventas article:hover, .itemswrapper div:hover {
+    box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.3);
 }
 
 .envio p a::after {
@@ -513,7 +525,7 @@ section h3 {
 
     .topventas article,
     .prodpopulares article {
-        width: 100%;
+        width: 45%;
         height: 200px;
     }
 
@@ -543,6 +555,10 @@ section h3 {
         flex-wrap: nowrap;
         width: 100%;
     }
+
+    .principal article {
+        width: 100%;
+    }
 }
 
 @media(max-width: 412px) {
@@ -561,7 +577,7 @@ section h3 {
         justify-content: center;
         padding-bottom: 10px;
         align-items: center;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         width: 100%;
     }
     .topventas {
@@ -572,7 +588,7 @@ section h3 {
         justify-content: center;
         padding-bottom: 10px;
         align-items: center;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         width: 100%;
     }
     .searchbar {
@@ -611,6 +627,10 @@ section h3 {
     .itemswrapper {
         height: fit-content;
     }
+
+    .prodpopulares article, .topventas article {
+        width: 100%;
+    }
 }
 @media(max-width: 760px) {
     header {
@@ -636,5 +656,10 @@ section h3 {
         align-items: center;
         width: 100%;
     }
+
+    .prodpopulares article, .topventas article {
+        width: 80%;
+    }
+
 
 }
