@@ -543,10 +543,6 @@ section h3 {
         flex-wrap: nowrap;
         width: 100%;
     }
-    
-    .principal article {
-        width: 100%;
-    }
 }
 
 @media(max-width: 412px) {
