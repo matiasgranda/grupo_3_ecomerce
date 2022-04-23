@@ -71,38 +71,31 @@ body {
 
 .registrate {
     width: 80%;
-    height: 100px;
+    height: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 10%;
-}
-
-.registrate p {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     color: rgb(132, 147, 173);
+    font-size: 13px;
 }
 
-.registrate a {
-    text-decoration: none;
-    color: rgb(53 124 243);
-    
+.registrate a:hover, .olvido:hover {
+    text-decoration: underline;
 }
-.olvido {
-    font-size: 12px;
+
+.olvido, .registrate a {
+    font-size: 13px;
     display: block;
     margin-top: 5px;
     text-decoration: none;
     color: rgb(53 124 243);
 }
+
 .loginbutton {
     margin-top: 5%;
     margin-bottom: 10%;
-   
     height: 60px;
     display: flex;
     flex-direction: column;
@@ -135,20 +128,6 @@ body {
     background-color: rgb(255, 255, 255);
     border: 1px solid lightgrey;
     color: rgb(85, 85, 85);
-    
-}
-
-.back {
-    height: fit-content;
-    margin-bottom: 20px;
-    width: 90%;
-    
-}
-
-.back a {
-    text-decoration: none;
-    text-decoration: underline;
-    color: rgb(60, 62, 65);
 }
 
 label {
