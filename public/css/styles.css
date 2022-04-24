@@ -526,7 +526,7 @@ section h3 {
 
     .topventas article,
     .prodpopulares article {
-        width: 45%;
+        width: 200px;
         height: 200px;
     }
 
@@ -537,23 +537,23 @@ section h3 {
     .prodpopulares {
         position: relative;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-content: space-around;
         justify-content: center;
         padding-bottom: 10px;
         align-items: center;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         width: 100%;
     }
     .topventas {
         position: relative;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-content: space-around;
         justify-content: center;
         padding-bottom: 10px;
         align-items: center;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         width: 100%;
     }
 
@@ -566,10 +566,12 @@ section h3 {
     header {
         position: fixed;
     }
+
     .principal article .itemswrapper div:nth-child(n + 3) {
         display: none;
         background-color: #222222;
-      }
+    }
+
     .prodpopulares {
         position: relative;
         display: flex;
@@ -657,10 +659,4 @@ section h3 {
         align-items: center;
         width: 100%;
     }
-
-    .prodpopulares article, .topventas article {
-        width: 80%;
-    }
-
-
 }
