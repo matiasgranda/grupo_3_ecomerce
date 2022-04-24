@@ -1,86 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/product.css">
-    <script src="https://kit.fontawesome.com/91393ea5bf.js" crossorigin="anonymous"></script>
-    <title>Product detail</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/product.css">
+  <script src="https://kit.fontawesome.com/91393ea5bf.js" crossorigin="anonymous"></script>
+  <title>Product detail</title>
 </head>
+
 <body>
-    <header>
-        <nav class="topnavbar">
-          <div class="logo-envio">
-            <a class="logo" href="/"><img src="/img/amazona-blanco.png" alt="" /></a>
-            <div class="envio">
-              <a href="#">
-                <i class="fa-solid fa-location-dot"></i>
-              </a>
-              <p>
-                Envio a <br />
-                <a href="#">Argentina</a>
-              </p>
-            </div>
-          </div>
-          <div class="searchbar">
-            <a class="linkizquierda" href="#">Categorias</a>
-            <input type="text" />
-            <a class="linkderecha" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-          </div>
-          <div class="login-carrito">
-            <a class="login" href="/login">
-              <i class="fa-solid fa-user"></i>
-              <p>
-                Iniciar <br />
-                sesión
-              </p>
-            </a>
-            <a class="carrito" href="/cesta">
-              <i class="fa-solid fa-cart-shopping"></i>
-              <span class="numerocesta">3</span>
-            </a>
-          </div>
-        </nav>
-        <nav class="bottomnavbar">
-          <div class="categorias">
-            <a href="#">
-              <i class="fa-solid fa-bars"></i>
-              <p>All</p>
-            </a>
-          </div>
-          <div class="links">
-            <ul>
-              <li><a href="#">Ofertas del dia</a></li>
-              <li><a href="#">Mas populares</a></li>
-              <li><a href="#">Gift Cards</a></li>
-              <li><a href="#">Servicio al cliente</a></li>
-            </ul>
-          </div>
-        </nav>
-    </header>
-
-    <main>
-      <section class="images">
-        <div class="mini-viewer">
-          <div class="mini-image"></div>
-          <div class="mini-image"></div>
-          <div class="mini-image"></div>
-          <div class="mini-image"></div>
-          <div class="mini-image"></div>
+  <header>
+    <nav class="topnavbar">
+      <div class="logo-envio">
+        <a class="logo" href="/"><img src="/img/amazona-blanco.png" alt="" /></a>
+        <div class="envio">
+          <a href="#">
+            <i class="fa-solid fa-location-dot"></i>
+          </a>
+          <p>
+            Envio a <br />
+            <a href="#">Argentina</a>
+          </p>
         </div>
-        <div class="main-image">
+      </div>
+      <div class="searchbar">
+        <a class="linkizquierda" href="#">Categorias</a>
+        <input type="text" />
+        <a class="linkderecha" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+      </div>
+      <div class="login-carrito">
+        <a class="login" href="/login">
+          <i class="fa-solid fa-user"></i>
+          <p>
+            Iniciar <br />
+            sesión
+          </p>
+        </a>
+        <a class="carrito" href="/cesta">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="numerocesta">3</span>
+        </a>
+      </div>
+    </nav>
+    <nav class="bottomnavbar">
+      <div class="categorias">
+        <a href="#">
+          <i class="fa-solid fa-bars"></i>
+          <p>All</p>
+        </a>
+      </div>
+      <div class="links">
+        <ul>
+          <li><a href="#">Ofertas del dia</a></li>
+          <li><a href="#">Mas populares</a></li>
+          <li><a href="#">Gift Cards</a></li>
+          <li><a href="#">Servicio al cliente</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
+  <main>
+    <section class="images">
+      <div class="mini-viewer">
+        <div class="mini-image"></div>
+        <div class="mini-image"></div>
+        <div class="mini-image"></div>
+        <div class="mini-image"></div>
+        <div class="mini-image"></div>
+      </div>
+      <div class="main-image">
+
+      </div>
+    </section>
+    <section class="description">
+      <h2>Titulo del producto - Titulo del producto - Titulo del producto</h2>
+      <div class="ratings"></div>
+      <div class="info"></div>
+      <div class="about"></div>
+    </section>
+    <section class="barraderecha">
+      <div class="precio">
+        $2000
+      </div>
+      <div class="detenvio">
+        $950 envío a Tucumán.
+        <span class="flash"><i class="fa-solid fa-bolt-lightning"></i> Envio Flash disponible</span>
+      </div>
+      <div class="entrega">
+        Entrega aproximada:
+        <span class="fechaentrega">Miércoles 27 de agosto</span>
+      </div>
+      <div class="stock">
+        En Stock
+      </div>
+      <div class="cantidad">
+        <select>
+          <option value="" disabled selected>Cantidad</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+      <div class="botones">
+        <div class="botonagregar">
+          <button class="agregar">Agregar al carrito</button>
         </div>
-      </section>
-      <section class="description">
-        <h2>Titulo del producto - Titulo del producto - Titulo del producto</h2>
-        <div class="ratings"></div>
-        <div class="info"></div>
-        <div class="about"></div>
-      </section>
-    </main>
+        <div class="botoncomprar">
+          <button class="comprar">Comprar ahora</button>
+        </div>
+      </div>
+      <div class="envioacargo">
+        Envío a cargo del comprardor
+      </div>
+      <div class="vendedor">
+        Vendido por: IC-LA-Creyó
+      </div>
+      <div class="garantia">
+        Garantía de 30 días.
+      </div>
+    </section>
+  </main>
 
+  <hr class="separador">
+  <article class="compralocon">
+    compralo con
+
+  </article>
+  <hr class="separador">
+
+  <article class="publicacion">
+    <div>
+      <h2>What is Lorem Ipsum?</h2>
+      <p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+        electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+        PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+    <div>
+      <h2>What is Lorem Ipsum?</h2>
+      <p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+        electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+        PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+    <div>
+      <h2>What is Lorem Ipsum?</h2>
+      <p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+        electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+        PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+  </article>
+  <hr class="separador">
+  <article class="preguntas">
+    <div class="itempreguntas">
+      <div class="usuario">
+        clodomiro2020
+      </div>
+      <div class="pregunta">
+        Quisiera actualizar mi conexión a la red de 28.8 kilobaudios a una línea T1 de fibra óptica. ¿Tiene usted un
+        servidor con routeador compatible con mi configuración LAN ethernet token ring?
+      </div>
+      <div class="respuesta">
+        eh.... podría darme el dinero?
+      </div>
+    </div>
+    <div class="itempreguntas">
+      <div class="usuario">
+        clodomiro2020
+      </div>
+      <div class="pregunta">
+        Quisiera actualizar mi conexión a la red de 28.8 kilobaudios a una línea T1 de fibra óptica. ¿Tiene usted un
+        servidor con routeador compatible con mi configuración LAN ethernet token ring?
+      </div>
+      <div class="respuesta">
+        eh.... podría darme el dinero?
+      </div>
+    </div>
+    <div class="itempreguntas">
+      <div class="usuario">
+        clodomiro2020
+      </div>
+      <div class="pregunta">
+        Quisiera actualizar mi conexión a la red de 28.8 kilobaudios a una línea T1 de fibra óptica. ¿Tiene usted un
+        servidor con routeador compatible con mi configuración LAN ethernet token ring?
+      </div>
+      <div class="respuesta">
+        eh.... podría darme el dinero?
+      </div>
+    </div>
+
+  </article>
+  <hr class="separador">
+  <article class="calificacionprod">
+    <div class="itemcalificaion">
+      <div class="calificaion">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star-half"></i>
+
+      </div>
+      <div class="comentario">
+        Muy buen producto, lo tengo hace varios años y nunca tuve ningun problema
+      </div>
+    </div>
+    <div class="itemcalificaion">
+      <div class="calificaion">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star-half"></i>
+
+      </div>
+      <div class="comentario">
+        Muy buen producto, lo tengo hace varios años y nunca tuve ningun problema
+      </div>
+    </div>
+    <div class="itemcalificaion">
+      <div class="calificaion">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star-half"></i>
+
+      </div>
+      <div class="comentario">
+        Muy buen producto, lo tengo hace varios años y nunca tuve ningun problema
+      </div>
+    </div>
+    <div class="itemcalificaion">
+      <div class="calificaion">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+
+      </div>
+      <div class="comentario">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+        a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
+        of Lorem Ipsum.
+      </div>
+    </div>
+  </article>
 
 </body>
+
 </html>

@@ -109,6 +109,7 @@ header {
     width: fit-content;
     color: white;
     text-decoration: none;
+    margin-right: 5px;
 }
 
 .envio a {
