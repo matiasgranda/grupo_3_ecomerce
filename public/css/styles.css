@@ -361,24 +361,35 @@ main {
     margin: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     border: 1px solid aliceblue;
 }
 
-.itemswrapper div span {
-    position: absolute;
+.product-image-link {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    height: fit-content;
+    width: 100%;
+    height: 100%;
+}
+
+.product-image-link span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
     width: 100%;
     bottom: 0px;
+    height: 15%;
     font-size: 0.8em;
 }
 
-.itemswrapper div img {
-    max-width: 150px;
-    max-height: 150px;
+.product-image-link img {
+    max-width: 100%;
+    max-height: 85%;
+    margin-bottom: 10%;
 }
 
 .topventas {
@@ -394,7 +405,6 @@ main {
 
 .topventas article {
     margin: 15px;
-    padding: 15px;
     width: 180px;
     height: 180px;
     background-color: beige;
@@ -414,11 +424,27 @@ main {
 
 .prodpopulares article {
     margin: 15px;
-    padding: 15px;
     width: 180px;
     height: 180px;
     background-color: beige;
+}
 
+.prodpopulares article a, .topventas article a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.prodpopulares article h1 {
+    height: 14%;
+}
+
+.prodpopulares img, .topventas img {
+    max-height: 85%;
+    max-width: 100%;
 }
 
 section h3 {
@@ -621,10 +647,9 @@ section h3 {
         flex-wrap: wrap;
         width: 100%;
     }
+
     .searchbar {
-        
-        width: 100%;
-        
+        width: 100%; 
     }
 
     .searchbar a {
