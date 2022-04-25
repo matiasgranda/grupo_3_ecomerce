@@ -41,6 +41,7 @@ header {
     display: flex;
     flex-direction: column;
     position: fixed;
+    min-width: 400px;
     z-index: 9999;
 }
 
@@ -363,7 +364,7 @@ main {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    border: 1px solid aliceblue;
+    
 }
 
 .product-image-link {
@@ -642,6 +643,7 @@ section h3 {
     }
     header {
         position: fixed;
+        min-width: 400px;
     }
 
     .principal article .itemswrapper div:nth-child(n + 3) {
@@ -714,6 +716,7 @@ section h3 {
 @media screen and (max-width: 760px) and (min-width:413px) {
     header {
         position: fixed;
+        min-width: 400px;
     }
     
     .principal {
