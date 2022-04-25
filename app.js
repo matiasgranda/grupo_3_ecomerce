@@ -23,9 +23,6 @@ app.get("/registro", (req, res) => {
     res.sendFile(path.resolve(__dirname, "./views/registro.html"))
 });
 
-app.get("/product", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./views/product.html"))
-});
 
 app.listen(3000, () => {
     console.log("Server running.");
