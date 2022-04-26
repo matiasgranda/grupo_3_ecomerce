@@ -6,7 +6,7 @@ const app = express();
 
 const publicPath = (path.resolve(__dirname, "./public"));
 app.use(express.static(publicPath));
-
+app.set('view engine','ejs');
 /****************** Rutas *****************************/
 app.use("/product",productRoutes)
 app.use('/',mainRoutes);

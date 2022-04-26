@@ -500,10 +500,11 @@ main {
 .usuario{
     width: 10%;
     font-weight: bold;
+    margin-right: 10px;
 }
 
 .pregunta{
-    width: 90%;
+    width: fit-content;
 }
 
 .calificaion{
