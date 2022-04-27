@@ -91,6 +91,7 @@ main {
     align-content: center;*/
     position: relative;
     top: -340px;
+    margin: 0px 20px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

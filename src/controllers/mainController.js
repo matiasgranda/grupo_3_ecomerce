@@ -28,16 +28,16 @@ let mainController = {
         { id: 16, imagen: "/img/colchoneta1.webp", titulo: "Colchonetas" },
       ],
       [
-        { id: 13, imagen: "/img/pelota.jpg", titulo: "Pelota" },
-        { id: 14, imagen: "/img/botines1.webp", titulo: "Botines" },
-        { id: 15, imagen: "/img/pesa1.webp", titulo: "Mancuerna" },
-        { id: 16, imagen: "/img/colchoneta1.webp", titulo: "Colchonetas" },
+        { id: 17, imagen: "/img/monopatinelectrico.webp", titulo: "Monopatín Eléctrico" },
+        { id: 18, imagen: "/img/segway.jpg", titulo: "Segway" },
+        { id: 19, imagen: "/img/bici1.webp", titulo: "Bicicleta MTB" },
+        { id: 20, imagen: "/img/bicielectrica.jpg", titulo: "Bicicleta Eléctrica" },
       ],
       [
-        { id: 13, imagen: "/img/pelota.jpg", titulo: "Pelota" },
-        { id: 14, imagen: "/img/botines1.webp", titulo: "Botines" },
-        { id: 15, imagen: "/img/pesa1.webp", titulo: "Mancuerna" },
-        { id: 16, imagen: "/img/colchoneta1.webp", titulo: "Colchonetas" },
+        { id: 21, imagen: "/img/monopatin.jpg", titulo: "Monopatín" },
+        { id: 22, imagen: "/img/juguetes.jpg", titulo: "Juguetes" },
+        { id: 23, imagen: "/img/utiles.webp", titulo: "Utiles Escolares" },
+        { id: 24, imagen: "/img/triciclo.jpg", titulo: "Triciclo" },
       ]
     ];
     res.render(path.resolve(__dirname, "../views/index.ejs"), {

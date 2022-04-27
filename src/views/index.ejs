@@ -87,9 +87,6 @@
              </a>
            </div>
            <% } %>
-
-          
-
         </div>
         <div class="linkitems">
           <a href="#">Ver más</a>
@@ -101,34 +98,14 @@
         </div>
 
         <div class="itemswrapper">
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/monopatinelectrico.webp" alt="">
-              <span>Monopatin Eléctrico</span>  
-            </a>
-          </div>
-
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/segway.jpg" alt="">
-              <span>Segway</span>  
-            </a>
-          </div>
-
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/bici1.webp" alt="">
-              <span>Bicicleta MTB</span>  
-            </a>
-          </div>
-
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/bicielectrica.jpg" alt="">
-              <span>Bicicleta Eléctrica</span>  
-            </a>
-          </div>
-
+          <% for (let i=0;i<productos[4].length;i++){ %>
+            <div>
+             <a class="product-image-link" href="/product/<%=productos[4][i].id %>">
+               <img src="<%=productos[4][i].imagen %>">
+               <span><%=productos[4][i].titulo %></span>
+             </a>
+           </div>
+           <% } %>
         </div>
         <div class="linkitems">
           <a href="#">Ver más</a>
@@ -140,34 +117,14 @@
         </div>
 
         <div class="itemswrapper">
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/monopatin.jpg" alt="">
-              <span>Monopatin</span>  
-            </a>
-          </div>
-
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/juguetes.jpg" alt="">
-              <span>Juguetes</span>  
-            </a>
-          </div>
-
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/utiles.webp" alt="">
-              <span>Útiles Escolares</span>  
-            </a>
-          </div>
-
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/triciclo.jpg" alt="">
-              <span>Triciclo</span>  
-            </a>
-          </div>
-
+          <% for (let i=0;i<productos[5].length;i++){ %>
+            <div>
+             <a class="product-image-link" href="/product/<%=productos[5][i].id %>">
+               <img src="<%=productos[5][i].imagen %>">
+               <span><%=productos[5][i].titulo %></span>
+             </a>
+           </div>
+           <% } %>
         </div>
         <div class="linkitems">
           <a href="#">Ver más</a>
