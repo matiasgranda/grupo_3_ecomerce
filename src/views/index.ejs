@@ -4,6 +4,7 @@
 <head>
  <%- include('./partials/head') %>
   <link rel="stylesheet" href="/css/styles.css"/>
+  <title>Amazona | Proyecto Grupo 3</title>
 </head>
 
 <body>
@@ -18,35 +19,14 @@
           <h2>Tecnología</h2>
         </div>
         <div class="itemswrapper">
-
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/auriculares1.webp">
-              <span>Auriculares Sony</span>
+          <% for (let i=0;i<productos[0].length;i++){ %>
+           <div>
+            <a class="product-image-link" href="/product/<%=productos[0][i].id %>">
+              <img src="<%=productos[0][i].imagen %>">
+              <span><%=productos[0][i].titulo %></span>
             </a>
           </div>
-
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/macbookair1.webp">
-              <span>Macbook Air</span>
-            </a>
-          </div>
-
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/msi1.webp" alt="">
-              <span>Notebook MSI</span>
-            </a>
-          </div>
-
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/ps51.webp" alt="">
-              <span>Playstation 5</span>
-            </a>
-          </div>
-
+          <% } %>
         </div>
         <div class="linkitems">
           <a href="#">Ver más</a>
@@ -59,34 +39,14 @@
         </div>
 
         <div class="itemswrapper">
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/pantalon1.webp" alt="">
-              <span>Campera Softshell</span>
-            </a>
-          </div>
-
-          <div>
-            <a class="product-image-link" href="/product">
-             <img src="/img/buzo1.webp" alt="">
-             <span>Pantalon cargo</span>
-            </a>
-          </div>
-
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/zapatillas1.webp" alt="">
-              <span>Buzo canguro</span>
-            </a>
-          </div>
-
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/campera1.webp" alt="">
-              <span>Nike Legacy</span>
-            </a>
-          </div>
-
+          <% for (let i=0;i<productos[1].length;i++){ %>
+            <div>
+             <a class="product-image-link" href="/product/<%=productos[1][i].id %>">
+               <img src="<%=productos[1][i].imagen %>">
+               <span><%=productos[1][i].titulo %></span>
+             </a>
+           </div>
+           <% } %>
         </div>
         <div class="linkitems">
           <a href="#">Ver más</a>
@@ -98,33 +58,14 @@
         </div>
 
         <div class="itemswrapper">
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/cama1.webp" alt="">
-              <span>Cama box</span>
-            </a>
-          </div>
-
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/silla1.webp" alt="">
-              <span>Silla de comedor</span>
-            </a>
-          </div>
-
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/sillon1.webp" alt="">
-              <span>Sillon esquinero</span>
-            </a>
-          </div>
-
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/mesa1.webp" alt="">
-              <span>Mesa ratona</span>
-            </a>
-          </div>
+          <% for (let i=0;i<productos[2].length;i++){ %>
+            <div>
+             <a class="product-image-link" href="/product/<%=productos[2][i].id %>">
+               <img src="<%=productos[2][i].imagen %>">
+               <span><%=productos[2][i].titulo %></span>
+             </a>
+           </div>
+           <% } %>
 
         </div>
         <div class="linkitems">
@@ -138,33 +79,16 @@
         </div>
 
         <div class="itemswrapper">
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/pelota.jpg" alt="">
-              <span>Pelota de Fútbol</span>
-            </a>
-          </div>
+          <% for (let i=0;i<productos[3].length;i++){ %>
+            <div>
+             <a class="product-image-link" href="/product/<%=productos[3][i].id %>">
+               <img src="<%=productos[3][i].imagen %>">
+               <span><%=productos[3][i].titulo %></span>
+             </a>
+           </div>
+           <% } %>
 
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/botines1.webp" alt="">
-              <span>Nike Phantom</span>
-            </a>
-          </div>
-
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/pesa1.webp" alt="">
-              <span>Pesa mancuerna</span>
-            </a>
-          </div>
-
-          <div>
-            <a class="product-image-link" href="/product">
-              <img src="/img/colchoneta1.webp" alt="">
-              <span>Colchoneta Gimnasia</span>
-            </a>
-          </div>
+          
 
         </div>
         <div class="linkitems">
