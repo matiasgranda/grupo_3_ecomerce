@@ -2,66 +2,15 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amazona</title>
+    <%- include('./partials/head') %>
+    <title>Mi Carrito</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/cesta.css" />
     <script src="https://kit.fontawesome.com/91393ea5bf.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <header>
-        <nav class="topnavbar">
-            <div class="logo-envio">
-                <a class="logo" href="/"><img src="/img/amazona-blanco.png" alt="" /></a>
-                <div class="envio">
-                    <a href="#">
-                        <i class="fa-solid fa-location-dot"></i>
-                    </a>
-                    <p>
-                        Envio a <br />
-                        <a href="#">Argentina</a>
-                    </p>
-                </div>
-            </div>
-            <div class="searchbar">
-                <a class="linkizquierda" href="#">Categorias</a>
-                <input type="text" />
-                <a class="linkderecha" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-            </div>
-            <div class="login-carrito">
-                <a class="login" href="/login">
-                    <i class="fa-solid fa-user"></i>
-                    <p>
-                        Iniciar <br />
-                        sesión
-                    </p>
-                </a>
-                <a class="carrito" href="#">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span class="numerocesta">3</span>
-                </a>
-            </div>
-        </nav>
-        <nav class="bottomnavbar">
-            <div class="categorias">
-                <a href="#">
-                    <i class="fa-solid fa-bars"></i>
-                    <p>All</p>
-                </a>
-            </div>
-            <div class="links">
-                <ul>
-                    <li><a href="#">Ofertas del dia</a></li>
-                    <li><a href="#">Mas populares</a></li>
-                    <li><a href="#">Gift Cards</a></li>
-                    <li><a href="#">Servicio al cliente</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <%- include('./partials/navbar') %> 
     <div class="contenedor">
         <section class="cesta">
             <article class="headitems">
