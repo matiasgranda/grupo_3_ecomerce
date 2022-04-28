@@ -6,7 +6,6 @@
     margin-top: 90px;
     padding-bottom: 30px;
     height: fit-content;
-
 }
 
 .cesta {
@@ -23,12 +22,10 @@
     width: 20%;
     margin-left: 10px;
     display: flex;
-    
 }
 
 .cestaitem {
     display: flex;
-
     height: fit-content;
     width: 100%;
     align-content: center;
@@ -46,14 +43,12 @@
     align-content: flex-start;
     justify-content: center;
     flex: 0.75;
-
     padding: 10px;
 }
 
 .barralateralitem {
     display: flex;
     height: 100px;
-    
     width: 100%;
 }
 
@@ -62,7 +57,6 @@
     display: flex;
     width: 160px;
     height: fit-content;
-
     flex: 0.15;
     padding: 10px;
 }
@@ -89,7 +83,6 @@
 
 .opcionesitem {
     display: flex;
-
 }
 
 .linksopciones {
@@ -124,7 +117,6 @@
     background-color: rgb(255, 255, 255);
     border: 1px solid lightgrey;
     color: rgb(85, 85, 85);
-
 }
 
 .cantidad {
@@ -150,7 +142,8 @@
 .total span {
     display: block;
 }
-.cajasubtotal{
+
+.cajasubtotal {
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -162,6 +155,7 @@
     height: fit-content;
     box-shadow: 1px 0px 17px 5px rgb(20 31 56 / 10%);
 }
+
 .cajasubtotal button {
     display: flex;
     height: 32px;
@@ -174,10 +168,11 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top:20px;
+    margin-top: 20px;
     color: #3a3737;
 }
-.headitems{
+
+.headitems {
     display: flex;
     height: fit-content;
     border-bottom: 1px solid rgb(230, 230, 230);
@@ -187,13 +182,14 @@
     flex-wrap: nowrap;
     padding-right: 20px;
     font-size: 20px;
-    
 }
-.divcesta{
+
+.divcesta {
     font-size: 28px;
     padding: 18px;
 }
-.divprecio{
+
+.divprecio {
     font-size: 14px;
-    color:rgb(196, 196, 196);
+    color: rgb(196, 196, 196);
 }

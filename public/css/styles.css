@@ -6,11 +6,13 @@
     padding: 0;
     font-family: 'Montserrat', sans-serif;
 }
-a span{
+
+a span {
     color: black;
     text-decoration: black;
 }
-.enviara{
+
+.enviara {
     font-size: 12px;
 }
 
@@ -25,38 +27,6 @@ body {
 
 h2 {
     font-size: 1.3rem;
-}
-
-header {
-    width: 100%;
-    min-width: fit-content;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    min-width: 400px;
-    z-index: 9999;
-}
-
-.topnavbar {
-    width: 100%;
-    height: 60px;
-    display: flex;
-    background-color: #131921;
-    justify-content: space-around;
-    position: relative;
-    align-items: center;
-    min-width: fit-content
-}
-
-.bottomnavbar {
-    width: 100%;
-    height: 30px;
-    display: flex;
-    background-color: #232F3F;
-    position: relative;
-    align-items: center;
-    min-width: fit-content;
 }
 
 /* -------------------- MAIN Y ARTICLES -------------------- */
@@ -84,7 +54,7 @@ main {
 }
 
 .principal {
-   /* position: relative;
+    /* position: relative;
     top: -340px;
     display: flex;
     flex-direction: row;
@@ -151,7 +121,7 @@ main {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    
+
 }
 
 .product-image-link {
@@ -196,7 +166,6 @@ main {
     width: 180px;
     height: 180px;
     background-color: white;
-
 }
 
 .prodpopulares {
@@ -217,10 +186,11 @@ main {
     background-color: white;
 }
 
-.prodpopulares article a, .topventas article a {
+.prodpopulares article a,
+.topventas article a {
     width: 100%;
     height: 100%;
-   
+
     text-decoration: none;
     font-size: 12px;
     display: flex;
@@ -229,10 +199,11 @@ main {
     align-content: space-around;
     justify-content: center;
     align-items: center;
-    position:relative;
+    position: relative;
 }
 
-.prodpopulares img, .topventas img {
+.prodpopulares img,
+.topventas img {
     max-height: 100%;
     max-width: 130px;
 }
@@ -240,21 +211,27 @@ main {
 section h3 {
     margin-bottom: 15px;
 }
-.topventas article h1, .prodpopulares article h1{
+
+.topventas article h1,
+.prodpopulares article h1 {
     padding: 2px;
     position: absolute;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     color: white;
     width: 100%;
     text-align: center;
-    
+
     font-weight: 300;
     top: 158px;
 }
-.topventas article, .prodpopulares article{
+
+.topventas article,
+.prodpopulares article {
     overflow: hidden;
 }
-.prodpopulares article, .topventas article {
+
+.prodpopulares article,
+.topventas article {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -262,6 +239,7 @@ section h3 {
     justify-content: center;
     align-items: center;
 }
+
 /* -------------------- ANIMACIONES -------------------- */
 
 .banner {
@@ -274,22 +252,25 @@ section h3 {
     background-image: url('../img/banner2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    -webkit-mask-image: -webkit-gradient(linear, left top, 
-    left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+    -webkit-mask-image: -webkit-gradient(linear, left top,
+            left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
 }
 
-.prodpopulares article:hover, .topventas article:hover, .itemswrapper div:hover {
+.prodpopulares article:hover,
+.topventas article:hover,
+.itemswrapper div:hover {
     box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.3);
 }
 
 /* -------------------- MEDIA QUERIES -------------------- */
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 800px) {
     .banner {
-        
+
         background-image: url(../img/banner3.jpg);
-       
+
     }
+
     header {
         position: fixed;
         min-width: 400px;
@@ -338,6 +319,7 @@ section h3 {
         width: 240px;
         /*height: 240px;*/
     }
+
     .prodpopulares {
         position: relative;
         display: flex;
@@ -349,6 +331,7 @@ section h3 {
         flex-wrap: wrap;
         width: 100%;
     }
+
     .topventas {
         position: relative;
         display: flex;
@@ -371,6 +354,7 @@ section h3 {
         top: -460px;
         max-width: 1599px;
     }
+
     header {
         position: fixed;
         min-width: 400px;
@@ -392,6 +376,7 @@ section h3 {
         flex-wrap: wrap;
         width: 100%;
     }
+
     .topventas {
         position: relative;
         display: flex;
@@ -405,7 +390,7 @@ section h3 {
     }
 
     .searchbar {
-        width: 100%; 
+        width: 100%;
     }
 
     .searchbar a {
@@ -439,16 +424,18 @@ section h3 {
         height: fit-content;
     }
 
-    .prodpopulares article, .topventas article {
+    .prodpopulares article,
+    .topventas article {
         width: 100%;
     }
 }
+
 @media screen and (max-width: 760px) and (min-width:413px) {
     header {
         position: fixed;
         min-width: 400px;
     }
-    
+
     .principal {
         position: relative;
         top: -410px;
@@ -460,6 +447,7 @@ section h3 {
         max-width: 1599px;
         align-content: center;
     }
+
     .principal article {
         display: flex;
         flex-wrap: wrap;
