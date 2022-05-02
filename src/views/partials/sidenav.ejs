@@ -1,0 +1,132 @@
+<div id="overlay" onclick="closeNav()"></div>
+
+<div id="closeBtn" onclick="closeNav()">&times;</div>
+<div class="sidenav" id="mySidenav">
+  <div class="sidenavHeader">
+    <i class="fas fa-user-circle"></i> Hola, inicia sesión
+  </div>
+  <!--Below SideNavHeader-->
+  <div id="main-container">
+    <div class="sidenavContentHeader">Tendencias</div>
+    <a href="#">
+      <div class="sidenavContent">Los más populares</div>
+    </a>
+    <a href="#">
+      <div class="sidenavContent">Nuevos lanzamientos</div>
+    </a>
+    
+    <hr />
+   
+    
+    <div class="sidenavContentHeader">Comprar por departamento</div>
+    <a href="#" onclick="openPrimeVideo()">
+      <div class="sidenavRow">
+        <div>Tecnología</div>
+        <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+      </div>
+    </a>
+    <a href="#">
+      <div class="sidenavRow">
+        <div>Indumentaria</div>
+        <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+      </div>
+    </a>
+    <a href="#">
+      <div class="sidenavRow">
+        <div>Gaming</div>
+        <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+      </div>
+    </a>
+    <a href="#">
+      <div class="sidenavRow">
+        <div>Libros</div>
+        <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+      </div>
+    </a>
+    <div class="sidenavContainer" id="firstContainer">
+      
+      <a href="#">
+        <div class="sidenavRow">
+          <div>Hogar</div>
+          <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+        </div>
+      </a>
+      <a href="#">
+        <div class="sidenavRow">
+          <div>Niños</div>
+          <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+        </div>
+      </a>
+      <a href="#">
+        <div class="sidenavRow">
+          <div>Joyería y Accesorios</div>
+          <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+        </div>
+      </a>
+      <a href="#">
+        <div class="sidenavRow">
+          <div>Deportes & Outdoors</div>
+          <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+        </div>
+      </a>
+      <a href="#">
+        <div class="sidenavRow">
+          <div>Salud y Belleza</div>
+          <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+        </div>
+      </a>
+      
+      <a href="#">
+        <div class="sidenavRow">
+          <div>Movilidad</div>
+          <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+        </div>
+      </a>
+      
+    </div>
+    <div class="sidenavRowDropdown" id="firstDropDown" onclick="firstDropDown()">
+      <div>Ver más</div>
+      <i class="fas fa-chevron-down" style="color: #8e9090; margin-left: 10px">
+      </i>
+    </div>
+    <hr />
+
+    <!--inicia el segundo sidenavContainer-->
+ 
+    <div class="sidenavContentHeader">Ayuda y Opciones</div>
+    <a href="#">
+      <div class="sidenavContent">Tu Cueta</div>
+    </a>
+    <a href="#">
+      <div class="sidenavContent">Atención al cliente</div>
+    </a>
+    <a href="#">
+      <div class="sidenavContent">Loguearse</div>
+    </a>
+    <div style="height: 50px"></div>
+  </div>
+  <!--End of first container-->
+
+  <div id="sub-container">
+    <div id="mainMenu">
+      <i class="fas fa-chevron-left" style="color: #8e9090"></i> Menú Principal
+    </div>
+    <hr />
+    <div id="sub-container-content">
+      <!-- <div class="sidenavContentHeader">Prime Video</div>
+          <a href="#"><div class="sidenavContent">All Videos</div></a> -->
+    </div>
+  </div>
+</div>
+
+<!--Not Sidenav-->
+<div onclick="openNav()" style="
+        font-size: 30px;
+        margin: 20px 0 0 20px;
+        cursor: pointer;
+        display: inline-block;
+      ">
+  &#9776; Open
+</div>
+
+<script src="./js/navscript.js"></script>

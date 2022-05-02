@@ -1,0 +1,40 @@
+.footercontainer{
+    min-height: 200px;
+    background-color: #232f3f;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+.footercontainer h2 {
+   
+    color: #FFF;
+    font-size: 16px;
+    margin: 6px 0 14px 0;
+  
+}
+.footercontainer li {
+    list-style: none;
+    margin-top: 10px;
+    color: #DDD;
+}
+.footercontainer li:hover {
+    color:rgb(222, 222, 223);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 412px) {
+    .footercontainer{
+        flex-direction: column;
+    }
+    .colizq,.central,.colder{
+        width: 100%;
+        margin-top: 20px;
+        text-align: center;
+    }
+}
