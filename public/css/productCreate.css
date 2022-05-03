@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.productForm {
+    width: 50%;
+    min-width: 400px;
+    height: 80%;
+    max-height: 950px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 6px;
+    box-shadow: 0px 2px 8px 2px rgb(20 31 56 / 10%);
+}
+
+form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 2px 8px 2px rgb(20 31 56 / 10%);
+    min-width: 300px;
+    padding: 10px;
+    width: 80%;
+}
+
+.tituloForm {
+    height: 80px;
+    width: 80%;
+    justify-content: space-around;
+    font-size: 1.1em;
+}
+
+.tituloForm input {
+    width: 80%;
+    height: 30px;
+    padding-left: 5px;
+    outline: none;
+    border: 1px solid lightgrey;
+    font-size: 1.1em;
+}
+
+.descripcionForm { 
+    height: 140px;
+    justify-content: space-around;
+    font-size: 1.1em;
+}
+
+.descripcionForm textarea {
+    height: 110px;
+    width: 60%;
+    max-width: 90%;
+    padding: 5px;
+    font-size: 1.1em;
+    border: 1px solid lightgrey;
+}
+
+.imagenForm {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagenForm label {
+    width: 180px;
+    height: 30px;
+    border-radius: 16px;
+    box-shadow: 0px 2px 8px 2px rgb(20 31 56 / 10%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.imagenForm input {
+    display: none;
+}
+
+.categoriaForm {
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1em;
+}
+
+.categoriaForm select {
+    margin-left: 20px;
+    width: 120px;
+    font-size: 1em;
+    height: 30px;
+    border: 1px solid lightgrey;
+    outline: none;
+}
+
+.precioForm {
+    height: 80px;
+    justify-content: space-around;
+    font-size: 1.1em;
+}
+
+.precioForm input {
+    width: 280px;
+    height: 30px;
+    padding-left: 5px;
+    font-size: 1.1em;
+}
+
+.submitForm button {
+    width: 160px;
+    height: 40px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1em;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid lightgray;
+}

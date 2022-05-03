@@ -4,6 +4,6 @@ let router = express.Router();
 let registroController = require("../controllers/registroController")
 
 router.get("/", registroController.main);
-router.post("/",registroController.crear)
+router.post("/create",registroController.crear)
 
 module.exports=router;

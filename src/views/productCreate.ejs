@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/productCreate.css">
+    <title>Publish your product</title>
+</head>
+<body>
+    <div class="productForm">
+        <form action="">
+            <a class="logo" href="/">
+                <img src="/img/amazona-negro.png" alt="">
+            </a>
+            <div class="tituloForm">
+                <label for="nombre">Titulo del producto:</label>
+                <input type="text" name="tituloProducto" id="titulo">
+            </div>
+            <div class="descripcionForm">
+                <label for="descripcion">Descripcion del producto:</label>
+                <textarea name="descripcionProducto" id="descripcion"></textarea>
+            </div>
+            <div class="imagenForm">
+                <label for="imagen">Imagen del producto:</label>
+                <input type="file" name="imagenProducto" id="imagen">
+            </div>
+            <div class="categoriaForm">
+                <label for="categoria">Selecciona la categoria:</label>
+                <select name="categoriaProducto" id="categoria">
+                    <option value="tecnologia">Tecnologia</option>
+                    <option value="moda">Moda</option>
+                    <option value="hogar">Hogar</option>
+                    <option value="deportes">Deportes</option>
+                    <option value="movilidad">Movilidad</option>
+                    <option value="niños">Niños</option>
+                </select>
+            </div>
+            <div class="precioForm">
+                <label for="precio">Precio:</label>
+                <input type="number" name="precioProducto" id="precio">
+            </div>
+            <div class="submitForm">
+                <button type="submit">Publicar</button>
+            </div>
+            
+
+        </form>
+    </div>
+</body>
+</html>
