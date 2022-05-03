@@ -28,6 +28,7 @@ body {
     position: relative;
     border-radius: 6px;
     box-shadow: 0px 2px 8px 2px rgb(20 31 56 / 10%);
+    padding: 20px;
 }
 
 form {
@@ -41,23 +42,24 @@ form {
 
 form div {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     box-shadow: 0px 2px 8px 2px rgb(20 31 56 / 10%);
     min-width: 300px;
     padding: 10px;
-    width: 80%;
+    width: 90%;
+    flex-wrap: wrap;
 }
 
 .tituloForm {
     height: 80px;
-    width: 80%;
-    justify-content: space-around;
+    justify-content: flex-start;
     font-size: 1.1em;
+    color: rgb(132, 147, 173);
 }
 
 .tituloForm input {
-    width: 80%;
+    width: 100%;
     height: 30px;
     padding-left: 5px;
     outline: none;
@@ -67,14 +69,14 @@ form div {
 
 .descripcionForm { 
     height: 140px;
-    justify-content: space-around;
+    justify-content: flex-start;
     font-size: 1.1em;
+    color: rgb(132, 147, 173);
 }
 
 .descripcionForm textarea {
     height: 110px;
-    width: 60%;
-    max-width: 90%;
+    width: 100%;
     padding: 5px;
     font-size: 1.1em;
     border: 1px solid lightgrey;
@@ -82,8 +84,6 @@ form div {
 
 .imagenForm {
     height: 60px;
-    display: flex;
-    align-items: center;
     justify-content: center;
 }
 
@@ -96,6 +96,7 @@ form div {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    color: rgb(132, 147, 173);
 }
 
 .imagenForm input {
@@ -103,34 +104,41 @@ form div {
 }
 
 .categoriaForm {
-    display: flex;
-    flex-direction: row;
     height: 80px;
-    align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     font-size: 1.1em;
+    color: rgb(132, 147, 173);
 }
 
 .categoriaForm select {
-    margin-left: 20px;
-    width: 120px;
+    width: 100%;
     font-size: 1em;
     height: 30px;
     border: 1px solid lightgrey;
     outline: none;
+    color: rgb(132, 147, 173);
 }
 
 .precioForm {
     height: 80px;
-    justify-content: space-around;
+    justify-content: flex-start;
     font-size: 1.1em;
+    color: rgb(132, 147, 173);
+}
+
+.precioForm label {
+    width: 100%;
 }
 
 .precioForm input {
-    width: 280px;
+    width: 100%;
     height: 30px;
     padding-left: 5px;
     font-size: 1.1em;
+}
+
+.submitForm {
+    justify-content: center;
 }
 
 .submitForm button {
@@ -142,6 +150,6 @@ form div {
     justify-content: center;
     cursor: pointer;
     font-size: 1.1em;
-    background-color: rgb(255, 255, 255);
+    background-color: #FEBD6A;
     border: 2px solid lightgray;
 }
