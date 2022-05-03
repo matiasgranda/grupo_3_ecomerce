@@ -11,7 +11,7 @@
 
 <body>
   <%- include('./partials/navbar') %> 
-
+  <%- include('./partials/sidenav') %>
   <main>
     <section class="images">
       
@@ -23,16 +23,23 @@
           <div class="mini-image"></div>
         </div>
         <div class="main-image">
-          
+          aca va product.image
         </div>
       
       <div class="mensajeimagen">Click para agrandar la imagen</div>
     </section>
-    <section class="description">
-      <h2>Titulo del producto - Titulo del producto - Titulo del producto</h2>
-      <div class="ratings"></div>
-      <div class="info"></div>
-      <div class="about"></div>
+    <section class="productInfo">
+      <h2>Aca va product.titulo</h2>
+      <div class="productDescription">
+        Aca va product.description
+      </div>
+      <div class="productStyles">
+        product.color ?
+        <br>
+        product.marca ? 
+        <br>
+        product.categoria ?
+      </div>
     </section>
     <section class="barraderecha">
       <div class="precio">
@@ -214,7 +221,6 @@
       </div>
     </div>
   </article>
-  <%- include('./partials/sidenav') %>
 
 </body>
 

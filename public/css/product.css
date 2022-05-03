@@ -21,87 +21,98 @@ main {
     justify-content: center;
     width: 100%;
     position: relative;
-    margin-top: 90px;
+    margin-top: 40px;
 }
 
 .images {
-    height: 70%;
+    height: 600px;
     width: 40%;
     border-radius: 6px;
     /*box-shadow: 0px 2px 8px 2px rgb(20 31 56 / 10%);*/
     margin: 20px 10px;
     display: flex;
-    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: space-around;
+    box-shadow: 0px 2px 8px 2px rgb(20 31 56 / 10%);
+    padding: 10px;
+    flex-wrap: wrap;
+    position: relative;
 }
 
 .mini-viewer {
-    height: 350px;
-    width: 100px;
+    height: 400px;
+    width: 15%;
     border: 1px solid lightgray;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 5px;
+    position: relative;
 }
 
 .mini-image {
     display: flex;
-    flex: 0 1 15%;
+    width: 80%;
     background-color: beige;
 }
 
 .main-image {
-    height: 350px;
+    height: 400px;
     width: calc(100% - 100px);
     border: 1px solid lightgray;
+    padding: 10px;
+    position: relative;
 }
 
 .mensajeimagen{
+    height: 40px;
+    width: 100%;
     position: absolute;
-    top: 375px;
-    left: 10%;
+    top: 420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9em;
 }
 
-.description {
-    height: 80%;
+.productInfo {
+    height: 600px;
     width: 40%;
     border-radius: 6px;
     /*box-shadow: 0px 2px 8px 2px rgb(20 31 56 / 10%);*/
-    margin: 20px;
+    margin: 20px 10px;
     display: flex;
-    padding: 20px 10px;
+    padding: 10px;
     flex-direction: column;
+    box-shadow: 0px 2px 8px 2px rgb(20 31 56 / 10%);
 }
 
-.description h2 {
-    display: flex;
+.productInfo h2 {
+    padding: 10px;
+    height: 150px;
+    width: 100%;
     font-size: 1.6em;
-    flex: 0 1 100px;
     border: 1px solid lightgray;
 }
 
-.ratings {
+.productDescription {
     width: 100%;
-    flex: 0 1 200px;
+    height: 200px;
     border: 1px solid lightgray;
+    padding: 10px;
 }
 
-.info {
+.productStyles {
     width: 100%;
-    flex: 0 1 400px;
-    border: 1px solid lightgray;
-}
-
-.about {
-    width: 100%;
-    flex: 0 1 400px;
+    height: 250px;
+    padding: 10px;
     border: 1px solid lightgray;
 }
 
 .barraderecha{
     width: 20%;
-    border: 1px solid lightgrey;
-    height: 500px;
+    box-shadow: 0px 2px 8px 2px rgb(20 31 56 / 10%);
+    height: 600px;
     width: 245px;
     margin-top: 20px;
     border-radius: 5px;
@@ -221,8 +232,12 @@ main {
     color: rgb(163, 163, 163);
     width: 98%;
     margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.compralocon {
+    padding: 20px;
 }
 
 .publicacion{
