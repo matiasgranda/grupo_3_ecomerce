@@ -9,21 +9,21 @@
 </head>
 <body>
     <div class="productForm">
-        <form action="">
+        <form action="/product/create" method="post">
             <a class="logo" href="/">
                 <img src="/img/amazona-negro.png" alt="">
             </a>
             <div class="tituloForm">
-                <label for="nombre">Titulo del producto:</label>
-                <input type="text" name="tituloProducto" id="titulo">
+                <label for="titulo">Titulo del producto:</label>
+                <input type="text" name="titulo" id="titulo">
             </div>
             <div class="descripcionForm">
                 <label for="descripcion">Descripcion del producto:</label>
-                <textarea name="descripcionProducto" id="descripcion"></textarea>
+                <textarea name="descripcion" id="descripcion"></textarea>
             </div>
             <div class="categoriaForm">
                 <label for="categoria">Selecciona la categoria:</label>
-                <select name="categoriaProducto" id="categoria">
+                <select name="categoria" id="categoria">
                     <option value="tecnologia">Tecnologia</option>
                     <option value="moda">Moda</option>
                     <option value="hogar">Hogar</option>
@@ -34,11 +34,11 @@
             </div>
             <div class="precioForm">
                 <label for="precio">Precio:</label>
-                <input type="number" name="precioProducto" id="precio">
+                <input type="number" name="precio" id="precio">
             </div>
             <div class="imagenForm">
                 <label for="imagen">Imagen del producto:</label>
-                <input type="file" name="imagenProducto" id="imagen">
+                <input type="file" name="imagen" id="imagen">
             </div>
             <div class="submitForm">
                 <button type="submit">Publicar</button>

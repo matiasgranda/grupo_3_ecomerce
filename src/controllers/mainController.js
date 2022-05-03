@@ -1,9 +1,9 @@
 const path = require("path");
-const fs = require("fs");
-let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
 
 let mainController = {
   home: (req, res) => {
+    const fs = require("fs");
+    let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
     res.render(path.resolve(__dirname, "../views/index.ejs"), {
       productos: productos,
     });

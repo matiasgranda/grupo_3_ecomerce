@@ -23,15 +23,16 @@
           <div class="mini-image"></div>
         </div>
         <div class="main-image">
-          aca va product.image
+          <img src="<%= productos.imagen %>" alt="">
+          
         </div>
       
       <div class="mensajeimagen">Click para agrandar la imagen</div>
     </section>
     <section class="productInfo">
-      <h2>Aca va product.titulo</h2>
+      <h2><%= productos.titulo %> </h2>
       <div class="productDescription">
-        Aca va product.description
+        <%= productos.descripcion %> 
       </div>
       <div class="productStyles">
         product.color ?
@@ -43,7 +44,7 @@
     </section>
     <section class="barraderecha">
       <div class="precio">
-        $2000
+       $ <%= productos.precio %> 
       </div>
       <div class="detenvio">
         $950 envío a Tucumán.

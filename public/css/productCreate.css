@@ -64,6 +64,7 @@ form div {
     outline: none;
     border: 1px solid lightgrey;
     font-size: 1.1em;
+    border-radius: 4px;
 }
 
 .descripcionForm { 
@@ -79,6 +80,8 @@ form div {
     padding: 5px;
     font-size: 1.1em;
     border: 1px solid lightgrey;
+    border-radius: 4px;
+    outline: none;
 }
 
 .imagenForm {
@@ -116,6 +119,7 @@ form div {
     border: 1px solid lightgrey;
     outline: none;
     color: rgb(132, 147, 173);
+    border-radius: 4px;
 }
 
 .precioForm {
@@ -134,6 +138,9 @@ form div {
     height: 30px;
     padding-left: 5px;
     font-size: 1.1em;
+    outline: none;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
 }
 
 .submitForm {
