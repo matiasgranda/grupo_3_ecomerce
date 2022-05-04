@@ -6,7 +6,7 @@
       "titulo": "Auriculares Sony",
       "descripcion": "",
       "categoria": "tecnologia",
-      "precio": 0
+      "precio": 1750
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "titulo": "Macbook Air",
       "descripcion": "",
       "categoria": "tecnologia",
-      "precio": 0
+      "precio": 260000
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "titulo": "Notebook MSI",
       "descripcion": "",
       "categoria": "tecnologia",
-      "precio": 0
+      "precio": 345000
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "titulo": "Playstation 5",
       "descripcion": "",
       "categoria": "tecnologia",
-      "precio": 0
+      "precio": 240000
     }
   ],
   [
@@ -40,7 +40,7 @@
       "titulo": "Buzos",
       "descripcion": "",
       "categoria": "moda",
-      "precio": 0
+      "precio": 6500
     },
     {
       "id": 6,
@@ -48,7 +48,7 @@
       "titulo": "Camperas",
       "descripcion": "",
       "categoria": "moda",
-      "precio": 0
+      "precio": 16000
     },
     {
       "id": 7,
@@ -56,7 +56,7 @@
       "titulo": "Calzado",
       "descripcion": "",
       "categoria": "moda",
-      "precio": 0
+      "precio": 12600
     },
     {
       "id": 8,
@@ -64,7 +64,7 @@
       "titulo": "Pantalones",
       "descripcion": "",
       "categoria": "moda",
-      "precio": 0
+      "precio": 8000
     }
   ],
   [
@@ -74,7 +74,7 @@
       "titulo": "Cama Box",
       "descripcion": "",
       "categoria": "hogar",
-      "precio": 0
+      "precio": 75000
     },
     {
       "id": 10,
@@ -82,7 +82,7 @@
       "titulo": "Silla de Compedor",
       "descripcion": "",
       "categoria": "hogar",
-      "precio": 0
+      "precio": 25000
     },
     {
       "id": 11,
@@ -90,7 +90,7 @@
       "titulo": "Sillón Esquinero",
       "descripcion": "",
       "categoria": "hogar",
-      "precio": 0
+      "precio": 320000
     },
     {
       "id": 12,
@@ -98,7 +98,7 @@
       "titulo": "Mesa Ratona",
       "descripcion": "",
       "categoria": "hogar",
-      "precio": 0
+      "precio": 48000
     }
   ],
   [
@@ -108,7 +108,7 @@
       "titulo": "Pelota",
       "descripcion": "",
       "categoria": "deportes",
-      "precio": 0
+      "precio": 6500
     },
     {
       "id": 14,
@@ -116,7 +116,7 @@
       "titulo": "Botines",
       "descripcion": "",
       "categoria": "deportes",
-      "precio": 0
+      "precio": 13000
     },
     {
       "id": 15,
@@ -124,7 +124,7 @@
       "titulo": "Mancuerna",
       "descripcion": "",
       "categoria": "deportes",
-      "precio": 0
+      "precio": 7000
     },
     {
       "id": 16,
@@ -132,7 +132,7 @@
       "titulo": "Colchonetas",
       "descripcion": "",
       "categoria": "deportes",
-      "precio": 0
+      "precio": 4300
     }
   ],
   [
@@ -142,7 +142,7 @@
       "titulo": "Monopatín Eléctrico",
       "descripcion": "",
       "categoria": "movilidad",
-      "precio": 0
+      "precio": 107000
     },
     {
       "id": 18,
@@ -150,7 +150,7 @@
       "titulo": "Segway",
       "descripcion": "",
       "categoria": "movilidad",
-      "precio": 0
+      "precio": 140000
     },
     {
       "id": 19,
@@ -158,7 +158,7 @@
       "titulo": "Bicicleta MTB",
       "descripcion": "",
       "categoria": "movilidad",
-      "precio": 0
+      "precio": 120000
     },
     {
       "id": 20,
@@ -166,7 +166,7 @@
       "titulo": "Bicicleta Eléctrica",
       "descripcion": "",
       "categoria": "movilidad",
-      "precio": 0
+      "precio": 190000
     }
   ],
   [
@@ -176,7 +176,7 @@
       "titulo": "Monopatín",
       "descripcion": "",
       "categoria": "ninios",
-      "precio": 0
+      "precio": 7000
     },
     {
       "id": 22,
@@ -184,7 +184,7 @@
       "titulo": "Juguetes",
       "descripcion": "",
       "categoria": "ninios",
-      "precio": 0
+      "precio": 11000
     },
     {
       "id": 23,
@@ -192,7 +192,7 @@
       "titulo": "Utiles Escolares",
       "descripcion": "",
       "categoria": "ninios",
-      "precio": 0
+      "precio": 7000
     },
     {
       "id": 24,
@@ -200,7 +200,7 @@
       "titulo": "Triciclo",
       "descripcion": "",
       "categoria": "ninios",
-      "precio": 0
+      "precio": 9800
     }
   ]
 ]
