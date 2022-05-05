@@ -140,13 +140,13 @@
   [
     {
       "id": 13,
-      "imagen": "/img/pelota.jpg",
-      "masImagenes": [""],
+      "imagen": "/img/pelota1.webp",
+      "masImagenes": ["/img/pelota2.webp", "/img/pelota3.webp"],
       "titulo": "Pelota",
       "descripcion": "",
       "categoria": "deportes",
       "precio": 6500, 
-      "color": "Amarillo",
+      "color": "Blanco",
       "marca": "Nika"
     },
     {
@@ -162,8 +162,8 @@
     },
     {
       "id": 15,
-      "imagen": "/img/pesa1.webp",
-      "masImagenes": ["/img/pesa2.webp"],
+      "imagen": "/img/pesas1.webp",
+      "masImagenes": ["/img/pesas2.webp", "/img/pesas3.webp", "/img/pesas4.webp"],
       "titulo": "Mancuerna",
       "descripcion": "",
       "categoria": "deportes",
@@ -174,20 +174,20 @@
     {
       "id": 16,
       "imagen": "/img/colchoneta1.webp",
-      "masImagenes": ["/img/colchoneta2.webp"],
+      "masImagenes": ["/img/colchoneta2.webp", "/img/colchoneta3.webp", "/img/colchoneta4.webp"],
       "titulo": "Colchonetas",
       "descripcion": "",
       "categoria": "deportes",
       "precio": 4300, 
-      "color": "Verde, Naranja, Azul, Rosa, Verda",
+      "color": "Rojo, Naranja, Verde, Azul, Violeta",
       "marca": "Fit shop"
     }
   ],
   [
     {
       "id": 17,
-      "imagen": "/img/monopatinelectrico.webp",
-      "masImagenes": [""],
+      "imagen": "/img/monopatinelectrico1.webp",
+      "masImagenes": ["/img/monopatinelectrico2.webp", "/img/monopatinelectrico3.webp", "/img/monopatinelectrico4.webp"],
       "titulo": "Monopatín Eléctrico",
       "descripcion": "",
       "categoria": "movilidad",
@@ -197,43 +197,43 @@
     },
     {
       "id": 18,
-      "imagen": "/img/segway.jpg",
-      "masImagenes": [""],
+      "imagen": "/img/hoverboard1.webp",
+      "masImagenes": ["/img/hoverboard2.webp", "/img/hoverboard3.webp", "/img/hoverboard4.webp"],
       "titulo": "Segway",
       "descripcion": "",
       "categoria": "movilidad",
       "precio": 140000, 
-      "color": "Griz",
+      "color": "Negro, Rojo",
       "marca": "Furia sobre 2 ruedas"
     },
     {
       "id": 19,
-      "imagen": "/img/bici1.webp",
-      "masImagenes": [""],
+      "imagen": "/img/bicicleta1.webp",
+      "masImagenes": ["/img/bicicleta2.webp", "/img/bicicleta3.webp", "/img/bicicleta4.webp"],
       "titulo": "Bicicleta MTB",
       "descripcion": "",
       "categoria": "movilidad",
       "precio": 120000, 
-      "color": "Negro, Azul",
+      "color": "Naranja",
       "marca": "Bike n chill"
     },
     {
       "id": 20,
-      "imagen": "/img/bicielectrica.jpg",
-      "masImagenes": [""],
+      "imagen": "/img/bicicletaelectrica1.webp",
+      "masImagenes": ["/img/bicicletaelectrica2.webp", "/img/bicicletaelectrica3.webp", "/img/bicicletaelectrica4.webp"],
       "titulo": "Bicicleta Eléctrica",
       "descripcion": "",
       "categoria": "movilidad",
       "precio": 190000, 
-      "color": "Griz, Negro",
+      "color": "Rojo",
       "marca": "Bike n chill"
     }
   ],
   [
     {
       "id": 21,
-      "imagen": "/img/monopatin.jpg",
-      "masImagenes": [""],
+      "imagen": "/img/monopatin1.webp",
+      "masImagenes": ["/img/monopatin2.webp", "/img/monopatin3.webp"],
       "titulo": "Monopatín",
       "descripcion": "",
       "categoria": "ninios",
@@ -243,9 +243,9 @@
     },
     {
       "id": 22,
-      "imagen": "/img/juguetes.jpg",
-      "masImagenes": [""],
-      "titulo": "Juguetes",
+      "imagen": "/img/autito1.webp",
+      "masImagenes": ["/img/autito2.webp", "/img/autito3.webp"],
+      "titulo": "Auto a control remoto",
       "descripcion": "",
       "categoria": "ninios",
       "precio": 11000, 
@@ -254,9 +254,9 @@
     },
     {
       "id": 23,
-      "imagen": "/img/utiles.webp",
-      "masImagenes": [""],
-      "titulo": "Utiles Escolares",
+      "imagen": "/img/utilesescolares1.webp",
+      "masImagenes": ["/img/utilesescolares2.webp", "/img/utilesescolares3.webp", "/img/utilesescolares4.webp"],
+      "titulo": "Kit utiles escolares",
       "descripcion": "",
       "categoria": "ninios",
       "precio": 7000, 
@@ -265,8 +265,8 @@
     },
     {
       "id": 24,
-      "imagen": "/img/triciclo.jpg",
-      "masImagenes": [""],
+      "imagen": "/img/triciclo1.webp",
+      "masImagenes": ["/img/triciclo2.webp", "/img/triciclo3.webp", "/img/triciclo4.webp"],
       "titulo": "Triciclo",
       "descripcion": "",
       "categoria": "ninios",
