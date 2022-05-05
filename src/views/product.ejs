@@ -32,11 +32,9 @@
     <section class="productInfo">
       <h2><%= productos.titulo %> </h2>
       <div class="productDescription">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae fuga deleniti ratione dignissimos ab
-          officia voluptate nulla sit, magnam consequatur nostrum eligendi quam, nihil dolor corporis minus facere!
-          Iure,
-          nisi.</p>
-        <%= productos.descripcion %>
+        <% for(let i = 0; i < productos.descripcion.length; i++) { %>
+        <p> <%= productos.descripcion[i] %> </p>
+        <% } %>
       </div>
       <div class="productStyles">
         <p>Colores: <%= productos.color %></p>
