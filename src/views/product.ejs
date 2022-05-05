@@ -4,47 +4,51 @@
 <head>
   <%- include('./partials/head') %>
   <link rel="stylesheet" href="/css/product.css">
-  
+
   <script src="https://kit.fontawesome.com/91393ea5bf.js" crossorigin="anonymous"></script>
   <title>Detalle de Producto</title>
 </head>
 
 <body>
-  <%- include('./partials/navbar') %> 
+  <%- include('./partials/navbar') %>
   <%- include('./partials/sidenav') %>
   <main>
     <section class="images">
-      
-        <div class="mini-viewer">
-          <div class="mini-image"></div>
-          <div class="mini-image"></div>
-          <div class="mini-image"></div>
-          <div class="mini-image"></div>
-          <div class="mini-image"></div>
+
+      <div class="mini-viewer">
+        <% for(let i = 0; i < productos.masImagenes.length; i++) { %> 
+        <div class="mini-image">
+          <img src="<%= productos.masImagenes[i] %> " alt="">
         </div>
-        <div class="main-image">
-          <img src="<%= productos.imagen %>" alt="">
-          
-        </div>
-      
+        <% } %> 
+      </div>
+      <div class="main-image">
+        <img src="<%= productos.imagen %>" alt="">
+
+      </div>
+
       <div class="mensajeimagen">Click para agrandar la imagen</div>
     </section>
     <section class="productInfo">
       <h2><%= productos.titulo %> </h2>
       <div class="productDescription">
-        <%= productos.descripcion %> 
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae fuga deleniti ratione dignissimos ab
+          officia voluptate nulla sit, magnam consequatur nostrum eligendi quam, nihil dolor corporis minus facere!
+          Iure,
+          nisi.</p>
+        <%= productos.descripcion %>
       </div>
       <div class="productStyles">
-        product.color ?
+        <p>Colores: <%= productos.color %></p>
         <br>
-        product.marca ? 
+        <p>Marca: <%= productos.marca %></p>
         <br>
-        product.categoria ?
+        <p>Categoria: <%= productos.categoria %></p>
       </div>
     </section>
     <section class="barraderecha">
       <div class="precio">
-       $ <%= productos.precio %> 
+        $ <%= productos.precio %>
       </div>
       <div class="detenvio">
         $ <%= Math.trunc(Math.random()*2000) %> envío a Tucumán.
@@ -225,7 +229,7 @@
   <%- include('./partials/sidenav') %>
   <br>
   <%- include('./partials/footer') %>
- 
+
 </body>
 
 </html>

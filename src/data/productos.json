@@ -3,6 +3,7 @@
     {
       "id": 1,
       "imagen": "/img/auriculares1.webp",
+      "masImagenes": ["/img/auriculares2.webp", "/img/auriculares3.webp", "/img/auriculares4.webp"],
       "titulo": "Auriculares Sony",
       "descripcion": "",
       "categoria": "tecnologia",
@@ -13,6 +14,7 @@
     {
       "id": 2,
       "imagen": "/img/macbookair1.webp",
+      "masImagenes": ["/img/macbookair2.webp", "/img/macbookair3.webp", "/img/macbookair4.webp"],
       "titulo": "Macbook Air",
       "descripcion": "",
       "categoria": "tecnologia",
@@ -23,6 +25,7 @@
     {
       "id": 3,
       "imagen": "/img/msi1.webp",
+      "masImagenes": ["/img/msi2.webp", "/img/msi3.webp", "/img/msi4.webp"],
       "titulo": "Notebook MSI",
       "descripcion": "",
       "categoria": "tecnologia",
@@ -33,6 +36,7 @@
     {
       "id": 4,
       "imagen": "/img/ps51.webp",
+      "masImagenes": ["/img/ps52.webp", "/img/ps53.webp", "/img/ps54.webp"],
       "titulo": "Playstation 5",
       "descripcion": "",
       "categoria": "tecnologia",
@@ -45,6 +49,7 @@
     {
       "id": 5,
       "imagen": "/img/buzo1.webp",
+      "masImagenes": ["/img/buzo2.webp", "/img/buzo3.webp"],
       "titulo": "Buzos",
       "descripcion": "",
       "categoria": "moda",
@@ -55,6 +60,7 @@
     {
       "id": 6,
       "imagen": "/img/campera1.webp",
+      "masImagenes": ["/img/campera2.webp", "/img/campera3.webp", "/img/campera4.webp"],
       "titulo": "Camperas",
       "descripcion": "",
       "categoria": "moda",
@@ -65,6 +71,7 @@
     {
       "id": 7,
       "imagen": "/img/zapatillas1.webp",
+      "masImagenes": ["/img/zapatillas2.webp", "/img/zapatillas3.webp", "/img/zapatillas4.webp"],
       "titulo": "Calzado",
       "descripcion": "",
       "categoria": "moda",
@@ -75,6 +82,7 @@
     {
       "id": 8,
       "imagen": "/img/pantalon1.webp",
+      "masImagenes": ["/img/pantalon2.webp", "/img/pantalon3.webp"],
       "titulo": "Pantalones",
       "descripcion": "",
       "categoria": "moda",
@@ -87,6 +95,7 @@
     {
       "id": 9,
       "imagen": "/img/cama1.webp",
+      "masImagenes": ["/img/cama2.webp"],
       "titulo": "Cama Box",
       "descripcion": "",
       "categoria": "hogar",
@@ -97,6 +106,7 @@
     {
       "id": 10,
       "imagen": "/img/silla1.webp",
+      "masImagenes": ["/img/silla2.webp"],
       "titulo": "Silla de Compedor",
       "descripcion": "",
       "categoria": "hogar",
@@ -107,6 +117,7 @@
     {
       "id": 11,
       "imagen": "/img/sillon1.webp",
+      "masImagenes": ["/img/sillon2.webp"],
       "titulo": "Sillón Esquinero",
       "descripcion": "",
       "categoria": "hogar",
@@ -117,6 +128,7 @@
     {
       "id": 12,
       "imagen": "/img/mesa1.webp",
+      "masImagenes": ["/img/mesa2.webp", "/img/mesa3.webp"],
       "titulo": "Mesa Ratona",
       "descripcion": "",
       "categoria": "hogar",
@@ -129,6 +141,7 @@
     {
       "id": 13,
       "imagen": "/img/pelota.jpg",
+      "masImagenes": [""],
       "titulo": "Pelota",
       "descripcion": "",
       "categoria": "deportes",
@@ -139,6 +152,7 @@
     {
       "id": 14,
       "imagen": "/img/botines1.webp",
+      "masImagenes": ["/img/botines2.webp", "/img/botines3.webp"],
       "titulo": "Botines",
       "descripcion": "",
       "categoria": "deportes",
@@ -149,6 +163,7 @@
     {
       "id": 15,
       "imagen": "/img/pesa1.webp",
+      "masImagenes": ["/img/pesa2.webp"],
       "titulo": "Mancuerna",
       "descripcion": "",
       "categoria": "deportes",
@@ -159,6 +174,7 @@
     {
       "id": 16,
       "imagen": "/img/colchoneta1.webp",
+      "masImagenes": ["/img/colchoneta2.webp"],
       "titulo": "Colchonetas",
       "descripcion": "",
       "categoria": "deportes",
@@ -171,6 +187,7 @@
     {
       "id": 17,
       "imagen": "/img/monopatinelectrico.webp",
+      "masImagenes": [""],
       "titulo": "Monopatín Eléctrico",
       "descripcion": "",
       "categoria": "movilidad",
@@ -181,6 +198,7 @@
     {
       "id": 18,
       "imagen": "/img/segway.jpg",
+      "masImagenes": [""],
       "titulo": "Segway",
       "descripcion": "",
       "categoria": "movilidad",
@@ -191,6 +209,7 @@
     {
       "id": 19,
       "imagen": "/img/bici1.webp",
+      "masImagenes": [""],
       "titulo": "Bicicleta MTB",
       "descripcion": "",
       "categoria": "movilidad",
@@ -201,6 +220,7 @@
     {
       "id": 20,
       "imagen": "/img/bicielectrica.jpg",
+      "masImagenes": [""],
       "titulo": "Bicicleta Eléctrica",
       "descripcion": "",
       "categoria": "movilidad",
@@ -213,6 +233,7 @@
     {
       "id": 21,
       "imagen": "/img/monopatin.jpg",
+      "masImagenes": [""],
       "titulo": "Monopatín",
       "descripcion": "",
       "categoria": "ninios",
@@ -223,6 +244,7 @@
     {
       "id": 22,
       "imagen": "/img/juguetes.jpg",
+      "masImagenes": [""],
       "titulo": "Juguetes",
       "descripcion": "",
       "categoria": "ninios",
@@ -233,6 +255,7 @@
     {
       "id": 23,
       "imagen": "/img/utiles.webp",
+      "masImagenes": [""],
       "titulo": "Utiles Escolares",
       "descripcion": "",
       "categoria": "ninios",
@@ -243,6 +266,7 @@
     {
       "id": 24,
       "imagen": "/img/triciclo.jpg",
+      "masImagenes": [""],
       "titulo": "Triciclo",
       "descripcion": "",
       "categoria": "ninios",
