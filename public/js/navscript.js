@@ -27,7 +27,7 @@ function closeNav() {
     }, 300)
 }
 
-let firstDropdownOpen = false;
+var firstDropdownOpen = false;
 
 function firstDropDown() {
     firstDropdownOpen = !firstDropdownOpen;
@@ -53,7 +53,7 @@ function firstDropDown() {
     }
 }
 
-let secondDropDownOpen = false;
+var secondDropDownOpen = false;
 
 function secondDropDown() {
     secondDropDownOpen = !secondDropDownOpen;
