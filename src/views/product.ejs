@@ -18,12 +18,12 @@
       <div class="mini-viewer">
         <% for(let i = 0; i < productos.masImagenes.length; i++) { %> 
         <div class="mini-image">
-          <img src="<%= productos.masImagenes[i] %> " alt="">
+          <img src="<%= productos.masImagenes[i] %> " alt="" onclick="mostrarImagen(this)">
         </div>
         <% } %> 
       </div>
       <div class="main-image">
-        <img src="<%= productos.imagen %>" alt="">
+        <img src="<%= productos.imagen %>" alt="" name="mainimage" id="mainimage">
 
       </div>
 
@@ -227,7 +227,11 @@
   <%- include('./partials/sidenav') %>
   <br>
   <%- include('./partials/footer') %>
-
+<script>
+  function mostrarImagen(obj){
+    document.getElementById("mainimage").src=obj.src;
+  }
+</script>
 </body>
 
 </html>
