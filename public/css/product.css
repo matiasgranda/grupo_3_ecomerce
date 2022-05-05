@@ -29,7 +29,7 @@ main {
     width: 40%;
     border-radius: 6px;
     /*box-shadow: 0px 2px 8px 2px rgb(20 31 56 / 10%);*/
-    margin: 10px 10px;
+    margin: 20px 10px;
     display: flex;
     align-items: flex-start;
     justify-content: space-around;
