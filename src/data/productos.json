@@ -6,7 +6,9 @@
       "titulo": "Auriculares Sony",
       "descripcion": "",
       "categoria": "tecnologia",
-      "precio": 1750
+      "precio": 1750, 
+      "color": "Negro",
+      "marca": "Sony"
     },
     {
       "id": 2,
@@ -14,7 +16,9 @@
       "titulo": "Macbook Air",
       "descripcion": "",
       "categoria": "tecnologia",
-      "precio": 260000
+      "precio": 260000, 
+      "color": "Blanco",
+      "marca": "Apple"
     },
     {
       "id": 3,
@@ -22,7 +26,9 @@
       "titulo": "Notebook MSI",
       "descripcion": "",
       "categoria": "tecnologia",
-      "precio": 345000
+      "precio": 345000, 
+      "color": "Negro",
+      "marca": "MSI"
     },
     {
       "id": 4,
@@ -30,7 +36,9 @@
       "titulo": "Playstation 5",
       "descripcion": "",
       "categoria": "tecnologia",
-      "precio": 240000
+      "precio": 240000, 
+      "color": "Blanco",
+      "marca": "Sony"
     }
   ],
   [
@@ -40,7 +48,9 @@
       "titulo": "Buzos",
       "descripcion": "",
       "categoria": "moda",
-      "precio": 6500
+      "precio": 6500, 
+      "color": "Negro",
+      "marca": "Hoodies Indumentaria"
     },
     {
       "id": 6,
@@ -48,7 +58,9 @@
       "titulo": "Camperas",
       "descripcion": "",
       "categoria": "moda",
-      "precio": 16000
+      "precio": 16000, 
+      "color": "Verde",
+      "marca": "Columbia"
     },
     {
       "id": 7,
@@ -56,7 +68,9 @@
       "titulo": "Calzado",
       "descripcion": "",
       "categoria": "moda",
-      "precio": 12600
+      "precio": 12600, 
+      "color": "Negro",
+      "marca": "Nike"
     },
     {
       "id": 8,
@@ -64,7 +78,9 @@
       "titulo": "Pantalones",
       "descripcion": "",
       "categoria": "moda",
-      "precio": 8000
+      "precio": 8000, 
+      "color": "Griz oscuro",
+      "marca": "Montagne"
     }
   ],
   [
@@ -74,7 +90,9 @@
       "titulo": "Cama Box",
       "descripcion": "",
       "categoria": "hogar",
-      "precio": 75000
+      "precio": 75000, 
+      "color": "Griz claro",
+      "marca": "Peiro"
     },
     {
       "id": 10,
@@ -82,7 +100,9 @@
       "titulo": "Silla de Compedor",
       "descripcion": "",
       "categoria": "hogar",
-      "precio": 25000
+      "precio": 25000, 
+      "color": "Blanco",
+      "marca": "Deco hogar"
     },
     {
       "id": 11,
@@ -90,7 +110,9 @@
       "titulo": "Sillón Esquinero",
       "descripcion": "",
       "categoria": "hogar",
-      "precio": 320000
+      "precio": 320000, 
+      "color": "Negro",
+      "marca": "Sillones comfy"
     },
     {
       "id": 12,
@@ -98,7 +120,9 @@
       "titulo": "Mesa Ratona",
       "descripcion": "",
       "categoria": "hogar",
-      "precio": 48000
+      "precio": 48000, 
+      "color": "Madera, Negro",
+      "marca": "Deco hogar"
     }
   ],
   [
@@ -108,7 +132,9 @@
       "titulo": "Pelota",
       "descripcion": "",
       "categoria": "deportes",
-      "precio": 6500
+      "precio": 6500, 
+      "color": "Amarillo",
+      "marca": "Nika"
     },
     {
       "id": 14,
@@ -116,7 +142,9 @@
       "titulo": "Botines",
       "descripcion": "",
       "categoria": "deportes",
-      "precio": 13000
+      "precio": 13000, 
+      "color": "Griz",
+      "marca": "Nike"
     },
     {
       "id": 15,
@@ -124,7 +152,9 @@
       "titulo": "Mancuerna",
       "descripcion": "",
       "categoria": "deportes",
-      "precio": 7000
+      "precio": 7000, 
+      "color": "Metalico, Negro",
+      "marca": "Fit shop"
     },
     {
       "id": 16,
@@ -132,7 +162,9 @@
       "titulo": "Colchonetas",
       "descripcion": "",
       "categoria": "deportes",
-      "precio": 4300
+      "precio": 4300, 
+      "color": "Verde, Naranja, Azul, Rosa, Verda",
+      "marca": "Fit shop"
     }
   ],
   [
@@ -142,7 +174,9 @@
       "titulo": "Monopatín Eléctrico",
       "descripcion": "",
       "categoria": "movilidad",
-      "precio": 107000
+      "precio": 107000, 
+      "color": "Griz, Metalico",
+      "marca": "Furia sobre 2 ruedas"
     },
     {
       "id": 18,
@@ -150,7 +184,9 @@
       "titulo": "Segway",
       "descripcion": "",
       "categoria": "movilidad",
-      "precio": 140000
+      "precio": 140000, 
+      "color": "Griz",
+      "marca": "Furia sobre 2 ruedas"
     },
     {
       "id": 19,
@@ -158,7 +194,9 @@
       "titulo": "Bicicleta MTB",
       "descripcion": "",
       "categoria": "movilidad",
-      "precio": 120000
+      "precio": 120000, 
+      "color": "Negro, Azul",
+      "marca": "Bike n chill"
     },
     {
       "id": 20,
@@ -166,7 +204,9 @@
       "titulo": "Bicicleta Eléctrica",
       "descripcion": "",
       "categoria": "movilidad",
-      "precio": 190000
+      "precio": 190000, 
+      "color": "Griz, Negro",
+      "marca": "Bike n chill"
     }
   ],
   [
@@ -176,7 +216,9 @@
       "titulo": "Monopatín",
       "descripcion": "",
       "categoria": "ninios",
-      "precio": 7000
+      "precio": 7000, 
+      "color": "Azul, Negro",
+      "marca": "Fura sobre 2 ruedas"
     },
     {
       "id": 22,
@@ -184,7 +226,9 @@
       "titulo": "Juguetes",
       "descripcion": "",
       "categoria": "ninios",
-      "precio": 11000
+      "precio": 11000, 
+      "color": "Azul, Rojo",
+      "marca": "Deetoys"
     },
     {
       "id": 23,
@@ -192,7 +236,9 @@
       "titulo": "Utiles Escolares",
       "descripcion": "",
       "categoria": "ninios",
-      "precio": 7000
+      "precio": 7000, 
+      "color": "Multicolor",
+      "marca": "Grafica & utiles"
     },
     {
       "id": 24,
@@ -200,7 +246,9 @@
       "titulo": "Triciclo",
       "descripcion": "",
       "categoria": "ninios",
-      "precio": 9800
+      "precio": 9800, 
+      "color": "Rojo, Azul, Amarillo",
+      "marca": "Deetoys"
     }
   ]
 ]
