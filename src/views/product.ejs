@@ -166,26 +166,31 @@
   </article>
   <hr class="separador">
   <article class="comentario-calificacion">
-    <div class="calificacion">
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star"></i>
-      <i class="fa-solid fa-star-half"></i>
+    <h2>Otros usuarios opinaron:</h2>
+    <% for(let i = 0; i < productos.comentarios.length; i++) { %>
+    <div class="comment-box">
+      
+      <div class="calificacion">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star-half"></i>
+      </div>
+      <div class="comentario">
+        <p>
+          <%= productos.comentarios[i] %>
+        </p>
+      </div>
     </div>
-    <div class="comentario">
-      <% for(let i = 0; i < productos.comentarios.length; i++) { %>
-      <p>
-        <%= productos.comentarios[i] %>
-      </p>
-      <% } %>
-    </div>
+    <% } %>
   </article>
   <article class="postComentario">
-    <form action="/product/<%= productos.id %>?_method=put" method="post">
-      <label for="comentario">Dejanos tu opinion sobre el Producto:</label>
+    <form action="/product/<%=productos.id%>" method="post">
+      <label for="comentario">Dejanos tu comentario:</label>
       <textarea name="comentario" id="comentario"></textarea>
-      <button type="submit"></button>
+
+      <button type="submit">Enviar</button>
     </form>
   </article>
   <%- include('./partials/sidenav') %>

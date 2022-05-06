@@ -306,32 +306,45 @@ main {
 }
 
 .comentario-calificacion {
+    justify-content: space-around;
     width: 100%;
     height: fit-content;
     display: flex;
-    align-items: center;
-    border: 1px solid black;
+    flex-direction: column;
+    padding: 20px 30px;
+}
+
+.comment-box {
+    margin-top: 20px;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    height: 90px;
+    box-shadow: 0px 0px 2px 0px lightgray;
 }
 
 .comentario{
-    width: 90%;
+    width: 80%;
     align-items: center;
+    height: fit-content;
     display: flex;
+    padding: 5px;
 }
+
 .comentario p {
-    align-items: center;
     display: flex;
-    height: 30px;
-    padding-left: 10px;
+    height: 60px;
+    width: 100%;
 }
 
 .calificacion {
+    color: #ffa41c;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 30px;
-    width: 130px;
-    border: 1px solid black;
+    padding: 5px;
+    width: 20%;
 }
 
 .postComentario {
@@ -342,20 +355,42 @@ main {
 
 .postComentario form {
     width: 100%;
-    height: 200px;
+    height: 300px;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    padding-left: 30px;
+    justify-content: space-around;
 }
 
 .postComentario label {
-    padding: 20px;
+    height: 30px;
+    margin-top: 10px;
+    font-size: 1.1em;
 }
 
 .postComentario textarea {
-    margin: 0px 20px;
     height: 140px;
     padding: 10px;
+    width: 60%;
     font-size: 1.2em;
+    outline: none;
+    border: none;
+    box-shadow: 0px 1px 2px 1px lightgray;
+}
+
+.postComentario select {
+    width: 200px;
+    height: 30px;
+}
+
+.postComentario button {
+    width: 120px;
+    height: 60px;
+    background-color: #FEBD6A;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 
