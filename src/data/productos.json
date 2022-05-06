@@ -60,7 +60,7 @@
     {
       "id": 6,
       "imagen": "/img/campera1.webp",
-      "masImagenes": ["/img/campera1.webp", "/img/campera2.webp", "/img/campera3.webp", "/img/campera4.webp"],
+      "masImagenes": ["/img/campera1.webp", "/img/campera2.webp", "/img/campera3.webp"],
       "titulo": "Campera Softshell",
       "descripcion": ["Campera Softshell Verde Con Capucha", "Impermeable", "Ideal para el invierno", "Talles M, L, XL disponibles."],
       "categoria": "moda",
