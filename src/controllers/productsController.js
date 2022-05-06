@@ -6,9 +6,8 @@ const {
 let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
 
 function retornarNombreArchivo(ruta){
-  let arrPath=ruta.slice('\\\\');
-  console.log(arrPath);
-  return arrPath[arrPath.length-1];
+  let arrPath=ruta.split("img\\");
+  return "/img/"+arrPath[arrPath.length-1];
 }
 
 let productsController = {
@@ -34,7 +33,7 @@ let productsController = {
   },
 
   save: (req, res) => {
-    console.log(req.files);
+    
     let nombreimagenOrig;
     let imagenesAdicionales=[];
     req.files.forEach(element => {
@@ -59,7 +58,7 @@ let productsController = {
       descripcion: req.body.descripcion,
       categoria: req.body.categoria,
       precio: req.body.precio,
-      imagen: "/img/" + nombreimagenOrig,
+      imagen: nombreimagenOrig,
       masImagenes:imagenesAdicionales
     }
     switch (req.body.categoria) {
