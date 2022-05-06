@@ -1,51 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/productCreate.css">
-    <title>Publish your product</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/productCreate.css" />
+    <title>Nueva Publicación</title>
+  </head>
+  <body>
     <div class="productForm">
-        <form action="/product/create" method="post">
-            <a class="logo" href="/">
-                <img src="/img/amazona-negro.png" alt="">
-            </a>
-            <div class="tituloForm">
-                <label for="titulo">Titulo del producto:</label>
-                <input type="text" name="titulo" id="titulo">
-            </div>
-            <div class="descripcionForm">
-                <label for="descripcion">Descripcion del producto:</label>
-                <textarea name="descripcion" id="descripcion"></textarea>
-            </div>
-            <div class="categoriaForm">
-                <label for="categoria">Selecciona la categoria:</label>
-                <select name="categoria" id="categoria">
-                    <option value="tecnologia">Tecnologia</option>
-                    <option value="moda">Moda</option>
-                    <option value="hogar">Hogar</option>
-                    <option value="deportes">Deportes</option>
-                    <option value="movilidad">Movilidad</option>
-                    <option value="niños">Niños</option>
-                </select>
-            </div>
-            <div class="precioForm">
-                <label for="precio">Precio:</label>
-                <input type="number" name="precio" id="precio">
-            </div>
-            <div class="imagenForm">
-                <label for="imagen">Imagen del producto:</label>
-                <input type="file" name="imagen" id="imagen">
-            </div>
-            <div class="submitForm">
-                <button type="submit">Publicar</button>
-            </div>
-            
+      <div class="logo">
+        <a  href="/">
+          <img src="/img/amazona-negro.png" alt="Amazona"/>
+        </a>
+      </div>
+      <h2>Publicar Producto</h2>
 
-        </form>
+      <form
+        action="/product/create"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <div class="tituloForm">
+          <label for="titulo">Titulo del producto:</label>
+          <input type="text" name="titulo" id="titulo" />
+        </div>
+        <div class="descripcionForm">
+          <label for="descripcion">Descripcion del producto:</label>
+          <textarea name="descripcion" id="descripcion"></textarea>
+        </div>
+        <div class="categoriaForm">
+          <label for="categoria">Selecciona la categoria:</label>
+          <select name="categoria" id="categoria">
+            <option value="tecnologia">Tecnologia</option>
+            <option value="moda">Moda</option>
+            <option value="hogar">Hogar</option>
+            <option value="deportes">Deportes</option>
+            <option value="movilidad">Movilidad</option>
+            <option value="niños">Niños</option>
+          </select>
+        </div>
+        <div class="precioForm">
+          <label for="precio">Precio:</label>
+          <input type="number" name="precio" id="precio" />
+        </div>
+        <div class="imagenPrincipal">
+          <h5>Agregar imágen principal</h5>
+          <div class="imagenForm">
+            <label for="imagenPrincipal">Seleccionar Imagen</label>
+            <input
+              type="file"
+              name="imagenPrincipal"
+              id="imagenPrincipal"
+              accept="image/*"
+            />
+          </div>
+        </div>
+        <div class="imagenesSecundarias">
+          <h5>Agregar imágenes secundarias</h5>
+          <div class="imagenForm">
+            <label for="imagenSecundaria">Seleccionar imágenes</label>
+            <input
+              type="file"
+              name="imagenSecundaria[]"
+              id="imagenSecundaria"
+              accept="image/*"
+              multiple
+            />
+          </div>
+          <!-- <div class="imagenForm">
+            <label for="imagenSecundaria">Seleccionar imágen</label>
+            <input
+              type="file"
+              name="imagenSecundaria[]"
+              id="imagenSecundaria"
+            />
+          </div>
+          <div class="imagenForm">
+            <label for="imagenSecundaria">Seleccionar imágen</label>
+            <input
+              type="file"
+              name="imagenSecundaria[]"
+              id="imagenSecundaria"
+            />
+          </div>
+          <div class="imagenForm">
+            <label for="imagenSecundaria">Seleccionar imágen</label>
+            <input
+              type="file"
+              name="imagenSecundaria[]"
+              id="imagenSecundaria"
+            />
+          </div>-->
+        </div>
+        <div class="submitForm">
+          <button type="submit">Publicar</button>
+        </div>
+      </form>
     </div>
-</body>
+  </body>
 </html>

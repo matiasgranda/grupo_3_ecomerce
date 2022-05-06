@@ -3,44 +3,87 @@
     {
       "id": 1,
       "imagen": "/img/auriculares1.webp",
-      "masImagenes": ["/img/auriculares1.webp", "/img/auriculares2.webp", "/img/auriculares3.webp", "/img/auriculares4.webp"],
+      "masImagenes": [
+        "/img/auriculares1.webp",
+        "/img/auriculares2.webp",
+        "/img/auriculares3.webp",
+        "/img/auriculares4.webp"
+      ],
       "titulo": "Auriculares inalambricos Sony",
-      "descripcion": ["Auriculares inalambricos Sony WH-1000XM4 black.", "Alcance inalambrico de 10m.", "Duracion de bateria de 30h.", "Manos libres incluido."],
+      "descripcion": [
+        "Auriculares inalambricos Sony WH-1000XM4 black.",
+        "Alcance inalambrico de 10m.",
+        "Duracion de bateria de 30h.",
+        "Manos libres incluido."
+      ],
       "categoria": "tecnologia",
-      "precio": 1750, 
+      "precio": 1750,
       "color": "Negro",
       "marca": "Sony"
     },
     {
       "id": 2,
       "imagen": "/img/macbookair1.webp",
-      "masImagenes": ["/img/macbookair1.webp", "/img/macbookair2.webp", "/img/macbookair3.webp", "/img/macbookair4.webp"],
+      "masImagenes": [
+        "/img/macbookair1.webp",
+        "/img/macbookair2.webp",
+        "/img/macbookair3.webp",
+        "/img/macbookair4.webp"
+      ],
       "titulo": "Macbook Air",
-      "descripcion": ["Apple Macbook Air", "Capacidad: 8GB RAM / 512 GB SSD", "Hasta 18 horas de bateria.", "GPU de hasta 8 nucleos.", "Pantalla Retina de 13.3 pulgadas"],
+      "descripcion": [
+        "Apple Macbook Air",
+        "Capacidad: 8GB RAM / 512 GB SSD",
+        "Hasta 18 horas de bateria.",
+        "GPU de hasta 8 nucleos.",
+        "Pantalla Retina de 13.3 pulgadas"
+      ],
       "categoria": "tecnologia",
-      "precio": 260000, 
+      "precio": 260000,
       "color": "Blanco",
       "marca": "Apple"
     },
     {
       "id": 3,
       "imagen": "/img/msi1.webp",
-      "masImagenes": ["/img/msi1.webp", "/img/msi2.webp", "/img/msi3.webp", "/img/msi4.webp"],
+      "masImagenes": [
+        "/img/msi1.webp",
+        "/img/msi2.webp",
+        "/img/msi3.webp",
+        "/img/msi4.webp"
+      ],
       "titulo": "Notebook MSI",
-      "descripcion": ["Notebook gamer MSI Thin GF63", "Capacidad: 8GB RAM / 512 GB SSD", "Hasta 20 horas de bateria", "Placa de video NVIDIA GeForce GTX 1650 Max-Q", "Pantalla LED de 15.6 pulgadas."],
+      "descripcion": [
+        "Notebook gamer MSI Thin GF63",
+        "Capacidad: 8GB RAM / 512 GB SSD",
+        "Hasta 20 horas de bateria",
+        "Placa de video NVIDIA GeForce GTX 1650 Max-Q",
+        "Pantalla LED de 15.6 pulgadas."
+      ],
       "categoria": "tecnologia",
-      "precio": 345000, 
+      "precio": 345000,
       "color": "Negro",
       "marca": "MSI"
     },
     {
       "id": 4,
       "imagen": "/img/ps51.webp",
-      "masImagenes": ["/img/ps51.webp", "/img/ps52.webp", "/img/ps53.webp", "/img/ps54.webp"],
+      "masImagenes": [
+        "/img/ps51.webp",
+        "/img/ps52.webp",
+        "/img/ps53.webp",
+        "/img/ps54.webp"
+      ],
       "titulo": "Playstation 5",
-      "descripcion": ["Sony Playstation 5 Digital edition", "Memoria de 825GB", "Resolucion de 3840px x 2160px.", "Memoria RAM de 16GB", "Cuenta con: 1 cable de alimentación ca, 1 cable hdmi, 1 cable de carga usb, 1 dock."],
+      "descripcion": [
+        "Sony Playstation 5 Digital edition",
+        "Memoria de 825GB",
+        "Resolucion de 3840px x 2160px.",
+        "Memoria RAM de 16GB",
+        "Cuenta con: 1 cable de alimentación ca, 1 cable hdmi, 1 cable de carga usb, 1 dock."
+      ],
       "categoria": "tecnologia",
-      "precio": 240000, 
+      "precio": 240000,
       "color": "Blanco",
       "marca": "Sony"
     }
@@ -49,44 +92,83 @@
     {
       "id": 5,
       "imagen": "/img/buzo1.webp",
-      "masImagenes": ["/img/buzo1.webp", "/img/buzo2.webp", "/img/buzo3.webp"],
+      "masImagenes": [
+        "/img/buzo1.webp",
+        "/img/buzo2.webp",
+        "/img/buzo3.webp"
+      ],
       "titulo": "Buzo Canguro",
-      "descripcion": ["Buzo Canguro Hoodie con capucha", "100% algodon", "Talles S, M, L, XL disponibles", "Ideal para el invierno"],
+      "descripcion": [
+        "Buzo Canguro Hoodie con capucha",
+        "100% algodon",
+        "Talles S, M, L, XL disponibles",
+        "Ideal para el invierno"
+      ],
       "categoria": "moda",
-      "precio": 6500, 
+      "precio": 6500,
       "color": "Negro",
       "marca": "Hoodies Indumentaria"
     },
     {
       "id": 6,
       "imagen": "/img/campera1.webp",
-      "masImagenes": ["/img/campera1.webp", "/img/campera2.webp", "/img/campera3.webp"],
+      "masImagenes": [
+        "/img/campera1.webp",
+        "/img/campera2.webp",
+        "/img/campera3.webp"
+      ],
       "titulo": "Campera Softshell",
-      "descripcion": ["Campera Softshell Verde Con Capucha", "Impermeable", "Ideal para el invierno", "Talles M, L, XL disponibles."],
+      "descripcion": [
+        "Campera Softshell Verde Con Capucha",
+        "Impermeable",
+        "Ideal para el invierno",
+        "Talles M, L, XL disponibles."
+      ],
       "categoria": "moda",
-      "precio": 16000, 
+      "precio": 16000,
       "color": "Verde",
       "marca": "Columbia"
     },
     {
       "id": 7,
       "imagen": "/img/zapatillas1.webp",
-      "masImagenes": ["/img/zapatillas1.webp", "/img/zapatillas2.webp", "/img/zapatillas3.webp", "/img/zapatillas4.webp"],
+      "masImagenes": [
+        "/img/zapatillas1.webp",
+        "/img/zapatillas2.webp",
+        "/img/zapatillas3.webp",
+        "/img/zapatillas4.webp"
+      ],
       "titulo": "Zapatillas Nike",
-      "descripcion": ["Zapatillas Court Legacy Nike.", "Estilo: Urbano.", "Suela de goma.", "Tipo de ajuste: cordones.", "Origen: Vietnam."],
+      "descripcion": [
+        "Zapatillas Court Legacy Nike.",
+        "Estilo: Urbano.",
+        "Suela de goma.",
+        "Tipo de ajuste: cordones.",
+        "Origen: Vietnam."
+      ],
       "categoria": "moda",
-      "precio": 12600, 
+      "precio": 12600,
       "color": "Negro",
       "marca": "Nike"
     },
     {
       "id": 8,
       "imagen": "/img/pantalon1.webp",
-      "masImagenes": ["/img/pantalon1.webp", "/img/pantalon2.webp", "/img/pantalon3.webp"],
+      "masImagenes": [
+        "/img/pantalon1.webp",
+        "/img/pantalon2.webp",
+        "/img/pantalon3.webp"
+      ],
       "titulo": "Pantalon Cargo",
-      "descripcion": ["Pantalon Cargo explorador.", "Material: Gabardina", "Diseño de la tela: Liso", "Tipo de corte: Recto", "Cuenta con 7 bolsillos"],
+      "descripcion": [
+        "Pantalon Cargo explorador.",
+        "Material: Gabardina",
+        "Diseño de la tela: Liso",
+        "Tipo de corte: Recto",
+        "Cuenta con 7 bolsillos"
+      ],
       "categoria": "moda",
-      "precio": 8000, 
+      "precio": 8000,
       "color": "Griz oscuro",
       "marca": "Montagne"
     }
@@ -95,44 +177,82 @@
     {
       "id": 9,
       "imagen": "/img/cama1.webp",
-      "masImagenes": ["/img/cama1.webp", "/img/cama2.webp"],
+      "masImagenes": [
+        "/img/cama1.webp",
+        "/img/cama2.webp"
+      ],
       "titulo": "Cama Box Base",
-      "descripcion": ["Cama Box Base Sommiers", "6 Cajones de madera multifuncion", "Tamaño de la cama: 2 plazas", "Largo x Ancho: 200cm x 160cm", "Peso maximo soportado: 240kg"],
+      "descripcion": [
+        "Cama Box Base Sommiers",
+        "6 Cajones de madera multifuncion",
+        "Tamaño de la cama: 2 plazas",
+        "Largo x Ancho: 200cm x 160cm",
+        "Peso maximo soportado: 240kg"
+      ],
       "categoria": "hogar",
-      "precio": 75000, 
+      "precio": 75000,
       "color": "Griz claro",
       "marca": "Peiro"
     },
     {
       "id": 10,
       "imagen": "/img/silla1.webp",
-      "masImagenes": ["/img/silla1.webp", "/img/silla2.webp"],
+      "masImagenes": [
+        "/img/silla1.webp",
+        "/img/silla2.webp"
+      ],
       "titulo": "Silla de Comedor",
-      "descripcion": ["Silla de comedor Eames color Blanco", "Materiales: Acero, Polipropileno, Madera de haya.", "Para exterior: No", "Altura de la silla: 81cm", "Peso maximo soportado: 110kg"],
+      "descripcion": [
+        "Silla de comedor Eames color Blanco",
+        "Materiales: Acero, Polipropileno, Madera de haya.",
+        "Para exterior: No",
+        "Altura de la silla: 81cm",
+        "Peso maximo soportado: 110kg"
+      ],
       "categoria": "hogar",
-      "precio": 25000, 
+      "precio": 25000,
       "color": "Blanco",
       "marca": "Deco hogar"
     },
     {
       "id": 11,
       "imagen": "/img/sillon1.webp",
-      "masImagenes": ["/img/sillon1.webp", "/img/sillon2.webp", "/img/sillon3.webp"],
+      "masImagenes": [
+        "/img/sillon1.webp",
+        "/img/sillon2.webp",
+        "/img/sillon3.webp"
+      ],
       "titulo": "Sillón Esquinero",
-      "descripcion": ["Sillon esquinero Chenille", "Cantidad de cuerpos: 3", "Estilo: Nordico", "Ancho x Profundidad x Altura: 2.1 m x 0.9 m x 0.74 m", "Estructura: Madera saligna encastrada y encolada"],
+      "descripcion": [
+        "Sillon esquinero Chenille",
+        "Cantidad de cuerpos: 3",
+        "Estilo: Nordico",
+        "Ancho x Profundidad x Altura: 2.1 m x 0.9 m x 0.74 m",
+        "Estructura: Madera saligna encastrada y encolada"
+      ],
       "categoria": "hogar",
-      "precio": 320000, 
+      "precio": 320000,
       "color": "Gris, Gris Oscuro, Negro",
       "marca": "Sillones comfy"
     },
     {
       "id": 12,
       "imagen": "/img/mesa1.webp",
-      "masImagenes": ["/img/mesa1.webp", "/img/mesa2.webp", "/img/mesa3.webp"],
+      "masImagenes": [
+        "/img/mesa1.webp",
+        "/img/mesa2.webp",
+        "/img/mesa3.webp"
+      ],
       "titulo": "Mesa Ratona",
-      "descripcion": ["Mesa Ratona de centro moderna.", "Requiere ensamblado: Si.", "Material de la base: Melamina.", "Medidas del mueble armado: Largo 90 - Alto 37 - Prof 45.", "Peso del mueble: 18kg."],
+      "descripcion": [
+        "Mesa Ratona de centro moderna.",
+        "Requiere ensamblado: Si.",
+        "Material de la base: Melamina.",
+        "Medidas del mueble armado: Largo 90 - Alto 37 - Prof 45.",
+        "Peso del mueble: 18kg."
+      ],
       "categoria": "hogar",
-      "precio": 48000, 
+      "precio": 48000,
       "color": "Madera, Negro",
       "marca": "Deco hogar"
     }
@@ -141,90 +261,191 @@
     {
       "id": 13,
       "imagen": "/img/pelota1.webp",
-      "masImagenes": ["/img/pelota1.webp", "/img/pelota2.webp", "/img/pelota3.webp"],
+      "masImagenes": [
+        "/img/pelota1.webp",
+        "/img/pelota2.webp",
+        "/img/pelota3.webp"
+      ],
       "titulo": "Pelota Nike",
-      "descripcion": ["Pelota Nike Futsal Pro", "Composicion: 60% goma", "Año de lanzamiento: 2022", "Talla: One Size"],
+      "descripcion": [
+        "Pelota Nike Futsal Pro",
+        "Composicion: 60% goma",
+        "Año de lanzamiento: 2022",
+        "Talla: One Size"
+      ],
       "categoria": "deportes",
-      "precio": 6500, 
+      "precio": 6500,
       "color": "Blanco, Negro",
       "marca": "Nike"
     },
     {
       "id": 14,
       "imagen": "/img/botines1.webp",
-      "masImagenes": ["/img/botines1.webp", "/img/botines2.webp", "/img/botines3.webp"],
+      "masImagenes": [
+        "/img/botines1.webp",
+        "/img/botines2.webp",
+        "/img/botines3.webp"
+      ],
       "titulo": "Botines Nike",
-      "descripcion": ["Botines Nike Jr Phantom GT Academy", "Tipo de superficie: Cesped", "Consultar por talles disponibles antes de ofertar!", "Modelo: CW6694-160"],
+      "descripcion": [
+        "Botines Nike Jr Phantom GT Academy",
+        "Tipo de superficie: Cesped",
+        "Consultar por talles disponibles antes de ofertar!",
+        "Modelo: CW6694-160"
+      ],
       "categoria": "deportes",
-      "precio": 13000, 
+      "precio": 13000,
       "color": "Griz",
       "marca": "Nike"
     },
     {
       "id": 15,
       "imagen": "/img/pesas1.webp",
-      "masImagenes": ["/img/pesas1.webp", "/img/pesas2.webp", "/img/pesas3.webp", "/img/pesas4.webp"],
+      "masImagenes": [
+        "/img/pesas1.webp",
+        "/img/pesas2.webp",
+        "/img/pesas3.webp",
+        "/img/pesas4.webp"
+      ],
       "titulo": "Mancuerna",
-      "descripcion": ["Pesas Mancuerna 5kg x2 unidades.", "Mancuerna Hexagonal PVC.", "Material de recubrimiento: PVC.", "Rellena de arena y granalla.", "Super resistentes, no lastiman las manos!"],
+      "descripcion": [
+        "Pesas Mancuerna 5kg x2 unidades.",
+        "Mancuerna Hexagonal PVC.",
+        "Material de recubrimiento: PVC.",
+        "Rellena de arena y granalla.",
+        "Super resistentes, no lastiman las manos!"
+      ],
       "categoria": "deportes",
-      "precio": 7000, 
+      "precio": 7000,
       "color": "Metalico, Negro",
       "marca": "Fit shop"
     },
     {
       "id": 16,
       "imagen": "/img/colchoneta1.webp",
-      "masImagenes": ["/img/colchoneta1.webp", "/img/colchoneta2.webp", "/img/colchoneta3.webp", "/img/colchoneta4.webp"],
+      "masImagenes": [
+        "/img/colchoneta1.webp",
+        "/img/colchoneta2.webp",
+        "/img/colchoneta3.webp",
+        "/img/colchoneta4.webp"
+      ],
       "titulo": "Colchonetas",
-      "descripcion": ["Colchonetas Gimnasia alta densidad.", "Largo x Ancho: 100cm x 50cm.", "Densidad: 110kg/m3.", "Espesor: 5cm.", "Material de cobertura: Bagun."],
+      "descripcion": [
+        "Colchonetas Gimnasia alta densidad.",
+        "Largo x Ancho: 100cm x 50cm.",
+        "Densidad: 110kg/m3.",
+        "Espesor: 5cm.",
+        "Material de cobertura: Bagun."
+      ],
       "categoria": "deportes",
-      "precio": 4300, 
+      "precio": 4300,
       "color": "Rojo, Naranja, Verde, Azul, Violeta",
       "marca": "Fit shop"
+    },
+    {
+      "id": 25,
+      "titulo": "rterte",
+      "descripcion": "rtertert",
+      "categoria": "deportes",
+      "precio": "234234",
+      "imagen": "/img/undefined"
+    },
+    {
+      "id": 26,
+      "titulo": "prueba",
+      "descripcion": "prueba",
+      "categoria": "deportes",
+      "precio": "9999",
+      "imagen": "/img/undefined"
     }
   ],
   [
     {
       "id": 17,
       "imagen": "/img/monopatinelectrico1.webp",
-      "masImagenes": ["/img/monopatinelectrico1.webp", "/img/monopatinelectrico2.webp", "/img/monopatinelectrico3.webp", "/img/monopatinelectrico4.webp"],
+      "masImagenes": [
+        "/img/monopatinelectrico1.webp",
+        "/img/monopatinelectrico2.webp",
+        "/img/monopatinelectrico3.webp",
+        "/img/monopatinelectrico4.webp"
+      ],
       "titulo": "Monopatín Eléctrico",
-      "descripcion": ["Monopatin Scooter electrico.", "Bateria intercambiable.", "Es plegable: Si.", "Peso: 12.5kg", "Marca / modelo: Logus L7."],
+      "descripcion": [
+        "Monopatin Scooter electrico.",
+        "Bateria intercambiable.",
+        "Es plegable: Si.",
+        "Peso: 12.5kg",
+        "Marca / modelo: Logus L7."
+      ],
       "categoria": "movilidad",
-      "precio": 107000, 
+      "precio": 107000,
       "color": "Griz, Metalico",
       "marca": "Furia sobre 2 ruedas"
     },
     {
       "id": 18,
       "imagen": "/img/hoverboard1.webp",
-      "masImagenes": ["/img/hoverboard1.webp", "/img/hoverboard2.webp", "/img/hoverboard3.webp", "/img/hoverboard4.webp"],
+      "masImagenes": [
+        "/img/hoverboard1.webp",
+        "/img/hoverboard2.webp",
+        "/img/hoverboard3.webp",
+        "/img/hoverboard4.webp"
+      ],
       "titulo": "Hoverboard",
-      "descripcion": ["Hoverboard 10 Kuest Skate", "Peso maximo sportado: 110kg", "Potencia de motor: 300W", "Velocidad maxima: 12km/h", "Autonomia por carga: 15km"],
+      "descripcion": [
+        "Hoverboard 10 Kuest Skate",
+        "Peso maximo sportado: 110kg",
+        "Potencia de motor: 300W",
+        "Velocidad maxima: 12km/h",
+        "Autonomia por carga: 15km"
+      ],
       "categoria": "movilidad",
-      "precio": 140000, 
+      "precio": 140000,
       "color": "Negro, Rojo",
       "marca": "Furia sobre 2 ruedas"
     },
     {
       "id": 19,
       "imagen": "/img/bicicleta1.webp",
-      "masImagenes": ["/img/bicicleta1.webp", "/img/bicicleta2.webp", "/img/bicicleta3.webp", "/img/bicicleta4.webp"],
+      "masImagenes": [
+        "/img/bicicleta1.webp",
+        "/img/bicicleta2.webp",
+        "/img/bicicleta3.webp",
+        "/img/bicicleta4.webp"
+      ],
       "titulo": "Bicicleta MTB",
-      "descripcion": ["Bicicleta Mountain Bike Rattle.", "Rodado: 29.", "Cantidad de velocidades: 21.", "Tamaños de cuadro disponibles, M - L.", "Material del cuadro: Aluminio."],
+      "descripcion": [
+        "Bicicleta Mountain Bike Rattle.",
+        "Rodado: 29.",
+        "Cantidad de velocidades: 21.",
+        "Tamaños de cuadro disponibles, M - L.",
+        "Material del cuadro: Aluminio."
+      ],
       "categoria": "movilidad",
-      "precio": 120000, 
+      "precio": 120000,
       "color": "Naranja",
       "marca": "Bike n chill"
     },
     {
       "id": 20,
       "imagen": "/img/bicicletaelectrica1.webp",
-      "masImagenes": ["/img/bicicletaelectrica1.webp", "/img/bicicletaelectrica2.webp", "/img/bicicletaelectrica3.webp", "/img/bicicletaelectrica4.webp"],
+      "masImagenes": [
+        "/img/bicicletaelectrica1.webp",
+        "/img/bicicletaelectrica2.webp",
+        "/img/bicicletaelectrica3.webp",
+        "/img/bicicletaelectrica4.webp"
+      ],
       "titulo": "Bicicleta Eléctrica",
-      "descripcion": ["Bicicleta electrica Fiat F500X.", "Es plegable: Si.", "Modelo: F500X-FFBIKE20-R.", "Velocidad maxima: 25km/h.", "Motor 250W", "Bateria: 7.8AH"],
+      "descripcion": [
+        "Bicicleta electrica Fiat F500X.",
+        "Es plegable: Si.",
+        "Modelo: F500X-FFBIKE20-R.",
+        "Velocidad maxima: 25km/h.",
+        "Motor 250W",
+        "Bateria: 7.8AH"
+      ],
       "categoria": "movilidad",
-      "precio": 190000, 
+      "precio": 190000,
       "color": "Rojo",
       "marca": "Bike n chill"
     }
@@ -233,44 +454,87 @@
     {
       "id": 21,
       "imagen": "/img/monopatin1.webp",
-      "masImagenes": ["/img/monopatin1.webp", "/img/monopatin2.webp", "/img/monopatin3.webp"],
+      "masImagenes": [
+        "/img/monopatin1.webp",
+        "/img/monopatin2.webp",
+        "/img/monopatin3.webp"
+      ],
       "titulo": "Monopatín",
-      "descripcion": ["Monopatin Drift Pro Rider.", "Material: Aluminio.", "Cantidad de ruedas: 2.", "Requiere ensamblado: No.", "Ancho de base: 10cm."],
+      "descripcion": [
+        "Monopatin Drift Pro Rider.",
+        "Material: Aluminio.",
+        "Cantidad de ruedas: 2.",
+        "Requiere ensamblado: No.",
+        "Ancho de base: 10cm."
+      ],
       "categoria": "ninios",
-      "precio": 7000, 
+      "precio": 7000,
       "color": "Azul, Negro",
       "marca": "Fura sobre 2 ruedas"
     },
     {
       "id": 22,
       "imagen": "/img/autito1.webp",
-      "masImagenes": ["/img/autito1.webp", "/img/autito2.webp", "/img/autito3.webp"],
+      "masImagenes": [
+        "/img/autito1.webp",
+        "/img/autito2.webp",
+        "/img/autito3.webp"
+      ],
       "titulo": "Auto a control remoto",
-      "descripcion": ["Transformer Auto Robot a radio control.", "Velocidad maxima: 5km/h.", "Luces y sonido.", "Bateria recargable.", "Control remoto lleva 2 pilas AA (No incluidas)."],
+      "descripcion": [
+        "Transformer Auto Robot a radio control.",
+        "Velocidad maxima: 5km/h.",
+        "Luces y sonido.",
+        "Bateria recargable.",
+        "Control remoto lleva 2 pilas AA (No incluidas)."
+      ],
       "categoria": "ninios",
-      "precio": 11000, 
+      "precio": 11000,
       "color": "Azul, Rojo",
       "marca": "Deetoys"
     },
     {
       "id": 23,
       "imagen": "/img/utilesescolares1.webp",
-      "masImagenes": ["/img/utilesescolares1.webp", "/img/utilesescolares2.webp", "/img/utilesescolares3.webp", "/img/utilesescolares4.webp"],
+      "masImagenes": [
+        "/img/utilesescolares1.webp",
+        "/img/utilesescolares2.webp",
+        "/img/utilesescolares3.webp",
+        "/img/utilesescolares4.webp"
+      ],
       "titulo": "Kit utiles escolares",
-      "descripcion": ["Kit Combo utiles escolares x 14 articulos!", "x1 Cuaderno hojas rayadas.", "x1 cuaderno hojas cuadriculadas.", "x2 Lapices graffito", "x2 resaltadores.", "x1 Notas adhesivas."],
+      "descripcion": [
+        "Kit Combo utiles escolares x 14 articulos!",
+        "x1 Cuaderno hojas rayadas.",
+        "x1 cuaderno hojas cuadriculadas.",
+        "x2 Lapices graffito",
+        "x2 resaltadores.",
+        "x1 Notas adhesivas."
+      ],
       "categoria": "ninios",
-      "precio": 7000, 
+      "precio": 7000,
       "color": "Multicolor",
       "marca": "Grafica & utiles"
     },
     {
       "id": 24,
       "imagen": "/img/triciclo1.webp",
-      "masImagenes": ["/img/triciclo1.webp", "/img/triciclo2.webp", "/img/triciclo3.webp", "/img/triciclo4.webp"],
+      "masImagenes": [
+        "/img/triciclo1.webp",
+        "/img/triciclo2.webp",
+        "/img/triciclo3.webp",
+        "/img/triciclo4.webp"
+      ],
       "titulo": "Triciclo",
-      "descripcion": ["Triciclo infantil con ruedas macizas!", "Edad maxima recomendada: 5 años.", "Ancho: 44cm.", "Peso: 4kg.", "Peso maximo soportado: 38kg."],
+      "descripcion": [
+        "Triciclo infantil con ruedas macizas!",
+        "Edad maxima recomendada: 5 años.",
+        "Ancho: 44cm.",
+        "Peso: 4kg.",
+        "Peso maximo soportado: 38kg."
+      ],
       "categoria": "ninios",
-      "precio": 9800, 
+      "precio": 9800,
       "color": "Rojo, Azul, Amarillo",
       "marca": "Deetoys"
     }

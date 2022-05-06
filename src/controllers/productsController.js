@@ -5,7 +5,11 @@ const {
 } = require("path");
 let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
 
-
+function retornarNombreArchivo(ruta){
+  let arrPath=ruta.slice('\\\\');
+  console.log(arrPath);
+  return arrPath[arrPath.length-1];
+}
 
 let productsController = {
 
@@ -25,11 +29,22 @@ let productsController = {
   },
 
   create: (req, res) => {
-
+    
     res.render(path.resolve(__dirname, "../views/productCreate.ejs"))
   },
 
   save: (req, res) => {
+    console.log(req.files);
+    let nombreimagenOrig;
+    let imagenesAdicionales=[];
+    req.files.forEach(element => {
+      if(element.fieldname==="imagenPrincipal"){
+        nombreimagenOrig=retornarNombreArchivo(element.path);
+      }else {
+        imagenesAdicionales.push(retornarNombreArchivo(element.path));
+      }
+    });
+    
     let idMasAlto = 0;
     for (let i = 0; i < productos.length; i++) {
       for (let j = 0; j < productos[i].length; j++) {
@@ -44,7 +59,8 @@ let productsController = {
       descripcion: req.body.descripcion,
       categoria: req.body.categoria,
       precio: req.body.precio,
-      imagen: "/img/" + req.body.imagen
+      imagen: "/img/" + nombreimagenOrig,
+      masImagenes:imagenesAdicionales
     }
     switch (req.body.categoria) {
       case "tecnologia":

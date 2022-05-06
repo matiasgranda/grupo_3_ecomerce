@@ -7,7 +7,6 @@
 
 body {
     width: 100%;
-    height: 100%;
     background-color: rgb(255, 255, 255);
     position: absolute;
     display: flex;
@@ -16,18 +15,14 @@ body {
 }
 
 .productForm {
-    width: 50%;
+    width: 100%;
+    max-width: 700px;
     min-width: 400px;
-    height: 80%;
-    max-height: 950px;
+    height: fit-content;
     background-color: rgb(255, 255, 255);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    border-radius: 6px;
-    box-shadow: 0px 2px 8px 2px rgb(20 31 56 / 10%);
+    margin: 50px 20px 20px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 1px 2px rgb(20 31 56 / 10%);
     padding: 20px;
 }
 
@@ -44,9 +39,7 @@ form div {
     display: flex;
     flex-direction: row;
     align-items: center;
-    min-width: 300px;
-    padding: 10px;
-    width: 90%;
+    width: 100%;
     flex-wrap: wrap;
 }
 
@@ -90,9 +83,9 @@ form div {
 }
 
 .imagenForm label {
-    width: 180px;
+    width: 297px;
     height: 30px;
-    border-radius: 16px;
+    border-radius: 5px;
     box-shadow: 0px 2px 8px 2px rgb(20 31 56 / 10%);
     display: flex;
     align-items: center;
@@ -148,14 +141,35 @@ form div {
 }
 
 .submitForm button {
-    width: 160px;
-    height: 40px;
-    border-radius: 16px;
+    background-color: rgb(255 216 20);
+    /* font-size: 12px; */
+    outline: none;
+    border: 0;
+    line-height: 20px;
+    border-radius: 15px;
+    padding: 10px;
+    /* width: 100%; */
+    font-size: 16px;
+    width: 100%;
+    max-width: 300px;
+}
+.imagenesSecundarias, .imagenPrincipal{
     display: flex;
+    flex-direction: column;
     align-items: center;
+    min-width: 300px;
+    padding: 10px;
+    width: 90%;
+    flex-wrap: wrap;
+    align-content: center;
     justify-content: center;
-    cursor: pointer;
-    font-size: 1.1em;
-    background-color: #FEBD6A;
-    border: 2px solid lightgray;
+}
+.logo{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
 }
