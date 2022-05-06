@@ -19,6 +19,7 @@ let productsController = require("../controllers/productsController")
 router.get("/create", productsController.create);
 router.get("/:id", productsController.product);
 router.post("/create", fileupload.any(),productsController.save);
+router.put("/:id", productsController.comentarios);
 
 
 

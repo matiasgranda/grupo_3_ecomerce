@@ -89,6 +89,20 @@ let productsController = {
       console.log('Datos agregados');
     });
     res.redirect("/home")
+  }, 
+
+  comentarios: (req, res) => {
+    let comentarioNuevo = req.body.comentario;
+    for (let i = 0; i < productos.length; i++) {
+      if(productos[i].id == req.params.id) {
+        productos[i].comentarios.push(comentarioNuevo)
+      }
+    }
+    let addComent = JSON.stringify(productos, null, 2);
+    fs.writeFile('./src/data/productos.json', addComent, (err) => {
+      if (err) throw err;
+      console.log('comentario agregado');
+    });
   }
 
 };

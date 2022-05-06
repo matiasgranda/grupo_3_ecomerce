@@ -19,7 +19,10 @@
       "categoria": "tecnologia",
       "precio": 1750,
       "color": "Negro",
-      "marca": "Sony"
+      "marca": "Sony",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     },
     {
       "id": 2,
@@ -41,7 +44,10 @@
       "categoria": "tecnologia",
       "precio": 260000,
       "color": "Blanco",
-      "marca": "Apple"
+      "marca": "Apple",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     },
     {
       "id": 3,
@@ -63,7 +69,10 @@
       "categoria": "tecnologia",
       "precio": 345000,
       "color": "Negro",
-      "marca": "MSI"
+      "marca": "MSI",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     },
     {
       "id": 4,
@@ -85,7 +94,10 @@
       "categoria": "tecnologia",
       "precio": 240000,
       "color": "Blanco",
-      "marca": "Sony"
+      "marca": "Sony",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     }
   ],
   [
@@ -107,7 +119,10 @@
       "categoria": "moda",
       "precio": 6500,
       "color": "Negro",
-      "marca": "Hoodies Indumentaria"
+      "marca": "Hoodies Indumentaria",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     },
     {
       "id": 6,
@@ -127,7 +142,10 @@
       "categoria": "moda",
       "precio": 16000,
       "color": "Verde",
-      "marca": "Columbia"
+      "marca": "Columbia",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     },
     {
       "id": 7,
@@ -149,7 +167,10 @@
       "categoria": "moda",
       "precio": 12600,
       "color": "Negro",
-      "marca": "Nike"
+      "marca": "Nike",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     },
     {
       "id": 8,
@@ -170,7 +191,10 @@
       "categoria": "moda",
       "precio": 8000,
       "color": "Griz oscuro",
-      "marca": "Montagne"
+      "marca": "Montagne",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     }
   ],
   [
@@ -192,7 +216,10 @@
       "categoria": "hogar",
       "precio": 75000,
       "color": "Griz claro",
-      "marca": "Peiro"
+      "marca": "Peiro",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     },
     {
       "id": 10,
@@ -212,7 +239,10 @@
       "categoria": "hogar",
       "precio": 25000,
       "color": "Blanco",
-      "marca": "Deco hogar"
+      "marca": "Deco hogar",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     },
     {
       "id": 11,
@@ -233,7 +263,10 @@
       "categoria": "hogar",
       "precio": 320000,
       "color": "Gris, Gris Oscuro, Negro",
-      "marca": "Sillones comfy"
+      "marca": "Sillones comfy",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     },
     {
       "id": 12,
@@ -254,7 +287,10 @@
       "categoria": "hogar",
       "precio": 48000,
       "color": "Madera, Negro",
-      "marca": "Deco hogar"
+      "marca": "Deco hogar",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     }
   ],
   [
@@ -276,7 +312,10 @@
       "categoria": "deportes",
       "precio": 6500,
       "color": "Blanco, Negro",
-      "marca": "Nike"
+      "marca": "Nike",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     },
     {
       "id": 14,
@@ -296,7 +335,10 @@
       "categoria": "deportes",
       "precio": 13000,
       "color": "Griz",
-      "marca": "Nike"
+      "marca": "Nike",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     },
     {
       "id": 15,
@@ -318,7 +360,10 @@
       "categoria": "deportes",
       "precio": 7000,
       "color": "Metalico, Negro",
-      "marca": "Fit shop"
+      "marca": "Fit shop",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     },
     {
       "id": 16,
@@ -340,23 +385,10 @@
       "categoria": "deportes",
       "precio": 4300,
       "color": "Rojo, Naranja, Verde, Azul, Violeta",
-      "marca": "Fit shop"
-    },
-    {
-      "id": 25,
-      "titulo": "rterte",
-      "descripcion": "rtertert",
-      "categoria": "deportes",
-      "precio": "234234",
-      "imagen": "/img/undefined"
-    },
-    {
-      "id": 26,
-      "titulo": "prueba",
-      "descripcion": "prueba",
-      "categoria": "deportes",
-      "precio": "9999",
-      "imagen": "/img/undefined"
+      "marca": "Fit shop",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     }
   ],
   [
@@ -380,7 +412,10 @@
       "categoria": "movilidad",
       "precio": 107000,
       "color": "Griz, Metalico",
-      "marca": "Furia sobre 2 ruedas"
+      "marca": "Furia sobre 2 ruedas",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     },
     {
       "id": 18,
@@ -402,7 +437,10 @@
       "categoria": "movilidad",
       "precio": 140000,
       "color": "Negro, Rojo",
-      "marca": "Furia sobre 2 ruedas"
+      "marca": "Furia sobre 2 ruedas",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     },
     {
       "id": 19,
@@ -424,7 +462,10 @@
       "categoria": "movilidad",
       "precio": 120000,
       "color": "Naranja",
-      "marca": "Bike n chill"
+      "marca": "Bike n chill",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     },
     {
       "id": 20,
@@ -447,7 +488,10 @@
       "categoria": "movilidad",
       "precio": 190000,
       "color": "Rojo",
-      "marca": "Bike n chill"
+      "marca": "Bike n chill",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     }
   ],
   [
@@ -470,7 +514,10 @@
       "categoria": "ninios",
       "precio": 7000,
       "color": "Azul, Negro",
-      "marca": "Fura sobre 2 ruedas"
+      "marca": "Fura sobre 2 ruedas",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     },
     {
       "id": 22,
@@ -491,7 +538,10 @@
       "categoria": "ninios",
       "precio": 11000,
       "color": "Azul, Rojo",
-      "marca": "Deetoys"
+      "marca": "Deetoys",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     },
     {
       "id": 23,
@@ -514,7 +564,10 @@
       "categoria": "ninios",
       "precio": 7000,
       "color": "Multicolor",
-      "marca": "Grafica & utiles"
+      "marca": "Grafica & utiles",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     },
     {
       "id": 24,
@@ -536,7 +589,10 @@
       "categoria": "ninios",
       "precio": 9800,
       "color": "Rojo, Azul, Amarillo",
-      "marca": "Deetoys"
+      "marca": "Deetoys",
+      "comentarios": [
+        "Muy buena compra!"
+      ]
     }
   ]
 ]

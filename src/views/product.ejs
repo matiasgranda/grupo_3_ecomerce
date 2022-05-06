@@ -16,11 +16,11 @@
     <section class="images">
 
       <div class="mini-viewer">
-        <% for(let i = 0; i < productos.masImagenes.length; i++) { %> 
+        <% for(let i = 0; i < productos.masImagenes.length; i++) { %>
         <div class="mini-image">
           <img src="<%= productos.masImagenes[i] %> " alt="" onclick="mostrarImagen(this)">
         </div>
-        <% } %> 
+        <% } %>
       </div>
       <div class="main-image">
         <img src="<%= productos.imagen %>" alt="" name="mainimage" id="mainimage">
@@ -165,73 +165,37 @@
 
   </article>
   <hr class="separador">
-  <article class="calificacionprod">
-    <div class="itemcalificaion">
-      <div class="calificaion">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star-half"></i>
-
-      </div>
-      <div class="comentario">
-        Muy buen producto, lo tengo hace varios años y nunca tuve ningun problema
-      </div>
+  <article class="comentario-calificacion">
+    <div class="calificacion">
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star"></i>
+      <i class="fa-solid fa-star-half"></i>
     </div>
-    <div class="itemcalificaion">
-      <div class="calificaion">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star-half"></i>
-
-      </div>
-      <div class="comentario">
-        Muy buen producto, lo tengo hace varios años y nunca tuve ningun problema
-      </div>
+    <div class="comentario">
+      <% for(let i = 0; i < productos.comentarios.length; i++) { %>
+      <p>
+        <%= productos.comentarios[i] %>
+      </p>
+      <% } %>
     </div>
-    <div class="itemcalificaion">
-      <div class="calificaion">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star-half"></i>
-
-      </div>
-      <div class="comentario">
-        Muy buen producto, lo tengo hace varios años y nunca tuve ningun problema
-      </div>
-    </div>
-    <div class="itemcalificaion">
-      <div class="calificaion">
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-
-      </div>
-      <div class="comentario">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-        a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.
-      </div>
-    </div>
+  </article>
+  <article class="postComentario">
+    <form action="/product/<%= productos.id %>?_method=put" method="post">
+      <label for="comentario">Dejanos tu opinion sobre el Producto:</label>
+      <textarea name="comentario" id="comentario"></textarea>
+      <button type="submit"></button>
+    </form>
   </article>
   <%- include('./partials/sidenav') %>
   <br>
   <%- include('./partials/footer') %>
-<script>
-  function mostrarImagen(obj){
-    document.getElementById("mainimage").src=obj.src;
-  }
-</script>
+  <script>
+    function mostrarImagen(obj) {
+      document.getElementById("mainimage").src = obj.src;
+    }
+  </script>
 </body>
 
 </html>
