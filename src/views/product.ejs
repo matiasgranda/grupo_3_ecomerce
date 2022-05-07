@@ -169,13 +169,13 @@
     <h2>Otros usuarios opinaron:</h2>
     <% for(let i = 0; i < productos.comentarios.length; i++) { %>
     <div class="comment-box">
-      
+
       <div class="calificacion">
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
         <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star-half"></i>
+        <i class="fa-solid fa-star"></i>
       </div>
       <div class="comentario">
         <p>
@@ -186,10 +186,32 @@
     <% } %>
   </article>
   <article class="postComentario">
+    <h3>Dejanos tu comentario y calificacion:</h3>
     <form action="/product/<%=productos.id%>" method="post">
-      <label for="comentario">Dejanos tu comentario:</label>
+      <label for="comentario"></label>
       <textarea name="comentario" id="comentario"></textarea>
-
+      <div class="radio-buttons">
+        <div>
+          <label for="1">1</label>
+          <input type="radio" id="1" name="calificacion" value="1">
+        </div>
+        <div>
+          <label for="2">2</label>
+          <input type="radio" id="2" name="calificacion" value="2">
+        </div>
+        <div>
+          <label for="3">3</label>
+          <input type="radio" id="3" name="calificacion" value="3">
+        </div>
+        <div>
+          <label for="4">4</label>
+          <input type="radio" id="4" name="calificacion" value="4">
+        </div>
+        <div>
+          <label for="5">5</label>
+          <input type="radio" id="5" name="calificacion" value="5">
+        </div>
+      </div>
       <button type="submit">Enviar</button>
     </form>
   </article>
