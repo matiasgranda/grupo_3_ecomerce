@@ -1,0 +1,16 @@
+[
+  {
+    "usuario": "Mati",
+    "mail": "matigranda93@gmail.com",
+    "password": "123456",
+    "fechanac": "1993-07-03",
+    "pais": "argentina"
+  },
+  {
+    "usuario": "Matias",
+    "mail": "matigranda93@gmail.com",
+    "password": "123456",
+    "pais": "Argentina",
+    "fechanac": "1993-07-03"
+  }
+]

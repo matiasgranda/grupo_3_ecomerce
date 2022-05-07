@@ -185,32 +185,35 @@
     </div>
     <% } %>
   </article>
+  <hr class="separador">
   <article class="postComentario">
     <h3>Dejanos tu comentario y calificacion:</h3>
     <form action="/product/<%=productos.id%>" method="post">
-      <label for="comentario"></label>
-      <textarea name="comentario" id="comentario"></textarea>
-      <div class="radio-buttons">
-        <div>
-          <label for="1">1</label>
-          <input type="radio" id="1" name="calificacion" value="1">
-        </div>
-        <div>
-          <label for="2">2</label>
-          <input type="radio" id="2" name="calificacion" value="2">
-        </div>
-        <div>
-          <label for="3">3</label>
-          <input type="radio" id="3" name="calificacion" value="3">
-        </div>
-        <div>
-          <label for="4">4</label>
-          <input type="radio" id="4" name="calificacion" value="4">
-        </div>
-        <div>
-          <label for="5">5</label>
-          <input type="radio" id="5" name="calificacion" value="5">
-        </div>
+      <section>
+        <label for="comentario"></label>
+        <textarea name="comentario" id="comentario"></textarea>
+        <div class="radio-buttons">
+          <div>
+            <label for="5">5</label>
+            <input type="radio" id="5" name="calificacion" value="5">
+          </div>
+          <div>
+            <label for="4">4</label>
+            <input type="radio" id="4" name="calificacion" value="4">
+          </div>
+          <div>
+            <label for="3">3</label>
+            <input type="radio" id="3" name="calificacion" value="3">
+          </div>
+          <div>
+            <label for="2">2</label>
+            <input type="radio" id="2" name="calificacion" value="2">
+          </div>
+          <div>
+            <label for="1">1</label>
+            <input type="radio" id="1" name="calificacion" value="1">
+          </div>
+      </section>
       </div>
       <button type="submit">Enviar</button>
     </form>

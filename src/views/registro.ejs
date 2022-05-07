@@ -9,15 +9,15 @@
   </head>
   <body>
     <div class="registro">
-      <form action="" method="post">
+      <form action="/registro/create" method="post">
         <a href="/"><img src="/img/amazona-negro.png" alt="" /></a>
         <div class="form-box">
-          <label for="userName">Nombre de usuario:</label>
+          <label for="usuario">Nombre de usuario:</label>
           <input
             type="text"
-            name="user"
+            name="usuario"
             autocomplete="username"
-            id="user"
+            id="usuario"
             placeholder="Nombre de usuario"
             required
             minlength="4"
@@ -25,18 +25,18 @@
           />
         </div>
         <div class="form-box">
-          <label for="userEmail">Email:</label>
+          <label for="mail">Email:</label>
           <input
             type="email"
-            name="email"
-            id="email"
+            name="mail"
+            id="mail"
             autocomplete="email"
             placeholder="ejemplo@correo.com"
             required
           />
         </div>
         <div class="form-box">
-          <label for="userPassword">Contraseña:</label>
+          <label for="password">Contraseña:</label>
           <input
             type="password"
             name="password"
@@ -47,35 +47,35 @@
           />
         </div>
         <div class="form-box">
-          <label for="userPassword">Confirme su contraseña</label>
+          <label for="confPassword">Confirme su contraseña</label>
           <input
             type="password"
-            name="confpassword"
-            id="confpassword"
+            name="confPassword"
+            id="confPassword"
             autocomplete="new-password"
             required
             minlength="6"
           />
         </div>
         <div class="form-date">
-          <label for="nacimientoU">Fecha de nacimiento:</label>
-          <input type="date" id="fechanac" required />
+          <label for="fechanac">Fecha de nacimiento:</label>
+          <input type="date" id="fechanac" name="fechanac" required />
         </div>
         <div class="form-select">
           <label for="pais">Pais de residencia</label>
           <select name="pais" id="pais" required>
-            <option name="arg" value="Argentina" id="paisUser">
+            <option name="arg" value="Argentina" id="pais">
               Argentina
             </option>
-            <option name="bol" value="Bolivia" id="paisUser">Bolivia</option>
-            <option name="bra" value="Brasil" id="paisUser">Brasil</option>
-            <option name="chi" value="Chile" id="paisUser">Chile</option>
-            <option name="col" value="Colombia" id="paisUser">Colombia</option>
-            <option name="ecu" value="Ecuador" id="paisUser">Ecuador</option>
-            <option name="par" value="Paraguay" id="paisUser">Paraguay</option>
-            <option name="per" value="Peru" id="paisUser">Peru</option>
-            <option name="uru" value="Uruguay" id="paisUser">Uruguay</option>
-            <option name="vzl" value="Venezuela" id="paisUser">
+            <option name="bol" value="Bolivia" id="pais">Bolivia</option>
+            <option name="bra" value="Brasil" id="pais">Brasil</option>
+            <option name="chi" value="Chile" id="pais">Chile</option>
+            <option name="col" value="Colombia" id="pais">Colombia</option>
+            <option name="ecu" value="Ecuador" id="pais">Ecuador</option>
+            <option name="par" value="Paraguay" id="pais">Paraguay</option>
+            <option name="per" value="Peru" id="pais">Peru</option>
+            <option name="uru" value="Uruguay" id="pais">Uruguay</option>
+            <option name="vzl" value="Venezuela" id="pais">
               Venezuela
             </option>
           </select>
