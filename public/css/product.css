@@ -317,7 +317,7 @@ main {
 
 .comment-box {
     margin-top: 20px;
-    width: 60%;
+    width: 90%;
     display: flex;
     justify-content: center;
     height: 60px;
@@ -346,6 +346,7 @@ main {
     height: 30px;
     padding: 5px;
     width: 20%;
+    min-width: 100px;
 }
 
 .postComentario {

@@ -169,13 +169,18 @@
     <h2>Otros usuarios opinaron:</h2>
     <% for(let i = 0; i < productos.comentarios.length; i++) { %>
     <div class="comment-box">
-
+      
       <div class="calificacion">
+        <% for(let j = 0; j < productos.calificaciones[i]; j++) { %>
         <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
+        
+        <% } %>
+        <% 
+        if(productos.calificaciones[i]<5) {
+          for(let k = 0; k < (5-productos.calificaciones[i]); k++) { %>
+            <i class="fa-regular fa-star"></i>
+          <% }
+        } %>
       </div>
       <div class="comentario">
         <p>
