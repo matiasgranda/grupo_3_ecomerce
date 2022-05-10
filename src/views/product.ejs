@@ -197,30 +197,22 @@
       <section>
         <label for="comentario"></label>
         <textarea name="comentario" id="comentario"></textarea>
-        <div class="radio-buttons">
-          <div>
-            <label for="5">5</label>
-            <input type="radio" id="5" name="calificacion" value="5">
-          </div>
-          <div>
-            <label for="4">4</label>
-            <input type="radio" id="4" name="calificacion" value="4">
-          </div>
-          <div>
-            <label for="3">3</label>
-            <input type="radio" id="3" name="calificacion" value="3">
-          </div>
-          <div>
-            <label for="2">2</label>
-            <input type="radio" id="2" name="calificacion" value="2">
-          </div>
-          <div>
-            <label for="1">1</label>
-            <input type="radio" id="1" name="calificacion" value="1">
-          </div>
+        <div class="rating">
+          <input type="radio" name="calificacion" id="one" value="1"  checked />
+          <label for="one"><i class="fa fa-star"></i></label>
+          <input type="radio" name="calificacion" id="two"  value="2" />
+          <label for="two"><i class="fa fa-star"></i></label>
+          <input type="radio" name="calificacion" id="three" value="3"  />
+          <label for="three"><i class="fa fa-star"></i></label>
+          <input type="radio" name="calificacion" id="four"  value="4"  />
+          <label for="four"><i class="fa fa-star"></i></label>
+          <input type="radio" name="calificacion" id="five" value="5" />
+          <label for="five"><i class="fa fa-star"></i></label>
+      </div>
+        
       </section>
       </div>
-      <button type="submit">Enviar</button>
+      <button class="btnenviar" type="submit">Enviar</button>
     </form>
   </article>
   <%- include('./partials/sidenav') %>

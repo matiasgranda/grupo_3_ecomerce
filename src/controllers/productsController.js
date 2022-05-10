@@ -94,6 +94,7 @@ let productsController = {
   comentarios: (req, res) => {
     let comentarioNuevo = req.body.comentario;
     let calificacionNueva = req.body.calificacion
+    console.log(calificacionNueva);
     for (let i = 0; i < productos.length; i++) {
       for (let j = 0; j < productos[i].length; j++) {
         if (productos[i][j].id == parseInt(req.params.id)) {

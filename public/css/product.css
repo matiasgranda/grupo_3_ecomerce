@@ -320,7 +320,7 @@ main {
     width: 90%;
     display: flex;
     justify-content: center;
-    height: 60px;
+    
     box-shadow: 0px 0px 2px 0px lightgray;
 }
 
@@ -334,12 +334,12 @@ main {
 
 .comentario p {
     display: flex;
-    height: 60px;
+    
     width: 100%;
 }
 
 .calificacion {
-    color: #ffa41c;
+    color: #febd6a;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -374,6 +374,11 @@ main {
 form section {
     display: flex;
     width: 60%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .postComentario label {
@@ -394,11 +399,14 @@ form section {
 
 .radio-buttons {
     display: flex;
-    flex-direction: column;
-    width: 5%;
-    justify-content: space-around;
+    flex-direction: row-reverse;
+    width: fit-content;
     align-items: center;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: center;
 }
+
 
 .postComentario button {
     width: 120px;
@@ -439,3 +447,41 @@ form section {
         width: 90%;
     }
 }
+/*******   estrellas de rating ************/
+
+
+
+.rating {
+	margin-top:20px;
+}
+
+.rating input[type="radio"] {
+	position: fixed;
+	top: 0;
+	right: 100%;
+}
+
+.rating label {
+	font-size: 1.5em;
+	padding: 0.5em;
+	margin: 0;
+	float: left;
+	cursor: pointer;
+	@include transition(0.2s);
+}
+
+.rating input[type="radio"]:checked ~ input + label {
+	background: none;
+	color: #aaa;
+}
+
+.rating input + label {
+	
+	color: #febd6a;
+	margin: 0 0 1em 0;
+}
+.btnenviar{
+    padding:10px;
+}
+
+/***************** fin config estrellas rating ********************/
