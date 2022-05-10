@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("fs");
+const actions = require("../data/actions")
 const {
   parse
 } = require("path");
@@ -83,12 +84,10 @@ let productsController = {
       default:
         break;
     }
-    let datosNuevos = JSON.stringify(productos, null, 2);
-    fs.writeFile('./src/data/productos.json', datosNuevos, (err) => {
-      if (err) throw err;
-      console.log('Datos agregados');
-    });
-    res.redirect("/home")
+
+    actions.updateProduct(productos);
+
+    res.redirect("/home");
   }, 
 
   comentarios: (req, res) => {
@@ -103,11 +102,8 @@ let productsController = {
         }
       }
     }
-    let addComent = JSON.stringify(productos, null, 2);
-    fs.writeFile('./src/data/productos.json', addComent, (err) => {
-      if (err) throw err;
-      console.log('comentario agregado');
-    });
+    actions.updateProduct(productos);
+
     res.redirect("/product/" + req.params.id)
   }
 

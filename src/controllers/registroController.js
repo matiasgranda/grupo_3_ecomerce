@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("fs");
+const actions = require("../data/actions")
 let usuarios = JSON.parse(fs.readFileSync("./src/data/usuarios.json"));
 
 let registroController = {
@@ -18,11 +19,8 @@ let registroController = {
     }
     usuarios.push(usuarioNuevo);
 
-    let usuarioAgregado = JSON.stringify(usuarios, null, 2);
-    fs.writeFile('./src/data/usuarios.json', usuarioAgregado, (err) => {
-      if (err) throw err;
-      console.log('Usuario agregado');
-    });
+    actions.updateUser(usuarios);
+    
     res.redirect("/login");
     
   }
