@@ -113,19 +113,24 @@ main {
 
 .productInfo h2 {
   padding: 10px;
-  height: 150px;
+  
   width: 100%;
   font-size: 1.6em;
 }
-
+.calfiarriba{
+    padding-left: 10px;
+}
 .productDescription {
   width: 100%;
   height: 200px;
   padding: 10px;
 }
-
+.fa-star{
+    color:#febd6a;
+}
 .productDescription p {
-  height: 30px;
+    margin-top: 10px;
+
 }
 
 .productStyles {
@@ -448,6 +453,9 @@ form section {
   .botonagregar,
   .botoncomprar {
     width: 40%;
+  }
+  .calfiarriba{
+      display: none;
   }
 }
 .postComentario section {
