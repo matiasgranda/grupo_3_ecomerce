@@ -31,6 +31,27 @@
     </section>
     <section class="productInfo">
       <h2><%= productos.titulo %> </h2>
+      <div class="calfiarriba">
+      <%  let contador = 0; %>
+      <% for(let i = 0; i < productos.comentarios.length; i++) { %>
+          <%  contador=contador+parseInt(productos.calificaciones[i]) %>
+      <% } %>
+      Calificación promedio: 
+      <% let total= Math.round(contador/productos.comentarios.length) %>
+      <% for(let j = 0; j < total; j++) { %>
+        <i class="fa-solid fa-star"></i>
+        
+        <% } %>
+        <% 
+        if(total<5) {
+          for(let k = 0; k < (5-total); k++) { %>
+            <i class="fa-regular fa-star"></i>
+          <% }
+        } %>
+      
+      
+      
+      </div>
       <div class="productDescription">
         <% for(let i = 0; i < productos.descripcion.length; i++) { %>
         <p> <%= productos.descripcion[i] %> </p>
