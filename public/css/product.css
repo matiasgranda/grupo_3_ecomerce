@@ -51,19 +51,19 @@ main {
 }
 
 .mini-image {
-    display: flex;
-    /* max-height: 20%; */
-    width: 90%;
-    min-width: 70px;
-    /* background-color: beige; */
-    align-items: center;
-    justify-content: flex-start;
-    padding: 5px;
-    border: 1px solid #f7f7f7;
-    cursor: pointer;
-    /* margin-bottom: 5px; */
-    overflow: hidden;
-    margin-top: 5px;
+  display: flex;
+  /* max-height: 20%; */
+  width: 90%;
+  min-width: 70px;
+  /* background-color: beige; */
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px;
+  border: 1px solid #f7f7f7;
+  cursor: pointer;
+  /* margin-bottom: 5px; */
+  overflow: hidden;
+  margin-top: 5px;
 }
 
 .mini-image img {
@@ -113,24 +113,23 @@ main {
 
 .productInfo h2 {
   padding: 10px;
-  
+
   width: 100%;
   font-size: 1.6em;
 }
-.calfiarriba{
-    padding-left: 10px;
+.calfiarriba {
+  padding-left: 10px;
 }
 .productDescription {
   width: 100%;
   height: 200px;
   padding: 10px;
 }
-.fa-star{
-    color:#febd6a;
+.calfiarriba .fa-star {
+  color: #febd6a;
 }
 .productDescription p {
-    margin-top: 10px;
-
+  margin-top: 10px;
 }
 
 .productStyles {
@@ -422,16 +421,16 @@ form section {
   border-radius: 4px;
   cursor: pointer;
 }
-.seaparaseccion{
-    width: 98%;
-    color:#aaa;
-    display: none;
-    margin: auto;
+.seaparaseccion {
+  width: 98%;
+  color: #aaa;
+  display: none;
+  margin: auto;
 }
 @media (max-width: 1024px) {
-    .seaparaseccion{
-        display: block;
-    }
+  .seaparaseccion {
+    display: block;
+  }
   main {
     flex-wrap: wrap;
   }
@@ -454,8 +453,8 @@ form section {
   .botoncomprar {
     width: 40%;
   }
-  .calfiarriba{
-      display: none;
+  .calfiarriba {
+    display: none;
   }
 }
 .postComentario section {
@@ -483,13 +482,12 @@ form section {
   }
 }
 
-
 @media (max-width: 700px) {
-    .botonagregar, .botoncomprar {
-        width: 100%;
-    }
+  .botonagregar,
+  .botoncomprar {
+    width: 100%;
+  }
 }
-
 
 /*******   estrellas de rating ************/
 

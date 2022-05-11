@@ -10,12 +10,7 @@
         "/img/auriculares4.webp"
       ],
       "titulo": "Auriculares inalambricos Sony",
-      "descripcion": [
-        "Auriculares inalambricos Sony WH-1000XM4 black.",
-        "Alcance inalambrico de 10m.",
-        "Duracion de bateria de 30h.",
-        "Manos libres incluido."
-      ],
+      "descripcion": "Auriculares inalambricos Sony WH-1000XM4 black. Alcance inalambrico de 10m. Duracion de bateria de 30h. Manos libres incluido.",
       "categoria": "tecnologia",
       "precio": 1750,
       "color": "Negro",
@@ -45,13 +40,7 @@
         "/img/macbookair4.webp"
       ],
       "titulo": "Macbook Air",
-      "descripcion": [
-        "Apple Macbook Air",
-        "Capacidad: 8GB RAM / 512 GB SSD",
-        "Hasta 18 horas de bateria.",
-        "GPU de hasta 8 nucleos.",
-        "Pantalla Retina de 13.3 pulgadas"
-      ],
+      "descripcion": "Apple Macbook Air Capacidad: 8GB RAM / 512 GB SSD Hasta 18 horas de bateria. GPU de hasta 8 nucleos. Pantalla Retina de 13.3 pulgadas",
       "categoria": "tecnologia",
       "precio": 260000,
       "color": "Blanco",
@@ -75,13 +64,7 @@
         "/img/msi4.webp"
       ],
       "titulo": "Notebook MSI",
-      "descripcion": [
-        "Notebook gamer MSI Thin GF63",
-        "Capacidad: 8GB RAM / 512 GB SSD",
-        "Hasta 20 horas de bateria",
-        "Placa de video NVIDIA GeForce GTX 1650 Max-Q",
-        "Pantalla LED de 15.6 pulgadas."
-      ],
+      "descripcion": "Notebook gamer MSI Thin GF63 Capacidad: 8GB RAM / 512 GB SSD Hasta 20 horas de bateria Placa de video NVIDIA GeForce GTX 1650 Max-Q Pantalla LED de 15.6 pulgadas.",
       "categoria": "tecnologia",
       "precio": 345000,
       "color": "Negro",
@@ -103,13 +86,7 @@
         "/img/ps54.webp"
       ],
       "titulo": "Playstation 5",
-      "descripcion": [
-        "Sony Playstation 5 Digital edition",
-        "Memoria de 825GB",
-        "Resolucion de 3840px x 2160px.",
-        "Memoria RAM de 16GB",
-        "Cuenta con: 1 cable de alimentación ca, 1 cable hdmi, 1 cable de carga usb, 1 dock."
-      ],
+      "descripcion": "Sony Playstation 5 Digital edition Memoria de 825GB Resolucion de 3840px x 2160px.Memoria RAM de 16GB Cuenta con: 1 cable de alimentación ca, 1 cable hdmi, 1 cable de carga usb, 1 dock.",
       "categoria": "tecnologia",
       "precio": 240000,
       "color": "Blanco",
@@ -132,12 +109,7 @@
         "/img/buzo3.webp"
       ],
       "titulo": "Buzo Canguro",
-      "descripcion": [
-        "Buzo Canguro Hoodie con capucha",
-        "100% algodon",
-        "Talles S, M, L, XL disponibles",
-        "Ideal para el invierno"
-      ],
+      "descripcion": "Buzo Canguro Hoodie con capucha 100% algodon Talles S, M, L, XL disponibles Ideal para el invierno",
       "categoria": "moda",
       "precio": 6500,
       "color": "Negro",
@@ -185,13 +157,7 @@
         "/img/zapatillas4.webp"
       ],
       "titulo": "Zapatillas Nike",
-      "descripcion": [
-        "Zapatillas Court Legacy Nike.",
-        "Estilo: Urbano.",
-        "Suela de goma.",
-        "Tipo de ajuste: cordones.",
-        "Origen: Vietnam."
-      ],
+      "descripcion": "",
       "categoria": "moda",
       "precio": 12600,
       "color": "Negro",
@@ -212,13 +178,7 @@
         "/img/pantalon3.webp"
       ],
       "titulo": "Pantalon Cargo",
-      "descripcion": [
-        "Pantalon Cargo explorador.",
-        "Material: Gabardina",
-        "Diseño de la tela: Liso",
-        "Tipo de corte: Recto",
-        "Cuenta con 7 bolsillos"
-      ],
+      "descripcion": "",
       "categoria": "moda",
       "precio": 8000,
       "color": "Griz oscuro",
@@ -240,13 +200,7 @@
         "/img/cama2.webp"
       ],
       "titulo": "Cama Box Base",
-      "descripcion": [
-        "Cama Box Base Sommiers",
-        "6 Cajones de madera multifuncion",
-        "Tamaño de la cama: 2 plazas",
-        "Largo x Ancho: 200cm x 160cm",
-        "Peso maximo soportado: 240kg"
-      ],
+      "descripcion": "",
       "categoria": "hogar",
       "precio": 75000,
       "color": "Griz claro",
@@ -268,13 +222,7 @@
         "/img/silla2.webp"
       ],
       "titulo": "Silla de Comedor",
-      "descripcion": [
-        "Silla de comedor Eames color Blanco",
-        "Materiales: Acero, Polipropileno, Madera de haya.",
-        "Para exterior: No",
-        "Altura de la silla: 81cm",
-        "Peso maximo soportado: 110kg"
-      ],
+      "descripcion": "",
       "categoria": "hogar",
       "precio": 25000,
       "color": "Blanco",
@@ -295,13 +243,7 @@
         "/img/sillon3.webp"
       ],
       "titulo": "Sillón Esquinero",
-      "descripcion": [
-        "Sillon esquinero Chenille",
-        "Cantidad de cuerpos: 3",
-        "Estilo: Nordico",
-        "Ancho x Profundidad x Altura: 2.1 m x 0.9 m x 0.74 m",
-        "Estructura: Madera saligna encastrada y encolada"
-      ],
+      "descripcion": "",
       "categoria": "hogar",
       "precio": 320000,
       "color": "Gris, Gris Oscuro, Negro",
@@ -322,13 +264,7 @@
         "/img/mesa3.webp"
       ],
       "titulo": "Mesa Ratona",
-      "descripcion": [
-        "Mesa Ratona de centro moderna.",
-        "Requiere ensamblado: Si.",
-        "Material de la base: Melamina.",
-        "Medidas del mueble armado: Largo 90 - Alto 37 - Prof 45.",
-        "Peso del mueble: 18kg."
-      ],
+      "descripcion": "",
       "categoria": "hogar",
       "precio": 48000,
       "color": "Madera, Negro",
@@ -351,12 +287,7 @@
         "/img/pelota3.webp"
       ],
       "titulo": "Pelota Nike",
-      "descripcion": [
-        "Pelota Nike Futsal Pro",
-        "Composicion: 60% goma",
-        "Año de lanzamiento: 2022",
-        "Talla: One Size"
-      ],
+      "descripcion": "",
       "categoria": "deportes",
       "precio": 6500,
       "color": "Blanco, Negro",
@@ -377,12 +308,7 @@
         "/img/botines3.webp"
       ],
       "titulo": "Botines Nike",
-      "descripcion": [
-        "Botines Nike Jr Phantom GT Academy",
-        "Tipo de superficie: Cesped",
-        "Consultar por talles disponibles antes de ofertar!",
-        "Modelo: CW6694-160"
-      ],
+      "descripcion": "",
       "categoria": "deportes",
       "precio": 13000,
       "color": "Griz",
@@ -404,13 +330,7 @@
         "/img/pesas4.webp"
       ],
       "titulo": "Mancuerna",
-      "descripcion": [
-        "Pesas Mancuerna 5kg x2 unidades.",
-        "Mancuerna Hexagonal PVC.",
-        "Material de recubrimiento: PVC.",
-        "Rellena de arena y granalla.",
-        "Super resistentes, no lastiman las manos!"
-      ],
+      "descripcion": "",
       "categoria": "deportes",
       "precio": 7000,
       "color": "Metalico, Negro",
@@ -434,13 +354,7 @@
         "/img/colchoneta4.webp"
       ],
       "titulo": "Colchonetas",
-      "descripcion": [
-        "Colchonetas Gimnasia alta densidad.",
-        "Largo x Ancho: 100cm x 50cm.",
-        "Densidad: 110kg/m3.",
-        "Espesor: 5cm.",
-        "Material de cobertura: Bagun."
-      ],
+      "descripcion": "",
       "categoria": "deportes",
       "precio": 4300,
       "color": "Rojo, Naranja, Verde, Azul, Violeta",
@@ -464,13 +378,7 @@
         "/img/monopatinelectrico4.webp"
       ],
       "titulo": "Monopatín Eléctrico",
-      "descripcion": [
-        "Monopatin Scooter electrico.",
-        "Bateria intercambiable.",
-        "Es plegable: Si.",
-        "Peso: 12.5kg",
-        "Marca / modelo: Logus L7."
-      ],
+      "descripcion": "",
       "categoria": "movilidad",
       "precio": 107000,
       "color": "Griz, Metalico",
@@ -492,13 +400,7 @@
         "/img/hoverboard4.webp"
       ],
       "titulo": "Hoverboard",
-      "descripcion": [
-        "Hoverboard 10 Kuest Skate",
-        "Peso maximo sportado: 110kg",
-        "Potencia de motor: 300W",
-        "Velocidad maxima: 12km/h",
-        "Autonomia por carga: 15km"
-      ],
+      "descripcion": "",
       "categoria": "movilidad",
       "precio": 140000,
       "color": "Negro, Rojo",
@@ -520,13 +422,7 @@
         "/img/bicicleta4.webp"
       ],
       "titulo": "Bicicleta MTB",
-      "descripcion": [
-        "Bicicleta Mountain Bike Rattle.",
-        "Rodado: 29.",
-        "Cantidad de velocidades: 21.",
-        "Tamaños de cuadro disponibles, M - L.",
-        "Material del cuadro: Aluminio."
-      ],
+      "descripcion": "",
       "categoria": "movilidad",
       "precio": 120000,
       "color": "Naranja",
@@ -548,14 +444,7 @@
         "/img/bicicletaelectrica4.webp"
       ],
       "titulo": "Bicicleta Eléctrica",
-      "descripcion": [
-        "Bicicleta electrica Fiat F500X.",
-        "Es plegable: Si.",
-        "Modelo: F500X-FFBIKE20-R.",
-        "Velocidad maxima: 25km/h.",
-        "Motor 250W",
-        "Bateria: 7.8AH"
-      ],
+      "descripcion": "",
       "categoria": "movilidad",
       "precio": 190000,
       "color": "Rojo",
@@ -578,13 +467,7 @@
         "/img/monopatin3.webp"
       ],
       "titulo": "Monopatín",
-      "descripcion": [
-        "Monopatin Drift Pro Rider.",
-        "Material: Aluminio.",
-        "Cantidad de ruedas: 2.",
-        "Requiere ensamblado: No.",
-        "Ancho de base: 10cm."
-      ],
+      "descripcion": "",
       "categoria": "ninios",
       "precio": 7000,
       "color": "Azul, Negro",
@@ -605,13 +488,7 @@
         "/img/autito3.webp"
       ],
       "titulo": "Auto a control remoto",
-      "descripcion": [
-        "Transformer Auto Robot a radio control.",
-        "Velocidad maxima: 5km/h.",
-        "Luces y sonido.",
-        "Bateria recargable.",
-        "Control remoto lleva 2 pilas AA (No incluidas)."
-      ],
+      "descripcion": "",
       "categoria": "ninios",
       "precio": 11000,
       "color": "Azul, Rojo",
@@ -633,14 +510,7 @@
         "/img/utilesescolares4.webp"
       ],
       "titulo": "Kit utiles escolares",
-      "descripcion": [
-        "Kit Combo utiles escolares x 14 articulos!",
-        "x1 Cuaderno hojas rayadas.",
-        "x1 cuaderno hojas cuadriculadas.",
-        "x2 Lapices graffito",
-        "x2 resaltadores.",
-        "x1 Notas adhesivas."
-      ],
+      "descripcion": "",
       "categoria": "ninios",
       "precio": 7000,
       "color": "Multicolor",
@@ -662,13 +532,7 @@
         "/img/triciclo4.webp"
       ],
       "titulo": "Triciclo",
-      "descripcion": [
-        "Triciclo infantil con ruedas macizas!",
-        "Edad maxima recomendada: 5 años.",
-        "Ancho: 44cm.",
-        "Peso: 4kg.",
-        "Peso maximo soportado: 38kg."
-      ],
+      "descripcion": "",
       "categoria": "ninios",
       "precio": 9800,
       "color": "Rojo, Azul, Amarillo",

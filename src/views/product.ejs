@@ -39,13 +39,13 @@
       Calificación promedio: 
       <% let total= Math.round(contador/productos.comentarios.length) %>
       <% for(let j = 0; j < total; j++) { %>
-        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star" title="Calificaión: <%= contador/productos.comentarios.length %>"></i>
         
         <% } %>
         <% 
         if(total<5) {
           for(let k = 0; k < (5-total); k++) { %>
-            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star" title="Calificaión: <%= contador/productos.comentarios.length %>"></i>
           <% }
         } %>
       
@@ -53,9 +53,9 @@
       
       </div>
       <div class="productDescription">
-        <% for(let i = 0; i < productos.descripcion.length; i++) { %>
-        <p> <%= productos.descripcion[i] %> </p>
-        <% } %>
+       
+        <p> <%= productos.descripcion %> </p>
+       
       </div>
       <div class="productStyles">
         <p>Colores: <%= productos.color %></p>
