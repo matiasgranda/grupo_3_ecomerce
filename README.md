@@ -34,11 +34,11 @@ Publico general que busca una excelente experiencia de compra y un servicio al c
 <hr>
 <h3>Sprint 2</h3>
 
-- [ ] Archivo retro.md con el resultado de la retrospectiva.
+- [x] Archivo retro.md con el resultado de la retrospectiva.
 - [x] Enlace al tablero de trabajo en el archivo README.md.
 - [x] Aplicación Node.js+Express con:
 - [x] Home (index.html)
-- [ ] Detalle del producto (productDetail.html)
+- [x] Detalle del producto (productDetail.html)
 - [x] Carrito de compras (productCart.html)
 - [x] Formulario de registro (register.html)
 - [x] Formulario de login (login.html)
@@ -53,6 +53,7 @@ https://trello.com/invite/b/PiDySFQK/e0192faa4a80919be537a0ddc05607ce/proyecto-i
 
 Apasionado por la ciencia y la tecnología. Ethical Hacker, cisco security administrator, administrador de infraestructuras. Amante del deporte y músico.
 Me gusta ayudar a la gente en lo que pueda e intentar sacar lo mejor de cada uno.
+
 <h6> Emanuel Martinez </h6>
 
 Estudiante de Desarrollo Web Full Stack, empezando de a poco a conocer este nuevo mundo de la informática. Futuro estudiante de Ciberseguridad. Me gusta el futbol, el atletismo y la Música.
