@@ -95,6 +95,7 @@ let productsController = {
           productos[i][j].calificaciones.push(calificacionNueva);
         }
       }
+      
     }
     actions.updateProduct(productos);
 
