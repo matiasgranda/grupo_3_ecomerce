@@ -81,7 +81,7 @@ let productsController = {
 
     actions.addProduct(productos);
 
-    res.redirect("/product/"+productoNuevo.id);
+    res.status(200).redirect("/product/"+productoNuevo.id);
   },
 
   comentarios: (req, res) => {
