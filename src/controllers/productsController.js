@@ -25,7 +25,7 @@ let productsController = {
   },
 
   save: (req, res) => {
-    console.log(req.files);
+    
     let nombreimagenOrig;
     let imagenesAdicionales = [];
     req.files.forEach((element) => {
@@ -81,7 +81,7 @@ let productsController = {
 
     actions.addProduct(productos);
 
-    res.redirect("/home");
+    res.redirect("/product/"+productoNuevo.id);
   },
 
   comentarios: (req, res) => {

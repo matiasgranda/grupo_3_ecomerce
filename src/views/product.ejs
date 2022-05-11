@@ -10,27 +10,34 @@
 </head>
 
 <body>
+  <% if (productos!=undefined) { %>
   <%- include('./partials/navbar') %>
   <%- include('./partials/sidenav') %>
+  
   <main>
     <section class="images">
 
       <div class="mini-viewer">
-        <% for(let i = 0; i < productos.masImagenes.length; i++) { %>
+        <% if (productos!=undefined) { 
+          for(let i = 0; i < productos.masImagenes.length; i++) { %>
         <div class="mini-image">
           <img src="<%= productos.masImagenes[i] %> " alt="" onclick="mostrarImagen(this)">
         </div>
-        <% } %>
+        <% }
+       } %>
       </div>
       <div class="main-image">
-        <img src="<%= productos.imagen %>" alt="" name="mainimage" id="mainimage">
-
+        <% if (productos!=undefined) { %>
+          <img src="<%= productos.imagen %>" alt="" name="mainimage" id="mainimage">
+        <% } %>
       </div>
 
       <div class="mensajeimagen">Click para agrandar la imagen</div>
     </section>
     <section class="productInfo">
+      <% if (productos!=undefined) { %>
       <h2><%= productos.titulo %> </h2>
+      <% } %>
       <div class="calfiarriba">
       <%  let contador = 0; %>
       <% for(let i = 0; i < productos.comentarios.length; i++) { %>
@@ -245,6 +252,7 @@
       document.getElementById("mainimage").src = obj.src;
     }
   </script>
+  <% } %>
 </body>
 
 </html>
