@@ -87,7 +87,6 @@ let productsController = {
   comentarios: (req, res) => {
     let comentarioNuevo = req.body.comentario;
     let calificacionNueva = req.body.calificacion;
-    console.log(calificacionNueva);
     for (let i = 0; i < productos.length; i++) {
       for (let j = 0; j < productos[i].length; j++) {
         if (productos[i][j].id == parseInt(req.params.id)) {
@@ -96,6 +95,26 @@ let productsController = {
         }
       }
       
+    }
+    actions.updateProduct(productos);
+
+    res.redirect("/product/" + req.params.id);
+  },
+
+  pregunta: (req, res) => {
+    let preguntaNueva = {
+      usuario: "Cosme Fulanito",
+      pregunta: req.body.pregunta
+    };
+
+    console.log(preguntaNueva);
+
+    for (let i = 0; i < productos.length; i++) {
+      for (let j = 0; j < productos[i].length; j++) {
+        if (productos[i][j].id == parseInt(req.params.id)) {
+          productos[i][j].preguntas.push(preguntaNueva)
+        }
+      }
     }
     actions.updateProduct(productos);
 

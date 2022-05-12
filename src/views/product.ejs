@@ -13,7 +13,7 @@
   <% if (productos!=undefined) { %>
   <%- include('./partials/navbar') %>
   <%- include('./partials/sidenav') %>
-  
+
   <main>
     <section class="images">
 
@@ -28,7 +28,7 @@
       </div>
       <div class="main-image">
         <% if (productos!=undefined) { %>
-          <img src="<%= productos.imagen %>" alt="" name="mainimage" id="mainimage">
+        <img src="<%= productos.imagen %>" alt="" name="mainimage" id="mainimage">
         <% } %>
       </div>
 
@@ -39,30 +39,30 @@
       <h2><%= productos.titulo %> </h2>
       <% } %>
       <div class="calfiarriba">
-      <%  let contador = 0; %>
-      <% for(let i = 0; i < productos.comentarios.length; i++) { %>
-          <%  contador=contador+parseInt(productos.calificaciones[i]) %>
-      <% } %>
-      Calificación promedio: 
-      <% let total= Math.round(contador/productos.comentarios.length) %>
-      <% for(let j = 0; j < total; j++) { %>
+        <%  let contador = 0; %>
+        <% for(let i = 0; i < productos.comentarios.length; i++) { %>
+        <%  contador=contador+parseInt(productos.calificaciones[i]) %>
+        <% } %>
+        Calificación promedio:
+        <% let total= Math.round(contador/productos.comentarios.length) %>
+        <% for(let j = 0; j < total; j++) { %>
         <i class="fa-solid fa-star" title="Calificaión: <%= contador/productos.comentarios.length %>"></i>
-        
+
         <% } %>
         <% 
         if(total<5) {
           for(let k = 0; k < (5-total); k++) { %>
-            <i class="fa-regular fa-star" title="Calificaión: <%= contador/productos.comentarios.length %>"></i>
-          <% }
+        <i class="fa-regular fa-star" title="Calificaión: <%= contador/productos.comentarios.length %>"></i>
+        <% }
         } %>
-      
-      
-      
+
+
+
       </div>
       <div class="productDescription">
-       
+
         <p> <%= productos.descripcion %> </p>
-       
+
       </div>
       <div class="productStyles">
         <p>Colores: <%= productos.color %></p>
@@ -154,43 +154,40 @@
     </div>
   </article>
   <hr class="separador">
+
   <article class="preguntas">
+
+    <% for(let i = 0; i < productos.preguntas.length; i++) { %>
+
     <div class="itempreguntas">
       <div class="usuario">
-        clodomiro2020
+        <%=productos.preguntas[i].usuario%>
       </div>
       <div class="pregunta">
-        Quisiera actualizar mi conexión a la red de 28.8 kilobaudios a una línea T1 de fibra óptica. ¿Tiene usted un
-        servidor con routeador compatible con mi configuración LAN ethernet token ring?
+        <%=productos.preguntas[i].pregunta%>
       </div>
       <div class="respuesta">
+        <i class="fa-solid fa-turn-up" style="transform: rotate(90deg);tranform: rotate(90);"></i>
         eh.... podría darme el dinero?
       </div>
     </div>
-    <div class="itempreguntas">
-      <div class="usuario">
-        clodomiro2020
-      </div>
-      <div class="pregunta">
-        Quisiera actualizar mi conexión a la red de 28.8 kilobaudios a una línea T1 de fibra óptica. ¿Tiene usted un
-        servidor con routeador compatible con mi configuración LAN ethernet token ring?
-      </div>
-      <div class="respuesta">
-        eh.... podría darme el dinero?
-      </div>
+
+    <% } %>
+
     </div>
-    <div class="itempreguntas">
-      <div class="usuario">
-        clodomiro2020
-      </div>
-      <div class="pregunta">
-        Quisiera actualizar mi conexión a la red de 28.8 kilobaudios a una línea T1 de fibra óptica. ¿Tiene usted un
-        servidor con routeador compatible con mi configuración LAN ethernet token ring?
-      </div>
-      <div class="respuesta">
-        eh.... podría darme el dinero?
-      </div>
-    </div>
+
+    <article class="postComentario">
+      <form class="form-preguntas" action="/product/<%=productos.id%>/pregunta" method="post">
+
+        <label for="pregunta"></label>
+        <textarea name="pregunta" id="pregunta" required minlength="20"></textarea>
+
+        <button class="btnenviar" type="submit">Enviar</button>
+      </form>
+    </article>
+
+
+
 
   </article>
   <hr class="separador">
@@ -198,17 +195,17 @@
     <h2>Otros usuarios opinaron:</h2>
     <% for(let i = 0; i < productos.comentarios.length; i++) { %>
     <div class="comment-box">
-      
+
       <div class="calificacion">
         <% for(let j = 0; j < productos.calificaciones[i]; j++) { %>
         <i class="fa-solid fa-star"></i>
-        
+
         <% } %>
         <% 
         if(productos.calificaciones[i]<5) {
           for(let k = 0; k < (5-productos.calificaciones[i]); k++) { %>
-            <i class="fa-regular fa-star"></i>
-          <% }
+        <i class="fa-regular fa-star"></i>
+        <% }
         } %>
       </div>
       <div class="comentario">
@@ -222,23 +219,23 @@
   <hr class="separador">
   <article class="postComentario">
     <h3>Dejanos tu comentario y calificacion:</h3>
-    <form action="/product/<%=productos.id%>" method="post">
+    <form action="/product/<%=productos.id%>/comentario" method="post">
       <section>
         <label for="comentario"></label>
-        <textarea name="comentario" id="comentario"></textarea>
+        <textarea name="comentario" id="comentario" required minlength="4"></textarea>
         <div class="rating">
-          <input type="radio" name="calificacion" id="one" value="1"  checked />
+          <input type="radio" name="calificacion" id="one" value="1" checked />
           <label for="one"><i class="fa fa-star"></i></label>
-          <input type="radio" name="calificacion" id="two"  value="2" />
+          <input type="radio" name="calificacion" id="two" value="2" />
           <label for="two"><i class="fa fa-star"></i></label>
-          <input type="radio" name="calificacion" id="three" value="3"  />
+          <input type="radio" name="calificacion" id="three" value="3" />
           <label for="three"><i class="fa fa-star"></i></label>
-          <input type="radio" name="calificacion" id="four"  value="4"  />
+          <input type="radio" name="calificacion" id="four" value="4" />
           <label for="four"><i class="fa fa-star"></i></label>
           <input type="radio" name="calificacion" id="five" value="5" />
           <label for="five"><i class="fa fa-star"></i></label>
-      </div>
-        
+        </div>
+
       </section>
       </div>
       <button class="btnenviar" type="submit">Enviar</button>

@@ -19,7 +19,8 @@ let productsController = require("../controllers/productsController")
 router.get("/create", productsController.create);
 router.get("/:id", productsController.product);
 router.post("/create", fileupload.any(),productsController.save);
-router.post("/:id", productsController.comentarios);
+router.post("/:id/comentario", productsController.comentarios);
+router.post("/:id/pregunta", productsController.pregunta);
 
 
 
