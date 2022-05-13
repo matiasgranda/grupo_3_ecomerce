@@ -112,7 +112,10 @@ let productsController = {
     for (let i = 0; i < productos.length; i++) {
       for (let j = 0; j < productos[i].length; j++) {
         if (productos[i][j].id == parseInt(req.params.id)) {
-          productos[i][j].preguntas.push(preguntaNueva)
+          if(productos[i][j].preguntas===undefined){
+            productos[i][j].preguntas=[];
+          }
+          productos[i][j].preguntas.push(preguntaNueva);
         }
       }
     }

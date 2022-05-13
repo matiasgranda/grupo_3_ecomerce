@@ -132,6 +132,16 @@
       ],
       "calificaciones": [
         "5"
+      ],
+      "preguntas": [
+        {
+          "usuario": "Cosme Fulanito",
+          "pregunta": "hola que onda? preguntonta"
+        },
+        {
+          "usuario": "Cosme Fulanito",
+          "pregunta": "rtyrtyrtyryrt yrt yrty rty rty rty rty rt yrty"
+        }
       ]
     }
   ],
@@ -248,6 +258,12 @@
       "calificaciones": [
         "5",
         "1"
+      ],
+      "preguntas": [
+        {
+          "usuario": "Cosme Fulanito",
+          "pregunta": "preguntonta de prueba lalalalalaalala"
+        }
       ]
     },
     {
