@@ -154,29 +154,33 @@
     </div>
   </article>
   <hr class="separador">
-
+  <% if(productos.preguntas!=undefined && productos.preguntas.length>0) { %>
   <article class="preguntas">
-
+    <h3>Otras preguntas</h3>
     <% for(let i = 0; i < productos.preguntas.length; i++) { %>
 
     <div class="itempreguntas">
       <div class="usuario">
         <%=productos.preguntas[i].usuario%>
       </div>
-      <div class="pregunta">
-        <%=productos.preguntas[i].pregunta%>
-      </div>
-      <div class="respuesta">
-        <i class="fa-solid fa-turn-up" style="transform: rotate(90deg);tranform: rotate(90);"></i>
-        eh.... podría darme el dinero?
+      <div class="preg-resp">
+        <div class="pregunta">
+          <%=productos.preguntas[i].pregunta%>
+        </div>
+        <div class="respuesta">
+          <i class="fa-solid fa-turn-up" style="transform: rotate(90deg);tranform: rotate(90);"></i>
+          eh.... podría darme el dinero?
+        </div>
       </div>
     </div>
 
     <% } %>
-
+   
     </div>
-
+  </article>
+  <% } %>
     <article class="postComentario">
+      <h3>Realizar una pregunta al vendedor</h3>
       <form class="form-preguntas" action="/product/<%=productos.id%>/pregunta" method="post">
 
         <label for="pregunta"></label>
@@ -190,9 +194,12 @@
 
 
   </article>
+  <% if(productos.comentarios!=undefined && productos.comentarios.length>0) { %>
   <hr class="separador">
   <article class="comentario-calificacion">
-    <h2>Otros usuarios opinaron:</h2>
+   
+    <h2>Otros usuarios opinaron</h2>
+   
     <% for(let i = 0; i < productos.comentarios.length; i++) { %>
     <div class="comment-box">
 
@@ -215,7 +222,9 @@
       </div>
     </div>
     <% } %>
+    
   </article>
+  <% } %>
   <hr class="separador">
   <article class="postComentario">
     <h3>Dejanos tu comentario y calificacion:</h3>

@@ -281,7 +281,9 @@ main {
   justify-content: center;
   align-items: flex-start;
 }
-
+.preguntas h3 {
+  margin-left: 20px;
+}
 .itempreguntas {
   display: flex;
   flex-direction: row;
@@ -292,19 +294,24 @@ main {
   width: 98%;
   margin: auto;
   margin-top: 15px;
-  box-shadow: 0px 0px 2px 0px lightgray;
+  /*box-shadow: 0px 0px 2px 0px lightgray;*/
   padding: 10px;
 }
-
+.preg-resp {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 .respuesta {
   margin: 2px 0px;
   width: 98%;
-  padding-left: 180px;
+  padding-left: 15px;
   padding-top: 5px;
   color: rgb(167, 162, 162);
-
 }
-
 
 .usuario {
   margin: 2px 0px;
@@ -313,13 +320,11 @@ main {
   min-width: 100px;
   font-weight: bold;
   margin-right: 10px;
-
 }
 
 .pregunta {
   margin: 2px 0px;
   width: fit-content;
-
 }
 
 .comentario-calificacion {
@@ -333,11 +338,11 @@ main {
 }
 
 .comment-box {
-  margin-top: 20px;
+  margin-top: 5px;
   width: 90%;
   display: flex;
   justify-content: center;
-  box-shadow: 0px 0px 2px 0px lightgray;
+  /*box-shadow: 0px 0px 2px 0px lightgray;*/
 }
 
 .comentario {
@@ -361,7 +366,7 @@ main {
   align-items: center;
   height: 30px;
   padding: 5px;
-  width: 20%;
+
   min-width: 100px;
 }
 
@@ -498,12 +503,14 @@ form section {
     width: 100%;
   }
   .itempreguntas {
-    flex-direction: column;
+    flex-direction: row;
   }
   .respuesta {
     padding-left: 10px;
   }
-
+  .usuario{
+    width: fit-content;
+  }
 }
 
 /*******   estrellas de rating ************/
