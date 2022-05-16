@@ -99,7 +99,7 @@ function openAmazonMusic() {
     <a href="#"><div class="sidenavContent">All Videos</div></a>`;
 }
 
-function openPrimeVideo() {
+function openTecno() {
     document.getElementById("sub-container-content").innerHTML = `
         <div class="sidenavContentHeader">Tecnología</div>
             <a href="#">
@@ -115,6 +115,26 @@ function openPrimeVideo() {
                 <div class="sidenavContent">Celulares</div>
             <a href="#">
                 <div class="sidenavContent">Tablets</div>
+            </a>
+            
+            `;
+}
+function openIndu() {
+    document.getElementById("sub-container-content").innerHTML = `
+        <div class="sidenavContentHeader">Indumentaria</div>
+            <a href="#">
+                <div class="sidenavContent">Temporada</div>
+            </a>
+            <a href="#">
+                <div class="sidenavContent">Estilo Urbano</div>
+            </a>
+            <a href="#">
+                <div class="sidenavContent">Estilo Clasico</div>
+            </a>
+            <a href="#">
+                <div class="sidenavContent">Tendencias</div>
+            <a href="#">
+                <div class="sidenavContent">Outlet</div>
             </a>
             
             `;

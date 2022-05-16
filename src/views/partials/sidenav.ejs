@@ -2,7 +2,7 @@
 
 <div id="closeBtn" onclick="closeNav()">&times;</div>
 <div class="sidenav" id="mySidenav">
-  <div class="sidenavHeader">
+  <div class="sidenavHeader" onclick="location.href='/login'" style="cursor:pointer">
     <i class="fas fa-user-circle"></i> Hola, inicia sesión
   </div>
   <!--Below SideNavHeader-->
@@ -19,13 +19,13 @@
    
     
     <div class="sidenavContentHeader">Categorias</div>
-    <a href="#" onclick="openPrimeVideo()">
+    <a href="#" onclick="openTecno()">
       <div class="sidenavRow">
         <div>Tecnología</div>
         <i class="fas fa-chevron-right" style="color: #8e9090"></i>
       </div>
     </a>
-    <a href="#">
+    <a href="#" onclick="openIndu()">
       <div class="sidenavRow">
         <div>Indumentaria</div>
         <i class="fas fa-chevron-right" style="color: #8e9090"></i>
