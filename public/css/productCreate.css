@@ -5,9 +5,9 @@
     font-family: 'Montserrat', sans-serif;
 }
 .error{
-    /*background-color: rgb(255 6 6 / 56%);*/
+    background-color: rgb(255 6 6 / 56%);
     padding: 3px;
-    color: red;
+    color: white;
     border-radius: 3px;
     text-align: center;
     margin: auto;

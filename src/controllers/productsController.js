@@ -44,8 +44,6 @@ let productsController = {
       let mensaje={
         codigo:400,
         descripcion:'Debe ingresar una imagen principal',
-        
-
       }
       res.status(400).render(path.resolve(__dirname, "../views/productCreate.ejs"),{mensaje});
       return next(error);

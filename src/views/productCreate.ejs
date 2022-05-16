@@ -55,16 +55,15 @@
               id="imagenPrincipal"
               accept="image/*"
             />
-            
-            <% try { %> 
-              <br>
-              <div class="error">
-                
-                <%= mensaje.descripcion %> 
-                
-              </div>
-            <% } catch (error) {
+            <% if(locals && locals.mensaje){ %>
               
+                <br>
+                <div class="error">
+                  
+                  <%= mensaje.descripcion %> 
+                  
+                </div>
+            <%  
             }
              %>
           </div>
