@@ -2,6 +2,7 @@ const path = require("path");
 const fs = require("fs");
 const actions = require("../data/actions");
 const { parse } = require("path");
+const { Console } = require("console");
 let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
 
 let productsController = {
@@ -24,18 +25,31 @@ let productsController = {
     res.render(path.resolve(__dirname, "../views/productCreate.ejs"));
   },
 
-  save: (req, res) => {
-    
+  save: (req, res,next) => {
     let nombreimagenOrig;
     let imagenesAdicionales = [];
-    req.files.forEach((element) => {
-      if (element.fieldname === "imagenPrincipal") {
-        nombreimagenOrig = "/img/"+element.filename;
-      } else {
-        imagenesAdicionales.push("/img/"+element.filename);
-      }
-    });
+    if (req.files.length>0) {
+      req.files.forEach((element) => {
+        if (element.fieldname === "imagenPrincipal") {
+          nombreimagenOrig = "/img/" + element.filename;
+        } else {
+          imagenesAdicionales.push("/img/" + element.filename);
+        }
+      });
+    }else{
+      const error=new Error("Debe agregar al menos la imagen principal");
+      error.HttpStatusCode=400;
+      console.log("Debe agregar al menos la imagen principal");
+      let mensaje={
+        codigo:400,
+        descripcion:'Debe ingresar una imagen principal',
+        
 
+      }
+      res.status(400).render(path.resolve(__dirname, "../views/productCreate.ejs"),{mensaje});
+      return next(error);
+     
+    }
     let idMasAlto = 0;
     for (let i = 0; i < productos.length; i++) {
       for (let j = 0; j < productos[i].length; j++) {
@@ -52,9 +66,9 @@ let productsController = {
       precio: req.body.precio,
       imagen: nombreimagenOrig,
       masImagenes: imagenesAdicionales,
-      marca:"",
-      comentarios:[],
-      calificaciones:[]
+      marca: "",
+      comentarios: [],
+      calificaciones: [],
     };
     switch (req.body.categoria) {
       case "tecnologia":
@@ -81,7 +95,7 @@ let productsController = {
 
     actions.addProduct(productos);
 
-    res.status(200).redirect("/product/"+productoNuevo.id);
+    res.status(200).redirect("/product/" + productoNuevo.id);
   },
 
   comentarios: (req, res) => {
@@ -94,7 +108,6 @@ let productsController = {
           productos[i][j].calificaciones.push(calificacionNueva);
         }
       }
-      
     }
     actions.updateProduct(productos);
 
@@ -104,7 +117,7 @@ let productsController = {
   pregunta: (req, res) => {
     let preguntaNueva = {
       usuario: "Cosme Fulanito",
-      pregunta: req.body.pregunta
+      pregunta: req.body.pregunta,
     };
 
     console.log(preguntaNueva);
@@ -112,8 +125,8 @@ let productsController = {
     for (let i = 0; i < productos.length; i++) {
       for (let j = 0; j < productos[i].length; j++) {
         if (productos[i][j].id == parseInt(req.params.id)) {
-          if(productos[i][j].preguntas===undefined){
-            productos[i][j].preguntas=[];
+          if (productos[i][j].preguntas === undefined) {
+            productos[i][j].preguntas = [];
           }
           productos[i][j].preguntas.push(preguntaNueva);
         }

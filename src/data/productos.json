@@ -143,6 +143,53 @@
           "pregunta": "rtyrtyrtyryrt yrt yrty rty rty rty rty rt yrty"
         }
       ]
+    },
+    {
+      "id": 25,
+      "titulo": "poporolo",
+      "descripcion": "lalalala",
+      "categoria": "tecnologia",
+      "precio": "34234.44",
+      "masImagenes": [],
+      "marca": "",
+      "comentarios": [],
+      "calificaciones": []
+    },
+    {
+      "id": 26,
+      "titulo": "poporolo",
+      "descripcion": "lalalala",
+      "categoria": "tecnologia",
+      "precio": "34234.44",
+      "imagen": "/img/1652703295688.png",
+      "masImagenes": [],
+      "marca": "",
+      "comentarios": [],
+      "calificaciones": []
+    },
+    {
+      "id": 27,
+      "titulo": "poporolo",
+      "descripcion": "lalalala",
+      "categoria": "tecnologia",
+      "precio": "34234.44",
+      "imagen": "/img/1652703327218.png",
+      "masImagenes": [],
+      "marca": "",
+      "comentarios": [],
+      "calificaciones": []
+    },
+    {
+      "id": 28,
+      "titulo": "poporolo",
+      "descripcion": "lalalala",
+      "categoria": "tecnologia",
+      "precio": "34234.44",
+      "imagen": "/img/1652703384280.png",
+      "masImagenes": [],
+      "marca": "",
+      "comentarios": [],
+      "calificaciones": []
     }
   ],
   [

@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-const methodOverrude=require('method-override');
+const methodOverride=require('method-override');
 let productRoutes = require("./routes/product.js");
 let mainRoutes = require("./routes/main.js");
 let registroRoutes=require("./routes/registro");
@@ -10,7 +10,7 @@ const exp = require("constants");
 
 const publicPath = (path.resolve(__dirname, "../public"));
 app.use(express.static(publicPath));
-app.use(methodOverrude('_method')); /* sobreescribir methods para dar soporte a put y delete 
+app.use(methodOverride('_method')); /* sobreescribir methods para dar soporte a put y delete 
 que no esta en todos los navegadores*/
 
 

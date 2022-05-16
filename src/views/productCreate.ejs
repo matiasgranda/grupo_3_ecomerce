@@ -10,12 +10,12 @@
   <body>
     <div class="productForm">
       <div class="logo">
-        <a  href="/">
-          <img src="/img/amazona-negro.png" alt="Amazona"/>
+        <a href="/">
+          <img src="/img/amazona-negro.png" alt="Amazona" />
         </a>
       </div>
       <h2>Publicar Producto</h2>
-
+      
       <form
         action="/product/create"
         method="post"
@@ -46,6 +46,7 @@
         </div>
         <div class="imagenPrincipal">
           <h5>Agregar imágen principal</h5>
+          <br>
           <div class="imagenForm">
             <label for="imagenPrincipal">Seleccionar Imagen</label>
             <input
@@ -54,6 +55,18 @@
               id="imagenPrincipal"
               accept="image/*"
             />
+            
+            <% try { %> 
+              <br>
+              <div class="error">
+                
+                <%= mensaje.descripcion %> 
+                
+              </div>
+            <% } catch (error) {
+              
+            }
+             %>
           </div>
         </div>
         <div class="imagenesSecundarias">
@@ -68,7 +81,6 @@
               multiple
             />
           </div>
-          
         </div>
         <div class="submitForm">
           <button type="submit">Publicar</button>
