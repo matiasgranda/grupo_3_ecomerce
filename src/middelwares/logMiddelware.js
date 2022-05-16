@@ -1,4 +1,3 @@
-const { time } = require('console');
 const fs = require('fs');
 
 function logMiddelware(req, res, next) {
@@ -9,3 +8,4 @@ function logMiddelware(req, res, next) {
     next();
 }
 module.exports = logMiddelware;
+

@@ -6,7 +6,7 @@ let productRoutes = require("./routes/product.js");
 let mainRoutes = require("./routes/main.js");
 let registroRoutes=require("./routes/registro");
 const exp = require("constants");
-const logMiddelware= require("./middelwares/logMiddelware");
+
 
 
 const publicPath = (path.resolve(__dirname, "../public"));
