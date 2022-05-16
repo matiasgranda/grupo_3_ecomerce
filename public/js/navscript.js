@@ -139,3 +139,23 @@ function openIndu() {
             
             `;
 }
+function openGaming() {
+    document.getElementById("sub-container-content").innerHTML = `
+        <div class="sidenavContentHeader">Gaming</div>
+            <a href="#">
+                <div class="sidenavContent">Consolas</div>
+            </a>
+            <a href="#">
+                <div class="sidenavContent">Computadoras</div>
+            </a>
+            <a href="#">
+                <div class="sidenavContent">Placas de video</div>
+            </a>
+            <a href="#">
+                <div class="sidenavContent">Accesorios</div>
+            <a href="#">
+                <div class="sidenavContent">Sillas</div>
+            </a>
+            
+            `;
+}
