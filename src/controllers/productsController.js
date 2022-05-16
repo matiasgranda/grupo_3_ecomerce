@@ -3,6 +3,7 @@ const fs = require("fs");
 const actions = require("../data/actions");
 const { parse } = require("path");
 const { Console } = require("console");
+
 let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
 
 let productsController = {
@@ -94,7 +95,7 @@ let productsController = {
     }
 
     actions.addProduct(productos);
-
+    
     res.status(200).redirect("/product/" + productoNuevo.id);
   },
 
