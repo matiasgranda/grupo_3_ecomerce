@@ -7,26 +7,35 @@
 
 body {
     width: 100%;
-    height: 100%;
+    height: fit-content;
     background-color: #eaeded;
-    display: flex;
     position: absolute;
     min-width: 390px;
 }
 
 main {
-    position: absolute;
-    top: 90px;
+    position: relative;
+    margin-top: 90px;
     /*top: 100px;*/
     width: 100%;
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
     height: 900px;
-    background-color: aqua;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    height: fit-content;
 }
 
-main p {
-    color: black;
+main div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    flex: 1 1 400px;
+    height: 200px;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
 }
+
