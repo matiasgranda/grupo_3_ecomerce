@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/css/admin.css">
+    <title>Admin</title>
+</head>
+<body>
+    <%- include('./partials/navbar') %>  
+    <main>
+        <% for(let i = 0; i < productos.length; i++) { %> 
+            <% for(let j = 0; j < productos[i].length; j++) { %> 
+                <a href="/product/<%=productos[i][j].id%>"><%= productos[i][j].titulo %> </a> 
+            <% } %> 
+        <% } %> 
+    </main>
+
+</body>
+</html>

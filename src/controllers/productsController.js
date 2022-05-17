@@ -134,7 +134,7 @@ let productsController = {
     actions.updateProduct(productos);
 
     res.redirect("/product/" + req.params.id);
-  },
+  }
 };
 
 module.exports = productsController;

@@ -335,6 +335,7 @@ header {
         color: #fff;
         font-size: 2em;
         margin-left: 20px;
+        display: block;
     }
 
     .logo-envio {

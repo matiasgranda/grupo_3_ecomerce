@@ -15,6 +15,8 @@ router.get("/cesta", mainController.cesta);
 
 router.get("/login", mainController.login);
 
+router.get("/admin", mainController.admin)
+
 
 
 module.exports=router;
