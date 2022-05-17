@@ -13,38 +13,42 @@
         <% for(let i = 0; i < productos.length; i++) { %>
         <% for(let j = 0; j < productos[i].length; j++) { %>
         <section class="product-box">
-            <div>
+            <div class="product-info">
                 <p class="product-title"><a href="/product/<%=productos[i][j].id%>"><%= productos[i][j].titulo %> </a></p> 
-                <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
-                <a href="#">Eliminar producto <i class="fa-solid fa-xmark"></i></a>
-                
+                <div class="edit-links">
+                    <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="#">Eliminar producto <i class="fa-solid fa-xmark"></i></a>
+                </div>
+     
             </div>
-            <div>
+            <div class="product-info">
                 <p><%= productos[i][j].descripcion %></p>
                 <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
 
             </div>
-            <div>
+            <div class="product-info">
                 <p>Categoria: <%= productos[i][j].categoria %></p>
                 <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
 
             </div>
-            <div>
+            <div class="product-info">
                 <p>Precio: <%= productos[i][j].precio %></p>
                 <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
 
             </div>
-            <div>
+            <div class="product-info">
                 <p>Color: <%= productos[i][j].color %></p>
                 <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
 
             </div>
-            <div>
+            <div class="product-info">
                 <p>Marca: <%= productos[i][j].marca %></p>
                 <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
-
             </div>
-
+            <div class="product-info">
+                <img src="<%= productos[i][j].imagen %>" alt="">
+                <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
+            </div>
         </section>
 
         <% } %>
