@@ -12,14 +12,40 @@
     <main>
         <% for(let i = 0; i < productos.length; i++) { %>
         <% for(let j = 0; j < productos[i].length; j++) { %>
-        <div>
-            <a href="/product/<%=productos[i][j].id%>"><%= productos[i][j].titulo %> </a>
-            <p><%= productos[i][j].descripcion %></p>
-            <p>Categoria: <%= productos[i][j].categoria %></p>
-            <p>Precio: <%= productos[i][j].precio %></p>
-            <p>Color: <%= productos[i][j].color %></p>
-            <p>Marca: <%= productos[i][j].marca %></p>
-        </div>
+        <section class="product-box">
+            <div>
+                <p class="product-title"><a href="/product/<%=productos[i][j].id%>"><%= productos[i][j].titulo %> </a></p> 
+                <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
+                <a href="#">Eliminar producto <i class="fa-solid fa-xmark"></i></a>
+                
+            </div>
+            <div>
+                <p><%= productos[i][j].descripcion %></p>
+                <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
+
+            </div>
+            <div>
+                <p>Categoria: <%= productos[i][j].categoria %></p>
+                <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
+
+            </div>
+            <div>
+                <p>Precio: <%= productos[i][j].precio %></p>
+                <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
+
+            </div>
+            <div>
+                <p>Color: <%= productos[i][j].color %></p>
+                <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
+
+            </div>
+            <div>
+                <p>Marca: <%= productos[i][j].marca %></p>
+                <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
+
+            </div>
+
+        </section>
 
         <% } %>
         <% } %>
