@@ -11,6 +11,11 @@
     <div class="registro">
       <form action="/registro/create" method="post">
         <a href="/"><img src="/img/amazona-negro.png" alt="" /></a>
+        <% if(locals.errors) { %>
+          <% errors.forEach(error => { %>
+            <%= error.msg %>
+          <%  }) %> 
+        <% } %> 
         <div class="form-box">
           <label for="usuario">Nombre de usuario:</label>
           <input
@@ -22,6 +27,7 @@
             required
             minlength="4"
             maxlength="18"
+            value="<%= locals.old && old.username ? old.username : "" %>"
           />
         </div>
         <div class="form-box">
@@ -33,6 +39,7 @@
             autocomplete="email"
             placeholder="ejemplo@correo.com"
             required
+            value="<%= locals.old && old.email ? old.email : "" %>"
           />
         </div>
         <div class="form-box">
@@ -59,7 +66,7 @@
         </div>
         <div class="form-date">
           <label for="fechanac">Fecha de nacimiento:</label>
-          <input type="date" id="fechanac" name="fechanac" required />
+          <input type="date" id="fechanac" name="fechanac" required value="<%= locals.old && old.fechanac ? old.fechanac : "" %>"/>
         </div>
         <div class="form-select">
           <label for="pais">Pais de residencia</label>
