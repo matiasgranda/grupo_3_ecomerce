@@ -10,6 +10,15 @@
 <body>
     <%- include('./partials/navbar') %>
     <main>
+        <section class="filter-elements" id="filterBtn">
+            <button class="filter-btn">Mostrar todos</button>
+            <button class="filter-btn">Tecnologia</button>
+            <button class="filter-btn">Moda</button>
+            <button class="filter-btn">Hogar</button>
+            <button class="filter-btn">Deportes</button>
+            <button class="filter-btn">Movilidad</button>
+            <button class="filter-btn">Niños</button>
+        </section>
         <% for(let i = 0; i < productos.length; i++) { %>
         <% for(let j = 0; j < productos[i].length; j++) { %>
         <section class="product-box">
