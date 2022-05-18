@@ -5,26 +5,5 @@
     "password": "123456",
     "fechanac": "1993-07-03",
     "pais": "argentina"
-  },
-  {
-    "usuario": "dfgdfg",
-    "mail": "dfgdfg@fgfg.yy",
-    "password": "dfgdfg",
-    "pais": "Argentina",
-    "fechanac": "2022-05-19"
-  },
-  {
-    "usuario": "fghfghfgh",
-    "mail": "ppkapo@gmail.com",
-    "password": "asdasd",
-    "pais": "Argentina",
-    "fechanac": "2022-05-12"
-  },
-  {
-    "usuario": "ddsadsdsd",
-    "mail": "ppkapo@gmail.com",
-    "password": "xcvxcvxcv",
-    "pais": "Argentina",
-    "fechanac": "2022-05-12"
   }
 ]

@@ -31,7 +31,7 @@ header {
 
 /* -------------------- TOP NAV BAR -------------------- */
 
-.iconoenvio{
+.iconoenvio {
     position: relative;
     top: 7px;
     left: 20px;
@@ -43,11 +43,11 @@ header {
 }
 
 .envio p a {
-    color:white;
+    color: white;
 }
 
 .logo-envio {
-    width: 30%;
+    width: 20%;
     height: 50px;
     display: flex;
     justify-content: space-around;
@@ -61,7 +61,7 @@ header {
 }
 
 .searchbar {
-    width: 40%;
+    width: 60%;
     height: 50px;
     display: flex;
     justify-content: center;
@@ -71,7 +71,7 @@ header {
 }
 
 .login-carrito {
-    width: 30%;
+    width: 20%;
     min-width: fit-content;
     height: 50px;
     display: flex;
@@ -367,7 +367,8 @@ header {
     .searchbar {
         order: 2;
         margin: auto;
-        width: 90%;
+        width: 100%;
+        padding: 5px;
     }
 }
 
@@ -377,8 +378,8 @@ header {
     }
 
     .searchbar {
-        
         width: 100%;
+        padding: 5px;
     }
 
     .searchbar a {
@@ -391,7 +392,7 @@ header {
     }
 
     .searchbar input {
-        width: 220px;
+        width: 100%;
         min-width: 220px;
     }
 
