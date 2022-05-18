@@ -12,7 +12,7 @@ const validateForm = [
     check("password").isLength({min:6}).withMessage("La contraseña debe tener al menos 6 caracteres"),
     check("confPassword").notEmpty().withMessage("Debes confirmar la contraseña"),
     check("confPassword").isLength({min:6}).withMessage("La confirmacion de la contraseña debe tener al menos 6 caracteres"),
-    check("confPassword").equals(check("password")).withMessage("Las contraseñas no coinciden"),
+    //check("confPassword").equals('asdasd').withMessage("Las contraseñas no coinciden"),
     check("fechanac").notEmpty().withMessage("Ingresa tu fecha de nacimiento")
 ]
 router.get("/", registroController.main);
