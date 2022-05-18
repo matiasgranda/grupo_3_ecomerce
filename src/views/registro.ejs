@@ -11,9 +11,12 @@
     <div class="registro">
       <form action="/registro/create" method="post">
         <a href="/"><img src="/img/amazona-negro.png" alt="" /></a>
+        
         <% if(locals.errors) { %>
           <% errors.forEach(error => { %>
-            <%= error.msg %>
+            <div class="errores">
+              <%= error.msg %>
+            </div>  
           <%  }) %> 
         <% } %> 
         <div class="form-box">
@@ -27,7 +30,7 @@
             required
             minlength="4"
             maxlength="18"
-            value="<%= locals.old && old.username ? old.username : "" %>"
+            value="<%= locals.old && old.usuario ? old.usuario : "" %>"
           />
         </div>
         <div class="form-box">
@@ -39,7 +42,7 @@
             autocomplete="email"
             placeholder="ejemplo@correo.com"
             required
-            value="<%= locals.old && old.email ? old.email : "" %>"
+            value="<%= locals.old && old.mail ? old.mail : "" %>"
           />
         </div>
         <div class="form-box">
@@ -48,7 +51,7 @@
             type="password"
             name="password"
             id="password"
-            autocapitalize="new-password"
+            autocomplete="new-password"
             required
             minlength="6"
           />
@@ -76,7 +79,7 @@
             </option>
             <option name="bol" value="Bolivia" id="pais">Bolivia</option>
             <option name="bra" value="Brasil" id="pais">Brasil</option>
-            <option name="chi" value="Chile" id="pais">Chile</option>
+            <option name="chi" value="Chile" id="pais" >Chile</option>
             <option name="col" value="Colombia" id="pais">Colombia</option>
             <option name="ecu" value="Ecuador" id="pais">Ecuador</option>
             <option name="par" value="Paraguay" id="pais">Paraguay</option>
