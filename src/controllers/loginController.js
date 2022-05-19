@@ -10,7 +10,7 @@ let loginController = {
 
   loginCheck: (req, res) => {
     let errors = validationResult(req);
-    console.log(errors.mapped());
+    
     if (errors.isEmpty()) {
       let usuarios = JSON.parse(fs.readFileSync("./src/data/usuarios.json"));
       res.send(usuarios);

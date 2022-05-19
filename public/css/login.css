@@ -16,7 +16,13 @@ body {
     align-items: center;
     justify-content: center;
 }
-
+.error{
+    color: white;
+    background-color: rgb(241 99 99 / 70%);
+    width: 100%;
+    padding: 2px 5px;
+    font-size:12px;
+}
 .loginbox {
     width: 30%;
     min-width: 400px;
