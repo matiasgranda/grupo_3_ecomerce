@@ -3,6 +3,7 @@ const path = require("path");
 let router = express.Router();
 let registroController = require("../controllers/registroController")
 const { check } = require("express-validator");
+const res = require("express/lib/response");
 
 const validateForm = [
     check("usuario").notEmpty().withMessage("Debes elegir un nombre de usuario."),
@@ -12,7 +13,13 @@ const validateForm = [
     check("password").isLength({min:6}).withMessage("La contraseña debe tener al menos 6 caracteres"),
     check("confPassword").notEmpty().withMessage("Debes confirmar la contraseña"),
     check("confPassword").isLength({min:6}).withMessage("La confirmacion de la contraseña debe tener al menos 6 caracteres"),
-    //check("confPassword").equals('asdasd').withMessage("Las contraseñas no coinciden"),
+    check("confPassword").custom((value,{req})=>{
+        if(value!==req.body.password){
+            
+            throw new Error("Las contraseñas no coinciden");
+        }
+        return true;
+    }),
     check("fechanac").notEmpty().withMessage("Ingresa tu fecha de nacimiento")
 ]
 router.get("/", registroController.main);
