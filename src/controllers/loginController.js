@@ -3,6 +3,7 @@ const fs = require("fs");
 const { parse } = require("path");
 const { Console } = require("console");
 const { validationResult } = require("express-validator");
+const session = require("express-session");
 let loginController = {
   login: (req, res) => {
     res.render(path.resolve(__dirname, "../views/login.ejs"));
@@ -13,6 +14,12 @@ let loginController = {
     
     if (errors.isEmpty()) {
       let usuarios = JSON.parse(fs.readFileSync("./src/data/usuarios.json"));
+      for (let usuario of usuarios){
+          if((usuario.usuario==req.body.user || usuario.mail==req.body.user) && usuario.password==req.body.password){
+              console.log("ok")
+              session.user=usuario.usuario;
+          };
+      }
       res.send(usuarios);
       
     }else {
