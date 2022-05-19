@@ -4,24 +4,25 @@
 <head>
     <%- include('./partials/head') %>
     <link rel="stylesheet" href="/css/admin.css">
+    <script src="/js/filter.js"></script>
     <title>Admin</title>
 </head>
 
 <body>
     <%- include('./partials/navbar') %>
     <main>
-        <section class="filter-elements" id="filterBtn">
-            <button class="filter-btn">Mostrar todos</button>
-            <button class="filter-btn">Tecnologia</button>
-            <button class="filter-btn">Moda</button>
-            <button class="filter-btn">Hogar</button>
-            <button class="filter-btn">Deportes</button>
-            <button class="filter-btn">Movilidad</button>
-            <button class="filter-btn">Niños</button>
+        <section class="filter-elements">
+            <button class="filter-btn" onclick="filterCategory('todos')">Mostrar todos</button>
+            <button class="filter-btn" onclick="filterCategory('tecnologia')">Tecnologia</button>
+            <button class="filter-btn" onclick="filterCategory('moda')">Moda</button>
+            <button class="filter-btn" onclick="filterCategory('hogar')">Hogar</button>
+            <button class="filter-btn" onclick="filterCategory('deportes')">Deportes</button>
+            <button class="filter-btn" onclick="filterCategory('movilidad')">Movilidad</button>
+            <button class="filter-btn" onclick="filterCategory('ninios')">Niños</button>
         </section>
         <% for(let i = 0; i < productos.length; i++) { %>
         <% for(let j = 0; j < productos[i].length; j++) { %>
-        <section class="product-box">
+        <section class="product-box <%= productos[i][j].categoria %>">
             <div class="product-info">
                 <p class="product-title"><a href="/product/<%=productos[i][j].id%>"><%= productos[i][j].titulo %> </a></p> 
                 <div class="edit-links">
