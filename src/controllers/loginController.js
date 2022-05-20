@@ -17,10 +17,14 @@ let loginController = {
       for (let usuario of usuarios){
           if((usuario.usuario==req.body.user || usuario.mail==req.body.user) && usuario.password==req.body.password){
               console.log("ok")
-              session.user=usuario.usuario;
+              req.session.user=usuario.usuario;
+              req.session.mail=usuario.mail;
+              req.session.pais=usuario.pais;
+             
           };
       }
-      res.send(usuarios);
+      res.redirect('/');
+      
       
     }else {
         res.render(path.resolve(__dirname, "../views/login.ejs"), { errors: errors.mapped(), old: req.body });

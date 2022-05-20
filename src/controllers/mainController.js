@@ -5,8 +5,9 @@ const fs = require("fs");
 let mainController = {
   home: (req, res) => {
     let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
+    let sesion=req.session;
     res.render(path.resolve(__dirname, "../views/index.ejs"), {
-      productos: productos,
+      productos: productos,session:sesion
     });
   },
 

@@ -3,7 +3,13 @@
 <div id="closeBtn" onclick="closeNav()">&times;</div>
 <div class="sidenav" id="mySidenav">
   <div class="sidenavHeader" onclick="location.href='/login'" style="cursor:pointer">
-    <i class="fas fa-user-circle"></i> Hola, inicia sesión
+    <i class="fas fa-user-circle"></i> Hola, 
+    <% if(locals.session.user){ %>
+      <%= locals.session.user %>
+      <% } else { %>
+        inicia sesión
+      <% } %>
+    
   </div>
   <!--Below SideNavHeader-->
   <div id="main-container">

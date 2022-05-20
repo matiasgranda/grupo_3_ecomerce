@@ -9,6 +9,8 @@ let mainController = require("../controllers/mainController")
 
 router.get("/", mainController.home);
 
+router.get("/index", mainController.home);
+
 router.get("/home", mainController.home);
 
 router.get("/cesta", mainController.cesta);
