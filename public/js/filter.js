@@ -2,13 +2,18 @@
 
 function filterCategory(categoria) {
     const items = document.getElementsByClassName("product-box");
-    console.log(items)
     for (let i = 0; i < items.length; i++) {
-        if(items[i].contains(categoria)) {
-            items.classList.remove("hidden")
-        } else {
-            items.classList.add("hidden")
-        }
+        items[i].style.display ='none';
+    }
+    const itemsAmostrar = document.getElementsByClassName(categoria);
+    for (let i = 0; i < itemsAmostrar.length; i++) {
+        itemsAmostrar[i].style.display ='flex';
+    }
+    if (categoria==="todos"){
+        const items = document.getElementsByClassName("product-box");
+        for (let i = 0; i < items.length; i++) {
+            items[i].style.display ='flex';
+        } 
     }
 
 }

@@ -29,7 +29,7 @@ let mainController = {
   admin: (req, res) => {
     let sesion=session;
     let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
-    res.status(400).render(path.resolve(__dirname, "../views/admin.ejs"), { productos: productos,session:sesion });;
+    res.render(path.resolve(__dirname, "../views/admin.ejs"), { productos: productos,session:sesion });;
   }
 };
 
