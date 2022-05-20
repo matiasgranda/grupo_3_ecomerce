@@ -9,9 +9,9 @@ let loginRoutes=require("./routes/login");
 const exp = require("constants");
 let session=require("express-session");
 const publicPath = (path.resolve(__dirname, "../public"));
+var cookieParser = require('cookie-parser')
 
-
-
+app.use(cookieParser());
 app.use(session({
     name : 'amazona',
     secret : 'amazonasecret',
