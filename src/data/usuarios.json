@@ -12,5 +12,12 @@
     "password": "ABcd1234",
     "pais": "Uruguay",
     "fechanac": "2022-05-17"
+  },
+  {
+    "usuario": "Pepe",
+    "mail": "jldefigueiredo@gmail.com",
+    "password": "$2b$10$rxoqMMes/eUscbGs8.gh2uDM4SNt/q3XTdlm2wkiAQ9U7afhXsO1C",
+    "pais": "Argentina",
+    "fechanac": "2022-05-19"
   }
 ]

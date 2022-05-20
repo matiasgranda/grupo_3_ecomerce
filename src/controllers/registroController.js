@@ -3,6 +3,7 @@ const fs = require("fs");
 const actions = require("../data/actions")
 let usuarios = JSON.parse(fs.readFileSync("./src/data/usuarios.json"));
 const { validationResult } = require("express-validator");
+const bcrypt = require('bcrypt');
 
 let registroController = {
   main: (req, res) => {
@@ -16,7 +17,7 @@ let registroController = {
       let usuarioNuevo = {
         usuario: req.body.usuario,
         mail: req.body.mail,
-        password: req.body.password,
+        password: bcrypt.hashSync(req.body.password,10),
         pais: req.body.pais,
         fechanac: req.body.fechanac
       }

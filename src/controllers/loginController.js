@@ -4,6 +4,8 @@ const { parse } = require("path");
 const { Console } = require("console");
 const { validationResult } = require("express-validator");
 const session = require("express-session");
+const bcrypt = require('bcrypt');
+
 let loginController = {
   login: (req, res) => {
     res.render(path.resolve(__dirname, "../views/login.ejs"));
@@ -14,12 +16,13 @@ let loginController = {
     
     if (errors.isEmpty()) {
       let usuarios = JSON.parse(fs.readFileSync("./src/data/usuarios.json"));
+     
       for (let usuario of usuarios){
-          if((usuario.usuario==req.body.user || usuario.mail==req.body.user) && usuario.password==req.body.password){
+          if((usuario.usuario==req.body.user || usuario.mail==req.body.user) && bcrypt.compareSync(req.body.password,usuario.password)){
               console.log("ok")
-              req.session.user=usuario.usuario;
-              req.session.mail=usuario.mail;
-              req.session.pais=usuario.pais;
+             // req.session.user=usuario.usuario;
+             // req.session.mail=usuario.mail;
+             // req.session.pais=usuario.pais;
               session.user=usuario.usuario;
               session.mail=usuario.mail;
               session.pais=usuario.pais;
