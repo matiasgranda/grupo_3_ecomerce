@@ -149,6 +149,18 @@
           "pregunta": "rtyrtyrtyryrt yrt yrty rty rty rty rty rt yrty"
         }
       ]
+    },
+    {
+      "id": 25,
+      "titulo": "sdfsdfsdf",
+      "descripcion": "ertert",
+      "categoria": "tecnologia",
+      "precio": "34534",
+      "imagen": "/img/1653049905511.png",
+      "masImagenes": [],
+      "marca": "",
+      "comentarios": [],
+      "calificaciones": []
     }
   ],
   [

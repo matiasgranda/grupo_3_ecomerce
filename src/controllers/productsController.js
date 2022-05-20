@@ -3,11 +3,13 @@ const fs = require("fs");
 const actions = require("../data/actions");
 const { parse } = require("path");
 const { Console } = require("console");
+const session = require("express-session");
 
 let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
 
 let productsController = {
   product: (req, res) => {
+    let sesion=session;
     let productoSeleccionado;
     for (let i = 0; i < productos.length; i++) {
       for (let j = 0; j < productos[i].length; j++) {
@@ -18,15 +20,17 @@ let productsController = {
     }
 
     res.render(path.resolve(__dirname, "../views/product.ejs"), {
-      productos: productoSeleccionado,
+      productos: productoSeleccionado,session: sesion
     });
   },
 
   create: (req, res) => {
-    res.render(path.resolve(__dirname, "../views/productCreate.ejs"));
+    let sesion=session;
+    res.render(path.resolve(__dirname, "../views/productCreate.ejs"),{session: sesion});
   },
 
   save: (req, res,next) => {
+    let sesion=session;
     let nombreimagenOrig;
     let imagenesAdicionales = [];
     if (req.files.length>0) {
@@ -45,7 +49,7 @@ let productsController = {
         codigo:400,
         descripcion:'Debe ingresar una imagen principal',
       }
-      res.status(400).render(path.resolve(__dirname, "../views/productCreate.ejs"),{mensaje});
+      res.status(400).render(path.resolve(__dirname, "../views/productCreate.ejs"),{mensaje:mensaje,session:sesion});
       return next(error);
      
     }

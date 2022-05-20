@@ -11,7 +11,11 @@
           </a>
           <p>
             <span class="enviara">Enviar a</span> <br />
-            <a href="#">Argentina</a>
+            <a href="#"><% if(locals.session.user){ %>
+              <%= locals.session.pais %>
+              <% } else { %>
+              Argentina</a>
+              <% } %>
           </p>
         </div>
       </div>
@@ -21,16 +25,25 @@
         <a class="linkderecha" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
       </div>
       <div class="login-carrito">
+        <% if(locals.session.user){ %>
+          
+          <a class="login" href="/admin">
+            <i class="fa-solid fa-user"></i>
+            <p>
+              <%= locals.session.user %>
+             
+            </p>
+          </a>
+          <% } else { %>
         <a class="login" href="/login">
           <i class="fa-solid fa-user"></i>
-          <p><% if(locals.session.user){ %>
-            <%= locals.session.user %>
-            <% } else { %>
+          <p>
             Iniciar <br />
             sesión
-            <% } %>
+           
           </p>
         </a>
+        <% } %>
         <a class="carrito" href="/cesta">
           <i class="fa-solid fa-cart-shopping"></i>
           <span class="numerocesta"></span>

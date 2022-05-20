@@ -1,18 +1,21 @@
 const path = require("path");
 const fs = require("fs");
+const session = require("express-session");
 
 
 let mainController = {
   home: (req, res) => {
     let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
-    let sesion=req.session;
+    let sesion=session;
+    
     res.render(path.resolve(__dirname, "../views/index.ejs"), {
       productos: productos,session:sesion
     });
   },
 
   cesta: (req, res) => {
-    res.render(path.resolve(__dirname, "../views/cesta.ejs"));
+    let sesion=session;
+    res.render(path.resolve(__dirname, "../views/cesta.ejs"),{session:sesion});
   },
 
   login: (req, res) => {
@@ -24,8 +27,9 @@ let mainController = {
   },
 
   admin: (req, res) => {
+    let sesion=session;
     let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
-    res.status(400).render(path.resolve(__dirname, "../views/admin.ejs"), { productos: productos });
+    res.status(400).render(path.resolve(__dirname, "../views/admin.ejs"), { productos: productos,session:sesion });;
   }
 };
 

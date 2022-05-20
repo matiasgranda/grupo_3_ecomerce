@@ -20,12 +20,12 @@ let loginController = {
               req.session.user=usuario.usuario;
               req.session.mail=usuario.mail;
               req.session.pais=usuario.pais;
-             
+              session.user=usuario.usuario;
+              session.mail=usuario.mail;
+              session.pais=usuario.pais;
           };
       }
       res.redirect('/');
-      
-      
     }else {
         res.render(path.resolve(__dirname, "../views/login.ejs"), { errors: errors.mapped(), old: req.body });
     }
