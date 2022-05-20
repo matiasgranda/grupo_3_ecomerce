@@ -12,6 +12,7 @@ let registroController = {
 
   },
   crear: (req, res) => {
+    
     let errors = validationResult(req)
     if (errors.isEmpty()) {
       let usuarioNuevo = {

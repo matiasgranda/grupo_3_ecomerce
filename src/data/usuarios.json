@@ -1,23 +1,24 @@
 [
+  
+  {
+    "usuario": "Jose",
+    "mail": "jldefigueiredo@gmail.com",
+    "password": "$2b$10$LTSqR0eQuwCCqzq/xf0./OCwpCwk8BiKttuL1yQtz.T1nNganp7qS",
+    "pais": "Uruguay",
+    "fechanac": "2022-05-19"
+  },
   {
     "usuario": "Mati",
     "mail": "matigranda93@gmail.com",
-    "password": "123456",
-    "fechanac": "1993-07-03",
-    "pais": "Argentina"
-  },
-  {
-    "usuario": "jose",
-    "mail": "jldefigueiredo@gmail.com",
-    "password": "ABcd1234",
-    "pais": "Uruguay",
-    "fechanac": "2022-05-17"
-  },
-  {
-    "usuario": "Pepe",
-    "mail": "jldefigueiredo@gmail.com",
-    "password": "$2b$10$rxoqMMes/eUscbGs8.gh2uDM4SNt/q3XTdlm2wkiAQ9U7afhXsO1C",
+    "password": "$2b$10$.6G4tI.F9yG.LmlAKeVjKe2sI6qtfEWGuvMU5Vy016FT8uyiKNz2i",
     "pais": "Argentina",
-    "fechanac": "2022-05-19"
+    "fechanac": "2022-05-18"
+  },
+  {
+    "usuario": "pepe",
+    "mail": "ppkapo@gmail.com",
+    "password": "$2b$10$1Qv4lZJgZQ7XKCwIfLPKp.yJ/XQshDGfmxLJ62QHMcVqKdQiXO02m",
+    "pais": "Argentina",
+    "fechanac": "2022-05-18"
   }
 ]

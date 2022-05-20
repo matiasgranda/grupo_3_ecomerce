@@ -13,24 +13,28 @@ let loginController = {
 
   loginCheck: (req, res) => {
     let errors = validationResult(req);
-    
     if (errors.isEmpty()) {
       let usuarios = JSON.parse(fs.readFileSync("./src/data/usuarios.json"));
-     
-      for (let usuario of usuarios){
-          if((usuario.usuario==req.body.user || usuario.mail==req.body.user) && bcrypt.compareSync(req.body.password,usuario.password)){
-              console.log("ok")
+      for (let i=0; i<usuarios.length; i++) {
+          if((usuarios[i].usuario==req.body.user || usuarios[i].mail==req.body.user) && bcrypt.compareSync(req.body.password,usuarios[i].password)){
+              //console.log("ok")
              // req.session.user=usuario.usuario;
              // req.session.mail=usuario.mail;
              // req.session.pais=usuario.pais;
-              session.user=usuario.usuario;
-              session.mail=usuario.mail;
-              session.pais=usuario.pais;
-          };
+              session.user=usuarios[i].usuario;
+              session.mail=usuarios[i].mail;
+              session.pais=usuarios[i].pais;
+              return res.redirect('/');
+          } 
       }
-      res.redirect('/');
+      let mensaje={
+        msg:"Usuario o contraseña incorrectos"
+      }
+      return res.render(path.resolve(__dirname, "../views/login.ejs"), { errors: errors.mapped(), old: req.body,mensaje:mensaje });
+      
+      
     }else {
-        res.render(path.resolve(__dirname, "../views/login.ejs"), { errors: errors.mapped(), old: req.body });
+        return res.render(path.resolve(__dirname, "../views/login.ejs"), { errors: errors.mapped(), old: req.body });
     }
   },
 };

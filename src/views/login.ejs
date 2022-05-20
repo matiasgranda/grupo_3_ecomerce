@@ -13,13 +13,17 @@
             <a class="logo" href="/">
                 <img src="/img/amazona-negro.png" alt="">
             </a>
+            <% if(locals.mensaje && locals.mensaje.msg){ %>
+                <br>
+                <div class="error"><%= locals.mensaje.msg %></div>
+            <% } %>
             <div class="loginuser">
                 <label for="user">Nombre de usuario:</label>
                 <input type="text" name="user" id="user" placeholder="Nombre de usuario o email">
-                <% console.log()
-                if(locals.errors && locals.errors.user){ %>
+                <% if(locals.errors && locals.errors.user){ %>
                     <div class="error"><%= locals.errors.user.msg %></div>
                 <% } %>
+               
             </div>
             <div class="loginpassword">
                 <label for="password">Contraseña:</label>
