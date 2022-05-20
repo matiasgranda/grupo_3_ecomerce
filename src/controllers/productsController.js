@@ -69,7 +69,8 @@ let productsController = {
       precio: req.body.precio,
       imagen: nombreimagenOrig,
       masImagenes: imagenesAdicionales,
-      marca: "",
+      marca: req.body.marca,
+      color: req.body.color,
       comentarios: [],
       calificaciones: [],
     };
