@@ -19,10 +19,12 @@ let productsController = require("../controllers/productsController");
 const logMiddelware = require("../middelwares/logMiddelware");
 
 router.get("/create", productsController.create);
+router.get("/edit/:id", productsController.edit);
 router.get("/:id", productsController.product);
 router.post("/create", fileupload.any(),log,productsController.save);
 router.post("/:id/comentario", productsController.comentarios);
 router.post("/:id/pregunta", productsController.pregunta);
+
 
 
 

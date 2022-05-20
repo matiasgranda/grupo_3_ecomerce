@@ -138,7 +138,19 @@ let productsController = {
     actions.updateProduct(productos);
 
     res.redirect("/product/" + req.params.id);
+  },
+  edit: (req, res) => {
+    let productoSeleccionado;
+    for (let i = 0; i < productos.length; i++) {
+      for (let j = 0; j < productos[i].length; j++) {
+        if (productos[i][j].id == parseInt(req.params.id)) {
+          productoSeleccionado = productos[i][j];
+        }
+      }
+    }
+    res.render(path.resolve(__dirname, "../views/productEdit.ejs"), { producto: productoSeleccionado })
   }
+
 };
 
 module.exports = productsController;

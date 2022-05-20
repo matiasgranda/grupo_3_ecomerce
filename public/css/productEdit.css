@@ -1,0 +1,190 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+.error{
+    background-color: rgb(255 6 6 / 56%);
+    padding: 3px;
+    color: white;
+    border-radius: 3px;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: stretch;
+}
+
+body {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.productForm {
+    width: 100%;
+    max-width: 700px;
+    min-width: 400px;
+    height: fit-content;
+    background-color: rgb(255, 255, 255);
+    margin: 50px 20px 20px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 1px 2px rgb(20 31 56 / 10%);
+    padding: 20px;
+}
+
+form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+form div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.tituloForm {
+    height: 80px;
+    justify-content: flex-start;
+    font-size: 1.1em;
+    color: rgb(132, 147, 173);
+}
+
+.tituloForm input {
+    width: 100%;
+    height: 30px;
+    padding-left: 5px;
+    outline: none;
+    border: 1px solid lightgrey;
+    font-size: 1.1em;
+    border-radius: 4px;
+}
+
+.descripcionForm { 
+    height: 140px;
+    justify-content: flex-start;
+    font-size: 1.1em;
+    color: rgb(132, 147, 173);
+}
+
+.descripcionForm textarea {
+    height: 110px;
+    width: 100%;
+    padding: 5px;
+    font-size: 1.1em;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    outline: none;
+}
+
+.imagenForm {
+    height: 60px;
+    justify-content: center;
+}
+
+.imagenForm label {
+    width: 297px;
+    height: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px 2px rgb(20 31 56 / 10%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: rgb(132, 147, 173);
+}
+
+.imagenForm input {
+    display: none;
+}
+
+.categoriaForm {
+    height: 80px;
+    justify-content: flex-start;
+    font-size: 1.1em;
+    color: rgb(132, 147, 173);
+}
+
+.categoriaForm select {
+    width: 100%;
+    font-size: 1em;
+    height: 30px;
+    border: 1px solid lightgrey;
+    outline: none;
+    color: rgb(132, 147, 173);
+    border-radius: 4px;
+}
+
+.precioForm {
+    height: 80px;
+    justify-content: flex-start;
+    font-size: 1.1em;
+    color: rgb(132, 147, 173);
+}
+
+.precioForm label {
+    width: 100%;
+}
+
+.precioForm input {
+    width: 100%;
+    height: 30px;
+    padding-left: 5px;
+    font-size: 1.1em;
+    outline: none;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+}
+
+.submitForm {
+    justify-content: center;
+}
+
+.submitForm button {
+    background-color: rgb(255 216 20);
+    /* font-size: 12px; */
+    outline: none;
+    border: 0;
+    line-height: 20px;
+    border-radius: 15px;
+    padding: 10px;
+    /* width: 100%; */
+    font-size: 16px;
+    width: 100%;
+    max-width: 300px;
+    cursor: pointer;
+}
+.imagenesSecundarias, .imagenPrincipal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 300px;
+    padding: 10px;
+    width: 90%;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+.logo{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}

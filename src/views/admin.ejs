@@ -11,62 +11,62 @@
 <body>
     <%- include('./partials/navbar') %>
     <main>
-        <section class="filter-elements">
-            <button class="filter-btn" onclick="filterCategory('todos')">Mostrar todos</button>
-            <button class="filter-btn" onclick="filterCategory('tecnologia')">Tecnologia</button>
-            <button class="filter-btn" onclick="filterCategory('moda')">Moda</button>
-            <button class="filter-btn" onclick="filterCategory('hogar')">Hogar</button>
-            <button class="filter-btn" onclick="filterCategory('deportes')">Deportes</button>
-            <button class="filter-btn" onclick="filterCategory('movilidad')">Movilidad</button>
-            <button class="filter-btn" onclick="filterCategory('ninios')">Niños</button>
-        </section>
+        <select name="select" id="select" class="filter-elements" onchange="filterCategory(this.value)">
+            <option value="todos">todos</option>
+            <option value="tecnologia">tecnologia</option>
+            <option value="moda">moda</option>
+            <option value="hogar">hogar</option>
+            <option value="deportes">deportes</option>
+            <option value="movilidad">movilidad</option>
+            <option value="ninios">ninios</option>
+        </select>
+
         <% for(let i = 0; i < productos.length; i++) { %>
         <% for(let j = 0; j < productos[i].length; j++) { %>
         <section class="product-box <%= productos[i][j].categoria %>">
-            <div class="product-info">
-                <p class="product-title"><a href="/product/<%=productos[i][j].id%>"><%= productos[i][j].titulo %> </a></p> 
-                <div class="edit-links">
-                    <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
-                    <a href="#">Eliminar producto <i class="fa-solid fa-xmark"></i></a>
-                </div>
-     
-            </div>
-            <div class="product-info">
-                <p><%= productos[i][j].descripcion %></p>
-                <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
 
+            <div class="product-title">
+                <p><a href="/product/<%=productos[i][j].id%>"><%= productos[i][j].titulo %> </a></p>
             </div>
-            <div class="product-info">
-                <p>Categoria: <%= productos[i][j].categoria %></p>
-                <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
 
-            </div>
             <div class="product-info">
-                <p>Precio: <%= productos[i][j].precio %></p>
-                <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
+                <p><b>Descripción: </b><%= productos[i][j].descripcion %></p>
+            </div>
 
-            </div>
             <div class="product-info">
-                <p>Color: <%= productos[i][j].color %></p>
-                <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
+                <p><b>Categoria:</b>  <%= productos[i][j].categoria %></p>
+            </div>
 
-            </div>
             <div class="product-info">
-                <p>Marca: <%= productos[i][j].marca %></p>
-                <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
+                <p><b>Precio:</b>  <%= productos[i][j].precio %></p>
             </div>
+
+            <div class="product-info">
+                <p><b>Color:</b> <%= productos[i][j].color %></p>
+            </div>
+
+            <div class="product-info">
+                <p><b>Marca:</b> <%= productos[i][j].marca %></p>
+            </div>
+
             <div class="product-info">
                 <img src="<%= productos[i][j].imagen %>" alt="">
-                <a href="#">Editar<i class="fa-solid fa-pen-to-square"></i></a>
             </div>
+
+            <div class="edit-links">
+                <a href="/product/edit/<%=productos[i][j].id%> ">Editar<i class="fa-solid fa-pen-to-square"></i></a>
+                <a href="#">Eliminar producto <i class="fa-solid fa-xmark"></i></a>
+            </div>
+
         </section>
 
         <% } %>
         <% } %>
     </main>
-    <%- include('./partials/footer') %>
 
+    <%- include('./partials/footer') %>
     <%- include('./partials/sidenav') %>
+
 </body>
 
 </html>
