@@ -20,7 +20,7 @@ const logMiddelware = require("../middelwares/logMiddelware");
 
 router.get("/create", productsController.create);
 router.get("/edit/:id", productsController.edit);
-router.put("/edit/:id", productsController.editProduct);
+router.put("/edit/:id", fileupload.any(),productsController.editProduct);
 router.get("/:id", productsController.product);
 router.post("/create", fileupload.any(),log,productsController.save);
 router.post("/:id/comentario", productsController.comentarios);

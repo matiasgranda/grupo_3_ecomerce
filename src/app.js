@@ -23,13 +23,13 @@ app.use(session({
     }      
 }));
 app.use(express.static(publicPath));
-app.use(methodOverride('_method')); /* sobreescribir methods para dar soporte a put y delete 
-que no esta en todos los navegadores*/
+
 
 
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
-
+app.use(methodOverride('_method')); /* sobreescribir methods para dar soporte a put y delete 
+que no esta en todos los navegadores*/
 app.set("view engine", "ejs");
 
 /****************** Rutas *****************************/
@@ -41,6 +41,7 @@ app.use("/cesta",cestaRoutes)
 /******************************************************/
 app.use((req,res,next)=>{
     res.status(404).render('../src/views/not-found');
+    next();
 })
 app.listen(3000, () => {
     console.log("Server running.");

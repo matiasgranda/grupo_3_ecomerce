@@ -1,85 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/productEdit.css" />
-    <title>Editar publicación</title>
-  </head>
-  <body>
-    <div class="productForm">
-      <div class="logo">
-        <a href="/">
-          <img src="/img/amazona-negro.png" alt="Amazona" />
-        </a>
-      </div>
-      <h2>Editar Producto</h2>
-      
-      <form action="/product/edit/<%= producto.id %>?_method=PUT" method="post">
-     
-        <div class="tituloForm">
-          <label for="titulo">Titulo del producto:</label>
-          <input type="text" name="titulo" id="titulo" value="<%= producto.titulo %> "/>
-        </div>
-        <div class="descripcionForm">
-          <label for="descripcion">Descripcion del producto:</label>
-          <textarea name="descripcion" id="descripcion" ><%= producto.descripcion %></textarea>
-        </div>
 
-        <div class="precioForm">
-          <label for="precio">Precio:</label>
-          <input type="number" name="precio" id="precio" step="0.01" value="<%= parseInt(producto.precio) %>"/>
-        </div>
-        <div class="colorForm">
-          <label for="color">Color/es:</label>
-          <input type="text" name="color" value="<%= producto.color %>">
-        </div>
-        <div class="marcaForm">
-          <label for="marca">Marca:</label>
-          <input type="text" name="marca" value="<%= producto.marca %> ">
-        </div>
-        <div class="imagenPrincipal">
-          <h5>Agregar imágen principal</h5>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/productEdit.css" />
+  <title>Editar publicación</title>
+</head>
+
+<body>
+  <div class="productForm">
+    <div class="logo">
+      <a href="/">
+        <img src="/img/amazona-negro.png" alt="Amazona" />
+      </a>
+    </div>
+    <h2>Editar Producto</h2>
+
+    <form enctype="multipart/form-data" action="/product/edit/<%= producto.id %>?_method=PUT" method="POST">
+
+      <div class="tituloForm">
+        <label for="titulo">Titulo del producto:</label>
+        <input type="text" name="titulo" id="titulo" value="<%= producto.titulo %> " />
+      </div>
+      <div class="descripcionForm">
+        <label for="descripcion">Descripcion del producto:</label>
+        <textarea name="descripcion" id="descripcion"><%= producto.descripcion %></textarea>
+      </div>
+
+      <div class="precioForm">
+        <label for="precio">Precio:</label>
+        <input type="number" name="precio" id="precio" step="0.01" value="<%= parseInt(producto.precio) %>" />
+      </div>
+      <div class="colorForm">
+        <label for="color">Color/es:</label>
+        <input type="text" name="color" value="<%= producto.color %>">
+      </div>
+      <div class="marcaForm">
+        <label for="marca">Marca:</label>
+        <input type="text" name="marca" value="<%= producto.marca %> ">
+      </div>
+      <div class="imagenPrincipal">
+        <h5>Agregar imágen principal</h5>
+        <br>
+        <div class="imagenForm">
+          <label for="imagenPrincipal">Seleccionar Imagen</label>
+          <input type="file" name="imagenPrincipal" id="imagenPrincipal" accept="image/*" />
+          <% if(locals && locals.mensaje){ %>
+
           <br>
-          <div class="imagenForm">
-            <label for="imagenPrincipal">Seleccionar Imagen</label>
-            <input
-              type="file"
-              name="imagenPrincipal"
-              id="imagenPrincipal"
-              accept="image/*"
-            />
-            <% if(locals && locals.mensaje){ %>
-              
-                <br>
-                <div class="error">
-                  
-                  <%= mensaje.descripcion %> 
-                  
-                </div>
-            <%  
+          <div class="error">
+
+            <%= mensaje.descripcion %>
+
+          </div>
+          <%  
             }
              %>
-          </div>
         </div>
-        <div class="imagenesSecundarias">
-          <h5>Agregar imágenes secundarias</h5>
-          <div class="imagenForm">
-            <label for="imagenSecundaria">Seleccionar imágenes</label>
-            <input
-              type="file"
-              name="imagenSecundaria[]"
-              id="imagenSecundaria"
-              accept="image/*"
-              multiple
-            />
-          </div>
+      </div>
+      <div class="imagenesSecundarias">
+        <h5>Agregar imágenes secundarias</h5>
+        <div class="imagenForm">
+          <label for="imagenSecundaria">Seleccionar imágenes</label>
+          <input type="file" name="imagenSecundaria[]" id="imagenSecundaria" accept="image/*" multiple />
         </div>
-        <div class="submitForm">
-          <button type="submit">Guardar</button>
-        </div>
-      </form>
-    </div>
-  </body>
+      </div>
+      <div class="submitForm">
+        <button type="submit">Guardar</button>
+      </div>
+    </form>
+  </div>
+</body>
+
 </html>

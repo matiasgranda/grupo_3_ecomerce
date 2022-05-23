@@ -149,6 +149,19 @@
           "pregunta": "rtyrtyrtyryrt yrt yrty rty rty rty rty rt yrty"
         }
       ]
+    },
+    {
+      "id": 26,
+      "titulo": "sdfsdf",
+      "descripcion": "sdfsdf",
+      "categoria": "tecnologia",
+      "precio": "234234",
+      "imagen": "/img/1653345320415.webp",
+      "masImagenes": [],
+      "marca": "sdf",
+      "color": "sdfsdf",
+      "comentarios": [],
+      "calificaciones": []
     }
   ],
   [
@@ -332,6 +345,25 @@
       ],
       "calificaciones": [
         "5"
+      ]
+    },
+    {
+      "id": 25,
+      "titulo": "dsdfsd",
+      "descripcion": "fsdfsdfsdf",
+      "categoria": "hogar",
+      "precio": "34234234234",
+      "imagen": "/img/1653344690385.jpg",
+      "masImagenes": [],
+      "marca": "sdfsdf",
+      "color": "sdfsdf",
+      "comentarios": [],
+      "calificaciones": [],
+      "preguntas": [
+        {
+          "usuario": "Cosme Fulanito",
+          "pregunta": "dfsdfsdf sdf sdf sdf sdf "
+        }
       ]
     }
   ],

@@ -163,7 +163,7 @@ let productsController = {
     });
   },
   editProduct: (req, res) => {
-    let sesion = req.session;
+   // let sesion = req.session;
     
     return res.send(req.body);
   },
