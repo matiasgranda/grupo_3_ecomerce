@@ -1,32 +1,40 @@
 const path = require("path");
 const fs = require("fs");
-const { validationResult } = require("express-validator");
-const session= require("express-session");
+const actions = require("../data/actions");
+const { parse } = require("path");
+const { Console } = require("console");
+const session = require("express-session");
 
 let registroController = {
   main: (req, res) => {
 
     let sesion=session;
-    res.render(path.resolve(__dirname, "../views/cesta.ejs"),{session:sesion});
+    return res.render(path.resolve(__dirname, "../views/cesta.ejs"),{session:sesion});
 
   },
   add: (req, res) => {
-    
-    let producto={
-        idProd:3,
-        cantidad:1
-    } 
-    if(session.products){
-        session.products.push(producto);
-    }else {
-        session.products=[];
-        session.products.push(producto);
+      
+    if(!isNaN(req.params.id)){
+        
+        let product={
+            idProd:req.params.id,
+            cantidad:req.body.cantidad,
+        } 
+        if(req.session.products){
+            req.session.products.push(product);
+        }else {
+            req.session.products=[];
+            req.session.products.push(product);
+        }
+         
+        console.log(req.session.products);
+        return res.render(path.resolve(__dirname, "../views/cesta.ejs"),{session:req.session}); 
     }
-    console.log(session.products);
-    res.render(path.resolve(__dirname, "../views/cesta.ejs"),{session:sesion}); 
+        return res.send("Error en el código de producto") 
+    }
+    
    
-  }
-
-};
+   
+  };
 
 module.exports = registroController;
