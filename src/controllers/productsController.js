@@ -9,7 +9,7 @@ let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
 
 let productsController = {
   product: (req, res) => {
-    let sesion=session;
+    let sesion = session;
     let productoSeleccionado;
     for (let i = 0; i < productos.length; i++) {
       for (let j = 0; j < productos[i].length; j++) {
@@ -20,20 +20,22 @@ let productsController = {
     }
 
     res.render(path.resolve(__dirname, "../views/product.ejs"), {
-      productos: productoSeleccionado,session: req.session
+      productos: productoSeleccionado,
+      session: req.session,
     });
   },
 
   create: (req, res) => {
-    
-    res.render(path.resolve(__dirname, "../views/productCreate.ejs"),{session: req.session});
+    res.render(path.resolve(__dirname, "../views/productCreate.ejs"), {
+      session: req.session,
+    });
   },
 
-  save: (req, res,next) => {
-    let sesion=session;
+  save: (req, res, next) => {
+    let sesion = session;
     let nombreimagenOrig;
     let imagenesAdicionales = [];
-    if (req.files.length>0) {
+    if (req.files.length > 0) {
       req.files.forEach((element) => {
         if (element.fieldname === "imagenPrincipal") {
           nombreimagenOrig = "/img/" + element.filename;
@@ -41,17 +43,21 @@ let productsController = {
           imagenesAdicionales.push("/img/" + element.filename);
         }
       });
-    }else{
-      const error=new Error("Debe agregar al menos la imagen principal");
-      error.HttpStatusCode=400;
+    } else {
+      const error = new Error("Debe agregar al menos la imagen principal");
+      error.HttpStatusCode = 400;
       console.log("Debe agregar al menos la imagen principal");
-      let mensaje={
-        codigo:400,
-        descripcion:'Debe ingresar una imagen principal',
-      }
-      res.status(400).render(path.resolve(__dirname, "../views/productCreate.ejs"),{mensaje:mensaje,session:req.session});
+      let mensaje = {
+        codigo: 400,
+        descripcion: "Debe ingresar una imagen principal",
+      };
+      res
+        .status(400)
+        .render(path.resolve(__dirname, "../views/productCreate.ejs"), {
+          mensaje: mensaje,
+          session: req.session,
+        });
       return next(error);
-     
     }
     let idMasAlto = 0;
     for (let i = 0; i < productos.length; i++) {
@@ -98,7 +104,7 @@ let productsController = {
     }
 
     actions.addProduct(productos);
-    
+
     res.status(200).redirect("/product/" + productoNuevo.id);
   },
 
@@ -141,6 +147,7 @@ let productsController = {
     res.redirect("/product/" + req.params.id);
   },
   edit: (req, res) => {
+    let sesion = req.session;
     let productoSeleccionado;
     for (let i = 0; i < productos.length; i++) {
       for (let j = 0; j < productos[i].length; j++) {
@@ -149,12 +156,17 @@ let productsController = {
         }
       }
     }
-    res.render(path.resolve(__dirname, "../views/productEdit.ejs"), { producto: productoSeleccionado })
+    //return res.send(productoSeleccionado);
+    res.render(path.resolve(__dirname, "../views/productEdit.ejs"), {
+      producto: productoSeleccionado,
+      session: sesion,
+    });
   },
-  editProduct:(req,res) => {
-    res.send(" product PUT")
-  }
-
+  editProduct: (req, res) => {
+    let sesion = req.session;
+    
+    return res.send(req.body);
+  },
 };
 
 module.exports = productsController;

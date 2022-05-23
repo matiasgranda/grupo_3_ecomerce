@@ -59,10 +59,12 @@
     height: fit-content;
     flex: 0.15;
     padding: 10px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
 }
 .imagenitem img{
-    width: 140px;
-    height: auto;
+   
     max-height: 90px;
 }
 
