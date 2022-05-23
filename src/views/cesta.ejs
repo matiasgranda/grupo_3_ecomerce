@@ -18,6 +18,7 @@
                 <div class="divprecio">Precio</div>
                 
             </article>
+            <!--
             <article class="cestaitem">
                 <div class="imagenitem">
                     <img src="/img/gskill.jpg">
@@ -64,29 +65,38 @@
                 </div>
                 <div class="precioitem">$560.000</div>
             </article>
+            -->
+            <% if (locals.session.basketProducts && locals.session.basketProducts.length > 0) { %>
+            <% for (let i = 0;i < locals.session.basketProducts.length;i++){ %>
             <article class="cestaitem">
                 <div class="imagenitem">
-                    <img src="/img/ryzen.jpg">
+                    <img src="<%= locals.session.basketProducts[i].imagen %>">
                 </div>
                 <div class="detalleitem">
-                    <div class="titulodesc">Ryzen 9 5990X</div>
+                    <div class="titulodesc"><%= locals.session.basketProducts[i].titulo %></div>
                     <div class="descripcionitem"> Procesador AMD Ryzen 9 5990X 16 core 4.4Ghz 64Mb cache L3 </div>
                     <div class="opcionesitem">
                         <div class="cantidad">
                             <label for="selectcantidad">Cant.</label>
                             <select name="cantidad">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
+                                <option value="1" <% if (locals.session.basketProducts[i].cantidad==1){%> selected <% } %> >1</option>
+                                <option value="2" <% if (locals.session.basketProducts[i].cantidad==2){%> selected <% } %> >2</option>
+                                <option value="3" <% if (locals.session.basketProducts[i].cantidad==3){%> selected <% } %> >3</option>
+                                <option value="4" <% if (locals.session.basketProducts[i].cantidad==4){%> selected <% } %> >4</option>
                                 
                             </select>
                         </div>
                         <div class="linksopciones"><a href="#">Eliminar</a><a href="#">Ver productos similares</a></div>
                     </div>
                 </div>
-                <div class="precioitem">$158.000</div>
+                <div class="precioitem">$ <%= locals.session.basketProducts[i].precio %></div>
             </article>
+            <% } %>
+            <% } else {  %>
+                <div class="detalleitem" style="width:100%">
+                    <div class="titulodesc">El carrito está vacío</div>
+                </div>
+             <% } %>   
             <article class="total">
                 <span>Subtotal (3 Productos):<strong> $ 733.000</strong></span>
             </article>

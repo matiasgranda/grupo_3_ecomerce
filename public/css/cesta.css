@@ -60,6 +60,11 @@
     flex: 0.15;
     padding: 10px;
 }
+.imagenitem img{
+    width: 140px;
+    height: auto;
+    max-height: 90px;
+}
 
 .precioitem {
     display: flex;
