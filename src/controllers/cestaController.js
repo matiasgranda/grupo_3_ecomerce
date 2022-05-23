@@ -11,7 +11,7 @@ let registroController = {
 
   },
   add: (req, res) => {
-    let sesion=session;
+    
     let producto={
         idProd:3,
         cantidad:1

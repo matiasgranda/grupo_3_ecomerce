@@ -20,7 +20,7 @@ let productsController = {
     }
 
     res.render(path.resolve(__dirname, "../views/product.ejs"), {
-      productos: productoSeleccionado,session: req.sesion
+      productos: productoSeleccionado,session: req.session
     });
   },
 

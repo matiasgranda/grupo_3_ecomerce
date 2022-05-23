@@ -7,7 +7,7 @@ let cestaController = require("../controllers/cestaController");
 const logMiddelware = require("../middelwares/logMiddelware");
 
 router.post("/", cestaController.main);
-router.post("/agregar", cestaController.add);
+router.post("/agregar/:id", cestaController.add);
 
 
 
