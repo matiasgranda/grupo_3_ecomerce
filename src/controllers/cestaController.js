@@ -27,7 +27,7 @@ let registroController = {
       if (!req.session.basketProducts) {
         req.session.basketProducts = [];
       }
-      
+      let dollarUSLocale = Intl.NumberFormat('en-US');
         for (let i = 0; i < productList.length; i++) {
           for (let j = 0; j < productList[i].length; j++) {
             if (productList[i][j].id == product.idProd) {
@@ -44,7 +44,7 @@ let registroController = {
             }
           }
         }
-      console.log(req.session.basketProducts.length);
+     
       
       return res.render(path.resolve(__dirname, "../views/cesta.ejs"), {
         session: sesion,

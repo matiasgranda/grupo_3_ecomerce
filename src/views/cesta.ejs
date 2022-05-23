@@ -66,8 +66,8 @@
                 <div class="precioitem">$560.000</div>
             </article>
             -->
-            <% if (locals.session.basketProducts && locals.session.basketProducts.length > 0) { %>
-            <% for (let i = 0;i < locals.session.basketProducts.length;i++){ %>
+            <% if (locals.session.basketProducts!=undefined && locals.session.basketProducts.length > 0) { %>
+                <% for (let i = 0;i < locals.session.basketProducts.length;i++){ %>
             <article class="cestaitem">
                 <div class="imagenitem">
                     <img src="<%= locals.session.basketProducts[i].imagen %>">
@@ -89,27 +89,34 @@
                         <div class="linksopciones"><a href="#">Eliminar</a><a href="#">Ver productos similares</a></div>
                     </div>
                 </div>
-                <div class="precioitem">$ <%= locals.session.basketProducts[i].precio %></div>
+                <div class="precioitem">$ <%= (locals.session.basketProducts[i].precio*locals.session.basketProducts[i].cantidad).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) %></div>
             </article>
-            <% } %>
+                <% } %>
             <% } else {  %>
                 <div class="detalleitem" style="width:100%">
                     <div class="titulodesc">El carrito está vacío</div>
                 </div>
              <% } %>   
             <article class="total">
-                <span>Subtotal (3 Productos):<strong> $ 733.000</strong></span>
+                <% if (locals.session.basketProducts!=undefined && locals.session.basketProducts.length > 0) { %>
+                <span>Subtotal (<%= locals.session.basketProducts.length %> Productos):<strong> $ 
+                        <%= locals.session.basketProducts.reduce((acumulador, actual) => acumulador + (actual.precio*actual.cantidad), 0).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}); %>
+                    </strong>
+                </span>
+                <% } %>
             </article>
         </section>
+        <% if (locals.session.basketProducts!=undefined && locals.session.basketProducts.length > 0) { %>
         <section class="barralateral">
             <article class="barralateralitem">
                 <div class="cajasubtotal">
-                    <span>Subtotal (3 Productos):<strong> $ 733.000</strong></span>
+                    <span>Subtotal (<%= locals.session.basketProducts.length %> Productos):<strong> $ <%= locals.session.basketProducts.reduce((acumulador, actual) => acumulador + (actual.precio*actual.cantidad), 0).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}); %></strong></span>
                     <button class="botonpedido">Finalizar pedido</button>
                 </div>
             </article>
 
         </section>
+        <% } %>
     </div>
   <%- include('./partials/sidenav') %>
 
