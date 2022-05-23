@@ -1,8 +1,12 @@
 const path = require("path");
 const fs = require("fs");
 const actions = require("../data/actions");
-const { parse } = require("path");
-const { Console } = require("console");
+const {
+  parse
+} = require("path");
+const {
+  Console
+} = require("console");
 const session = require("express-session");
 
 let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
@@ -163,9 +167,26 @@ let productsController = {
     });
   },
   editProduct: (req, res) => {
-   // let sesion = req.session;
-    
-    return res.send(req.body);
+    // let sesion = req.session;
+    if (req.files.length > 0) {
+      req.files.forEach((element) => {
+        if (element.fieldname === "imagenPrincipal") {
+          nombreimagenOrig = "/img/" + element.filename;
+        } else {
+          imagenesAdicionales.push("/img/" + element.filename);
+        }
+      });
+    } else {
+      const error = new Error("Debe agregar al menos la imagen principal");
+      error.HttpStatusCode = 400;
+      console.log("Debe agregar al menos la imagen principal");
+      let mensaje = {
+        codigo: 400,
+        descripcion: "Debe ingresar una imagen principal",
+      };
+    }
+    console.log(req.files[0].filename);
+     res.send(req.files[0].filename);
   },
 };
 
