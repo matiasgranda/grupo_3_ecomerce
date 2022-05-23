@@ -34,6 +34,14 @@
           <label for="precio">Precio:</label>
           <input type="number" name="precio" id="precio" step="0.01" value="<%= parseInt(producto.precio) %>"/>
         </div>
+        <div class="colorForm">
+          <label for="color">Color/es:</label>
+          <input type="text" name="color" value="<%= producto.color %>">
+        </div>
+        <div class="marcaForm">
+          <label for="marca">Marca:</label>
+          <input type="text" name="marca" value="<%= producto.marca %> ">
+        </div>
         <div class="imagenPrincipal">
           <h5>Agregar imágen principal</h5>
           <br>
