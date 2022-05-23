@@ -13,8 +13,6 @@ router.get("/index", mainController.home);
 
 router.get("/home", mainController.home);
 
-router.get("/cesta", mainController.cesta);
-
 router.get("/login", mainController.login);
 
 router.get("/admin", mainController.admin)

@@ -17,10 +17,11 @@
       <h2>Editar Producto</h2>
       
       <form
-        action="/product/edit/<%producto.id%> ?_method=PUT"
+        action="/product/edit/<%= producto.id %>?_method=PUT"
         method="post"
         enctype="multipart/form-data"
       >
+     
         <div class="tituloForm">
           <label for="titulo">Titulo del producto:</label>
           <input type="text" name="titulo" id="titulo" value="<%= producto.titulo %> "/>
@@ -72,7 +73,7 @@
           </div>
         </div>
         <div class="submitForm">
-          <button type="submit">Publicar</button>
+          <button type="submit">Guardar</button>
         </div>
       </form>
     </div>

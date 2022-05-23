@@ -88,23 +88,25 @@
       <div class="stock">
         En Stock
       </div>
-      <div class="cantidad">
-        <select>
-          <option value="" disabled selected>Cantidad</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
-      </div>
-      <div class="botones">
-        <div class="botonagregar">
-          <button class="agregar">Agregar al carrito</button>
+      <form action="../cesta/agregar" method="post">
+        <div class="cantidad">
+          <select>
+            <option value="" disabled selected>Cantidad</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
         </div>
-        <div class="botoncomprar">
-          <button class="comprar">Comprar ahora</button>
+        <div class="botones">
+          <div class="botonagregar">
+            <button class="agregar" type="submit">Agregar al carrito</button>
+          </div>
+          <div class="botoncomprar">
+            <button class="comprar">Comprar ahora</button>
+          </div>
         </div>
-      </div>
+      </form>
       <div class="envioacargo">
         Envío a cargo del comprardor
       </div>

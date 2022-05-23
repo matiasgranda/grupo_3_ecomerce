@@ -20,13 +20,13 @@ let productsController = {
     }
 
     res.render(path.resolve(__dirname, "../views/product.ejs"), {
-      productos: productoSeleccionado,session: sesion
+      productos: productoSeleccionado,session: req.sesion
     });
   },
 
   create: (req, res) => {
-    let sesion=session;
-    res.render(path.resolve(__dirname, "../views/productCreate.ejs"),{session: sesion});
+    
+    res.render(path.resolve(__dirname, "../views/productCreate.ejs"),{session: req.session});
   },
 
   save: (req, res,next) => {
@@ -49,7 +49,7 @@ let productsController = {
         codigo:400,
         descripcion:'Debe ingresar una imagen principal',
       }
-      res.status(400).render(path.resolve(__dirname, "../views/productCreate.ejs"),{mensaje:mensaje,session:sesion});
+      res.status(400).render(path.resolve(__dirname, "../views/productCreate.ejs"),{mensaje:mensaje,session:req.session});
       return next(error);
      
     }
@@ -150,6 +150,9 @@ let productsController = {
       }
     }
     res.render(path.resolve(__dirname, "../views/productEdit.ejs"), { producto: productoSeleccionado })
+  },
+  editProduct:(req,res) => {
+    res.send(" product PUT")
   }
 
 };

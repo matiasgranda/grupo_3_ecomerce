@@ -9,13 +9,13 @@ let mainController = {
     let sesion=session;
     
     res.render(path.resolve(__dirname, "../views/index.ejs"), {
-      productos: productos,session:sesion
+      productos: productos,session:req.session
     });
   },
 
   cesta: (req, res) => {
     let sesion=session;
-    res.render(path.resolve(__dirname, "../views/cesta.ejs"),{session:sesion});
+    res.render(path.resolve(__dirname, "../views/cesta.ejs"),{session:req.session});
   },
 
   login: (req, res) => {
@@ -29,7 +29,7 @@ let mainController = {
   admin: (req, res) => {
     let sesion=session;
     let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
-    res.render(path.resolve(__dirname, "../views/admin.ejs"), { productos: productos,session:sesion });;
+    res.render(path.resolve(__dirname, "../views/admin.ejs"), { productos: productos,session:req.session });;
   }
 };
 

@@ -21,12 +21,15 @@ let loginController = {
             usuarios[i].mail == req.body.user) &&
           bcrypt.compareSync(req.body.password, usuarios[i].password)) {
           //console.log("ok")
+          req.session.user = usuarios[i].usuario;
+          req.session.mail = usuarios[i].mail;
+          req.session.pais = usuarios[i].pais;
           // req.session.user=usuario.usuario;
           // req.session.mail=usuario.mail;
           // req.session.pais=usuario.pais;
-          session.user = usuarios[i].usuario;
-          session.mail = usuarios[i].mail;
-          session.pais = usuarios[i].pais;
+          //session.user = usuarios[i].usuario;
+          //session.mail = usuarios[i].mail;
+          //session.pais = usuarios[i].pais;
           return res.redirect("/");
         }
       }
