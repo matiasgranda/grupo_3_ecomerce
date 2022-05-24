@@ -7,6 +7,7 @@ let mainRoutes = require("./routes/main.js");
 let registroRoutes=require("./routes/registro");
 let loginRoutes=require("./routes/login");
 let cestaRoutes=require("./routes/cesta");
+let userRoutes = require("./routes/users.js");
 const exp = require("constants");
 let session=require("express-session");
 const publicPath = (path.resolve(__dirname, "../public"));
@@ -36,8 +37,9 @@ app.set("view engine", "ejs");
 app.use("/product", productRoutes);
 app.use("/", mainRoutes);
 app.use("/registro",registroRoutes);
-app.use("/login",loginRoutes)
-app.use("/cesta",cestaRoutes)
+app.use("/login",loginRoutes);
+app.use("/cesta",cestaRoutes);
+app.use("/perfil", userRoutes)
 /******************************************************/
 app.use((req,res,next)=>{
     res.status(404).render('../src/views/not-found');

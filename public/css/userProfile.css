@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    width: 100%;
+    background-color: #eaeded;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+}
+
+main {
+    position: relative;
+    margin-top: 90px;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgray;
+}
+
+section {
+    width: 100%;
+    min-width: 500px;
+    height: fit-content;
+    min-height: 300px;
+    border: 1px solid #fff;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    flex-direction: column;
+}
+
+.user-name-image {
+    position: relative;
+    display: flex;
+    width: 70%;
+    height: 30%;
+    border: 1px solid black;
+    justify-content: space-evenly;
+}
+
+.user-name-image img {
+    border: 1px solid black;
+    height: 100%;
+    width: 20%;
+}
+
+.user-name-image h3 {
+    width: 50%;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.user-description {
+    width: 70%;
+}
+
+.user-info {
+    width: 80%;
+}
+
+.logout {
+    width: 80%;
+}

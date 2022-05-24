@@ -22,7 +22,6 @@ body {
     background-color: #eaeded;
     display: flex;
     position: absolute;
-    min-width: 390px;
 }
 
 h2 {
