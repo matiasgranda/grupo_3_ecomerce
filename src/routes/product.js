@@ -5,7 +5,7 @@ const multer=require('multer');
 const log=require('../middelwares/logMiddelware');
 let multerDiskStorage=multer.diskStorage({
     destination:(req,file,callback)=>{
-        let folder=path.join(__dirname,'../../public/img');
+        let folder=path.join(__dirname,'../../public/img');  
         callback(null,folder);
     },
     filename:(req,file,callback)=>{

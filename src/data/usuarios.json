@@ -1,24 +1,42 @@
 [
-  
   {
     "usuario": "Jose",
     "mail": "jldefigueiredo@gmail.com",
     "password": "$2b$10$LTSqR0eQuwCCqzq/xf0./OCwpCwk8BiKttuL1yQtz.T1nNganp7qS",
     "pais": "Uruguay",
-    "fechanac": "2022-05-19"
+    "fechanac": "2022-05-19",
+    "imagen": "/img/user-image-default.png"
   },
   {
     "usuario": "Mati",
     "mail": "matigranda93@gmail.com",
     "password": "$2b$10$.6G4tI.F9yG.LmlAKeVjKe2sI6qtfEWGuvMU5Vy016FT8uyiKNz2i",
     "pais": "Argentina",
-    "fechanac": "2022-05-18"
+    "fechanac": "2022-05-18",
+    "imagen": "/img/user-image-default.png"
   },
   {
     "usuario": "pepe",
     "mail": "ppkapo@gmail.com",
     "password": "$2b$10$1Qv4lZJgZQ7XKCwIfLPKp.yJ/XQshDGfmxLJ62QHMcVqKdQiXO02m",
     "pais": "Argentina",
-    "fechanac": "2022-05-18"
+    "fechanac": "2022-05-18",
+    "imagen": "/img/user-image-default.png"
+  },
+  {
+    "usuario": "aaaa",
+    "mail": "a@e.com",
+    "password": "$2b$10$OflmCeZK/xZZ1Wo/QLKqnulIwIrZl3si29Rmcboj4zfZvBLhrRN4a",
+    "pais": "Brasil",
+    "fechanac": "2022-05-10",
+    "imagen": "/img/user-image-default.png"
+  },
+  {
+    "usuario": "aaaa",
+    "mail": "a@e.com",
+    "password": "$2b$10$bEa2uz/A.UksfsjXeAbYr.IKVVT8zSAvj2CVhWgRNJRI1qRZTZBt2",
+    "pais": "Argentina",
+    "fechanac": "2022-05-10",
+    "imagen": "/img/user-image-default.png"
   }
 ]

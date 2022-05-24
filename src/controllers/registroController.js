@@ -11,16 +11,22 @@ let registroController = {
     res.render(path.resolve(__dirname, "../views/registro.ejs"));
 
   },
-  crear: (req, res) => {
+  crear: (req, res, next) => {
     
-    let errors = validationResult(req)
+    let errors = validationResult(req);
+    let nombreImagen;
+    if (req.files != undefined) {
+      nombreImagen = "/img/" + req.files.filename
+    } else nombreImagen = "/img/user-image-default.png";
+
     if (errors.isEmpty()) {
       let usuarioNuevo = {
         usuario: req.body.usuario,
         mail: req.body.mail,
         password: bcrypt.hashSync(req.body.password,10),
         pais: req.body.pais,
-        fechanac: req.body.fechanac
+        fechanac: req.body.fechanac,
+        imagen: nombreImagen
       }
       usuarios.push(usuarioNuevo);
 

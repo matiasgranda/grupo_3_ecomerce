@@ -122,6 +122,27 @@ label {
     color: rgb(85, 85, 85);
 }
 
+.form-image {
+    height: 30px;
+    justify-content: center;
+}
+
+.form-image label {
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px 2px rgb(20 31 56 / 10%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: rgb(132, 147, 173);
+}
+
+.form-image input {
+    display: none;
+}
+
 .form-submit button {
     display: flex;
     height: 32px;

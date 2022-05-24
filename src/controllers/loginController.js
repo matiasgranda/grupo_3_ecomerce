@@ -24,6 +24,7 @@ let loginController = {
           req.session.user = usuarios[i].usuario;
           req.session.mail = usuarios[i].mail;
           req.session.pais = usuarios[i].pais;
+          req.session.imagen = usuarios[i].imagen
           // req.session.user=usuario.usuario;
           // req.session.mail=usuario.mail;
           // req.session.pais=usuario.pais;
