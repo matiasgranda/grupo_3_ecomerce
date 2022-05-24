@@ -44,7 +44,7 @@ section {
     position: relative;
     display: flex;
     width: 70%;
-    height: 30%;
+    height: 200px;
     border: 1px solid black;
     justify-content: space-evenly;
 }
@@ -52,23 +52,38 @@ section {
 .user-name-image img {
     border: 1px solid black;
     height: 100%;
-    width: 20%;
+    max-height: 200px;
+    width: 200px;
 }
 
 .user-name-image h3 {
     width: 50%;
     border: 1px solid black;
-    text-align: center;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .user-description {
     width: 70%;
+    height: 150px;
+    border: 1px solid black;
+    padding: 10px;
 }
 
 .user-info {
     width: 80%;
+    width: 70%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid black;
 }
 
 .logout {
-    width: 80%;
+    width: 40%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
