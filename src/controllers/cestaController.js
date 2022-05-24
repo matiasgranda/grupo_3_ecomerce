@@ -52,6 +52,13 @@ let registroController = {
     }
     return res.send("Error en el código de producto");
   },
+  delete: (req,res) => {
+    let sesion = req.session;
+    sesion.basketProducts=sesion.basketProducts.filter(product=> product.id!=req.params.id);
+    return res.render(path.resolve(__dirname, "../views/cesta.ejs"), {
+      session: sesion,
+    });
+  }
 };
 
 module.exports = registroController;

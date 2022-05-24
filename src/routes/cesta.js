@@ -8,6 +8,7 @@ const logMiddelware = require("../middelwares/logMiddelware");
 
 router.get("/", cestaController.main);
 router.post("/agregar/:id", cestaController.add);
+router.get("/delete/:id", cestaController.delete)
 
 
 

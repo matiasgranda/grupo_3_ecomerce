@@ -18,54 +18,7 @@
                 <div class="divprecio">Precio</div>
                 
             </article>
-            <!--
-            <article class="cestaitem">
-                <div class="imagenitem">
-                    <img src="/img/gskill.jpg">
-                </div>
-                <div class="detalleitem">
-                    <div class="titulodesc">Modulo 16GB DDR4 3600Mhz</div>
-                    <div class="descripcionitem"> Memoria DDR4 OCZ Performance 3600Mhz RGB con disipador</div>
-                    <div class="opcionesitem">
-                        <div class="cantidad">
-                            <label for="selectcantidad">Cant.</label>
-                            <select name="cantidad">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                
-                            </select>
-                        </div>
-                        <div class="linksopciones"><a href="#">Eliminar</a><a href="#">Ver productos similares</a></div>
-                    </div>
-                </div>
-                <div class="precioitem">$15.000</div>
-            </article>
-            <article class="cestaitem">
-                <div class="imagenitem">
-                    <img src="/img/3090.jpg">
-                </div>
-                <div class="detalleitem">
-                    <div class="titulodesc">Geforce RTX3090 24GB</div>
-                    <div class="descripcionitem"> Placa de video RTX3090 24GB 1450Mhz OC PCIe 4.0</div>
-                    <div class="opcionesitem">
-                        <div class="cantidad">
-                            <label for="selectcantidad">Cant.</label>
-                            <select name="cantidad">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                
-                            </select>
-                        </div>
-                        <div class="linksopciones"><a href="#">Eliminar</a><a href="#">Ver productos similares</a></div>
-                    </div>
-                </div>
-                <div class="precioitem">$560.000</div>
-            </article>
-            -->
+            
             <% if (locals.session.basketProducts!=undefined && locals.session.basketProducts.length > 0) { %>
                 <% for (let i = 0;i < locals.session.basketProducts.length;i++){ %>
             <article class="cestaitem">
@@ -86,7 +39,7 @@
                                 
                             </select>
                         </div>
-                        <div class="linksopciones"><a href="#">Eliminar</a><a href="#">Ver productos similares</a></div>
+                        <div class="linksopciones"><a href="http://localhost:3000/cesta/delete/<%=locals.session.basketProducts[i].id %>">Eliminar</a><a href="#">Ver productos similares</a></div>
                     </div>
                 </div>
                 <div class="precioitem">$ <%= (locals.session.basketProducts[i].precio*locals.session.basketProducts[i].cantidad).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) %></div>
@@ -117,6 +70,29 @@
 
         </section>
         <% } %>
+        <script>
+
+            function deleteProduct(id){
+                var formData = new FormData();
+                formData.append("productId", id);
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "/cesta/delete/"+id);
+                xhr.send(formData);
+               /* var url = "/cesta";
+                var xhr = new XMLHttpRequest();
+
+                xhr.open("DELETE", url, true);
+                xhr.onload = function () {
+                    var users = JSON.parse(xhr.responseText);
+                    if (xhr.readyState == 4 && xhr.status == "200") {
+                        console.table(users);
+                    } else {
+                        console.error(users);
+                    }
+                }
+                xhr.send(null);*/
+            }
+        </script>
     </div>
   <%- include('./partials/sidenav') %>
 
