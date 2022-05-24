@@ -1,8 +1,8 @@
 const session = require("express-session");
-
+const path = require("path");
 function authMiddleware(req, res, next) {
     if(req.session.user == undefined) {
-        res.send("Debes iniciar sesion para entrar a esta pagina.")
+        res.redirect('login')
     } else if (req.session.user != undefined) {
         next();
     }
