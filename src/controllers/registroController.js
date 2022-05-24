@@ -13,12 +13,16 @@ let registroController = {
   },
   crear: (req, res, next) => {
     
-    let errors = validationResult(req);
     let nombreImagen;
-    if (req.files != undefined) {
-      nombreImagen = "/img/" + req.files.filename
-    } else nombreImagen = "/img/user-image-default.png";
-
+    req.files.forEach((element) => {
+      if(req.files.length > 0) {
+        nombreImagen = "/img/" + element.filename
+      } else {
+        nombreImagen = "/img/user-image-default.png";
+      }
+    })
+    
+    let errors = validationResult(req);
     if (errors.isEmpty()) {
       let usuarioNuevo = {
         usuario: req.body.usuario,

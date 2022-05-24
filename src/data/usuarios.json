@@ -24,19 +24,11 @@
     "imagen": "/img/user-image-default.png"
   },
   {
-    "usuario": "aaaa",
-    "mail": "a@e.com",
-    "password": "$2b$10$OflmCeZK/xZZ1Wo/QLKqnulIwIrZl3si29Rmcboj4zfZvBLhrRN4a",
-    "pais": "Brasil",
-    "fechanac": "2022-05-10",
-    "imagen": "/img/user-image-default.png"
-  },
-  {
-    "usuario": "aaaa",
-    "mail": "a@e.com",
-    "password": "$2b$10$bEa2uz/A.UksfsjXeAbYr.IKVVT8zSAvj2CVhWgRNJRI1qRZTZBt2",
+    "usuario": "matuca",
+    "mail": "matuca@mail.com",
+    "password": "$2b$10$E0e0WUkQcaUsUXEwuWwnQu2vNmZXowglPEtwXrHtotTmhrDrIM6lq",
     "pais": "Argentina",
-    "fechanac": "2022-05-10",
-    "imagen": "/img/user-image-default.png"
+    "fechanac": "0001-01-01",
+    "imagen": "/img/1653407731808.jpg"
   }
 ]
