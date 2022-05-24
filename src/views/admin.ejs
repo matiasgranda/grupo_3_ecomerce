@@ -25,12 +25,12 @@
         <% for(let j = 0; j < productos[i].length; j++) { %>
         <section class="product-box <%= productos[i][j].categoria %>">
 
-            <div class="product-title">
-                <p><a href="/product/<%=productos[i][j].id%>"><%= productos[i][j].titulo %> </a></p>
+            <div class="product-info">
+                <img src="<%= productos[i][j].imagen %>" alt="">
             </div>
 
-            <div class="product-info">
-                <p><b>Descripción: </b><%= productos[i][j].descripcion %></p>
+            <div class="product-title">
+                <p><a href="/product/<%=productos[i][j].id%>"><%= productos[i][j].titulo %> </a></p>
             </div>
 
             <div class="product-info">
@@ -41,21 +41,10 @@
                 <p><b>Precio:</b>  <%= productos[i][j].precio %></p>
             </div>
 
-            <div class="product-info">
-                <p><b>Color:</b> <%= productos[i][j].color %></p>
-            </div>
-
-            <div class="product-info">
-                <p><b>Marca:</b> <%= productos[i][j].marca %></p>
-            </div>
-
-            <div class="product-info">
-                <img src="<%= productos[i][j].imagen %>" alt="">
-            </div>
-
+          
             <div class="edit-links">
-                <a href="/product/edit/<%=productos[i][j].id%> ">Editar<i class="fa-solid fa-pen-to-square"></i></a>
-                <a href="#">Eliminar producto <i class="fa-solid fa-xmark"></i></a>
+                <a href="/product/edit/<%=productos[i][j].id%> " title="Editar Producto"><i class="fa-regular fa-pen-to-square"></i></a>
+                <a href="#" title="Eliminar Producto" class="trash"><i class="fa-solid fa-trash"></i></a>
             </div>
 
         </section>
