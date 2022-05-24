@@ -21,19 +21,21 @@
       </div>
       <div class="searchbar">
         <a class="linkizquierda" href="#">Categorias</a>
-        <input type="text" />
+        <input type="text" name="searchbox" id="searchbox" />
         <a class="linkderecha" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
       </div>
       <div class="login-carrito">
+        
         <% if(locals.session.user){ %>
-          
-          <a class="login" href="/admin">
-            <i class="fa-solid fa-user"></i>
-            <p>
-              <%= locals.session.user %>
-             
-            </p>
-          </a>
+          <div class="dropdown">
+            <button class="dropbtn"><i class="fa-solid fa-user "></i>&nbsp;<%= locals.session.user %></button>
+            <div class="dropdown-content">
+              <a href="perfil">Perfil</a>
+              <a href="product/create/">Vender</a>
+              <a href="admin">Publicaciones</a>
+              <a href="logout">Cerrar Sesión</a>
+            </div>
+          </div>
           <% } else { %>
         <a class="login" href="/login">
           <i class="fa-solid fa-user"></i>

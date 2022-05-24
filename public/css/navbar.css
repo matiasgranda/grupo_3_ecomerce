@@ -317,7 +317,53 @@ header {
 .linkitems a:hover {
     text-decoration: underline;
 }
+/**************** menu dropdwon ********************/
+.dropbtn {
+    background-color: #131921;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f7f7f7;
+    min-width: 200px;
+    color: black;
+    z-index: 1;
+    border-radius: 5px;
+
+}
+.dropdown-content ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: baseline;
+    list-style: none;
+    padding: 5px;
+
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    z-index: 2;
+}
+
+.dropdown-content a:hover {background-color: #232F3F; color: white;}
+.dropdown:hover .dropdown-content {display: block;}
+
+/**********************************************************/
 /* -------------------- MEDIA QUERIES -------------------- */
 
 @media(max-width: 800px) {
