@@ -1,6 +1,5 @@
 header {
     width: 100%;
-    min-width: 400px;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -64,7 +63,6 @@ header {
     width: 60%;
     height: 50px;
     display: flex;
-    justify-content: center;
     align-items: center;
     position: relative;
     min-width: fit-content;
@@ -380,7 +378,7 @@ header {
     .menu {
         color: #fff;
         font-size: 2em;
-        margin-left: 20px;
+        margin-left: 10px;
         display: block;
     }
 
@@ -420,16 +418,15 @@ header {
 
 @media(max-width: 412px) {
     header {
-        position: fixed;
+        position: absolute;
     }
 
     .searchbar {
         width: 100%;
-        padding: 5px;
     }
 
     .searchbar a {
-        width: 60px;
+        width: 50px;
     }
 
     .searchbar a i {
@@ -438,8 +435,8 @@ header {
     }
 
     .searchbar input {
-        width: 100%;
-        min-width: 220px;
+        width: 50%;
+        min-width: 150px;
     }
 
     .logo-envio {
@@ -448,11 +445,5 @@ header {
 
     .login-carrito {
         margin-right: 8px;
-    }
-}
-
-@media(max-width: 760px) {
-    header {
-        position: fixed;
     }
 }
