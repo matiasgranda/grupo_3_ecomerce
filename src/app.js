@@ -16,9 +16,7 @@ var cookieParser = require('cookie-parser')
 app.use(cookieParser());
 app.use(session({
     name : 'amazona',
-    secret : 'amazonasecret',
-    resave :false,
-    saveUninitialized: true,
+    secret : 'amazonasecret1234#',
     cookie : {
             maxAge:(1000 * 60 * 100)
     }      
