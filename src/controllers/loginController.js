@@ -3,8 +3,8 @@ const fs = require("fs");
 const { parse } = require("path");
 const { Console } = require("console");
 const { validationResult } = require("express-validator");
-const session = require("express-session");
 const bcrypt = require("bcrypt");
+const { SlowBuffer } = require("buffer");
 
 let loginController = {
   login: (req, res) => {
@@ -12,6 +12,7 @@ let loginController = {
   },
 
   loginCheck: (req, res) => {
+    
     let errors = validationResult(req);
     if (errors.isEmpty()) {
       let usuarios = JSON.parse(fs.readFileSync("./src/data/usuarios.json"));
@@ -20,17 +21,14 @@ let loginController = {
           (usuarios[i].usuario == req.body.user ||
             usuarios[i].mail == req.body.user) &&
           bcrypt.compareSync(req.body.password, usuarios[i].password)) {
-          //console.log("ok")
           req.session.user = usuarios[i].usuario;
           req.session.mail = usuarios[i].mail;
           req.session.pais = usuarios[i].pais;
-          req.session.imagen = usuarios[i].imagen
-          // req.session.user=usuario.usuario;
-          // req.session.mail=usuario.mail;
-          // req.session.pais=usuario.pais;
-          //session.user = usuarios[i].usuario;
-          //session.mail = usuarios[i].mail;
-          //session.pais = usuarios[i].pais;
+          req.session.imagen = usuarios[i].imagen;
+          req.session.logged="si";
+          if(req.body.recordar){
+            res.cookie('userMail',usuarios[i].mail,{maxAge:1000*60*60});
+          }
           return res.redirect("/");
         }
       }
