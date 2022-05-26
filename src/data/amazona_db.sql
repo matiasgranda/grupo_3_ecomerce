@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2022-05-26 16:59:14
+Date: 2022-05-26 17:23:00
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -48,6 +48,21 @@ CREATE TABLE `categorias` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for colores
+-- ----------------------------
+DROP TABLE IF EXISTS `colores`;
+CREATE TABLE `colores` (
+  `idcolor` int(11) NOT NULL AUTO_INCREMENT,
+  `idpublicacion` int(11) NOT NULL,
+  `color` varchar(12) NOT NULL,
+  PRIMARY KEY (`idcolor`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of colores
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for domicilios
 -- ----------------------------
 DROP TABLE IF EXISTS `domicilios`;
@@ -70,6 +85,22 @@ CREATE TABLE `domicilios` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for imagenes
+-- ----------------------------
+DROP TABLE IF EXISTS `imagenes`;
+CREATE TABLE `imagenes` (
+  `idimagen` int(11) NOT NULL AUTO_INCREMENT,
+  `imgagenprincipal` int(1) NOT NULL DEFAULT 0,
+  `imagen` varchar(40) NOT NULL,
+  `idpublicacion` int(11) NOT NULL,
+  PRIMARY KEY (`idimagen`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of imagenes
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for preguntas
 -- ----------------------------
 DROP TABLE IF EXISTS `preguntas`;
@@ -79,6 +110,7 @@ CREATE TABLE `preguntas` (
   `pregunta` text NOT NULL,
   `idpublicacion` int(11) DEFAULT NULL,
   `fechapregunta` date NOT NULL,
+  `reportado` int(11) DEFAULT 0,
   PRIMARY KEY (`idpregunta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -99,6 +131,8 @@ CREATE TABLE `publicaciones` (
   `idcategoria` int(11) NOT NULL,
   `idsubcategoria` int(11) DEFAULT NULL,
   `fechapublicacion` date DEFAULT NULL,
+  `reportado` int(1) DEFAULT 0,
+  `titulo` varchar(70) NOT NULL,
   PRIMARY KEY (`idpublicacion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -115,6 +149,7 @@ CREATE TABLE `respuestas` (
   `idpregunta` int(11) NOT NULL,
   `respuesta` text DEFAULT NULL,
   `fecharespuesta` date DEFAULT NULL,
+  `reportado` int(1) DEFAULT 0,
   PRIMARY KEY (`idrespuesta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Esta es la tabla que contiene las respuestas de las preguntas realizadas por los usuarios';
 
@@ -135,6 +170,7 @@ CREATE TABLE `usuarios` (
   `email` varchar(40) NOT NULL,
   `usuario` varchar(12) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `habilitado` int(1) DEFAULT 1,
   PRIMARY KEY (`idusuario`,`usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
