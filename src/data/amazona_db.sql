@@ -1,18 +1,3 @@
-/*
-Navicat MySQL Data Transfer
-
-Source Server         : localhost
-Source Server Version : 50505
-Source Host           : localhost:3306
-Source Database       : amazona_db
-
-Target Server Type    : MYSQL
-Target Server Version : 50505
-File Encoding         : 65001
-
-Date: 2022-05-26 17:23:00
-*/
-
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
