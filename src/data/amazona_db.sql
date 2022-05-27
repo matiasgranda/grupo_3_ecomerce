@@ -1,17 +1,4 @@
-/*
-Navicat MySQL Data Transfer
-
-Source Server         : localhost
-Source Server Version : 50505
-Source Host           : localhost:3306
-Source Database       : amazona_db
-
-Target Server Type    : MYSQL
-Target Server Version : 50505
-File Encoding         : 65001
-
-Date: 2022-05-26 17:23:00
-*/
+-- Antes de importar este archivo hay que crear la base de datos con nombre amazona_db
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -25,7 +12,9 @@ CREATE TABLE `calificaciones` (
   `idpublicacion` int(11) DEFAULT NULL,
   `idusuario` int(11) DEFAULT NULL,
   `calificacion` int(1) NOT NULL DEFAULT 1,
-  PRIMARY KEY (`idcomentario`)
+  PRIMARY KEY (`idcomentario`),
+  KEY `fk_calificaciones` (`idpublicacion`),
+  CONSTRAINT `fk_calificaciones` FOREIGN KEY (`idpublicacion`) REFERENCES `publicaciones` (`idpublicacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -55,7 +44,9 @@ CREATE TABLE `colores` (
   `idcolor` int(11) NOT NULL AUTO_INCREMENT,
   `idpublicacion` int(11) NOT NULL,
   `color` varchar(12) NOT NULL,
-  PRIMARY KEY (`idcolor`)
+  PRIMARY KEY (`idcolor`),
+  KEY `fk_colores` (`idpublicacion`),
+  CONSTRAINT `fk_colores` FOREIGN KEY (`idpublicacion`) REFERENCES `publicaciones` (`idpublicacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -77,7 +68,9 @@ CREATE TABLE `domicilios` (
   `idprovincia` int(2) NOT NULL,
   `cp` varchar(6) DEFAULT NULL,
   `default` int(1) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`iddomicilios`)
+  PRIMARY KEY (`iddomicilios`),
+  KEY `fk_usuarios_domicilios` (`idusuario`),
+  CONSTRAINT `fk_usuarios_domicilios` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -93,7 +86,9 @@ CREATE TABLE `imagenes` (
   `imgagenprincipal` int(1) NOT NULL DEFAULT 0,
   `imagen` varchar(40) NOT NULL,
   `idpublicacion` int(11) NOT NULL,
-  PRIMARY KEY (`idimagen`)
+  PRIMARY KEY (`idimagen`),
+  KEY `fk_img_publicaciones` (`idpublicacion`),
+  CONSTRAINT `fk_img_publicaciones` FOREIGN KEY (`idpublicacion`) REFERENCES `publicaciones` (`idpublicacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -111,7 +106,9 @@ CREATE TABLE `preguntas` (
   `idpublicacion` int(11) DEFAULT NULL,
   `fechapregunta` date NOT NULL,
   `reportado` int(11) DEFAULT 0,
-  PRIMARY KEY (`idpregunta`)
+  PRIMARY KEY (`idpregunta`),
+  KEY `fk_preguntas` (`idpublicacion`),
+  CONSTRAINT `fk_preguntas` FOREIGN KEY (`idpublicacion`) REFERENCES `publicaciones` (`idpublicacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -133,7 +130,11 @@ CREATE TABLE `publicaciones` (
   `fechapublicacion` date DEFAULT NULL,
   `reportado` int(1) DEFAULT 0,
   `titulo` varchar(70) NOT NULL,
-  PRIMARY KEY (`idpublicacion`)
+  PRIMARY KEY (`idpublicacion`),
+  KEY `fk_usuarios` (`idusuario`),
+  KEY `fk_categorias` (`idcategoria`),
+  CONSTRAINT `fk_categorias` FOREIGN KEY (`idcategoria`) REFERENCES `categorias` (`idcategoria`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_usuarios` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -150,7 +151,9 @@ CREATE TABLE `respuestas` (
   `respuesta` text DEFAULT NULL,
   `fecharespuesta` date DEFAULT NULL,
   `reportado` int(1) DEFAULT 0,
-  PRIMARY KEY (`idrespuesta`)
+  PRIMARY KEY (`idrespuesta`),
+  KEY `fk_respuestas` (`idpregunta`),
+  CONSTRAINT `fk_respuestas` FOREIGN KEY (`idpregunta`) REFERENCES `preguntas` (`idpregunta`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Esta es la tabla que contiene las respuestas de las preguntas realizadas por los usuarios';
 
 -- ----------------------------
@@ -171,7 +174,8 @@ CREATE TABLE `usuarios` (
   `usuario` varchar(12) NOT NULL,
   `password` varchar(255) NOT NULL,
   `habilitado` int(1) DEFAULT 1,
-  PRIMARY KEY (`idusuario`,`usuario`)
+  PRIMARY KEY (`idusuario`,`usuario`),
+  KEY `idusuario` (`idusuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
