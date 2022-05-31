@@ -23,10 +23,5 @@ module.exports = (sequelize, dataTypes) => {
 
     const Usuario=sequelize.define(alias,cols,config);
 
-
-
-
-
-
     return Usuario;
 }

@@ -13,24 +13,23 @@ let loginController = {
 
   loginCheck: (req, res) => {
     let db = require("../data/models/index.js");
-    const Op = require('Sequelize').Op
-    
-    db.Usuarios.findOne({where:{
-      
-      [Op.or]: [{ email: req.body.user },{usuario:req.body.user}],
-      [Op.and]: [{habilitado:1}]
+    const Op = require("Sequelize").Op;
 
-    }}).then(function (usuarios) {
+    db.Usuarios.findOne({
+      where: {
+        [Op.or]: [{ email: req.body.user }, { usuario: req.body.user }],
+        [Op.and]: [{ habilitado: 1 }],
+      },
+    }).then(function (usuarios) {
       let errors = validationResult(req);
       if (errors.isEmpty()) {
-        
         if (usuarios) {
           if (
             (usuarios.usuario == req.body.user ||
               usuarios.mail == req.body.user) &&
-            bcrypt.compareSync(req.body.password, usuarios.password) && usuarios.habilitado==1
+            bcrypt.compareSync(req.body.password, usuarios.password) &&
+            usuarios.habilitado == 1
           ) {
-            
             req.session.user = usuarios.usuario;
             req.session.mail = usuarios.email;
             req.session.pais = usuarios.pais || "Argentina";
