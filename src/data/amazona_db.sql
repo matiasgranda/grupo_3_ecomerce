@@ -1,4 +1,17 @@
--- Antes de importar este archivo hay que crear la base de datos con nombre amazona_db
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : localhost
+Source Server Version : 50505
+Source Host           : localhost:3306
+Source Database       : amazona_db
+
+Target Server Type    : MYSQL
+Target Server Version : 50505
+File Encoding         : 65001
+
+Date: 2022-05-31 10:59:17
+*/
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -174,10 +187,13 @@ CREATE TABLE `usuarios` (
   `usuario` varchar(12) NOT NULL,
   `password` varchar(255) NOT NULL,
   `habilitado` int(1) DEFAULT 1,
+  `imagen` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idusuario`,`usuario`),
   KEY `idusuario` (`idusuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of usuarios
 -- ----------------------------
+INSERT INTO `usuarios` VALUES ('1', 'José', 'de Figueiredo', '3548978765', '2003-06-12', 'jldefigueiredo@gmail.com', 'Jose', '$2b$10$LTSqR0eQuwCCqzq/xf0./OCwpCwk8BiKttuL1yQtz.T1nNganp7qS', '1', '/img/user-image-default.png');
+INSERT INTO `usuarios` VALUES ('2', 'Matias', 'Granda', '126549876', '2022-05-18', 'matigranda93@gmail.com', 'Mati', '$2b$10$.6G4tI.F9yG.LmlAKeVjKe2sI6qtfEWGuvMU5Vy016FT8uyiKNz2i', '1', '/img/user-image-default.png');
