@@ -13,6 +13,7 @@ module.exports = (sequelize, dataTypes) => {
         email:{ type: dataTypes.STRING },
         usuario:{ type: dataTypes.STRING },
         password:{ type: dataTypes.STRING },
+        imagen:{ type: dataTypes.STRING },
         habilitado:{ type: dataTypes.INTEGER }
     };
     let config={

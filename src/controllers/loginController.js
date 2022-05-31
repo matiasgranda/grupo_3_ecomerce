@@ -13,24 +13,31 @@ let loginController = {
 
   loginCheck: (req, res) => {
     let db = require("../data/models/index.js");
+    const Op = require('Sequelize').Op
     
-    db.Usuarios.findAll().then(function (usuarios) {
+    db.Usuarios.findOne({where:{
+      
+      [Op.or]: [{ email: req.body.user },{usuario:req.body.user}],
+      [Op.and]: [{habilitado:1}]
+
+    }}).then(function (usuarios) {
       let errors = validationResult(req);
       if (errors.isEmpty()) {
-        for (let i = 0; i < usuarios.length; i++) {
+        
+        if (usuarios) {
           if (
-            (usuarios[i].usuario == req.body.user ||
-              usuarios[i].mail == req.body.user) &&
-            bcrypt.compareSync(req.body.password, usuarios[i].password) && usuarios[i].habilitado==1
+            (usuarios.usuario == req.body.user ||
+              usuarios.mail == req.body.user) &&
+            bcrypt.compareSync(req.body.password, usuarios.password) && usuarios.habilitado==1
           ) {
             
-            req.session.user = usuarios[i].usuario;
-            req.session.mail = usuarios[i].mail;
-            req.session.pais = usuarios[i].pais || "Argentina";
-            req.session.imagen = usuarios[i].imagen;
+            req.session.user = usuarios.usuario;
+            req.session.mail = usuarios.email;
+            req.session.pais = usuarios.pais || "Argentina";
+            req.session.imagen = usuarios.imagen;
             req.session.logged = "si";
             if (req.body.recordar) {
-              res.cookie("userMail", usuarios[i].mail, {
+              res.cookie("userMail", usuarios.email, {
                 maxAge: 1000 * 60 * 60,
               });
             }
