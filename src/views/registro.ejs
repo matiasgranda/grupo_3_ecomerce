@@ -20,6 +20,48 @@
           <%  }) %> 
         <% } %> 
         <div class="form-box">
+          <label for="usuario">Nombre:</label>
+          <input
+            type="text"
+            name="nombre"
+            autocomplete="nombre"
+            id="nombre"
+            placeholder="Nombre"
+            required
+            minlength="4"
+            maxlength="18"
+            value="<%= locals.old && old.nombre ? old.nombre : "" %>"
+          />
+        </div>
+        <div class="form-box">
+          <label for="usuario">Apellido:</label>
+          <input
+            type="text"
+            name="apellido"
+            autocomplete="apellido"
+            id="apellido"
+            placeholder="Apellido"
+            required
+            minlength="4"
+            maxlength="30"
+            value="<%= locals.old && old.apellido ? old.apellido : "" %>"
+          />
+        </div>
+        <div class="form-box">
+          <label for="usuario">Teléfono:</label>
+          <input
+            type="tel"
+            name="telefono"
+            autocomplete="telefono"
+            id="telefono"
+            placeholder="Teléfono"
+            required
+            minlength="7"
+            maxlength="10"
+            value="<%= locals.old && old.telefono ? old.telefono : "" %>"
+          />
+        </div>
+        <div class="form-box">
           <label for="usuario">Nombre de usuario:</label>
           <input
             type="text"

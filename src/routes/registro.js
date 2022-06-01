@@ -19,6 +19,9 @@ let fileupload=multer({storage:multerDiskStorage});
 let registroController = require("../controllers/registroController");
 
 const validateForm = [
+    check("nombre").notEmpty().withMessage("Debes ingresar tu nombre."),
+    check("apellido").notEmpty().withMessage("Debes ingresar tu apellido."),
+    check("telefono").notEmpty().withMessage("Debes ingresar tu numero de teléfono."),
     check("usuario").notEmpty().withMessage("Debes elegir un nombre de usuario."),
     check("usuario").isLength({min:4,max:18}).withMessage("El usuario debe contener entre 4 y 18 carateres"),
     check("mail").isEmail().withMessage("La direccion de email no es valida"),
