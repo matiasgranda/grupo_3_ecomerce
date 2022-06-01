@@ -4,7 +4,7 @@
 <div class="sidenav" id="mySidenav">
   <div class="sidenavHeader" onclick="location.href='/login'" style="cursor:pointer">
     <% if(locals.session.user){ %>
-    <img src="img/profiles/<%= locals.session.imagen %>" style="width:24px">
+    <img src="../img/profiles/<%= locals.session.imagen %>" style="width:24px">
     <% } else { %>
     <i class="fas fa-user-circle"></i>
     <% } %> Hola, 
