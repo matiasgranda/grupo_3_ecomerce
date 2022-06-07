@@ -1,47 +1,14 @@
 const path = require("path");
 const fs = require("fs");
 const actions = require("../data/actions");
-const {
-  parse
-} = require("path");
-const {
-  Console
-} = require("console");
+const { parse } = require("path");
+const { Console } = require("console");
 const session = require("express-session");
 
 let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
 
 let productsController = {
   product: (req, res) => {
-    let sesion = session;
-    let db = require("../data/models/");
-    const Op = require("Sequelize").Op;
-    var datosPublicacion={};
-    var productoSeleccionado = parseInt(req.params.id);
-    if (productoSeleccionado > 0) {
-      db.Publicaciones.findByPk(productoSeleccionado).then((publicacion) => {
-        
-        if (publicacion) {
-          db.Imagenes.findAll({where:{idpublicacion:publicacion.idpublicacion}}).then((imagenes) => {
-            datosPublicacion.publicacion=publicacion;
-            datosPublicacion.imagenes=imagenes;
-            res.send(datosPublicacion.imagenes.length);
-            return res.render(path.resolve(__dirname, "../views/product.ejs"), {
-              productos: publicacion,
-              
-              session: req.session
-            });
-          });
-         
-        } else {
-          res.send("No habia ñaca");
-          //return res.redirect("/");
-        }
-      });
-    } else {
-      return res.redirect("/");
-    }
-    /*
     let sesion = session;
     let productoSeleccionado;
     for (let i = 0; i < productos.length; i++) {
@@ -55,7 +22,7 @@ let productsController = {
     res.render(path.resolve(__dirname, "../views/product.ejs"), {
       productos: productoSeleccionado,
       session: req.session,
-    });*/
+    });
   },
 
   create: (req, res) => {
@@ -215,7 +182,7 @@ let productsController = {
       };
     }
     console.log(req.files[0].filename);
-     res.send(req.files[0].filename);
+    res.send(req.files[0].filename);
   },
 };
 

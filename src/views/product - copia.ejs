@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <% if (datosPublicacion!=undefined) { %>
+  <% if (productos!=undefined) { %>
   <%- include('./partials/navbar') %>
   <%- include('./partials/sidenav') %>
 
@@ -18,41 +18,41 @@
     <section class="images">
 
       <div class="mini-viewer">
-        <% if (datosPublicacion.imagenes!=undefined) { 
-          for(let i = 0; i < datosPublicacion.imagenes.length; i++) { %>
+        <% if (productos!=undefined) { 
+          for(let i = 0; i < productos.masImagenes.length; i++) { %>
         <div class="mini-image">
-          <img src="<%= imagenes[i] %> " alt="" onclick="mostrarImagen(this)">
+          <img src="<%= productos.masImagenes[i] %> " alt="" onclick="mostrarImagen(this)">
         </div>
         <% }
        } %>
       </div>
       <div class="main-image">
-        <% if (datosPublicacion!=undefined) { %>
-        <img src="<%= datosPublicacion.imagen %>" alt="" name="mainimage" id="mainimage">
+        <% if (productos!=undefined) { %>
+        <img src="<%= productos.imagen %>" alt="" name="mainimage" id="mainimage">
         <% } %>
       </div>
 
       <div class="mensajeimagen">Click para agrandar la imagen</div>
     </section>
     <section class="productInfo">
-      <% if (datosPublicacion!=undefined) { %>
-      <h2><%= datosPublicacion.titulo %> </h2>
+      <% if (productos!=undefined) { %>
+      <h2><%= productos.titulo %> </h2>
       <% } %>
       <div class="calfiarriba">
         <%  let contador = 0; %>
-        <% for(let i = 0; i < datosPublicacion.comentarios.length; i++) { %>
-        <%  contador=contador+parseInt(datosPublicacion.calificaciones[i]) %>
+        <% for(let i = 0; i < productos.comentarios.length; i++) { %>
+        <%  contador=contador+parseInt(productos.calificaciones[i]) %>
         <% } %>
         Calificación promedio:
-        <% let total= Math.round(contador/datosPublicacion.comentarios.length) %>
+        <% let total= Math.round(contador/productos.comentarios.length) %>
         <% for(let j = 0; j < total; j++) { %>
-        <i class="fa-solid fa-star" title="Calificaión: <%= contador/datosPublicacion.comentarios.length %>"></i>
+        <i class="fa-solid fa-star" title="Calificaión: <%= contador/productos.comentarios.length %>"></i>
 
         <% } %>
         <% 
         if(total<5) {
           for(let k = 0; k < (5-total); k++) { %>
-        <i class="fa-regular fa-star" title="Calificaión: <%= contador/datosPublicacion.comentarios.length %>"></i>
+        <i class="fa-regular fa-star" title="Calificaión: <%= contador/productos.comentarios.length %>"></i>
         <% }
         } %>
 
@@ -61,21 +61,21 @@
       </div>
       <div class="productDescription">
 
-        <p> <%= datosPublicacion.descripcion %> </p>
+        <p> <%= productos.descripcion %> </p>
 
       </div>
       <div class="productStyles">
-        <p>Colores: <%= datosPublicacion.color %></p>
+        <p>Colores: <%= productos.color %></p>
         <br>
-        <p>Marca: <%= datosPublicacion.marca %></p>
+        <p>Marca: <%= productos.marca %></p>
         <br>
-        <p>Categoria: <%= datosPublicacion.categoria %></p>
+        <p>Categoria: <%= productos.categoria %></p>
       </div>
     </section>
     <hr class="seaparaseccion">
     <section class="barraderecha">
       <div class="precio">
-        $ <%= datosPublicacion.precio %>
+        $ <%= productos.precio %>
       </div>
       <div class="detenvio">
         $ <%= Math.trunc(Math.random()*2000) %> envío a Tucumán.
@@ -88,7 +88,7 @@
       <div class="stock">
         En Stock
       </div>
-      <form action="../cesta/agregar/<%= datosPublicacion.id %>" method="POST">
+      <form action="../cesta/agregar/<%= productos.id %>" method="POST">
         <div class="cantidad">
           <select name="cantidad" id="cantidad" required>
             
@@ -156,18 +156,18 @@
     </div>
   </article>
   <hr class="separador">
-  <% if(datosPublicacion.preguntas!=undefined && datosPublicacion.preguntas.length>0) { %>
+  <% if(productos.preguntas!=undefined && productos.preguntas.length>0) { %>
   <article class="preguntas">
     <h3>Otras preguntas</h3>
-    <% for(let i = 0; i < datosPublicacion.preguntas.length; i++) { %>
+    <% for(let i = 0; i < productos.preguntas.length; i++) { %>
 
     <div class="itempreguntas">
       <div class="usuario">
-        <%=datosPublicacion.preguntas[i].usuario%>
+        <%=productos.preguntas[i].usuario%>
       </div>
       <div class="preg-resp">
         <div class="pregunta">
-          <%=datosPublicacion.preguntas[i].pregunta%>
+          <%=productos.preguntas[i].pregunta%>
         </div>
         <div class="respuesta">
           <i class="fa-solid fa-turn-up" style="
@@ -184,7 +184,7 @@
   <% } %>
     <article class="postComentario">
       <h3>Realizar una pregunta al vendedor</h3>
-      <form class="form-preguntas" action="/product/<%=datosPublicacion.id%>/pregunta" method="post">
+      <form class="form-preguntas" action="/product/<%=productos.id%>/pregunta" method="post">
 
         <label for="pregunta"></label>
         <textarea name="pregunta" id="pregunta" required minlength="20"></textarea>
@@ -197,30 +197,30 @@
 
 
   </article>
-  <% if(datosPublicacion.comentarios!=undefined && datosPublicacion.comentarios.length>0) { %>
+  <% if(productos.comentarios!=undefined && productos.comentarios.length>0) { %>
   <hr class="separador">
   <article class="comentario-calificacion">
    
     <h2>Otros usuarios opinaron</h2>
    
-    <% for(let i = 0; i < datosPublicacion.comentarios.length; i++) { %>
+    <% for(let i = 0; i < productos.comentarios.length; i++) { %>
     <div class="comment-box">
 
       <div class="calificacion">
-        <% for(let j = 0; j < datosPublicacion.calificaciones[i]; j++) { %>
+        <% for(let j = 0; j < productos.calificaciones[i]; j++) { %>
         <i class="fa-solid fa-star"></i>
 
         <% } %>
         <% 
-        if(datosPublicacion.calificaciones[i]<5) {
-          for(let k = 0; k < (5-datosPublicacion.calificaciones[i]); k++) { %>
+        if(productos.calificaciones[i]<5) {
+          for(let k = 0; k < (5-productos.calificaciones[i]); k++) { %>
         <i class="fa-regular fa-star"></i>
         <% }
         } %>
       </div>
       <div class="comentario">
         <p>
-          <%= datosPublicacion.comentarios[i] %>
+          <%= productos.comentarios[i] %>
         </p>
       </div>
     </div>
@@ -231,7 +231,7 @@
   <hr class="separador">
   <article class="postComentario">
     <h3>Dejanos tu comentario y calificacion:</h3>
-    <form action="/product/<%=datosPublicacion.id%>/comentario" method="post">
+    <form action="/product/<%=productos.id%>/comentario" method="post">
       <section>
         <label for="comentario"></label>
         <textarea name="comentario" id="comentario" required minlength="4"></textarea>
@@ -261,9 +261,6 @@
       document.getElementById("mainimage").src = obj.src;
     }
   </script>
-  <% } else { %>
-    No existe el producto
-
   <% } %>
 </body>
 
