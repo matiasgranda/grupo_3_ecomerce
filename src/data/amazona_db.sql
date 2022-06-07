@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2022-05-31 10:59:17
+Date: 2022-06-07 16:44:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -43,11 +43,12 @@ CREATE TABLE `categorias` (
   `descripcion` varchar(20) NOT NULL,
   `habilitado` int(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`idcategoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of categorias
 -- ----------------------------
+INSERT INTO `categorias` VALUES ('1', 'Tecnología', '1');
 
 -- ----------------------------
 -- Table structure for colores
@@ -96,17 +97,19 @@ CREATE TABLE `domicilios` (
 DROP TABLE IF EXISTS `imagenes`;
 CREATE TABLE `imagenes` (
   `idimagen` int(11) NOT NULL AUTO_INCREMENT,
-  `imgagenprincipal` int(1) NOT NULL DEFAULT 0,
+  `imagenprincipal` int(1) NOT NULL DEFAULT 0,
   `imagen` varchar(40) NOT NULL,
   `idpublicacion` int(11) NOT NULL,
   PRIMARY KEY (`idimagen`),
   KEY `fk_img_publicaciones` (`idpublicacion`),
   CONSTRAINT `fk_img_publicaciones` FOREIGN KEY (`idpublicacion`) REFERENCES `publicaciones` (`idpublicacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of imagenes
 -- ----------------------------
+INSERT INTO `imagenes` VALUES ('1', '1', 'imagen.jpg', '3');
+INSERT INTO `imagenes` VALUES ('2', '0', 'imagen.jpg', '3');
 
 -- ----------------------------
 -- Table structure for preguntas
@@ -148,11 +151,12 @@ CREATE TABLE `publicaciones` (
   KEY `fk_categorias` (`idcategoria`),
   CONSTRAINT `fk_categorias` FOREIGN KEY (`idcategoria`) REFERENCES `categorias` (`idcategoria`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_usuarios` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of publicaciones
 -- ----------------------------
+INSERT INTO `publicaciones` VALUES ('3', '75805.00', 'Descripción de prueba', '1', '1', '1', '1', '2022-06-07', '0', 'Titulo de prueba');
 
 -- ----------------------------
 -- Table structure for respuestas
@@ -187,13 +191,13 @@ CREATE TABLE `usuarios` (
   `usuario` varchar(12) NOT NULL,
   `password` varchar(255) NOT NULL,
   `habilitado` int(1) DEFAULT 1,
-  `imagen` varchar(255) DEFAULT NULL,
+  `imagen` varchar(255) DEFAULT '',
   PRIMARY KEY (`idusuario`,`usuario`),
   KEY `idusuario` (`idusuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of usuarios
 -- ----------------------------
-INSERT INTO `usuarios` VALUES ('1', 'José', 'de Figueiredo', '3548978765', '2003-06-12', 'jldefigueiredo@gmail.com', 'Jose', '$2b$10$LTSqR0eQuwCCqzq/xf0./OCwpCwk8BiKttuL1yQtz.T1nNganp7qS', '1', '/img/user-image-default.png');
-INSERT INTO `usuarios` VALUES ('2', 'Matias', 'Granda', '126549876', '2022-05-18', 'matigranda93@gmail.com', 'Mati', '$2b$10$.6G4tI.F9yG.LmlAKeVjKe2sI6qtfEWGuvMU5Vy016FT8uyiKNz2i', '1', '/img/user-image-default.png');
+INSERT INTO `usuarios` VALUES ('1', 'José', 'de Figueiredo', '3548978765', '2003-06-12', 'jldefigueiredo@gmail.com', 'Jose', '$2b$10$LTSqR0eQuwCCqzq/xf0./OCwpCwk8BiKttuL1yQtz.T1nNganp7qS', '1', 'default.png');
+INSERT INTO `usuarios` VALUES ('2', 'Matias', 'Granda', '126549876', '2022-05-18', 'matigranda93@gmail.com', 'Mati', '$2b$10$.6G4tI.F9yG.LmlAKeVjKe2sI6qtfEWGuvMU5Vy016FT8uyiKNz2i', '1', 'default.png');
