@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2022-06-07 16:44:44
+Date: 2022-06-08 13:21:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,14 +25,17 @@ CREATE TABLE `calificaciones` (
   `idpublicacion` int(11) DEFAULT NULL,
   `idusuario` int(11) DEFAULT NULL,
   `calificacion` int(1) NOT NULL DEFAULT 1,
+  `reportado` int(11) DEFAULT 0,
+  `habilitado` int(11) DEFAULT 1,
   PRIMARY KEY (`idcomentario`),
   KEY `fk_calificaciones` (`idpublicacion`),
   CONSTRAINT `fk_calificaciones` FOREIGN KEY (`idpublicacion`) REFERENCES `publicaciones` (`idpublicacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of calificaciones
 -- ----------------------------
+INSERT INTO `calificaciones` VALUES ('1', 'Esta muy bueno', '3', '1', '3', '0', '1');
 
 -- ----------------------------
 -- Table structure for categorias
@@ -103,13 +106,15 @@ CREATE TABLE `imagenes` (
   PRIMARY KEY (`idimagen`),
   KEY `fk_img_publicaciones` (`idpublicacion`),
   CONSTRAINT `fk_img_publicaciones` FOREIGN KEY (`idpublicacion`) REFERENCES `publicaciones` (`idpublicacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of imagenes
 -- ----------------------------
-INSERT INTO `imagenes` VALUES ('1', '1', 'imagen.jpg', '3');
-INSERT INTO `imagenes` VALUES ('2', '0', 'imagen.jpg', '3');
+INSERT INTO `imagenes` VALUES ('1', '1', 'msi1.webp', '3');
+INSERT INTO `imagenes` VALUES ('2', '0', 'msi1.webp', '3');
+INSERT INTO `imagenes` VALUES ('3', '0', 'msi1.webp', '3');
+INSERT INTO `imagenes` VALUES ('4', '0', 'msi1.webp', '3');
 
 -- ----------------------------
 -- Table structure for preguntas
@@ -125,11 +130,12 @@ CREATE TABLE `preguntas` (
   PRIMARY KEY (`idpregunta`),
   KEY `fk_preguntas` (`idpublicacion`),
   CONSTRAINT `fk_preguntas` FOREIGN KEY (`idpublicacion`) REFERENCES `publicaciones` (`idpublicacion`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of preguntas
 -- ----------------------------
+INSERT INTO `preguntas` VALUES ('1', '1', 'Hola funciona con pilas AAA?', '3', '2022-06-08', '0');
 
 -- ----------------------------
 -- Table structure for publicaciones
@@ -146,6 +152,7 @@ CREATE TABLE `publicaciones` (
   `fechapublicacion` date DEFAULT NULL,
   `reportado` int(1) DEFAULT 0,
   `titulo` varchar(70) NOT NULL,
+  `detallepublicacion` text DEFAULT NULL,
   PRIMARY KEY (`idpublicacion`),
   KEY `fk_usuarios` (`idusuario`),
   KEY `fk_categorias` (`idcategoria`),
@@ -156,7 +163,7 @@ CREATE TABLE `publicaciones` (
 -- ----------------------------
 -- Records of publicaciones
 -- ----------------------------
-INSERT INTO `publicaciones` VALUES ('3', '75805.00', 'Descripción de prueba', '1', '1', '1', '1', '2022-06-07', '0', 'Titulo de prueba');
+INSERT INTO `publicaciones` VALUES ('3', '75805.00', 'Descripción de prueba', '1', '1', '1', '1', '2022-06-07', '0', 'Titulo de prueba', '<h2>Este sería el titulo del detalle de la publicacion</h2>\r\n<p>un parrafito de prueba</p>\r\n');
 
 -- ----------------------------
 -- Table structure for respuestas
@@ -171,11 +178,12 @@ CREATE TABLE `respuestas` (
   PRIMARY KEY (`idrespuesta`),
   KEY `fk_respuestas` (`idpregunta`),
   CONSTRAINT `fk_respuestas` FOREIGN KEY (`idpregunta`) REFERENCES `preguntas` (`idpregunta`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Esta es la tabla que contiene las respuestas de las preguntas realizadas por los usuarios';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Esta es la tabla que contiene las respuestas de las preguntas realizadas por los usuarios';
 
 -- ----------------------------
 -- Records of respuestas
 -- ----------------------------
+INSERT INTO `respuestas` VALUES ('1', '1', 'Hola, no. Tiene batería interna', '2022-06-09', '0');
 
 -- ----------------------------
 -- Table structure for usuarios
