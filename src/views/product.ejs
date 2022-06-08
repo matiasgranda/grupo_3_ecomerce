@@ -20,40 +20,48 @@
       <div class="mini-viewer">
         <% if (datosPublicacion.imagenes!=undefined) { 
           for(let i = 0; i < datosPublicacion.imagenes.length; i++) { %>
-        <div class="mini-image">
-          <img src="<%= imagenes[i] %> " alt="" onclick="mostrarImagen(this)">
-        </div>
+            <% if(datosPublicacion.imagenes[i].imagenprincipal != 1) { %>
+              <div class="mini-image">
+                <img src="<%= '/img/'+datosPublicacion.imagenes[i].imagen %> " alt="" onclick="mostrarImagen(this)">
+              </div>
+            <% } %>
         <% }
        } %>
       </div>
       <div class="main-image">
-        <% if (datosPublicacion!=undefined) { %>
-        <img src="<%= datosPublicacion.imagen %>" alt="" name="mainimage" id="mainimage">
-        <% } %>
+        <% if (datosPublicacion.imagenes!=undefined) { 
+          for(let i = 0; i < datosPublicacion.imagenes.length; i++) { %>
+            <% if(datosPublicacion.imagenes[i].imagenprincipal == 1) { %>
+             
+              <img src="<%= '/img/'+datosPublicacion.imagenes[i].imagen %>" alt="" name="mainimage" id="mainimage">
+              
+            <% } %>
+        <% }
+       } %>
+        
       </div>
 
       <div class="mensajeimagen">Click para agrandar la imagen</div>
     </section>
     <section class="productInfo">
       <% if (datosPublicacion!=undefined) { %>
-      <h2><%= datosPublicacion.titulo %> </h2>
+      <h2><%= datosPublicacion.publicacion.titulo %> </h2>
       <% } %>
       <div class="calfiarriba">
+        <%= datosPublicacion.calificaciones.length %>
         <%  let contador = 0; %>
-        <% for(let i = 0; i < datosPublicacion.comentarios.length; i++) { %>
-        <%  contador=contador+parseInt(datosPublicacion.calificaciones[i]) %>
+        <% for(let i = 0; i < datosPublicacion.calificaciones.length; i++) { %>
+          <%  contador=contador+parseInt(datosPublicacion.calificaciones[i].calificacion) %>
         <% } %>
         Calificación promedio:
-        <% let total= Math.round(contador/datosPublicacion.comentarios.length) %>
+        <% let total= Math.round(contador/datosPublicacion.calificaciones.length) %>
         <% for(let j = 0; j < total; j++) { %>
-        <i class="fa-solid fa-star" title="Calificaión: <%= contador/datosPublicacion.comentarios.length %>"></i>
-
+            <i class="fa-solid fa-star" title="Calificaión: <%= contador/datosPublicacion.calificaciones.length %>"></i>
         <% } %>
-        <% 
-        if(total<5) {
+        <% if(total<5) {
           for(let k = 0; k < (5-total); k++) { %>
-        <i class="fa-regular fa-star" title="Calificaión: <%= contador/datosPublicacion.comentarios.length %>"></i>
-        <% }
+            <i class="fa-regular fa-star" title="Calificaión: <%= contador/datosPublicacion.calificaciones.length %>"></i>
+          <% }
         } %>
 
 
@@ -61,21 +69,21 @@
       </div>
       <div class="productDescription">
 
-        <p> <%= datosPublicacion.descripcion %> </p>
+        <p> <%= datosPublicacion.publicacion.descripcion %> </p>
 
       </div>
       <div class="productStyles">
-        <p>Colores: <%= datosPublicacion.color %></p>
+        <p>Colores: <%= datosPublicacion.publicacion.color %></p>
         <br>
-        <p>Marca: <%= datosPublicacion.marca %></p>
+        <p>Marca: <%= datosPublicacion.publicacion.marca %></p>
         <br>
-        <p>Categoria: <%= datosPublicacion.categoria %></p>
+        <p>Categoria: <%= datosPublicacion.publicacion.categoria %></p>
       </div>
     </section>
     <hr class="seaparaseccion">
     <section class="barraderecha">
       <div class="precio">
-        $ <%= datosPublicacion.precio %>
+        $ <%= datosPublicacion.publicacion.precio %>
       </div>
       <div class="detenvio">
         $ <%= Math.trunc(Math.random()*2000) %> envío a Tucumán.
@@ -127,33 +135,7 @@
   <hr class="separador">
 
   <article class="publicacion">
-    <div>
-      <h2>What is Lorem Ipsum?</h2>
-      <p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-        electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-        PageMaker including versions of Lorem Ipsum.</p>
-    </div>
-    <div>
-      <h2>What is Lorem Ipsum?</h2>
-      <p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-        electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-        PageMaker including versions of Lorem Ipsum.</p>
-    </div>
-    <div>
-      <h2>What is Lorem Ipsum?</h2>
-      <p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-        been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-        electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-        PageMaker including versions of Lorem Ipsum.</p>
-    </div>
+    <p> <%- datosPublicacion.publicacion.detallepublicacion %> </p>
   </article>
   <hr class="separador">
   <% if(datosPublicacion.preguntas!=undefined && datosPublicacion.preguntas.length>0) { %>
@@ -163,11 +145,11 @@
 
     <div class="itempreguntas">
       <div class="usuario">
-        <%=datosPublicacion.preguntas[i].usuario%>
+        <%= datosPublicacion.preguntas[i].usuario %>
       </div>
       <div class="preg-resp">
         <div class="pregunta">
-          <%=datosPublicacion.preguntas[i].pregunta%>
+          <%= datosPublicacion.preguntas[i].pregunta %>
         </div>
         <div class="respuesta">
           <i class="fa-solid fa-turn-up" style="
@@ -197,30 +179,30 @@
 
 
   </article>
-  <% if(datosPublicacion.comentarios!=undefined && datosPublicacion.comentarios.length>0) { %>
+  <% if(datosPublicacion.calificaciones!=undefined && datosPublicacion.calificaciones.length>0) { %>
   <hr class="separador">
   <article class="comentario-calificacion">
    
     <h2>Otros usuarios opinaron</h2>
    
-    <% for(let i = 0; i < datosPublicacion.comentarios.length; i++) { %>
+    <% for(let i = 0; i < datosPublicacion.calificaciones.length; i++) { %>
     <div class="comment-box">
 
       <div class="calificacion">
-        <% for(let j = 0; j < datosPublicacion.calificaciones[i]; j++) { %>
+        <% for(let j = 0; j < datosPublicacion.calificaciones[i].calificacion; j++) { %>
         <i class="fa-solid fa-star"></i>
 
         <% } %>
         <% 
-        if(datosPublicacion.calificaciones[i]<5) {
-          for(let k = 0; k < (5-datosPublicacion.calificaciones[i]); k++) { %>
+        if(datosPublicacion.calificaciones[i].calificacion<5) {
+          for(let k = 0; k < (5-datosPublicacion.calificaciones[i].calificacion); k++) { %>
         <i class="fa-regular fa-star"></i>
         <% }
         } %>
       </div>
       <div class="comentario">
         <p>
-          <%= datosPublicacion.comentarios[i] %>
+          <%= datosPublicacion.calificaciones[i].comentario %>
         </p>
       </div>
     </div>
@@ -231,7 +213,7 @@
   <hr class="separador">
   <article class="postComentario">
     <h3>Dejanos tu comentario y calificacion:</h3>
-    <form action="/product/<%=datosPublicacion.id%>/comentario" method="post">
+    <form action="/product/<%=datosPublicacion.publicacion.idpublicacion%>/comentario" method="post">
       <section>
         <label for="comentario"></label>
         <textarea name="comentario" id="comentario" required minlength="4"></textarea>

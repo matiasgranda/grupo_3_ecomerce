@@ -14,7 +14,8 @@ module.exports = (sequelize, dataTypes) => {
         idsubcategoria:{ type: dataTypes.INTEGER },
         fechapublicacion:{ type: dataTypes.DATE },
         reportado:{ type: dataTypes.INTEGER },
-        titulo:{ type: dataTypes.STRING }
+        titulo:{ type: dataTypes.STRING },
+        detallepublicacion:{ type: dataTypes.TEXT }
     };
     let config={
         tableName:'publicaciones',
