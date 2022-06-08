@@ -48,7 +48,7 @@
       <h2><%= datosPublicacion.publicacion.titulo %> </h2>
       <% } %>
       <div class="calfiarriba">
-        <%= datosPublicacion.calificaciones.length %>
+        
         <%  let contador = 0; %>
         <% for(let i = 0; i < datosPublicacion.calificaciones.length; i++) { %>
           <%  contador=contador+parseInt(datosPublicacion.calificaciones[i].calificacion) %>

@@ -18,28 +18,32 @@ let productsController = {
       db.Publicaciones.findByPk(productoSeleccionado)
         .then((publicacion) => {
           if (publicacion) {
+            datosPublicacion.publicacion = publicacion;
             db.Imagenes.findAll({
               where: { idpublicacion: publicacion.idpublicacion },
             })
               .then((imagenes) => {
-                datosPublicacion.publicacion = publicacion;
                 datosPublicacion.imagenes = imagenes;
-               
               });
             db.Calificaion.findAll({
               where: { idpublicacion: publicacion.idpublicacion }})
               .then((calificaciones) => {
                 datosPublicacion.calificaciones = calificaciones;
-                return res.render(path.resolve(__dirname, "../views/product.ejs"), {
-                  datosPublicacion: datosPublicacion,
-                  session: req.session
-                });
+                db.Pregunta.findAll({
+                  where: { idpublicacion: publicacion.idpublicacion }}).then((pregunta) => {
+                  datosPublicacion.preguntas = pregunta;
+                  return res.render(path.resolve(__dirname, "../views/product.ejs"), {
+                    datosPublicacion: datosPublicacion,
+                    session: req.session
+                  });
+                })
+                
                 });
                
             
           } else {
-            res.send("No habia ñaca");
-            //return res.redirect("/");
+            
+            return res.redirect("/");
           }
         });
     } else {
