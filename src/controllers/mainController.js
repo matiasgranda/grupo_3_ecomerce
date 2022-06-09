@@ -9,10 +9,12 @@ let mainController = {
     let sesion=session;
     let db = require("../data/models/");
     db.Imagenes.findAll({where: {imagenprincipal: 1}}).then((imagenes) => {
-      console.log(imagenes[0].imagen)
-      res.render(path.resolve(__dirname, "../views/index.ejs"), {
-        productos: productos,session:req.session, imagenes
-      });
+      db.Publicaciones.findAll().then((publicaciones) => {
+        res.render(path.resolve(__dirname, "../views/index.ejs"), {
+          productos: productos,session:req.session, imagenes, publicaciones
+        });
+      })
+      
     })
     
   },

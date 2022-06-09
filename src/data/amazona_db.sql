@@ -33,7 +33,7 @@ CREATE TABLE `calificaciones` (
   PRIMARY KEY (`idcomentario`),
   KEY `fk_calificaciones` (`idpublicacion`),
   CONSTRAINT `fk_calificaciones` FOREIGN KEY (`idpublicacion`) REFERENCES `publicaciones` (`idpublicacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `calificaciones` (
 
 LOCK TABLES `calificaciones` WRITE;
 /*!40000 ALTER TABLE `calificaciones` DISABLE KEYS */;
-INSERT INTO `calificaciones` VALUES (1,'Esta muy bueno',1,1,3,0,1);
+INSERT INTO `calificaciones` VALUES (1,'Esta muy bueno',1,1,3,0,1),(2,'Prueba',2,1,4,0,1),(3,'Prueba',3,2,4,0,1),(4,'Prueba',4,1,4,0,1),(5,'Prueba',5,2,4,0,1),(6,'Prueba',6,2,4,0,1),(7,'Prueba',7,1,4,0,1),(8,'Prueba',8,2,4,0,1),(9,'Prueba',9,1,4,0,1),(10,'Prueba',10,2,5,0,1),(11,'Prueba',11,2,4,0,1),(12,'Prueba',12,1,4,0,1),(13,'Prueba',13,1,5,0,1),(14,'Prueba',14,1,5,0,1),(15,'Prueba',15,2,5,0,1),(16,'Prueba',16,2,5,0,1),(17,'Prueba',17,1,5,0,1),(18,'Prueba',18,1,5,0,1),(19,'Prueba',19,2,4,0,1),(20,'Prueba',20,1,4,0,1),(21,'Prueba',21,2,4,0,1),(22,'Prueba',22,2,4,0,1),(23,'Prueba',23,2,5,0,1),(24,'Prueba',24,1,4,0,1),(25,'Prueba',1,1,5,0,1),(26,'Prueba',2,1,4,0,1),(27,'Prueba',3,1,5,0,1),(28,'Prueba',4,1,4,0,1);
 /*!40000 ALTER TABLE `calificaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -296,4 +296,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-09 11:28:51
+-- Dump completed on 2022-06-09 11:48:19
