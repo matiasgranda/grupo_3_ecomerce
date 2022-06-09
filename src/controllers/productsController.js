@@ -15,7 +15,9 @@ let productsController = {
     var datosPublicacion = {};
     var productoSeleccionado = parseInt(req.params.id);
     if (productoSeleccionado > 0) {
-      db.Publicaciones.findByPk(productoSeleccionado)
+      db.Publicaciones.findOne({
+        
+        where:{idpublicacion:productoSeleccionado}})
         .then((publicacion) => {
           if (publicacion) {
             datosPublicacion.publicacion = publicacion;

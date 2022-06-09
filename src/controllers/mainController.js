@@ -8,12 +8,14 @@ let mainController = {
     let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
     let sesion=session;
     let db = require("../data/models/");
+  
     db.Imagenes.findAll({where: {imagenprincipal: 1}}).then((imagenes) => {
-      db.Publicaciones.findAll().then((publicaciones) => {
-        res.render(path.resolve(__dirname, "../views/index.ejs"), {
-          productos: productos,session:req.session, imagenes, publicaciones
-        });
-      })
+      db.Publicaciones.findAll()
+        .then((publicaciones) => {
+          res.render(path.resolve(__dirname, "../views/index.ejs"), {
+            productos: productos,session:req.session, imagenes, publicaciones
+          });
+        })
       
     })
     

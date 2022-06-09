@@ -24,7 +24,7 @@ module.exports = (sequelize, dataTypes) => {
 
     const Publicacion=sequelize.define(alias,cols,config);
     Publicacion.associated = function (models) {
-        Publicacion.belongsTo(models.Usuarios, {
+        Pregunta.belongsTo(models.Usuario, {
             as: 'usuarios',
             foreignKey: 'idusuario'
         });
