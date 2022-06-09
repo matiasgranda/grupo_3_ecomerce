@@ -23,6 +23,12 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     const Publicacion=sequelize.define(alias,cols,config);
+    Publicacion.associated = function (models) {
+        Publicacion.belongsTo(models.Usuarios, {
+            as: 'usuarios',
+            foreignKey: 'idusuario'
+        });
+    }
 
     return Publicacion;
 }

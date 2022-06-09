@@ -30,8 +30,10 @@ let productsController = {
               .then((calificaciones) => {
                 datosPublicacion.calificaciones = calificaciones;
                 db.Pregunta.findAll({
+                  include:[{association: 'usuarios'},{association: 'respuestas'}],
                   where: { idpublicacion: publicacion.idpublicacion }}).then((pregunta) => {
                   datosPublicacion.preguntas = pregunta;
+                  //res.send(datosPublicacion.preguntas[0].respuestas[0].respuesta);
                   return res.render(path.resolve(__dirname, "../views/product.ejs"), {
                     datosPublicacion: datosPublicacion,
                     session: req.session

@@ -26,5 +26,11 @@ module.exports = (sequelize, dataTypes) => {
     }
     
         const Respuesta = sequelize.define(alias, cols, config);
+        Respuesta.associate = function (models) {
+            Respuesta.belongsTo(models.Pregunta, {
+                as: 'pregunta',
+                foreignKey: 'idpregunta'
+            });
+        }
         return Respuesta;
 }

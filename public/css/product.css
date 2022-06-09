@@ -23,7 +23,15 @@ main {
   position: relative;
   margin-top: 90px;
 }
-
+.loginMessage{
+  text-align: center;
+    font-size: 18pt;
+    background-color: rgb(35 47 63);
+    color: white;
+    margin: 20px;
+    padding: 5px;
+ 
+}
 .images {
   height: 600px;
   width: 40%;

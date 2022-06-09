@@ -27,5 +27,17 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
     const Pregunta = sequelize.define(alias, cols, config);
+    Pregunta.associate = function (models) {
+        Pregunta.belongsTo(models.Usuarios, {
+            as: 'usuarios',
+            foreignKey: 'idusuario'
+        });
+        Pregunta.hasMany(models.Respuesta, {
+            as:'respuestas',
+            foreignKey: 'idrespuesta',
+            targetKey: 'idpregunta'
+        });
+      
+    }
     return Pregunta;
 }

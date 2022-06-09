@@ -147,17 +147,19 @@
 
     <div class="itempreguntas">
       <div class="usuario">
-        <%= datosPublicacion.preguntas[i].usuario %>
+        <%= datosPublicacion.preguntas[i].usuarios.usuario %>
       </div>
       <div class="preg-resp">
         <div class="pregunta">
           <%= datosPublicacion.preguntas[i].pregunta %>
         </div>
+        <% if(datosPublicacion.preguntas[i].respuestas[0]){ %>
         <div class="respuesta">
           <i class="fa-solid fa-turn-up" style="
             transform: rotate(90deg);"></i>
-          eh.... podría darme el dinero?
+          <%= datosPublicacion.preguntas[i].respuestas[0].respuesta %>
         </div>
+        <% } %>
       </div>
     </div>
 
@@ -166,6 +168,9 @@
     </div>
   </article>
   <% } %>
+  <% if(!session.idusuario){ %>
+    <h4 class="loginMessage">Debes iniciar sesión para poder realizar preguntas al vendedor</h4>
+  <% } else { %>
   <% if (datosPublicacion.publicacion.idusuario!=session.idusuario) {%>
     <article class="postComentario">
       <h3>Realizar una pregunta al vendedor</h3>
@@ -177,7 +182,11 @@
         <button class="btnenviar" type="submit">Enviar</button>
       </form>
     </article>
-    <% } %>
+    <% } else { %>
+
+      <h4 class="loginMessage">No puedes realizar preguntas en tus publicaciones</h4>
+  
+   <% } }%>
 
 
 

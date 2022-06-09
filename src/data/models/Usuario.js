@@ -22,6 +22,16 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     const Usuario=sequelize.define(alias,cols,config);
+    Usuario.associate = function (models) {
+        Usuario.hasMany(models.Publicaciones, {
+            as: 'publicaciones',
+            foreignKey: 'idusuario'
+        });
+        Usuario.hasMany(models.Pregunta, {
+            as: 'preguntas',
+            foreignKey: 'idusuario'
+        });
+    }
 
     return Usuario;
 }
