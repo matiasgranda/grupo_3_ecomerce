@@ -13,8 +13,10 @@
   <% if (datosPublicacion!=undefined) { %>
   <%- include('./partials/navbar') %>
   <%- include('./partials/sidenav') %>
-
+ 
   <main>
+    <%= session.idusuario %>
+    
     <section class="images">
 
       <div class="mini-viewer">
@@ -164,6 +166,7 @@
     </div>
   </article>
   <% } %>
+  <% if (datosPublicacion.publicacion.idusuario!=session.idusuario) {%>
     <article class="postComentario">
       <h3>Realizar una pregunta al vendedor</h3>
       <form class="form-preguntas" action="/product/<%=datosPublicacion.id%>/pregunta" method="post">
@@ -174,7 +177,7 @@
         <button class="btnenviar" type="submit">Enviar</button>
       </form>
     </article>
-
+    <% } %>
 
 
 
@@ -211,7 +214,8 @@
   </article>
   <% } %>
   <hr class="separador">
-  <article class="postComentario">
+  <% if (datosPublicacion.publicacion.idusuario!=session.idusuario) {%>
+    <article class="postComentario">
     <h3>Dejanos tu comentario y calificacion:</h3>
     <form action="/product/<%=datosPublicacion.publicacion.idpublicacion%>/comentario" method="post">
       <section>
@@ -235,6 +239,8 @@
       <button class="btnenviar" type="submit">Enviar</button>
     </form>
   </article>
+      <% } %> 
+ 
   <%- include('./partials/sidenav') %>
   <br>
   <%- include('./partials/footer') %>

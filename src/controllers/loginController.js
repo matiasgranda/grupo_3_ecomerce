@@ -30,6 +30,7 @@ let loginController = {
             bcrypt.compareSync(req.body.password, usuarios.password) &&
             usuarios.habilitado == 1
           ) {
+            req.session.idusuario= usuarios.idusuario;
             req.session.user = usuarios.usuario;
             req.session.mail = usuarios.email;
             req.session.pais = usuarios.pais || "Argentina";
