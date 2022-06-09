@@ -7,10 +7,14 @@ let mainController = {
   home: (req, res) => {
     let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
     let sesion=session;
+    let db = require("../data/models/");
+    db.Imagenes.findAll({where: {imagenprincipal: 1}}).then((imagenes) => {
+      console.log(imagenes[0].imagen)
+      res.render(path.resolve(__dirname, "../views/index.ejs"), {
+        productos: productos,session:req.session, imagenes
+      });
+    })
     
-    res.render(path.resolve(__dirname, "../views/index.ejs"), {
-      productos: productos,session:req.session
-    });
   },
 
   cesta: (req, res) => {
