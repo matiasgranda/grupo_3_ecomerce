@@ -18,14 +18,15 @@
     <section class="principal">
       <article>
         <div>
-          <h2>Tecnología</h2>
+          <h2>Tecnologías</h2>
         </div>
         <div class="itemswrapper">
-          <% for (let i=0; i < 4; i++){ %>
+          
+          <% for (let i=0; i < productos2.tecnologia.length; i++){ %>
            <div>
-            <a class="product-image-link" href="/product/<%= imagenes[i].idpublicacion %>">
-              <img src="/img/<%= imagenes[i].imagen %>">
-              <span><%= publicaciones[i].titulo %></span>
+            <a class="product-image-link" href="/product/<%= productos2.tecnologia[i].idpublicacion %>">
+              <img src="/img/<%= productos2.tecnologia[i].imagenes[0].imagen %>">
+              <span><%= productos2.tecnologia[i].titulo %></span>
             </a>
           </div>
           <% } %>
@@ -41,11 +42,11 @@
         </div>
 
         <div class="itemswrapper">
-          <% for (let i=4;i<8;i++){ %>
+          <% for (let i=0; i < productos2.moda.length; i++){ %>
             <div>
-             <a class="product-image-link" href="/product/<%= imagenes[i].idpublicacion %>">
-               <img src="/img/<%= imagenes[i].imagen %>">
-               <span><%= publicaciones[i].titulo %></span>
+             <a class="product-image-link" href="/product/<%= productos2.moda[i].idpublicacion %>">
+               <img src="/img/<%= productos2.moda[i].imagenes[0].imagen %>">
+               <span><%= productos2.moda[i].titulo %></span>
              </a>
            </div>
            <% } %>
@@ -60,11 +61,11 @@
         </div>
 
         <div class="itemswrapper">
-          <% for (let i=8;i<12;i++){ %>
+          <% for (let i=0; i < productos2.hogar.length; i++){ %>
             <div>
-             <a class="product-image-link" href="/product/<%=imagenes[i].idpublicacion %>">
-               <img src="/img/<%=imagenes[i].imagen %>">
-               <span><%= publicaciones[i].titulo %></span>
+             <a class="product-image-link" href="/product/<%=productos2.hogar[i].idpublicacion %>">
+               <img src="/img/<%=productos2.hogar[i].imagenes[0].imagen %>">
+               <span><%=  productos2.hogar[i].titulo %></span>
              </a>
            </div>
            <% } %>
@@ -81,11 +82,11 @@
         </div>
 
         <div class="itemswrapper">
-          <% for (let i=12;i<16;i++){ %>
+          <% for (let i=0; i < productos2.deportes.length; i++){ %>
             <div>
-             <a class="product-image-link" href="/product/<%=imagenes[i].idpublicacion %>">
-               <img src="/img/<%=imagenes[i].imagen %>">
-               <span><%= publicaciones[i].titulo %></span>
+             <a class="product-image-link" href="/product/<%=productos2.deportes[i].idpublicacion %>">
+               <img src="/img/<%=productos2.deportes[i].imagenes[0].imagen %>">
+               <span><%= productos2.deportes[i].titulo %></span>
              </a>
            </div>
            <% } %>
@@ -100,11 +101,11 @@
         </div>
 
         <div class="itemswrapper">
-          <% for (let i=16;i<20;i++){ %>
+          <% for (let i=0; i < productos2.movilidad.length; i++){ %>
             <div>
-             <a class="product-image-link" href="/product/<%=imagenes[i].idpublicacion%>">
-               <img src="/img/<%=imagenes[i].imagen %>">
-               <span><%= publicaciones[i].titulo %></span>
+             <a class="product-image-link" href="/product/<%= productos2.movilidad[i].idpublicacion %>">
+               <img src="/img/<%= productos2.movilidad[i].imagenes[0].imagen %>">
+               <span><%= productos2.movilidad[i].titulo %></span>
              </a>
            </div>
            <% } %>
@@ -119,11 +120,11 @@
         </div>
 
         <div class="itemswrapper">
-          <% for (let i=20;i<24;i++){ %>
+          <% for (let i=0; i < productos2.ninios.length; i++){ %>
             <div>
-             <a class="product-image-link" href="/product/<%=imagenes[i].idpublicacion %>">
-               <img src="/img/<%=imagenes[i].imagen %>">
-               <span><%= publicaciones[i].titulo %></span>
+             <a class="product-image-link" href="/product/<%= productos2.ninios[i].idpublicacion %>">
+               <img src="/img/<%= productos2.ninios[i].imagenes[0].imagen %>">
+               <span><%= productos2.ninios[i].titulo %></span>
              </a>
            </div>
            <% } %>

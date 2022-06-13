@@ -388,23 +388,8 @@ section h3 {
         width: 100%;
     }
 
-    .searchbar {
-        width: 100%;
-    }
-
-    .searchbar a {
-        width: 60px;
-    }
-
-    .searchbar a i {
-        width: 40px;
-        padding-left: 10px;
-    }
-
-    .searchbar input {
-        width: 220px;
-        min-width: 220px;
-    }
+ 
+    
 
     .logo-envio {
         margin-left: 8px;

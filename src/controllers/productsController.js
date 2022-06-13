@@ -55,21 +55,7 @@ let productsController = {
     } else {
       return res.redirect("/");
     }
-    /*
-    let sesion = session;
-    let productoSeleccionado;
-    for (let i = 0; i < productos.length; i++) {
-      for (let j = 0; j < productos[i].length; j++) {
-        if (productos[i][j].id == parseInt(req.params.id)) {
-          productoSeleccionado = productos[i][j];
-        }
-      }
-    }
-
-    res.render(path.resolve(__dirname, "../views/product.ejs"), {
-      productos: productoSeleccionado,
-      session: req.session,
-    });*/
+    
   },
 
   create: (req, res) => {
