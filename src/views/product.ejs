@@ -96,16 +96,20 @@
         <span class="fechaentrega">Miércoles 27 de agosto</span>
       </div>
       <div class="stock">
-        En Stock
+        <% if (datosPublicacion.publicacion.stock>0) { %>
+          <% if (datosPublicacion.publicacion.stock==1) { %>
+            En Stock <span class="ultimo">último en disponible</span>
+            <% } else { %> 
+            En Stock
+       <% } } %>
       </div>
+      <% if (datosPublicacion.publicacion.stock>0) { %>
       <form action="../cesta/agregar/<%= datosPublicacion.id %>" method="POST">
         <div class="cantidad">
           <select name="cantidad" id="cantidad" required>
-            
-            <option value="1" selected >1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
+            <% for (var i = 0; i < datosPublicacion.publicacion.stock; i++) { %>
+              <option value="<%= i+1 %>"><%= i+1 %></option>
+            <% } %>
           </select>
         </div>
         <div class="botones">
@@ -117,11 +121,16 @@
           </div>
         </div>
       </form>
+      <% } else {%>
+        <div class="stock-agotado">
+          <p>Producto agotado temporalmente</p>
+        </div>
+      <% } %>
       <div class="envioacargo">
         Envío a cargo del comprardor
       </div>
       <div class="vendedor">
-        Vendido por: IC-LA-Creyó
+        Vendido por: <b><%= datosPublicacion.publicacion.usuarios.usuario %></b>
       </div>
       <div class="garantia">
         Garantía de 30 días.

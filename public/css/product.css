@@ -23,14 +23,13 @@ main {
   position: relative;
   margin-top: 90px;
 }
-.loginMessage{
+.loginMessage {
   text-align: center;
-    font-size: 18pt;
-    background-color: rgb(35 47 63);
-    color: white;
-    margin: 20px;
-    padding: 5px;
- 
+  font-size: 18pt;
+  background-color: rgb(35 47 63);
+  color: white;
+  margin: 20px;
+  padding: 5px;
 }
 .images {
   height: 600px;
@@ -400,8 +399,8 @@ main {
   align-items: center;
   justify-content: space-around;
 }
-.postComentario button{
-  margin-top:10px;
+.postComentario button {
+  margin-top: 10px;
 }
 form section {
   display: flex;
@@ -482,11 +481,11 @@ form section {
   .calfiarriba {
     display: none;
   }
-  .preg-resp{
+  .preg-resp {
     width: 100%;
   }
-  .usuario{
-    width:fit-content;
+  .usuario {
+    width: fit-content;
   }
 }
 .postComentario section {
@@ -525,7 +524,7 @@ form section {
   .respuesta {
     padding-left: 10px;
   }
-  .usuario{
+  .usuario {
     width: fit-content;
   }
 }
@@ -565,3 +564,12 @@ form section {
 }
 
 /***************** fin config estrellas rating ********************/
+.ultimo {
+  color: red;
+  font-size: 10px;
+}
+.stock-agotado {
+  background-color: rgba(255, 213, 98, 0.4);
+  padding: 5px;
+  color: red;
+}

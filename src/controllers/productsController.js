@@ -16,40 +16,42 @@ let productsController = {
     var productoSeleccionado = parseInt(req.params.id);
     if (productoSeleccionado > 0) {
       db.Publicaciones.findOne({
-        
-        where:{idpublicacion:productoSeleccionado}})
-        .then((publicacion) => {
-          if (publicacion) {
-            datosPublicacion.publicacion = publicacion;
-            db.Imagenes.findAll({
+        include: [{ association: "usuarios",attributes: ['usuario'], required: true }],
+        where: { idpublicacion: productoSeleccionado },
+      }).then((publicacion) => {
+        if (publicacion) {
+          datosPublicacion.publicacion = publicacion;
+          db.Imagenes.findAll({
+            where: { idpublicacion: publicacion.idpublicacion },
+          }).then((imagenes) => {
+            datosPublicacion.imagenes = imagenes;
+          });
+          db.Calificaion.findAll({
+            where: { idpublicacion: publicacion.idpublicacion },
+          }).then((calificaciones) => {
+            datosPublicacion.calificaciones = calificaciones;
+            db.Pregunta.findAll({
+              include: [
+                { association: "usuarios" },
+                { association: "respuestas" },
+              ],
               where: { idpublicacion: publicacion.idpublicacion },
-            })
-              .then((imagenes) => {
-                datosPublicacion.imagenes = imagenes;
-              });
-            db.Calificaion.findAll({
-              where: { idpublicacion: publicacion.idpublicacion }})
-              .then((calificaciones) => {
-                datosPublicacion.calificaciones = calificaciones;
-                db.Pregunta.findAll({
-                  include:[{association: 'usuarios'},{association: 'respuestas'}],
-                  where: { idpublicacion: publicacion.idpublicacion }}).then((pregunta) => {
-                  datosPublicacion.preguntas = pregunta;
-                  //res.send(datosPublicacion.preguntas[0].respuestas[0].respuesta);
-                  return res.render(path.resolve(__dirname, "../views/product.ejs"), {
-                    datosPublicacion: datosPublicacion,
-                    session: req.session
-                  });
-                })
-                
-                });
-               
-            
-          } else {
-            
-            return res.redirect("/");
-          }
-        });
+            }).then((pregunta) => {
+              datosPublicacion.preguntas = pregunta;
+              //res.send(datosPublicacion.preguntas[0].respuestas[0].respuesta);
+              return res.render(
+                path.resolve(__dirname, "../views/product.ejs"),
+                {
+                  datosPublicacion: datosPublicacion,
+                  session: req.session,
+                }
+              );
+            });
+          });
+        } else {
+          return res.redirect("/");
+        }
+      });
     } else {
       return res.redirect("/");
     }
