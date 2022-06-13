@@ -32,7 +32,7 @@ let productsController = {
             datosPublicacion.calificaciones = calificaciones;
             db.Pregunta.findAll({
               include: [
-                { association: "usuarios" },
+                { association: "usuarios",attributes: ['usuario'], required: true },
                 { association: "respuestas" },
               ],
               where: { idpublicacion: publicacion.idpublicacion },
