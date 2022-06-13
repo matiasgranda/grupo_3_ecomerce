@@ -90,7 +90,7 @@ let mainController = {
                   db.Publicaciones.findAll().then((publicaciones) => {
                     console.log(productos2.tecnologia[1].imagenes[0].imagen)
                     res.render(path.resolve(__dirname, "../views/index.ejs"), {
-                      //productos: productos,
+                      productos: productos,
                       session: req.session,
                       imagenes,
                       publicaciones,
