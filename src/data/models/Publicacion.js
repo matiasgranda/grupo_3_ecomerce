@@ -33,6 +33,11 @@ module.exports = (sequelize, dataTypes) => {
       as: "imagenes",
       foreignKey: "idpublicacion"
     })
+
+    Publicacion.belongsTo(models.Categorias, {
+      as: "categorias",
+      foreignKey: "idcategoria"
+    })
     
   };
 

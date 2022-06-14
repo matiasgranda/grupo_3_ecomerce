@@ -16,7 +16,7 @@ let productsController = {
     var productoSeleccionado = parseInt(req.params.id);
     if (productoSeleccionado > 0) {
       db.Publicaciones.findOne({
-        include: [{ association: "usuarios",attributes: ['usuario'], required: true }],
+        include: [{ association: "usuarios",attributes: ['usuario'], required: true }, { association: "categorias" }],
         where: { idpublicacion: productoSeleccionado },
       }).then((publicacion) => {
         if (publicacion) {
@@ -38,6 +38,12 @@ let productsController = {
               where: { idpublicacion: publicacion.idpublicacion },
             }).then((pregunta) => {
               datosPublicacion.preguntas = pregunta;
+              db.Categorias.findAll({
+                where: {idcategoria: publicacion.idcategoria}
+              }).then((categoria) => {
+                datosPublicacion.categoria = categoria;
+                console.log(categoria)
+              })
               //res.send(datosPublicacion.preguntas[0].respuestas[0].respuesta);
               return res.render(
                 path.resolve(__dirname, "../views/product.ejs"),
