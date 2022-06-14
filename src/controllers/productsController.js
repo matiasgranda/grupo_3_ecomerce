@@ -42,7 +42,6 @@ let productsController = {
                 where: {idcategoria: publicacion.idcategoria}
               }).then((categoria) => {
                 datosPublicacion.categoria = categoria;
-                console.log(categoria)
               })
               //res.send(datosPublicacion.preguntas[0].respuestas[0].respuesta);
               return res.render(
