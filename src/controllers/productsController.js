@@ -43,6 +43,12 @@ let productsController = {
               }).then((categoria) => {
                 datosPublicacion.categoria = categoria;
               })
+              db.Marcas.findAll({
+                where: { idpublicacion: publicacion.idpublicacion }, 
+                include: [{association: "marcaproducto"}]
+                }).then((marca) => {
+                  datosPublicacion.marca = marca
+              })
               //res.send(datosPublicacion.preguntas[0].respuestas[0].respuesta);
               return res.render(
                 path.resolve(__dirname, "../views/product.ejs"),
