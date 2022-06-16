@@ -1,8 +1,12 @@
 const path = require("path");
 const fs = require("fs");
 const actions = require("../data/actions");
-const { parse } = require("path");
-const { Console } = require("console");
+const {
+  parse
+} = require("path");
+const {
+  Console
+} = require("console");
 const session = require("express-session");
 
 let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
@@ -16,49 +20,65 @@ let productsController = {
     var productoSeleccionado = parseInt(req.params.id);
     if (productoSeleccionado > 0) {
       db.Publicaciones.findOne({
-        include: [{ association: "usuarios",attributes: ['usuario'], required: true }, { association: "categorias" }],
-        where: { idpublicacion: productoSeleccionado },
-      }).then((publicacion) => {
+        include: [{
+          association: "usuarios",
+          attributes: ['usuario'],
+          required: true
+        }],
+        where: {
+          idpublicacion: productoSeleccionado
+        },
+      }).then(async (publicacion) => {
         if (publicacion) {
           datosPublicacion.publicacion = publicacion;
-          db.Imagenes.findAll({
-            where: { idpublicacion: publicacion.idpublicacion },
-          }).then((imagenes) => {
-            datosPublicacion.imagenes = imagenes;
+          const imagenes = await db.Imagenes.findAll({
+            where: {
+              idpublicacion: publicacion.idpublicacion
+            }
           });
-          db.Calificaion.findAll({
-            where: { idpublicacion: publicacion.idpublicacion },
-          }).then((calificaciones) => {
-            datosPublicacion.calificaciones = calificaciones;
-            db.Pregunta.findAll({
-              include: [
-                { association: "usuarios",attributes: ['usuario'], required: true },
-                { association: "respuestas" },
-              ],
-              where: { idpublicacion: publicacion.idpublicacion },
-            }).then((pregunta) => {
-              datosPublicacion.preguntas = pregunta;
-              db.Categorias.findAll({
-                where: {idcategoria: publicacion.idcategoria}
-              }).then((categoria) => {
-                datosPublicacion.categoria = categoria;
-              })
-              db.Marcas.findAll({
-                where: { idpublicacion: publicacion.idpublicacion }, 
-                include: [{association: "marcaproducto"}]
-                }).then((marca) => {
-                  datosPublicacion.marca = marca
-              })
-              //res.send(datosPublicacion.preguntas[0].respuestas[0].respuesta);
-              return res.render(
-                path.resolve(__dirname, "../views/product.ejs"),
-                {
-                  datosPublicacion: datosPublicacion,
-                  session: req.session,
-                }
-              );
-            });
+          const calificacion = await db.Calificacion.findAll({
+            where: {
+              idpublicacion: publicacion.idpublicacion
+            }
           });
+          const pregunta = await db.Pregunta.findAll({
+            include: [{
+                association: "usuarios",
+                attributes: ['usuario'],
+                required: true
+              },
+              {
+                association: "respuestas"
+              },
+            ],
+            where: {
+              idpublicacion: publicacion.idpublicacion
+            }
+          });
+          const categorias = await db.Categorias.findAll({
+            where: {
+              idcategoria: publicacion.idcategoria
+            }
+          });
+          const marcas = await db.Marcas.findOne({
+            where: {
+              idpublicacion: publicacion.idpublicacion
+            },
+            include: [{
+              association: "marcaproducto"
+            }]
+          });
+          datosPublicacion.imagenes = imagenes;
+          datosPublicacion.calificaciones = calificacion;
+          datosPublicacion.pregunta = pregunta;
+          datosPublicacion.categorias = categorias;
+          datosPublicacion.marcas = marcas;
+          return res.render(
+            path.resolve(__dirname, "../views/product.ejs"), {
+              datosPublicacion: datosPublicacion,
+              session: req.session,
+            }
+          );
         } else {
           return res.redirect("/");
         }
@@ -66,7 +86,7 @@ let productsController = {
     } else {
       return res.redirect("/");
     }
-    
+
   },
 
   create: (req, res) => {
@@ -103,16 +123,8 @@ let productsController = {
         });
       return next(error);
     }
-    let idMasAlto = 0;
-    for (let i = 0; i < productos.length; i++) {
-      for (let j = 0; j < productos[i].length; j++) {
-        if (productos[i][j].id > idMasAlto) {
-          idMasAlto = productos[i][j].id;
-        }
-      }
-    }
+
     let productoNuevo = {
-      id: idMasAlto + 1,
       titulo: req.body.titulo,
       descripcion: req.body.descripcion,
       categoria: req.body.categoria,
@@ -124,28 +136,6 @@ let productsController = {
       comentarios: [],
       calificaciones: [],
     };
-    switch (req.body.categoria) {
-      case "tecnologia":
-        productos[0].push(productoNuevo);
-        break;
-      case "moda":
-        productos[1].push(productoNuevo);
-        break;
-      case "hogar":
-        productos[2].push(productoNuevo);
-        break;
-      case "deportes":
-        productos[3].push(productoNuevo);
-        break;
-      case "movilidad":
-        productos[4].push(productoNuevo);
-        break;
-      case "ninios":
-        productos[5].push(productoNuevo);
-        break;
-      default:
-        break;
-    }
 
     actions.addProduct(productos);
 

@@ -76,9 +76,9 @@
       <div class="productStyles">
         <p>Colores: <%= datosPublicacion.publicacion.color %></p>
         <br>
-        <p>Marca: <%= datosPublicacion.marca %></p>
+        <p>Marca: <%= datosPublicacion.marcas.marca %></p>
         <br>
-        <p>Categoria: <%= datosPublicacion.publicacion.categorias.descripcion %></p>
+        <p>Categoria: <%= datosPublicacion.categorias[0].descripcion %></p>
       </div>
     </section>
     <hr class="seaparaseccion">
@@ -103,7 +103,7 @@
        <% } } %>
       </div>
       <% if (datosPublicacion.publicacion.stock>0) { %>
-      <form action="../cesta/agregar/<%= datosPublicacion.id %>" method="POST">
+      <form action="../cesta/agregar/<%= datosPublicacion.publicacion.idpublicacion %>" method="POST">
         <div class="cantidad">
           <select name="cantidad" id="cantidad" required>
             <% for (var i = 0; i < datosPublicacion.publicacion.stock; i++) { %>

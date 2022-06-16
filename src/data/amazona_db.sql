@@ -172,7 +172,7 @@ CREATE TABLE `marcas` (
   PRIMARY KEY (`idmarca`),
   KEY `fk_marcas_idx` (`idpublicacion`),
   CONSTRAINT `fk_marcas` FOREIGN KEY (`idpublicacion`) REFERENCES `publicaciones` (`idpublicacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -181,7 +181,7 @@ CREATE TABLE `marcas` (
 
 LOCK TABLES `marcas` WRITE;
 /*!40000 ALTER TABLE `marcas` DISABLE KEYS */;
-INSERT INTO `marcas` VALUES (1,1,'Sony');
+INSERT INTO `marcas` VALUES (1,1,'Sony'),(2,2,'Apple'),(3,3,'MSI'),(4,4,'Sony'),(5,5,'Hoodies'),(6,6,'Nike'),(7,7,'Montagne'),(8,8,'Columbia'),(9,9,'Piero');
 /*!40000 ALTER TABLE `marcas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -202,7 +202,7 @@ CREATE TABLE `preguntas` (
   PRIMARY KEY (`idpregunta`),
   KEY `fk_preguntas` (`idpublicacion`),
   CONSTRAINT `fk_preguntas` FOREIGN KEY (`idpublicacion`) REFERENCES `publicaciones` (`idpublicacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -211,7 +211,7 @@ CREATE TABLE `preguntas` (
 
 LOCK TABLES `preguntas` WRITE;
 /*!40000 ALTER TABLE `preguntas` DISABLE KEYS */;
-INSERT INTO `preguntas` VALUES (1,1,'Hola funciona con pilas AAA?',3,'2022-06-08',0),(2,1,'Viene en color rojo ferrari?',3,'2022-06-08',0),(3,2,'Hola, que resolución tiene la pantalla?',3,'2022-05-30',0);
+INSERT INTO `preguntas` VALUES (1,1,'Hola funciona con pilas AAA?',3,'2022-06-08',0),(2,1,'Viene en color rojo ferrari?',3,'2022-06-08',0),(3,2,'Hola, que resolución tiene la pantalla?',3,'2022-05-30',0),(4,1,'Prueba',1,'2022-05-30',0);
 /*!40000 ALTER TABLE `preguntas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -324,4 +324,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-15 12:51:09
+-- Dump completed on 2022-06-15 21:29:57

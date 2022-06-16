@@ -1,8 +1,12 @@
 const path = require("path");
 const fs = require("fs");
 const actions = require("../data/actions");
-const { parse } = require("path");
-const { Console } = require("console");
+const {
+  parse
+} = require("path");
+const {
+  Console
+} = require("console");
 const session = require("express-session");
 
 let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
@@ -10,19 +14,88 @@ let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
 let productsController = {
   product: (req, res) => {
     let sesion = session;
-    let productoSeleccionado;
-    for (let i = 0; i < productos.length; i++) {
-      for (let j = 0; j < productos[i].length; j++) {
-        if (productos[i][j].id == parseInt(req.params.id)) {
-          productoSeleccionado = productos[i][j];
+    let db = require("../data/models/");
+    const Op = require("Sequelize").Op;
+    var datosPublicacion = {};
+    var productoSeleccionado = parseInt(req.params.id);
+    if (productoSeleccionado > 0) {
+      db.Publicaciones.findOne({
+        include: [{
+          association: "usuarios",
+          attributes: ['usuario'],
+          required: true
+        }, {
+          association: "categorias"
+        }],
+        where: {
+          idpublicacion: productoSeleccionado
+        },
+      }).then((publicacion) => {
+        if (publicacion) {
+          datosPublicacion.publicacion = publicacion;
+          db.Imagenes.findAll({
+            where: {
+              idpublicacion: publicacion.idpublicacion
+            },
+          }).then((imagenes) => {
+            datosPublicacion.imagenes = imagenes;
+          });
+          db.Calificacion.findAll({
+            where: {
+              idpublicacion: publicacion.idpublicacion
+            },
+          }).then((calificaciones) => {
+            datosPublicacion.calificaciones = calificaciones;
+            db.Pregunta.findAll({
+              include: [{
+                  association: "usuarios",
+                  attributes: ['usuario'],
+                  required: true
+                },
+                {
+                  association: "respuestas"
+                },
+              ],
+              where: {
+                idpublicacion: publicacion.idpublicacion
+              },
+            }).then((pregunta) => {
+              datosPublicacion.preguntas = pregunta;
+              db.Categorias.findAll({
+                where: {
+                  idcategoria: publicacion.idcategoria
+                }
+              }).then((categoria) => {
+                datosPublicacion.categoria = categoria;
+              })
+              db.Marcas.findOne({
+                where: {
+                  idpublicacion: publicacion.idpublicacion
+                },
+                include: [{
+                  association: "marcaproducto"
+                }]
+              }).then(marca => {
+                datosPublicacion.marca = marca
+                return res.render(
+                  path.resolve(__dirname, "../views/product.ejs"), {
+                    datosPublicacion: datosPublicacion,
+                    session: req.session,
+                  }
+                );
+              })
+              //res.send(datosPublicacion.preguntas[0].respuestas[0].respuesta);
+
+            });
+          });
+        } else {
+          return res.redirect("/");
         }
-      }
+      });
+    } else {
+      return res.redirect("/");
     }
 
-    res.render(path.resolve(__dirname, "../views/product.ejs"), {
-      productos: productoSeleccionado,
-      session: req.session,
-    });
   },
 
   create: (req, res) => {
