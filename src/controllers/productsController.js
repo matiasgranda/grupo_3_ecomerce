@@ -89,14 +89,15 @@ let productsController = {
 
   save: (req, res, next) => {
     let sesion = session;
+    let db = require("../data/models/");
     let nombreimagenOrig;
     let imagenesAdicionales = [];
     if (req.files.length > 0) {
       req.files.forEach((element) => {
         if (element.fieldname === "imagenPrincipal") {
-          nombreimagenOrig = "/img/" + element.filename;
+          nombreimagenOrig =  element.filename;
         } else {
-          imagenesAdicionales.push("/img/" + element.filename);
+          imagenesAdicionales.push(element.filename);
         }
       });
     } else {
@@ -119,19 +120,43 @@ let productsController = {
     let productoNuevo = {
       titulo: req.body.titulo,
       descripcion: req.body.descripcion,
-      categoria: req.body.categoria,
+      idcategoria: req.body.categoria,
       precio: req.body.precio,
-      imagen: nombreimagenOrig,
-      masImagenes: imagenesAdicionales,
       marca: req.body.marca,
-      color: req.body.color,
-      comentarios: [],
-      calificaciones: [],
+      colores: req.body.color,
+      idusuario: 1
     };
 
-    actions.addProduct(productos);
+    db.Publicaciones.create(productoNuevo);
 
-    res.status(200).redirect("/product/" + productoNuevo.id);
+    db.Publicaciones.findAll({
+      order: [
+        ["idpublicacion", "DESC"]
+      ],
+      limit: 1, 
+      attributes: ["idpublicacion"]
+    }).then((idProductoNuevo) => {
+      console.log(idProductoNuevo[0].idpublicacion)
+      let imagenPrincipal = {
+        imagen: nombreimagenOrig,
+        imagenprincipal: 1,
+        idpublicacion: idProductoNuevo[0].idpublicacion
+      }
+
+      db.Imagenes.create(imagenPrincipal);
+
+      for(let i = 0; i < imagenesAdicionales.length; i++) {
+        let imagenesExtra = {
+          imagen: imagenesAdicionales[i],
+          idpublicacion: idProductoNuevo[0].idpublicacion
+        }
+        db.Imagenes.create(imagenesExtra);
+      }
+
+      res.status(200).redirect("/product/" + imagenPrincipal.idpublicacion);
+    })
+
+    
   },
 
   comentarios: (req, res) => {

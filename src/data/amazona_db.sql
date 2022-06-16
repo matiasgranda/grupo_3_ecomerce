@@ -119,7 +119,7 @@ CREATE TABLE `imagenes` (
   PRIMARY KEY (`idimagen`),
   KEY `fk_img_publicaciones` (`idpublicacion`),
   CONSTRAINT `fk_img_publicaciones` FOREIGN KEY (`idpublicacion`) REFERENCES `publicaciones` (`idpublicacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=132 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=154 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,7 +128,7 @@ CREATE TABLE `imagenes` (
 
 LOCK TABLES `imagenes` WRITE;
 /*!40000 ALTER TABLE `imagenes` DISABLE KEYS */;
-INSERT INTO `imagenes` VALUES (1,1,'auriculares1.webp',1),(2,0,'auriculares2.webp',1),(3,0,'auriculares3.webp',1),(4,0,'auriculares4.webp',1),(5,1,'macbookair1.webp',2),(6,0,'macbookair2.webp',2),(7,0,'macbookair3.webp',2),(8,0,'macbookair4.webp',2),(9,1,'msi1.webp',3),(10,0,'msi2.webp',3),(11,0,'msi3.webp',3),(12,0,'msi4.webp',3),(13,1,'ps51.webp',4),(14,0,'ps52.webp',4),(15,0,'ps53.webp',4),(16,0,'ps54.webp',4),(17,1,'buzo1.webp',5),(18,0,'buzo2.webp',5),(19,0,'buzo3.webp',5),(20,1,'zapatillas1.webp',6),(21,0,'zapatillas2.webp',6),(22,0,'zapatillas3.webp',6),(23,0,'zapatillas4.webp',6),(24,1,'pantalon1.webp',7),(25,0,'pantalon2.webp',7),(26,0,'pantalon3.webp',7),(27,1,'campera1.webp',8),(28,0,'campera2.webp',8),(29,0,'campera3.webp',8),(79,1,'cama1.webp',9),(80,0,'cama2.webp',9),(81,1,'silla1.webp',10),(82,0,'silla2.webp',10),(83,1,'sillon1.webp',11),(84,0,'sillon2.webp',11),(85,0,'sillon3.webp',11),(86,1,'mesa1.webp',12),(87,0,'mesa2.webp',12),(88,0,'mesa3.webp',12),(89,1,'pelota1.webp',13),(90,0,'pelota1.webp',13),(91,0,'pelota1.webp',13),(92,1,'botines1.webp',14),(93,0,'botines2.webp',14),(94,0,'botines3.webp',14),(95,1,'pesas1.webp',15),(96,0,'pesas2.webp',15),(97,0,'pesas3.webp',15),(98,1,'colchoneta1.webp',16),(99,0,'colchoneta2.webp',16),(100,0,'colchoneta3.webp',16),(101,0,'colchoneta4.webp',16),(102,1,'monopatinelectrico1.webp',17),(103,0,'monopatinelectrico2.webp',17),(104,0,'monopatinelectrico3.webp',17),(105,0,'monopatinelectrico4.webp',17),(106,1,'hoverboard1.webp',18),(107,0,'hoverboard2.webp',18),(108,0,'hoverboard3.webp',18),(109,0,'hoverboard4.webp',18),(110,1,'bicicleta1.webp',19),(111,0,'bicicleta2.webp',19),(112,0,'bicicleta3.webp',19),(113,0,'bicicleta4.webp',19),(114,1,'bicicletaelectrica1.webp',20),(115,0,'bicicletaelectrica2.webp',20),(116,0,'bicicletaelectrica3.webp',20),(117,0,'bicicletaelectrica4.webp',20),(118,1,'monopatin1.webp',21),(119,0,'monopatin1.webp',21),(120,0,'monopatin1.webp',21),(121,1,'autito1.webp',22),(122,0,'autito1.webp',22),(123,0,'autito1.webp',22),(124,1,'utilesescolares1.webp',23),(125,0,'utilesescolares1.webp',23),(126,0,'utilesescolares1.webp',23),(127,0,'utilesescolares1.webp',23),(128,1,'triciclo1.webp',24),(129,0,'triciclo1.webp',24),(130,0,'triciclo1.webp',24),(131,0,'triciclo1.webp',24);
+INSERT INTO `imagenes` VALUES (1,1,'auriculares1.webp',1),(2,0,'auriculares2.webp',1),(3,0,'auriculares3.webp',1),(4,0,'auriculares4.webp',1),(5,1,'macbookair1.webp',2),(6,0,'macbookair2.webp',2),(7,0,'macbookair3.webp',2),(8,0,'macbookair4.webp',2),(9,1,'msi1.webp',3),(10,0,'msi2.webp',3),(11,0,'msi3.webp',3),(12,0,'msi4.webp',3),(13,1,'ps51.webp',4),(14,0,'ps52.webp',4),(15,0,'ps53.webp',4),(16,0,'ps54.webp',4),(17,1,'buzo1.webp',5),(18,0,'buzo2.webp',5),(19,0,'buzo3.webp',5),(20,1,'zapatillas1.webp',6),(21,0,'zapatillas2.webp',6),(22,0,'zapatillas3.webp',6),(23,0,'zapatillas4.webp',6),(24,1,'pantalon1.webp',7),(25,0,'pantalon2.webp',7),(26,0,'pantalon3.webp',7),(27,1,'campera1.webp',8),(28,0,'campera2.webp',8),(29,0,'campera3.webp',8),(79,1,'cama1.webp',9),(80,0,'cama2.webp',9),(81,1,'silla1.webp',10),(82,0,'silla2.webp',10),(83,1,'sillon1.webp',11),(84,0,'sillon2.webp',11),(85,0,'sillon3.webp',11),(86,1,'mesa1.webp',12),(87,0,'mesa2.webp',12),(88,0,'mesa3.webp',12),(89,1,'pelota1.webp',13),(90,0,'pelota1.webp',13),(91,0,'pelota1.webp',13),(92,1,'botines1.webp',14),(93,0,'botines2.webp',14),(94,0,'botines3.webp',14),(95,1,'pesas1.webp',15),(96,0,'pesas2.webp',15),(97,0,'pesas3.webp',15),(98,1,'colchoneta1.webp',16),(99,0,'colchoneta2.webp',16),(100,0,'colchoneta3.webp',16),(101,0,'colchoneta4.webp',16),(102,1,'monopatinelectrico1.webp',17),(103,0,'monopatinelectrico2.webp',17),(104,0,'monopatinelectrico3.webp',17),(105,0,'monopatinelectrico4.webp',17),(106,1,'hoverboard1.webp',18),(107,0,'hoverboard2.webp',18),(108,0,'hoverboard3.webp',18),(109,0,'hoverboard4.webp',18),(110,1,'bicicleta1.webp',19),(111,0,'bicicleta2.webp',19),(112,0,'bicicleta3.webp',19),(113,0,'bicicleta4.webp',19),(114,1,'bicicletaelectrica1.webp',20),(115,0,'bicicletaelectrica2.webp',20),(116,0,'bicicletaelectrica3.webp',20),(117,0,'bicicletaelectrica4.webp',20),(118,1,'monopatin1.webp',21),(119,0,'monopatin1.webp',21),(120,0,'monopatin1.webp',21),(121,1,'autito1.webp',22),(122,0,'autito1.webp',22),(123,0,'autito1.webp',22),(124,1,'utilesescolares1.webp',23),(125,0,'utilesescolares1.webp',23),(126,0,'utilesescolares1.webp',23),(127,0,'utilesescolares1.webp',23),(128,1,'triciclo1.webp',24),(129,0,'triciclo1.webp',24),(130,0,'triciclo1.webp',24),(131,0,'triciclo1.webp',24),(139,1,'/img/1655390953752.webp',24),(140,0,'/img/1655390953752.webp',24),(141,0,'/img/1655390953753.webp',24),(142,1,'/img/1655391052108.webp',34),(143,0,'/img/1655391052109.webp',34),(144,0,'/img/1655391052110.webp',34),(145,0,'/img/1655391052111.webp',34),(146,1,'/img/1655391093031.webp',35),(147,0,'/img/1655391093037.webp',35),(148,0,'/img/1655391093038.webp',35),(149,0,'/img/1655391093039.webp',35);
 /*!40000 ALTER TABLE `imagenes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -189,7 +189,7 @@ CREATE TABLE `publicaciones` (
   KEY `fk_categorias` (`idcategoria`),
   CONSTRAINT `fk_categorias` FOREIGN KEY (`idcategoria`) REFERENCES `categorias` (`idcategoria`),
   CONSTRAINT `fk_usuarios` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`idusuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -273,4 +273,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-16 11:01:25
+-- Dump completed on 2022-06-16 11:54:11
