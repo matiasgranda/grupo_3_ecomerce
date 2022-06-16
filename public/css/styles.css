@@ -374,6 +374,7 @@ section h3 {
         align-items: center;
         flex-wrap: wrap;
         width: 100%;
+        animation: scroll 80s linear infinite;
     }
 
     .topventas {
@@ -386,6 +387,7 @@ section h3 {
         align-items: center;
         flex-wrap: wrap;
         width: 100%;
+        animation: scroll 80s linear infinite;
     }
 
  
