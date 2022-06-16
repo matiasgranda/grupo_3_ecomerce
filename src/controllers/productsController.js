@@ -60,19 +60,11 @@ let productsController = {
               idcategoria: publicacion.idcategoria
             }
           });
-          const marcas = await db.Marcas.findOne({
-            where: {
-              idpublicacion: publicacion.idpublicacion
-            },
-            include: [{
-              association: "marcaproducto"
-            }]
-          });
           datosPublicacion.imagenes = imagenes;
           datosPublicacion.calificaciones = calificacion;
           datosPublicacion.pregunta = pregunta;
           datosPublicacion.categorias = categorias;
-          datosPublicacion.marcas = marcas;
+          datosPublicacion.publicacion
           return res.render(
             path.resolve(__dirname, "../views/product.ejs"), {
               datosPublicacion: datosPublicacion,
