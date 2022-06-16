@@ -7,7 +7,9 @@
     padding-bottom: 30px;
     height: fit-content;
 }
-
+.mensajeError{
+    color: red;
+}
 .cesta {
     width: 80%;
     background-color: white;

@@ -64,7 +64,7 @@ let productsController = {
           datosPublicacion.calificaciones = calificacion;
           datosPublicacion.pregunta = pregunta;
           datosPublicacion.categorias = categorias;
-          datosPublicacion.publicacion
+         
           return res.render(
             path.resolve(__dirname, "../views/product.ejs"), {
               datosPublicacion: datosPublicacion,

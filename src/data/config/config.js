@@ -4,7 +4,8 @@ module.exports={
     "password": '',
     "database": "amazona_db",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "logging": false //para que no se muestren las consultas en la consola
   },
   "test": {
     "username": "root",

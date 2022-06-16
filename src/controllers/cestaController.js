@@ -14,51 +14,90 @@ let registroController = {
   },
   add: (req, res) => {
     let sesion = req.session;
-    if (!isNaN(req.params.id)) {
+
+    if (!isNaN(parseInt(req.params.id))) {
       //let basketProducts = [];
       let productList = JSON.parse(
         fs.readFileSync("./src/data/productos.json")
       );
       let product = {
-        idProd: req.params.id,
-        cantidad: req.body.cantidad,
+        idProd: parseInt(req.params.id),
+        cantidad: parseInt(req.body.cantidad),
       };
-      
+
       if (!req.session.basketProducts) {
         req.session.basketProducts = [];
       }
-      
-        for (let i = 0; i < productList.length; i++) {
-          for (let j = 0; j < productList[i].length; j++) {
-            if (productList[i][j].id == product.idProd) {
-              productoSeleccionado = productList[i][j];
-              let productAdded = {
-                titulo: productList[i][j].titulo,
-                id: productList[i][j].id,
-                cantidad: product.cantidad,
-                precio: productList[i][j].precio,
-                descripcion: productList[i][j].descripcion,
-                imagen: productList[i][j].imagen,
-              };
-              req.session.basketProducts.push(productAdded);
-            }
+      var existe = false;
+
+      for (let i = 0; i < req.session.basketProducts.length; i++) {
+        if (req.session.basketProducts[i].id == product.idProd) {
+          existe = true;
+          if (
+            parseInt(
+              req.session.basketProducts[i].cantidad +
+                parseInt(req.body.cantidad)
+            ) <= req.session.basketProducts[i].stock
+          ) {
+            req.session.basketProducts[i].cantidad =
+              parseInt(req.session.basketProducts[i].cantidad) +
+              parseInt(req.body.cantidad);
+            return res.render(path.resolve(__dirname, "../views/cesta.ejs"), {
+              session: sesion,
+            });
+          } else {
+            return res.render(path.resolve(__dirname, "../views/cesta.ejs"), {
+              session: sesion, mensaje:{mensaje:"La cantidad agregada supera a la existencia",id:product.idProd}
+            });
           }
         }
-     
-      
-      return res.render(path.resolve(__dirname, "../views/cesta.ejs"), {
-        session: sesion,
-      });
+      }
+
+      if (!existe) {
+        let db = require("../data/models/");
+        const Op = require("Sequelize").Op;
+        db.Publicaciones.findOne({
+          where: { idpublicacion: parseInt(req.params.id) },
+          include: [
+            {
+              association: "imagenes",
+              attributes: ["imagen"],
+              where: { imagenprincipal: 1 },
+            },
+          ],
+        }).then((publicacion) => {
+          if (publicacion) {
+            let productAdded = {
+              titulo: publicacion.titulo,
+              id: publicacion.idpublicacion,
+              cantidad: product.cantidad,
+              precio: publicacion.precio,
+              descripcion: publicacion.descripcion,
+              imagen: publicacion.imagenes[0].imagen,
+              stock: publicacion.stock,
+            };
+            req.session.basketProducts.push(productAdded);
+            return res.render(path.resolve(__dirname, "../views/cesta.ejs"), {
+              session: sesion,
+            });
+          } else {
+            return res.send("Producto inexistente en db");
+          }
+        });
+      }
+    } else {
+      return res.send("Error en el código de producto");
     }
-    return res.send("Error en el código de producto");
   },
-  delete: (req,res) => {
+  delete: (req, res) => {
     let sesion = req.session;
-    sesion.basketProducts=sesion.basketProducts.filter(product=> product.id!=req.params.id);
+    sesion.basketProducts = sesion.basketProducts.filter(
+      (product) => product.id != req.params.id
+    );
     return res.render(path.resolve(__dirname, "../views/cesta.ejs"), {
       session: sesion,
     });
-  }
+  },
 };
 
 module.exports = registroController;
