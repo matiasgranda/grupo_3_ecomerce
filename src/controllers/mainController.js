@@ -134,7 +134,7 @@ let mainController = {
       }
     });
     db.Publicaciones.findAll({
-      where: { idusuario: 1 }
+      where: { idusuario: req.session.idusuario || req.cookies.userId }
     }).then(async (publicaciones) => {
       for(let i = 0; i < publicaciones.length; i++) {
         productos2.push(publicaciones[i])
