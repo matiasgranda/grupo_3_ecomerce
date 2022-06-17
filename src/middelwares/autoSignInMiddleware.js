@@ -12,6 +12,7 @@ function autoSignInMiddleware(req, res, next) {
       if (usuarios) {
         if (usuarios.email == req.cookies.userMail && usuarios.habilitado == 1) {
           
+          req.session.idusuario = usuarios.idusuario
           req.session.user = usuarios.usuario;
           req.session.mail = usuarios.email;
           req.session.pais = usuarios.pais || "Argentina";
