@@ -17,7 +17,6 @@ module.exports = (sequelize, dataTypes) => {
     titulo: { type: dataTypes.STRING },
     detallepublicacion: { type: dataTypes.TEXT },
     stock: { type: dataTypes.INTEGER },
-    marca: { type: dataTypes.STRING },
     colores: { type: dataTypes.STRING }
   };
   let config = {
@@ -40,7 +39,12 @@ module.exports = (sequelize, dataTypes) => {
       as: "categorias",
       foreignKey: "idcategoria"
     })
-    
+
+    Publicacion.belongsTo(models.Marcas, {
+      as: "marcas",
+      foreignKey: "idmarca"
+    })
+
   };
 
   return Publicacion;

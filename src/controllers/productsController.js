@@ -60,11 +60,15 @@ let productsController = {
               idcategoria: publicacion.idcategoria
             }
           });
+          const marca = await db.Marcas.findAll({
+            where: {idmarca: publicacion.idmarca}
+          })
           datosPublicacion.imagenes = imagenes;
           datosPublicacion.calificaciones = calificacion;
           datosPublicacion.pregunta = pregunta;
           datosPublicacion.categorias = categorias;
-         
+          datosPublicacion.marca = marca;
+          console.log(datosPublicacion.marca[0].marca)
           return res.render(
             path.resolve(__dirname, "../views/product.ejs"), {
               datosPublicacion: datosPublicacion,
