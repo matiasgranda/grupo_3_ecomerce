@@ -59,6 +59,16 @@ main {
 .fa-pen-to-square{
     color: #d1a732;
 }
+
+.product-image {
+    display: flex;
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+    margin-right: 100px;
+}
+
 .product-info {
     display: flex;
     width: 80%;
@@ -79,8 +89,8 @@ main {
     margin: 0px 20px;
 }
 
-.product-info img {
-    max-height: 70px;
+.product-image img {
+    max-height: 85px;
     max-width:100px;
 }
 

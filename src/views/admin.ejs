@@ -13,44 +13,41 @@
     <main>
         <select name="select" id="select" class="filter-elements" onchange="filterCategory(this.value)">
             <option value="todos">Todos</option>
-            <option value="tecnologia">Tecnologia</option>
-            <option value="moda">Moda</option>
-            <option value="hogar">Hogar</option>
-            <option value="deportes">Deportes</option>
-            <option value="movilidad">Movilidad</option>
-            <option value="ninios">Niños</option>
+            <% for(let i = 0; i < categorias.length; i++) { %>
+            <option value="<%= categorias[i] %>"><%= categorias[i] %></option>
+            <% } %> 
         </select>
 
-        <% for(let i = 0; i < productos.length; i++) { %>
-        <% for(let j = 0; j < productos[i].length; j++) { %>
-        <section class="product-box <%= productos[i][j].categoria %>">
+        <% for(let i = 0; i < productos2.length; i++) { %>
 
-            <div class="product-info">
-                <img src="<%= productos[i][j].imagen %>" alt="">
+        <section class="product-box <%= productos2[i].categoria %>">
+
+            <div class="product-image">
+                <img src="/img/<%= productos2[i].imagen %>" alt="">
             </div>
 
             <div class="product-title">
-                <p><a href="/product/<%=productos[i][j].id%>"><%= productos[i][j].titulo %> </a></p>
+                <p><a href="/product/<%=productos2[i].idpublicacion%>"><%= productos2[i].titulo %> </a></p>
             </div>
 
             <div class="product-info">
-                <p><b>Categoria:</b>  <%= productos[i][j].categoria %></p>
+                <p><b>Categoria:</b>  <%= productos2[i].categoria %></p>
             </div>
 
             <div class="product-info">
-                <p><b>Precio:</b>  <%= productos[i][j].precio %></p>
+                <p><b>Precio:</b>  <%= productos2[i].precio %></p>
             </div>
 
           
             <div class="edit-links">
-                <a href="/product/edit/<%=productos[i][j].id%> " title="Editar Producto"><i class="fa-regular fa-pen-to-square"></i></a>
+                <a href="/product/edit/<%=productos2[i].idpublicacion%> " title="Editar Producto"><i class="fa-regular fa-pen-to-square"></i></a>
                 <a href="#" title="Eliminar Producto" class="trash"><i class="fa-solid fa-trash"></i></a>
             </div>
 
         </section>
 
         <% } %>
-        <% } %>
+
     </main>
 
     <%- include('./partials/footer') %>

@@ -126,7 +126,13 @@ let mainController = {
   admin: (req, res) => {
     let sesion = session;
     let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
-    var productos2 = []
+    var productos2 = [];
+    var categorias = [];
+    db.Categorias.findAll().then((category) => {
+      for(let i = 0; i < category.length; i++) {
+        categorias.push(category[i].descripcion)
+      }
+    });
     db.Publicaciones.findAll({
       where: { idusuario: 1 }
     }).then(async (publicaciones) => {
@@ -147,14 +153,14 @@ let mainController = {
         productos2[i].categoria = categorias[0].descripcion;
         productos2[i].imagen = imagenes[0].imagen
       }
-      
-    })
+      res.render(path.resolve(__dirname, "../views/admin.ejs"), {
+        productos: productos,
+        productos2: productos2,
+        session: req.session,
+        categorias: categorias
+      });
+    })    
     
-    
-    res.render(path.resolve(__dirname, "../views/admin.ejs"), {
-      productos: productos,
-      session: req.session,
-    });
   },
 };
 
