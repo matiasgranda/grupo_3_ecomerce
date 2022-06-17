@@ -1,6 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const session = require("express-session");
+const db = require("../data/models/");
 
 let mainController = {
   home: (req, res) => {
@@ -125,6 +126,31 @@ let mainController = {
   admin: (req, res) => {
     let sesion = session;
     let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
+    var productos2 = []
+    db.Publicaciones.findAll({
+      where: { idusuario: 1 }
+    }).then(async (publicaciones) => {
+      for(let i = 0; i < publicaciones.length; i++) {
+        productos2.push(publicaciones[i])
+      }
+      for(let i = 0; i < productos2.length; i++) {
+        const categorias = await db.Categorias.findAll({
+          where: {
+            idcategoria: productos2[i].idcategoria
+          }
+        });
+        const imagenes = await db.Imagenes.findAll({
+          where: {
+            idpublicacion: productos2[i].idpublicacion
+          }
+        });
+        productos2[i].categoria = categorias[0].descripcion;
+        productos2[i].imagen = imagenes[0].imagen
+      }
+      
+    })
+    
+    
     res.render(path.resolve(__dirname, "../views/admin.ejs"), {
       productos: productos,
       session: req.session,
