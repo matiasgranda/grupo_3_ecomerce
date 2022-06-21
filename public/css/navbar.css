@@ -4,6 +4,7 @@ header {
     display: flex;
     flex-direction: column;
     position: fixed;
+    top: 0px;
     z-index: 2;
 }
 
@@ -78,7 +79,7 @@ header {
     position: relative;
 }
 
-.logo {
+.logo-navbar {
     margin-top: 6px;
     width: fit-content;
 }

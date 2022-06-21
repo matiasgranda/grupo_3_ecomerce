@@ -20,23 +20,25 @@
 }
 body {
     width: 100%;
+    height: 100%;
     background-color: rgb(255, 255, 255);
     position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 90px;
 }
 
 .productForm {
     width: 100%;
     max-width: 700px;
     min-width: 400px;
-    height: fit-content;
+    height: 95%;
     background-color: rgb(255, 255, 255);
-    margin: 50px 20px 20px 20px;
+    margin: 20px;
     border-radius: 5px;
     box-shadow: 0px 2px 1px 2px rgb(20 31 56 / 10%);
-    padding: 20px;
+    padding: 10px;
 }
 
 form {
@@ -45,7 +47,7 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
 form div {
@@ -57,7 +59,7 @@ form div {
 }
 
 .tituloForm {
-    height: 80px;
+    height: 70px;
     justify-content: flex-start;
     font-size: 1.1em;
     color: rgb(132, 147, 173);
@@ -74,7 +76,7 @@ form div {
 }
 
 .descripcionForm { 
-    height: 140px;
+    height: 160px;
     justify-content: flex-start;
     font-size: 1.1em;
     color: rgb(132, 147, 173);
@@ -91,7 +93,7 @@ form div {
 }
 
 .categoriaForm {
-    height: 80px;
+    height: 70px;
     justify-content: flex-start;
     font-size: 1.1em;
     color: rgb(132, 147, 173);
@@ -129,7 +131,7 @@ form div {
 }
 
 .imagenForm {
-    height: 60px;
+    height: 40px;
     justify-content: center;
 }
 
@@ -147,6 +149,21 @@ form div {
 
 .imagenForm input {
     display: none;
+}
+
+.imagenesSecundarias h5, .imagenPrincipal h5 {
+    height: 20px;
+}
+
+.imagenesSecundarias, .imagenPrincipal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    min-width: 300px;
+    padding: 10px;
+    width: 90%;
+    justify-content: center;
 }
 
 .submitForm {
@@ -167,23 +184,13 @@ form div {
     max-width: 300px;
     cursor: pointer;
 }
-.imagenesSecundarias, .imagenPrincipal{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 300px;
-    padding: 10px;
-    width: 90%;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-}
-.logo{
+
+.logo {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }

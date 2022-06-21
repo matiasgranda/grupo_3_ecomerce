@@ -7,7 +7,9 @@ const bcrypt = require("bcrypt");
 
 let registroController = {
   main: (req, res) => {
-    res.render(path.resolve(__dirname, "../views/registro.ejs"));
+    res.render(path.resolve(__dirname, "../views/registro.ejs"), {
+      session: req.session
+    });
   },
   crear: (req, res, next) => {
     const sequelize = require("sequelize");

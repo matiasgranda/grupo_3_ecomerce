@@ -8,7 +8,9 @@ const { SlowBuffer } = require("buffer");
 
 let loginController = {
   login: (req, res) => {
-    res.render(path.resolve(__dirname, "../views/login.ejs"));
+    res.render(path.resolve(__dirname, "../views/login.ejs"), {
+      session: req.session
+    });
   },
 
   loginCheck: (req, res) => {

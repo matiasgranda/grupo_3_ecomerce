@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/registro.css" />
+    <%- include('./partials/head') %>
     <title>Registro</title>
   </head>
   <body>
+    <%- include('./partials/navbar') %>
     <div class="registro">
       <form action="/registro/create" method="post" enctype="multipart/form-data">
         <a href="/"><img src="/img/amazona-negro.png" alt="" /></a>
@@ -113,25 +115,7 @@
           <label for="fechanac">Fecha de nacimiento:</label>
           <input type="date" id="fechanac" name="fechanac" required value="<%= locals.old && old.fechanac ? old.fechanac : "" %>"/>
         </div>
-        <div class="form-select">
-          <label for="pais">Pais de residencia</label>
-          <select name="pais" id="pais" required>
-            <option name="arg" value="Argentina" id="pais">
-              Argentina
-            </option>
-            <option name="bol" value="Bolivia" id="pais">Bolivia</option>
-            <option name="bra" value="Brasil" id="pais">Brasil</option>
-            <option name="chi" value="Chile" id="pais" >Chile</option>
-            <option name="col" value="Colombia" id="pais">Colombia</option>
-            <option name="ecu" value="Ecuador" id="pais">Ecuador</option>
-            <option name="par" value="Paraguay" id="pais">Paraguay</option>
-            <option name="per" value="Peru" id="pais">Peru</option>
-            <option name="uru" value="Uruguay" id="pais">Uruguay</option>
-            <option name="vzl" value="Venezuela" id="pais">
-              Venezuela
-            </option>
-          </select>
-        </div>
+        
         <div class="form-image">
           <label for="imagenPerfil">Imagen de perfil:</label>
           <input type="file" name="imagenPerfil" id="imagenPerfil" accept="image/*">
@@ -140,8 +124,8 @@
           <button type="submit">Registrarse</button>
         </div>
       </form>
-      <a href="/login">Ya tenes una cuenta? ingresa.</a>
-      <a href="/">Pagina de inicio.</a>
+      <a class="redirect-links" href="/login">Ya tenes una cuenta? ingresa.</a>
+      <a class="redirect-links" href="/">Pagina de inicio.</a>
     </div>
   </body>
 </html>

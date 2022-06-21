@@ -1,112 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/productCreate.css" />
-    <script src="https://cdn.tiny.cloud/1/cj7c003wg04nzozi5ll1ocytntsyx4noo1emr3rno17u51x2/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <title>Nueva Publicación</title>
-  </head>
-  <body>
-    <div class="productForm">
-      <div class="logo">
-        <a href="/">
-          <img src="/img/amazona-negro.png" alt="Amazona" />
-        </a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/productCreate.css" />
+  <script src="https://cdn.tiny.cloud/1/cj7c003wg04nzozi5ll1ocytntsyx4noo1emr3rno17u51x2/tinymce/6/tinymce.min.js"
+    referrerpolicy="origin"></script>
+  <%- include('./partials/head') %>
+  <title>Nueva Publicación</title>
+</head>
+
+<body>
+  <%- include('./partials/navbar') %>
+  <div class="productForm">
+    <div class="logo">
+      <a href="/">
+        <img src="/img/amazona-negro.png" alt="Amazona" />
+      </a>
+    </div>
+    <h2>Publicar Producto</h2>
+
+    <form action="/product/create" method="post" enctype="multipart/form-data">
+      <div class="tituloForm">
+        <label for="titulo">Titulo del producto:</label>
+        <input type="text" name="titulo" id="titulo" />
       </div>
-      <h2>Publicar Producto</h2>
-      
-      <form
-        action="/product/create"
-        method="post"
-        enctype="multipart/form-data"
-      >
-        <div class="tituloForm">
-          <label for="titulo">Titulo del producto:</label>
-          <input type="text" name="titulo" id="titulo" />
-        </div>
-        <div class="descripcionForm">
-          <label for="descripcion">Descripcion del producto:</label>
-          <textarea name="descripcion" id="descripcion"></textarea>
-        </div>
-        <div class="categoriaForm">
-          <label for="categoria">Selecciona la categoria:</label>
-          <select name="categoria" id="categoria">
-            <option value="1">Tecnologia</option>
-            <option value="2">Moda</option>
-            <option value="3">Hogar</option>
-            <option value="4">Deportes</option>
-            <option value="5">Movilidad</option>
-            <option value="6">Niños</option>
-          </select>
-        </div>
-        <div class="colorForm">
-          <label for="color">Color/es:</label>
-          <input type="text" name="color">
-        </div>
-        <div class="marcaForm">
-          <label for="marca">Marca:</label>
-          <input type="text" name="marca">
-        </div>
-        <div class="precioForm">
-          <label for="precio">Precio:</label>
-          <input type="number" name="precio" id="precio" step="0.01" />
-        </div>
-        <div class="imagenPrincipal">
-          <h5>Agregar imágen principal</h5>
+      <div class="descripcionForm">
+        <label for="descripcion">Descripcion del producto:</label>
+        <textarea name="descripcion" id="descripcion"></textarea>
+      </div>
+      <div class="categoriaForm">
+        <label for="categoria">Selecciona la categoria:</label>
+        <select name="categoria" id="categoria">
+          <option value="1">Tecnologia</option>
+          <option value="2">Moda</option>
+          <option value="3">Hogar</option>
+          <option value="4">Deportes</option>
+          <option value="5">Movilidad</option>
+          <option value="6">Niños</option>
+        </select>
+      </div>
+      <div class="colorForm">
+        <label for="color">Color/es:</label>
+        <input type="text" name="color">
+      </div>
+      <div class="marcaForm">
+        <label for="marca">Marca:</label>
+        <input type="text" name="marca">
+      </div>
+      <div class="precioForm">
+        <label for="precio">Precio:</label>
+        <input type="number" name="precio" id="precio" step="0.01" />
+      </div>
+      <div class="imagenPrincipal">
+        <h5>Agregar imágen principal</h5>
+        <br>
+        <div class="imagenForm">
+          <label for="imagenPrincipal">Seleccionar Imagen</label>
+          <input type="file" name="imagenPrincipal" id="imagenPrincipal" accept="image/*" />
+          <% if(locals && locals.mensaje){ %>
+
           <br>
-          <div class="imagenForm">
-            <label for="imagenPrincipal">Seleccionar Imagen</label>
-            <input
-              type="file"
-              name="imagenPrincipal"
-              id="imagenPrincipal"
-              accept="image/*"
-            />
-            <% if(locals && locals.mensaje){ %>
-              
-                <br>
-                <div class="error">
-                  
-                  <%= mensaje.descripcion %> 
-                  
-                </div>
-            <%  
+          <div class="error">
+
+            <%= mensaje.descripcion %>
+
+          </div>
+          <%  
             }
              %>
-          </div>
         </div>
-        <div class="imagenesSecundarias">
-          <h5>Agregar imágenes secundarias</h5>
-          <div class="imagenForm">
-            <label for="imagenSecundaria">Seleccionar imágenes</label>
-            <input
-              type="file"
-              name="imagenSecundaria[]"
-              id="imagenSecundaria"
-              accept="image/*"
-              multiple
-            />
-          </div>
+      </div>
+      <div class="imagenesSecundarias">
+        <h5>Agregar imágenes secundarias</h5>
+        <div class="imagenForm">
+          <label for="imagenSecundaria">Seleccionar imágenes</label>
+          <input type="file" name="imagenSecundaria[]" id="imagenSecundaria" accept="image/*" multiple />
         </div>
-        <div class="submitForm">
-          <button type="submit">Publicar</button>
-        </div>
-      </form>
-    </div>
-    <textarea>
+      </div>
+      <div class="submitForm">
+        <button type="submit">Publicar</button>
+      </div>
+    </form>
+  </div>
+  <textarea>
       Welcome to TinyMCE!
    </textarea>
-   <script>
-     tinymce.init({
-       selector: 'textarea',
-       plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',
-       toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents',
-       toolbar_mode: 'floating',
-       tinycomments_mode: 'embedded',
-       tinycomments_author: 'Author name',
-     });
-   </script>
-  </body>
+  <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',
+      toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents',
+      toolbar_mode: 'floating',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+    });
+  </script>
+</body>
+
 </html>
