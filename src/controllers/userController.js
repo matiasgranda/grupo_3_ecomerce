@@ -5,10 +5,19 @@ const session = require("express-session");
 
 let userController = {
     main: (req, res) => {
-        let sesion = req.session;
-        return res.render(path.resolve(__dirname, "../views/user.ejs"), {
-      session: sesion,
-    });
+      const db = require("../data/models/");
+      let sesion = req.session;
+      db.Publicaciones.findAll({
+        where: { idusuario: req.session.idusuario }}).then(publicaciones => {
+          db.Usuarios.findOne({
+            where: { idusuario: req.session.idusuario }}).then(usuario => {
+              return res.render(path.resolve(__dirname, "../views/user.ejs"), {
+                session: sesion,
+                publicaciones: publicaciones,
+                usuario: usuario
+                });
+            })
+        })
     }
 }
 
