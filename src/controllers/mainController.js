@@ -2,11 +2,12 @@ const path = require("path");
 const fs = require("fs");
 const session = require("express-session");
 const db = require("../data/models/");
+const { Op } = require("sequelize");
 
 let mainController = {
   home: (req, res) => {
     let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
-    let sesion = session;
+    let sesion = req.session;
     let db = require("../data/models/");
     var productos2 = {};
     db.Publicaciones.findAll({
@@ -92,7 +93,7 @@ let mainController = {
                     
                     res.render(path.resolve(__dirname, "../views/index.ejs"), {
                       productos: productos,
-                      session: req.session,
+                      session: sesion,
                       imagenes,
                       publicaciones,
                       productos2: productos2
@@ -109,9 +110,9 @@ let mainController = {
   },
 
   cesta: (req, res) => {
-    let sesion = session;
+    let sesion = req.session;
     res.render(path.resolve(__dirname, "../views/cesta.ejs"), {
-      session: req.session,
+      session: sesion,
     });
   },
 
@@ -124,13 +125,15 @@ let mainController = {
   },
 
   admin: (req, res) => {
-    let sesion = session;
+    let sesion = req.session;
     let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
     var productos2 = [];
     var categorias = [];
     db.Categorias.findAll().then((category) => {
       for(let i = 0; i < category.length; i++) {
-        categorias.push(category[i].descripcion)
+
+        let categoria = { descripcion: category[i].descripcion  }
+        categorias.push(categoria)
       }
     });
     db.Publicaciones.findAll({
@@ -156,7 +159,7 @@ let mainController = {
       res.render(path.resolve(__dirname, "../views/admin.ejs"), {
         productos: productos,
         productos2: productos2,
-        session: req.session,
+        session: sesion,
         categorias: categorias
       });
     })    

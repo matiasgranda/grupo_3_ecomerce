@@ -14,7 +14,7 @@
         <select name="select" id="select" class="filter-elements" onchange="filterCategory(this.value)">
             <option value="todos">Todos</option>
             <% for(let i = 0; i < categorias.length; i++) { %>
-            <option value="<%= categorias[i] %>"><%= categorias[i] %></option>
+            <option value="<%= categorias[i].descripcion %>"><%= categorias[i].descripcion %></option>
             <% } %> 
         </select>
 

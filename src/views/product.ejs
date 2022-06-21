@@ -21,7 +21,7 @@
       <div class="mini-viewer">
         <% if (datosPublicacion.imagenes!=undefined) { 
           for(let i = 0; i < datosPublicacion.imagenes.length; i++) { %>
-            <% if(datosPublicacion.imagenes[i].imagenprincipal != 1) { %>
+            <% if(datosPublicacion.imagenes[i]) { %>
               <div class="mini-image">
                 <img src="<%= '/img/'+datosPublicacion.imagenes[i].imagen %> " alt="" onclick="mostrarImagen(this)">
               </div>
