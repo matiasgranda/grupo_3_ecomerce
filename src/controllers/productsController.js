@@ -4,6 +4,7 @@ const actions = require("../data/actions");
 const { parse } = require("path");
 const { Console } = require("console");
 const session = require("express-session");
+const db = require("../data/models/");
 
 let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
 
@@ -64,14 +65,15 @@ let productsController = {
           });
           datosPublicacion.imagenes = imagenes;
           datosPublicacion.calificaciones = calificacion;
-          datosPublicacion.pregunta = pregunta;
+          datosPublicacion.preguntas = pregunta;
           datosPublicacion.categorias = categorias;
           datosPublicacion.marca = marca;
-          console.log(datosPublicacion.marca[0].marca);
-          return res.render(path.resolve(__dirname, "../views/product.ejs"), {
-            datosPublicacion: datosPublicacion,
-            session: req.session,
-          });
+          return res.render(
+            path.resolve(__dirname, "../views/product.ejs"), {
+              datosPublicacion: datosPublicacion,
+              session: req.session,
+            }
+          );
         } else {
           return res.redirect("/");
         }
@@ -156,43 +158,28 @@ let productsController = {
   },
 
   comentarios: (req, res) => {
-    let comentarioNuevo = req.body.comentario;
-    let calificacionNueva = req.body.calificacion;
-    for (let i = 0; i < productos.length; i++) {
-      for (let j = 0; j < productos[i].length; j++) {
-        if (productos[i][j].id == parseInt(req.params.id)) {
-          productos[i][j].comentarios.push(comentarioNuevo);
-          productos[i][j].calificaciones.push(calificacionNueva);
-        }
-      }
-    }
-    actions.updateProduct(productos);
-
-    res.redirect("/product/" + req.params.id);
+    let calificacionNueva = {
+      comentario: req.body.comentario,
+      idpublicacion: req.params.id,
+      idusuario: req.session.idusuario, 
+      calificacion: req.body.calificacion
+    };
+    db.Calificacion.create(calificacionNueva);
+    return res.redirect("/product/" + req.params.id);
   },
 
   pregunta: (req, res) => {
     let preguntaNueva = {
-      usuario: "Cosme Fulanito",
+      idusuario: req.session.idusuario,
       pregunta: req.body.pregunta,
+      idpublicacion: req.params.id,
+      fechapregunta: "2022-06-20"
     };
 
-    console.log(preguntaNueva);
-
-    for (let i = 0; i < productos.length; i++) {
-      for (let j = 0; j < productos[i].length; j++) {
-        if (productos[i][j].id == parseInt(req.params.id)) {
-          if (productos[i][j].preguntas === undefined) {
-            productos[i][j].preguntas = [];
-          }
-          productos[i][j].preguntas.push(preguntaNueva);
-        }
-      }
-    }
-    actions.updateProduct(productos);
-
-    res.redirect("/product/" + req.params.id);
+    db.Pregunta.create(preguntaNueva);
+    return res.redirect("/product/" + req.params.id);
   },
+
   edit: (req, res) => {
     let sesion = req.session;
     let productoSeleccionado;
@@ -209,6 +196,7 @@ let productsController = {
       session: sesion,
     });
   },
+
   editProduct: (req, res) => {
     // let sesion = req.session;
     if (req.files.length > 0) {
