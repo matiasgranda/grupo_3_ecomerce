@@ -180,13 +180,31 @@ let productsController = {
 
   edit: (req, res) => {
     let sesion = req.session;
+    const Op = require("Sequelize").Op;
     db.Publicaciones.findOne({
       where: { idpublicacion: req.params.id }, include: [{association: "marcas", attributes: ["marca"]}]
     }).then((productoSeleccionado) => {
-        res.render(path.resolve(__dirname, "../views/productEdit.ejs"), {
-          producto: productoSeleccionado,
-          session: sesion,
-        });
+      db.Imagenes.findOne({
+        where: { [Op.and]: [
+          { idpublicacion: req.params.id }, 
+          { imagenprincipal: 1 }
+        ] } 
+      }).then((imagenprincipal) => {
+        db.Imagenes.findAll({
+          where: { [Op.and]: [
+            { idpublicacion: req.params.id }, 
+            { imagenprincipal: 0 }
+          ] } 
+        }).then((imagenes) => {
+          res.render(path.resolve(__dirname, "../views/productEdit.ejs"), {
+            producto: productoSeleccionado,
+            session: sesion,
+            imagenprincipal: imagenprincipal,
+            imagenes:imagenes
+          });
+        })
+      })
+        
       })    
   },
 
