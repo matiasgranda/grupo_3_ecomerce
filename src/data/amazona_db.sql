@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2022-06-21 16:37:52
+Date: 2022-06-22 11:26:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -350,6 +350,7 @@ CREATE TABLE `publicaciones` (
   `stock` int(11) DEFAULT 1,
   `colores` varchar(45) NOT NULL,
   `idmarca` int(11) NOT NULL,
+  `visible` int(11) NOT NULL DEFAULT 1,
   PRIMARY KEY (`idpublicacion`),
   KEY `fk_usuarios` (`idusuario`),
   KEY `fk_categorias` (`idcategoria`),
@@ -362,30 +363,30 @@ CREATE TABLE `publicaciones` (
 -- ----------------------------
 -- Records of publicaciones
 -- ----------------------------
-INSERT INTO `publicaciones` VALUES ('1', '17500.00', 'Auriculares inalambricos Sony WH-1000XM4 black. Alcance inalambrico de 10m. Duracion de bateria de 30h. Manos libres incluido', '1', '1', '1', '1', '2022-06-07', '0', 'Auriculares inalambricos Sony', '<h2>Este sería el titulo del detalle de la publicacion</h2>\r\n<p>un parrafito de prueba</p>\r\n', '8', 'Negro', '1');
-INSERT INTO `publicaciones` VALUES ('2', '265800.00', 'Apple Macbook Air Capacidad: 8GB RAM / 512 GB SSD Hasta 18 horas de bateria. GPU de hasta 8 nucleos. Pantalla Retina de 13.3 pulgadas', '1', '1', '1', '1', '2022-06-09', '0', 'Macbook Air', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '4', 'Blanco, Griz', '2');
-INSERT INTO `publicaciones` VALUES ('3', '345098.00', 'Notebook gamer MSI Thin GF63 Capacidad: 8GB RAM / 512 GB SSD Hasta 20 horas de bateria Placa de video NVIDIA GeForce GTX 1650 Max-Q Pantalla LED de 15.6 pulgadas.', '2', '1', '1', '1', '2022-06-01', '0', 'Notebook MSI', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '3', 'Negro', '3');
-INSERT INTO `publicaciones` VALUES ('4', '240000.00', 'Sony Playstation 5 Digital edition Memoria de 825GB Resolucion de 3840px x 2160px.Memoria RAM de 16GB Cuenta con: 1 cable de alimentación ca, 1 cable hdmi, 1 cable de carga usb, 1 dock.', '1', '1', '1', '1', '2022-04-21', '0', 'Playstation 5', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '56', 'Blanco, Griz', '1');
-INSERT INTO `publicaciones` VALUES ('5', '6500.00', 'Buzo Canguro Hoodie con capucha 100% algodon Talles S, M, L, XL disponibles Ideal para el invierno.', '2', '1', '2', '1', '2022-05-14', '0', 'Buzo Canguro', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '2', 'Negro', '4');
-INSERT INTO `publicaciones` VALUES ('6', '12600.00', 'Agregar descripcion', '1', '1', '2', '1', '2022-05-14', '0', 'Zapatillas Nike', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Negro', '5');
-INSERT INTO `publicaciones` VALUES ('7', '8000.00', 'Agregar descripcion', '2', '1', '2', '1', '2022-05-14', '0', 'Pantalon Cargo', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '3', 'Griz Oscuro', '6');
-INSERT INTO `publicaciones` VALUES ('8', '16000.00', 'Campera Softshell Verde Con Capucha. Impermeable. Ideal para el invierno. Talles M, L, XL disponibles.', '1', '1', '2', '1', '2022-05-14', '0', 'Campera Softshell', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '78', 'Verde', '7');
-INSERT INTO `publicaciones` VALUES ('9', '75000.00', 'Agregar descripcion', '2', '1', '3', '1', '2022-05-14', '0', 'Cama Box Base', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '9', 'Griz Claro', '8');
-INSERT INTO `publicaciones` VALUES ('10', '25000.00', 'Agregar descripcion', '2', '1', '3', '1', '2022-05-14', '0', 'Silla de Comedor', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '6', 'Blanco', '9');
-INSERT INTO `publicaciones` VALUES ('11', '320000.00', 'Agregar descripcion', '1', '1', '3', '1', '2022-05-14', '0', 'Sillón Esquinero', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Griz, Negro, Blanco, Marron', '10');
-INSERT INTO `publicaciones` VALUES ('12', '48000.00', 'Agregar descripcion', '2', '1', '3', '1', '2022-05-14', '0', 'Mesa Ratona', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Madera, Negro', '9');
-INSERT INTO `publicaciones` VALUES ('13', '6500.00', 'Agregar descripcion', '1', '1', '4', '1', '2022-05-14', '0', 'Pelota Nike', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Blanco, Negro', '11');
-INSERT INTO `publicaciones` VALUES ('14', '13000.00', 'Agregar descripcion', '1', '1', '4', '1', '2022-05-14', '0', 'Botines Nike', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Griz', '11');
-INSERT INTO `publicaciones` VALUES ('15', '7000.00', 'Agregar descripcion', '1', '1', '4', '1', '2022-05-14', '0', 'Mancuerna', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Metalico, Negro', '12');
-INSERT INTO `publicaciones` VALUES ('16', '4300.00', 'Agregar descripcion', '2', '1', '4', '1', '2022-05-14', '0', 'Colchonetas', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Rojo, Naranja, Verde, Azul, Violeta', '12');
-INSERT INTO `publicaciones` VALUES ('17', '107000.00', 'Agregar descripcion', '2', '1', '5', '1', '2022-05-14', '0', 'Monopatín Eléctrico', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Griz, Metalico', '15');
-INSERT INTO `publicaciones` VALUES ('18', '140000.00', 'Agregar descripcion', '1', '1', '5', '1', '2022-05-14', '0', 'Hoverboard', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Negro, Rojo', '15');
-INSERT INTO `publicaciones` VALUES ('19', '120000.00', 'Agregar descripcion', '1', '1', '5', '1', '2022-05-14', '0', 'Bicicleta MTB', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Naranja', '15');
-INSERT INTO `publicaciones` VALUES ('20', '190000.00', 'Agregar descripcion', '2', '1', '5', '1', '2022-05-14', '0', 'Bicicleta Eléctrica', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Rojo', '15');
-INSERT INTO `publicaciones` VALUES ('21', '7000.00', 'Agregar descripcion', '1', '1', '6', '1', '2022-05-14', '0', 'Monopatín', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Azul, Negro', '15');
-INSERT INTO `publicaciones` VALUES ('22', '11000.00', 'Agregar descripcion', '1', '1', '6', '1', '2022-05-14', '0', 'Auto a control remoto', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Azul, Rojo', '16');
-INSERT INTO `publicaciones` VALUES ('23', '5000.00', 'Agregar descripcion', '1', '1', '6', '1', '2022-05-14', '0', 'Kit utiles escolares', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Multicolor', '17');
-INSERT INTO `publicaciones` VALUES ('24', '9800.00', 'Agregar descripcion', '2', '1', '6', '1', '2022-05-14', '0', 'Triciclo', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Rojo, Azul, Amarillo', '15');
+INSERT INTO `publicaciones` VALUES ('1', '17500.00', 'Auriculares inalambricos Sony WH-1000XM4 black. Alcance inalambrico de 10m. Duracion de bateria de 30h. Manos libres incluido', '1', '1', '1', '1', '2022-06-07', '0', 'Auriculares inalambricos Sony', '<h2>Este sería el titulo del detalle de la publicacion</h2>\r\n<p>un parrafito de prueba</p>\r\n', '8', 'Negro', '1', '1');
+INSERT INTO `publicaciones` VALUES ('2', '265800.00', 'Apple Macbook Air Capacidad: 8GB RAM / 512 GB SSD Hasta 18 horas de bateria. GPU de hasta 8 nucleos. Pantalla Retina de 13.3 pulgadas', '1', '1', '1', '1', '2022-06-09', '0', 'Macbook Air', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '4', 'Blanco, Griz', '2', '1');
+INSERT INTO `publicaciones` VALUES ('3', '345098.00', 'Notebook gamer MSI Thin GF63 Capacidad: 8GB RAM / 512 GB SSD Hasta 20 horas de bateria Placa de video NVIDIA GeForce GTX 1650 Max-Q Pantalla LED de 15.6 pulgadas.', '2', '1', '1', '1', '2022-06-01', '0', 'Notebook MSI', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '3', 'Negro', '3', '1');
+INSERT INTO `publicaciones` VALUES ('4', '240000.00', 'Sony Playstation 5 Digital edition Memoria de 825GB Resolucion de 3840px x 2160px.Memoria RAM de 16GB Cuenta con: 1 cable de alimentación ca, 1 cable hdmi, 1 cable de carga usb, 1 dock.', '1', '1', '1', '1', '2022-04-21', '0', 'Playstation 5', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '56', 'Blanco, Griz', '1', '1');
+INSERT INTO `publicaciones` VALUES ('5', '6500.00', 'Buzo Canguro Hoodie con capucha 100% algodon Talles S, M, L, XL disponibles Ideal para el invierno.', '2', '1', '2', '1', '2022-05-14', '0', 'Buzo Canguro', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '2', 'Negro', '4', '1');
+INSERT INTO `publicaciones` VALUES ('6', '12600.00', 'Agregar descripcion', '1', '1', '2', '1', '2022-05-14', '0', 'Zapatillas Nike', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Negro', '5', '1');
+INSERT INTO `publicaciones` VALUES ('7', '8000.00', 'Agregar descripcion', '2', '1', '2', '1', '2022-05-14', '0', 'Pantalon Cargo', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '3', 'Griz Oscuro', '6', '1');
+INSERT INTO `publicaciones` VALUES ('8', '16000.00', 'Campera Softshell Verde Con Capucha. Impermeable. Ideal para el invierno. Talles M, L, XL disponibles.', '1', '1', '2', '1', '2022-05-14', '0', 'Campera Softshell', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '78', 'Verde', '7', '1');
+INSERT INTO `publicaciones` VALUES ('9', '75000.00', 'Agregar descripcion', '2', '1', '3', '1', '2022-05-14', '0', 'Cama Box Base', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '9', 'Griz Claro', '8', '1');
+INSERT INTO `publicaciones` VALUES ('10', '25000.00', 'Agregar descripcion', '2', '1', '3', '1', '2022-05-14', '0', 'Silla de Comedor', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '6', 'Blanco', '9', '1');
+INSERT INTO `publicaciones` VALUES ('11', '320000.00', 'Agregar descripcion', '1', '1', '3', '1', '2022-05-14', '0', 'Sillón Esquinero', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Griz, Negro, Blanco, Marron', '10', '1');
+INSERT INTO `publicaciones` VALUES ('12', '48000.00', 'Agregar descripcion', '2', '1', '3', '1', '2022-05-14', '0', 'Mesa Ratona', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Madera, Negro', '9', '1');
+INSERT INTO `publicaciones` VALUES ('13', '6500.00', 'Agregar descripcion', '1', '1', '4', '1', '2022-05-14', '0', 'Pelota Nike', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Blanco, Negro', '11', '1');
+INSERT INTO `publicaciones` VALUES ('14', '13000.00', 'Agregar descripcion', '1', '1', '4', '1', '2022-05-14', '0', 'Botines Nike', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Griz', '11', '1');
+INSERT INTO `publicaciones` VALUES ('15', '7000.00', 'Agregar descripcion', '1', '1', '4', '1', '2022-05-14', '0', 'Mancuerna', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Metalico, Negro', '12', '1');
+INSERT INTO `publicaciones` VALUES ('16', '4300.00', 'Agregar descripcion', '2', '1', '4', '1', '2022-05-14', '0', 'Colchonetas', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Rojo, Naranja, Verde, Azul, Violeta', '12', '1');
+INSERT INTO `publicaciones` VALUES ('17', '107000.00', 'Agregar descripcion', '2', '1', '5', '1', '2022-05-14', '0', 'Monopatín Eléctrico', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Griz, Metalico', '15', '1');
+INSERT INTO `publicaciones` VALUES ('18', '140000.00', 'Agregar descripcion', '1', '1', '5', '1', '2022-05-14', '0', 'Hoverboard', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Negro, Rojo', '15', '1');
+INSERT INTO `publicaciones` VALUES ('19', '120000.00', 'Agregar descripcion', '1', '1', '5', '1', '2022-05-14', '0', 'Bicicleta MTB', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Naranja', '15', '1');
+INSERT INTO `publicaciones` VALUES ('20', '190000.00', 'Agregar descripcion', '2', '1', '5', '1', '2022-05-14', '0', 'Bicicleta Eléctrica', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Rojo', '15', '1');
+INSERT INTO `publicaciones` VALUES ('21', '7000.00', 'Agregar descripcion', '1', '1', '6', '1', '2022-05-14', '0', 'Monopatín', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Azul, Negro', '15', '1');
+INSERT INTO `publicaciones` VALUES ('22', '11000.00', 'Agregar descripcion', '1', '1', '6', '1', '2022-05-14', '0', 'Auto a control remoto', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Azul, Rojo', '16', '1');
+INSERT INTO `publicaciones` VALUES ('23', '5000.00', 'Agregar descripcion', '1', '1', '6', '1', '2022-05-14', '0', 'Kit utiles escolares', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Multicolor', '17', '1');
+INSERT INTO `publicaciones` VALUES ('24', '9800.00', 'Agregar descripcion', '2', '1', '6', '1', '2022-05-14', '0', 'Triciclo', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '1', 'Rojo, Azul, Amarillo', '15', '1');
 
 -- ----------------------------
 -- Table structure for respuestas
