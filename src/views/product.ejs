@@ -176,13 +176,14 @@
     </div>
   </article>
   <% } %>
+
   <% if(!session.idusuario){ %>
     <h4 class="loginMessage">Debes iniciar sesión para poder realizar preguntas al vendedor</h4>
   <% } else { %>
   <% if (datosPublicacion.publicacion.idusuario!=session.idusuario) {%>
     <article class="postComentario">
       <h3>Realizar una pregunta al vendedor</h3>
-      <form class="form-preguntas" action="/product/<%=datosPublicacion.id%>/pregunta" method="post">
+      <form class="form-preguntas" action="/product/<%=datosPublicacion.publicacion.idpublicacion%>/pregunta" method="post">
 
         <label for="pregunta"></label>
         <textarea name="pregunta" id="pregunta" required minlength="20"></textarea>
