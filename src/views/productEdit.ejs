@@ -18,7 +18,7 @@
     </div>
     <h2>Editar Producto</h2>
 
-    <form enctype="multipart/form-data" action="/product/edit/<%= producto.id %>?_method=PUT" method="POST">
+    <form enctype="multipart/form-data" action="/product/edit/<%= producto.idpublicacion %>?_method=PUT" method="POST">
 
       <div class="tituloForm">
         <label for="titulo">Titulo del producto:</label>
@@ -35,11 +35,11 @@
       </div>
       <div class="colorForm">
         <label for="color">Color/es:</label>
-        <input type="text" name="color" value="<%= producto.color %>">
+        <input type="text" name="color" value="<%= producto.colores %>">
       </div>
       <div class="marcaForm">
         <label for="marca">Marca:</label>
-        <input type="text" name="marca" value="<%= producto.marca %> ">
+        <input type="text" name="marca" value="<%= producto.marcas.marca %> ">
       </div>
       <div class="imagenPrincipal">
         <h5>Agregar imágen principal</h5>
@@ -51,13 +51,9 @@
 
           <br>
           <div class="error">
-
             <%= mensaje.descripcion %>
-
           </div>
-          <%  
-            }
-             %>
+          <% } %>
         </div>
       </div>
       <div class="imagenesSecundarias">

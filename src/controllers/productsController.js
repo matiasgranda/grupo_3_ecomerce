@@ -182,19 +182,14 @@ let productsController = {
 
   edit: (req, res) => {
     let sesion = req.session;
-    let productoSeleccionado;
-    for (let i = 0; i < productos.length; i++) {
-      for (let j = 0; j < productos[i].length; j++) {
-        if (productos[i][j].id == parseInt(req.params.id)) {
-          productoSeleccionado = productos[i][j];
-        }
-      }
-    }
-    //return res.send(productoSeleccionado);
-    res.render(path.resolve(__dirname, "../views/productEdit.ejs"), {
-      producto: productoSeleccionado,
-      session: sesion,
-    });
+    db.Publicaciones.findOne({
+      where: { idpublicacion: req.params.id }, include: [{association: "marcas", attributes: ["marca"]}]
+    }).then((productoSeleccionado) => {
+        res.render(path.resolve(__dirname, "../views/productEdit.ejs"), {
+          producto: productoSeleccionado,
+          session: sesion,
+        });
+      })    
   },
 
   editProduct: (req, res) => {
