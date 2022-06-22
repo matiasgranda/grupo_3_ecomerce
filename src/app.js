@@ -1,4 +1,5 @@
 const express = require("express");
+
 const path = require("path");
 const app = express();
 const methodOverride=require('method-override');
@@ -25,8 +26,8 @@ app.use(session({
             maxAge:(1000 * 60 * 60)
     }      
 }));
-app.use(express.static(publicPath));
 
+app.use(express.static(publicPath));
 
 app.use(autoSignInMiddleware);
 app.use(express.urlencoded({extended:false}));

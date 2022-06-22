@@ -1,12 +1,8 @@
 const path = require("path");
 const fs = require("fs");
 const actions = require("../data/actions");
-const {
-  parse
-} = require("path");
-const {
-  Console
-} = require("console");
+const { parse } = require("path");
+const { Console } = require("console");
 const session = require("express-session");
 
 let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
@@ -20,61 +16,62 @@ let productsController = {
     var productoSeleccionado = parseInt(req.params.id);
     if (productoSeleccionado > 0) {
       db.Publicaciones.findOne({
-        include: [{
-          association: "usuarios",
-          attributes: ['usuario'],
-          required: true
-        }],
+        include: [
+          {
+            association: "usuarios",
+            attributes: ["usuario"],
+            required: true,
+          },
+        ],
         where: {
-          idpublicacion: productoSeleccionado
+          idpublicacion: productoSeleccionado,
         },
       }).then(async (publicacion) => {
         if (publicacion) {
           datosPublicacion.publicacion = publicacion;
           const imagenes = await db.Imagenes.findAll({
             where: {
-              idpublicacion: publicacion.idpublicacion
-            }
+              idpublicacion: publicacion.idpublicacion,
+            },
           });
           const calificacion = await db.Calificacion.findAll({
             where: {
-              idpublicacion: publicacion.idpublicacion
-            }
+              idpublicacion: publicacion.idpublicacion,
+            },
           });
           const pregunta = await db.Pregunta.findAll({
-            include: [{
+            include: [
+              {
                 association: "usuarios",
-                attributes: ['usuario'],
-                required: true
+                attributes: ["usuario"],
+                required: true,
               },
               {
-                association: "respuestas"
+                association: "respuestas",
               },
             ],
             where: {
-              idpublicacion: publicacion.idpublicacion
-            }
+              idpublicacion: publicacion.idpublicacion,
+            },
           });
           const categorias = await db.Categorias.findAll({
             where: {
-              idcategoria: publicacion.idcategoria
-            }
+              idcategoria: publicacion.idcategoria,
+            },
           });
           const marca = await db.Marcas.findAll({
-            where: {idmarca: publicacion.idmarca}
-          })
+            where: { idmarca: publicacion.idmarca },
+          });
           datosPublicacion.imagenes = imagenes;
           datosPublicacion.calificaciones = calificacion;
           datosPublicacion.pregunta = pregunta;
           datosPublicacion.categorias = categorias;
           datosPublicacion.marca = marca;
-          console.log(datosPublicacion.marca[0].marca)
-          return res.render(
-            path.resolve(__dirname, "../views/product.ejs"), {
-              datosPublicacion: datosPublicacion,
-              session: req.session,
-            }
-          );
+          console.log(datosPublicacion.marca[0].marca);
+          return res.render(path.resolve(__dirname, "../views/product.ejs"), {
+            datosPublicacion: datosPublicacion,
+            session: req.session,
+          });
         } else {
           return res.redirect("/");
         }
@@ -82,7 +79,6 @@ let productsController = {
     } else {
       return res.redirect("/");
     }
-
   },
 
   create: (req, res) => {
@@ -99,7 +95,7 @@ let productsController = {
     if (req.files.length > 0) {
       req.files.forEach((element) => {
         if (element.fieldname === "imagenPrincipal") {
-          nombreimagenOrig =  element.filename;
+          nombreimagenOrig = element.filename;
         } else {
           imagenesAdicionales.push(element.filename);
         }
@@ -128,39 +124,35 @@ let productsController = {
       precio: req.body.precio,
       marca: req.body.marca,
       colores: req.body.color,
-      idusuario: 1
+      idusuario: 1,
     };
 
     db.Publicaciones.create(productoNuevo);
 
     db.Publicaciones.findAll({
-      order: [
-        ["idpublicacion", "DESC"]
-      ],
-      limit: 1, 
-      attributes: ["idpublicacion"]
+      order: [["idpublicacion", "DESC"]],
+      limit: 1,
+      attributes: ["idpublicacion"],
     }).then((idProductoNuevo) => {
-      console.log(idProductoNuevo[0].idpublicacion)
+      console.log(idProductoNuevo[0].idpublicacion);
       let imagenPrincipal = {
         imagen: nombreimagenOrig,
         imagenprincipal: 1,
-        idpublicacion: idProductoNuevo[0].idpublicacion
-      }
+        idpublicacion: idProductoNuevo[0].idpublicacion,
+      };
 
       db.Imagenes.create(imagenPrincipal);
 
-      for(let i = 0; i < imagenesAdicionales.length; i++) {
+      for (let i = 0; i < imagenesAdicionales.length; i++) {
         let imagenesExtra = {
           imagen: imagenesAdicionales[i],
-          idpublicacion: idProductoNuevo[0].idpublicacion
-        }
+          idpublicacion: idProductoNuevo[0].idpublicacion,
+        };
         db.Imagenes.create(imagenesExtra);
       }
 
       res.status(200).redirect("/product/" + imagenPrincipal.idpublicacion);
-    })
-
-    
+    });
   },
 
   comentarios: (req, res) => {
@@ -238,6 +230,34 @@ let productsController = {
     }
     console.log(req.files[0].filename);
     res.send(req.files[0].filename);
+  },
+  delete: (req, res) => {
+    let sesion = req.session;
+    let db = require("../data/models/");
+    const Op = require("Sequelize").Op;
+    
+    if (req.params.id && !isNaN(req.params.id)) {
+      const productoSeleccionado = parseInt(req.params.id);
+      db.Publicaciones.update({visible: 0},{where: { idpublicacion: productoSeleccionado }});
+
+      if (
+        true
+      ) {
+        res
+          .status(200)
+          .send({ resultado: "ok", mensaje: "Producto eliminado" });
+        return;
+      } else {
+        console.log(err);
+        res.setatus(500).send({ resultado: "error", mensaje: err });
+        return;
+      }
+    } else {
+      res
+        .status(403)
+        .send({ resultado: "error", mensaje: "Producto no se pudo eliminar" });
+      return;
+    }
   },
 };
 

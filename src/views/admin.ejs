@@ -5,6 +5,7 @@
     <%- include('./partials/head') %>
     <link rel="stylesheet" href="/css/admin.css">
     <script src="/js/filter.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js""></script>
     <title>Admin</title>
 </head>
 
@@ -41,7 +42,7 @@
           
             <div class="edit-links">
                 <a href="/product/edit/<%=productos2[i].idpublicacion%> " title="Editar Producto"><i class="fa-regular fa-pen-to-square"></i></a>
-                <a href="#" title="Eliminar Producto" class="trash"><i class="fa-solid fa-trash"></i></a>
+                <a href="#" onclick=<%= 'deleteProduct('+productos2[i].idpublicacion+')' %> title="Eliminar Producto" class="trash"><i class="fa-solid fa-trash"></i></a>
             </div>
 
         </section>
@@ -52,7 +53,26 @@
 
     <%- include('./partials/footer') %>
     <%- include('./partials/sidenav') %>
-
+    <script>
+        function deleteProduct(id) {
+        $.ajax({
+            url: '/product/delete/'+id,
+            type: 'DELETE',
+            success: function (result) {
+                alert(result.resultado);
+                if(result.resultado=='ok'){
+                    alert(result.mensaje);
+                    console.log(result.mensaje);
+                }else {
+                    console.error(result.mensaje);
+                    alert(result.mensaje);
+                }
+                
+                
+            }
+        });
+    }
+    </script>
 </body>
 
 </html>
