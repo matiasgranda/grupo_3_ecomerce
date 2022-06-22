@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2022-06-22 11:26:13
+Date: 2022-06-22 17:01:18
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -121,15 +121,13 @@ CREATE TABLE `imagenes` (
   PRIMARY KEY (`idimagen`),
   KEY `fk_img_publicaciones` (`idpublicacion`),
   CONSTRAINT `fk_img_publicaciones` FOREIGN KEY (`idpublicacion`) REFERENCES `publicaciones` (`idpublicacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=154 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=155 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of imagenes
 -- ----------------------------
 INSERT INTO `imagenes` VALUES ('1', '1', 'auriculares1.webp', '1');
 INSERT INTO `imagenes` VALUES ('2', '0', 'auriculares2.webp', '1');
-INSERT INTO `imagenes` VALUES ('3', '0', 'auriculares3.webp', '1');
-INSERT INTO `imagenes` VALUES ('4', '0', 'auriculares4.webp', '1');
 INSERT INTO `imagenes` VALUES ('5', '1', 'macbookair1.webp', '2');
 INSERT INTO `imagenes` VALUES ('6', '0', 'macbookair2.webp', '2');
 INSERT INTO `imagenes` VALUES ('7', '0', 'macbookair3.webp', '2');
@@ -159,7 +157,6 @@ INSERT INTO `imagenes` VALUES ('79', '1', 'cama1.webp', '9');
 INSERT INTO `imagenes` VALUES ('80', '0', 'cama2.webp', '9');
 INSERT INTO `imagenes` VALUES ('81', '1', 'silla1.webp', '10');
 INSERT INTO `imagenes` VALUES ('82', '0', 'silla2.webp', '10');
-INSERT INTO `imagenes` VALUES ('83', '1', 'sillon1.webp', '11');
 INSERT INTO `imagenes` VALUES ('84', '0', 'sillon2.webp', '11');
 INSERT INTO `imagenes` VALUES ('85', '0', 'sillon3.webp', '11');
 INSERT INTO `imagenes` VALUES ('86', '1', 'mesa1.webp', '12');
@@ -219,6 +216,7 @@ INSERT INTO `imagenes` VALUES ('146', '1', '/img/1655391093031.webp', '35');
 INSERT INTO `imagenes` VALUES ('147', '0', '/img/1655391093037.webp', '35');
 INSERT INTO `imagenes` VALUES ('148', '0', '/img/1655391093038.webp', '35');
 INSERT INTO `imagenes` VALUES ('149', '0', '/img/1655391093039.webp', '35');
+INSERT INTO `imagenes` VALUES ('154', '0', 'auriculares4.webp', '1');
 
 -- ----------------------------
 -- Table structure for marcas
@@ -363,7 +361,7 @@ CREATE TABLE `publicaciones` (
 -- ----------------------------
 -- Records of publicaciones
 -- ----------------------------
-INSERT INTO `publicaciones` VALUES ('1', '17500.00', 'Auriculares inalambricos Sony WH-1000XM4 black. Alcance inalambrico de 10m. Duracion de bateria de 30h. Manos libres incluido', '1', '1', '1', '1', '2022-06-07', '0', 'Auriculares inalambricos Sony', '<h2>Este sería el titulo del detalle de la publicacion</h2>\r\n<p>un parrafito de prueba</p>\r\n', '8', 'Negro', '1', '1');
+INSERT INTO `publicaciones` VALUES ('1', '1234.00', 'Auriculares inalambricos Sony WH-1000XM4 black. Alcance inalambrico de 10m. Duracion de bateria de 30h. Manos libres incluido', '1', '1', '1', '1', '2022-06-07', '0', 'Auriculares inalambricos Sony', '<h2>Este sería el titulo del detalle de la publicacion</h2>\r\n<p>un parrafito de prueba</p>\r\n', '8', 'Negro', '1', '1');
 INSERT INTO `publicaciones` VALUES ('2', '265800.00', 'Apple Macbook Air Capacidad: 8GB RAM / 512 GB SSD Hasta 18 horas de bateria. GPU de hasta 8 nucleos. Pantalla Retina de 13.3 pulgadas', '1', '1', '1', '1', '2022-06-09', '0', 'Macbook Air', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '4', 'Blanco, Griz', '2', '1');
 INSERT INTO `publicaciones` VALUES ('3', '345098.00', 'Notebook gamer MSI Thin GF63 Capacidad: 8GB RAM / 512 GB SSD Hasta 20 horas de bateria Placa de video NVIDIA GeForce GTX 1650 Max-Q Pantalla LED de 15.6 pulgadas.', '2', '1', '1', '1', '2022-06-01', '0', 'Notebook MSI', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '3', 'Negro', '3', '1');
 INSERT INTO `publicaciones` VALUES ('4', '240000.00', 'Sony Playstation 5 Digital edition Memoria de 825GB Resolucion de 3840px x 2160px.Memoria RAM de 16GB Cuenta con: 1 cable de alimentación ca, 1 cable hdmi, 1 cable de carga usb, 1 dock.', '1', '1', '1', '1', '2022-04-21', '0', 'Playstation 5', '<h2>Este sería el titulo del detalle de la publicacion</h2>', '56', 'Blanco, Griz', '1', '1');

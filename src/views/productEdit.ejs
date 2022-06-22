@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/css/productEdit.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js""></script>
   <title>Editar publicación</title>
 </head>
 
@@ -18,7 +19,7 @@
     </div>
     <h2>Editar Producto</h2>
 
-    <form enctype="multipart/form-data" action="/product/edit/<%= producto.id %>?_method=PUT" method="POST">
+    <form enctype="multipart/form-data" action="/product/edit/<%= producto.idpublicacion %>?_method=PUT" method="POST">
 
       <div class="tituloForm">
         <label for="titulo">Titulo del producto:</label>
@@ -41,7 +42,22 @@
         <label for="marca">Marca:</label>
         <input type="text" name="marca" value="<%= producto.marca %> ">
       </div>
+      <div class="img-princialactual">
+          
+        <% for(var i = 0; i < producto.imagenes.length; i++){ %>
+          
+          <% if(producto.imagenes[i].imagenprincipal == 1){ %>
+            <div class="contenedorimgen">
+              <img src="/img/<%= producto.imagenes[i].imagen %>" alt="<%= producto.imagenes[i].nombre %>" class="img-imagen" />
+              <span style="position:relative"><a href="#" onclick=deleteImage(<%= producto.idpublicacion %>,<%= producto.imagenes[i].idimagen %>)>Eliminar Imagen</a></span>
+              </div>
+          <% } %>
+        <% } %>
+      
+
+      </div>
       <div class="imagenPrincipal">
+       
         <h5>Agregar imágen principal</h5>
         <br>
         <div class="imagenForm">
@@ -60,6 +76,20 @@
              %>
         </div>
       </div>
+      <div class="img-princialactual">
+          
+        <% for(var i = 0; i < producto.imagenes.length; i++){ %>
+          
+          <% if(producto.imagenes[i].imagenprincipal == 0){ %>
+            <div class="contenedorimgen">
+          <img src="/img/<%= producto.imagenes[i].imagen %>" alt="<%= producto.imagenes[i].nombre %>" class="img-imagen" />
+          <span style="position:relative"><a href="#" onclick=deleteImage(<%= producto.idpublicacion %>,<%= producto.imagenes[i].idimagen %>)>Eliminar Imagen</a></span>
+          </div>
+          <% } %>
+        <% } %>
+      
+
+      </div>
       <div class="imagenesSecundarias">
         <h5>Agregar imágenes secundarias</h5>
         <div class="imagenForm">
@@ -72,6 +102,26 @@
       </div>
     </form>
   </div>
+  <script>
+    function deleteImage(publicacion,imagen) {
+    $.ajax({
+        url: '/product/delete/publicacion/'+publicacion+'/image/'+imagen,
+        type: 'DELETE',
+        success: function (result) {
+            
+            if(result.resultado=='ok'){
+                alert(result.mensaje);
+                location.reload();
+            }else {
+                console.error(result.mensaje);
+                alert(result.mensaje);
+            }
+            
+            
+        }
+    });
+}
+</script>
 </body>
 
 </html>
