@@ -59,10 +59,10 @@
             url: '/product/delete/'+id,
             type: 'DELETE',
             success: function (result) {
-                alert(result.resultado);
+                
                 if(result.resultado=='ok'){
                     alert(result.mensaje);
-                    console.log(result.mensaje);
+                    location.reload();
                 }else {
                     console.error(result.mensaje);
                     alert(result.mensaje);

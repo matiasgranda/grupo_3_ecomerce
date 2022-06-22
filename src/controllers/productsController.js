@@ -25,7 +25,7 @@ let productsController = {
           },
         ],
         where: {
-          idpublicacion: productoSeleccionado,
+          idpublicacion: productoSeleccionado,visible:1
         },
       }).then(async (publicacion) => {
         if (publicacion) {
@@ -68,12 +68,10 @@ let productsController = {
           datosPublicacion.preguntas = pregunta;
           datosPublicacion.categorias = categorias;
           datosPublicacion.marca = marca;
-          return res.render(
-            path.resolve(__dirname, "../views/product.ejs"), {
-              datosPublicacion: datosPublicacion,
-              session: req.session,
-            }
-          );
+          return res.render(path.resolve(__dirname, "../views/product.ejs"), {
+            datosPublicacion: datosPublicacion,
+            session: req.session,
+          });
         } else {
           return res.redirect("/");
         }
@@ -161,8 +159,8 @@ let productsController = {
     let calificacionNueva = {
       comentario: req.body.comentario,
       idpublicacion: req.params.id,
-      idusuario: req.session.idusuario, 
-      calificacion: req.body.calificacion
+      idusuario: req.session.idusuario,
+      calificacion: req.body.calificacion,
     };
     db.Calificacion.create(calificacionNueva);
     return res.redirect("/product/" + req.params.id);
@@ -173,7 +171,7 @@ let productsController = {
       idusuario: req.session.idusuario,
       pregunta: req.body.pregunta,
       idpublicacion: req.params.id,
-      fechapregunta: "2022-06-20"
+      fechapregunta: "2022-06-20",
     };
 
     db.Pregunta.create(preguntaNueva);
@@ -218,23 +216,25 @@ let productsController = {
     let sesion = req.session;
     let db = require("../data/models/");
     const Op = require("Sequelize").Op;
-    
+
     if (req.params.id && !isNaN(req.params.id)) {
       const productoSeleccionado = parseInt(req.params.id);
-      db.Publicaciones.update({visible: 0},{where: { idpublicacion: productoSeleccionado }});
-
-      if (
-        true
-      ) {
-        res
-          .status(200)
-          .send({ resultado: "ok", mensaje: "Producto eliminado" });
-        return;
-      } else {
-        console.log(err);
-        res.setatus(500).send({ resultado: "error", mensaje: err });
-        return;
-      }
+      db.Publicaciones.findOne({
+        where: { idusuario: req.session.idusuario, visible: 1 },
+      }).then((publicaciones) => {
+        if (publicaciones.visible==1) {
+          if (db.Publicaciones.update({ visible: 0 },{ where: { idpublicacion: productoSeleccionado } })) {
+            res.status(200).send({ resultado: "ok", mensaje: "Producto eliminado" });
+            return;
+          } else {
+            res.status(403).send({ resultado: "error", mensaje: "Error al realizar el update" });
+            return;
+          }
+        }else{
+         
+          res.status(403).send({ resultado: "error", mensaje: "Publicacion eliminada anteriormente" });
+        }
+      });
     } else {
       res
         .status(403)

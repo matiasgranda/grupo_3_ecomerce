@@ -17,7 +17,8 @@ module.exports = (sequelize, dataTypes) => {
     titulo: { type: dataTypes.STRING },
     detallepublicacion: { type: dataTypes.TEXT },
     stock: { type: dataTypes.INTEGER },
-    colores: { type: dataTypes.STRING }
+    colores: { type: dataTypes.STRING },
+    visible:{ type: dataTypes.INTEGER }
   };
   let config = {
     tableName: "publicaciones",
