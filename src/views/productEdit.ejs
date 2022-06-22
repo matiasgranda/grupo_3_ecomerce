@@ -36,11 +36,11 @@
       </div>
       <div class="colorForm">
         <label for="color">Color/es:</label>
-        <input type="text" name="color" value="<%= producto.color %>">
+        <input type="text" name="color" value="<%= producto.colores %>">
       </div>
       <div class="marcaForm">
         <label for="marca">Marca:</label>
-        <input type="text" name="marca" value="<%= producto.marca %> ">
+        <input type="text" name="marca" value="<%= producto.marcas.marca %> ">
       </div>
       <div class="img-princialactual">
           
@@ -62,18 +62,13 @@
         <br>
         <div class="imagenForm">
           <label for="imagenPrincipal">Seleccionar Imagen</label>
-          <input type="file" name="imagenPrincipal" id="imagenPrincipal" accept="image/*" />
+          <input type="file" name="imagenPrincipal" value="<%= producto.imagenPrincipal %> " id="imagenPrincipal" accept="image/*" />
           <% if(locals && locals.mensaje){ %>
-
           <br>
           <div class="error">
-
             <%= mensaje.descripcion %>
-
           </div>
-          <%  
-            }
-             %>
+          <% } %>
         </div>
       </div>
       <div class="img-princialactual">

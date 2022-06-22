@@ -181,26 +181,32 @@ let productsController = {
 
   edit: async (req, res) => {
     let sesion = req.session;
-
-    let db = require("../data/models/");
-    if (!isNaN(req.params.id)) {
-      let productoSeleccionado = await db.Publicaciones.findByPk(req.params.id);
-      const imagenes = await db.Imagenes.findAll({
-        where: { idpublicacion: productoSeleccionado.idpublicacion },
-      });
-      const marca = await db.Marcas.findAll({
-        where: { idmarca: productoSeleccionado.idmarca },
-      });
-
-      productoSeleccionado.marca = marca.marca;
-      productoSeleccionado.imagenes = imagenes;
-      return res.render(path.resolve(__dirname, "../views/productEdit.ejs"), {
-        producto: productoSeleccionado,
-        session: sesion,
-      });
-    } else {
-      return res.redirect("/");
-    }
+    const Op = require("Sequelize").Op;
+    db.Publicaciones.findOne({
+      where: { idpublicacion: req.params.id }, include: [{association: "marcas", attributes: ["marca"]}]
+    }).then((productoSeleccionado) => {
+      db.Imagenes.findOne({
+        where: { [Op.and]: [
+          { idpublicacion: req.params.id }, 
+          { imagenprincipal: 1 }
+        ] } 
+      }).then((imagenprincipal) => {
+        db.Imagenes.findAll({
+          where: { [Op.and]: [
+            { idpublicacion: req.params.id }, 
+            { imagenprincipal: 0 }
+          ] } 
+        }).then((imagenes) => {
+          res.render(path.resolve(__dirname, "../views/productEdit.ejs"), {
+            producto: productoSeleccionado,
+            session: sesion,
+            imagenprincipal: imagenprincipal,
+            imagenes:imagenes
+          });
+        })
+      })
+        
+      })    
   },
 
   editProduct: (req, res) => {
