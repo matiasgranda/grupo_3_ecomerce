@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2022-06-22 17:01:18
+Date: 2022-06-23 09:03:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -157,7 +157,7 @@ INSERT INTO `imagenes` VALUES ('79', '1', 'cama1.webp', '9');
 INSERT INTO `imagenes` VALUES ('80', '0', 'cama2.webp', '9');
 INSERT INTO `imagenes` VALUES ('81', '1', 'silla1.webp', '10');
 INSERT INTO `imagenes` VALUES ('82', '0', 'silla2.webp', '10');
-INSERT INTO `imagenes` VALUES ('84', '0', 'sillon2.webp', '11');
+INSERT INTO `imagenes` VALUES ('84', '1', 'sillon2.webp', '11');
 INSERT INTO `imagenes` VALUES ('85', '0', 'sillon3.webp', '11');
 INSERT INTO `imagenes` VALUES ('86', '1', 'mesa1.webp', '12');
 INSERT INTO `imagenes` VALUES ('87', '0', 'mesa2.webp', '12');
