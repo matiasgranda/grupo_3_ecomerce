@@ -8,6 +8,7 @@ let mainRoutes = require("./routes/main.js");
 let registroRoutes=require("./routes/registro");
 let loginRoutes=require("./routes/login");
 let cestaRoutes=require("./routes/cesta");
+let categoriasRoutes=require("./routes/categorias");
 let userRoutes = require("./routes/users.js");
 let logOutRoutes = require("./routes/logout.js");
 let autoSignInMiddleware =require("./middelwares/autoSignInMiddleware");
@@ -43,7 +44,8 @@ app.use("/product", productRoutes);
 app.use("/registro",registroRoutes);
 app.use("/login",loginRoutes);
 app.use("/cesta",cestaRoutes);
-app.use("/perfil", userRoutes)
+app.use("/perfil", userRoutes);
+app.use("/categorias", categoriasRoutes);
 /******************************************************/
 app.use((req,res,next)=>{
     res.status(404).render('../src/views/not-found');
