@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/css/productEdit.css" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js""></script>
+  <script src="https://kit.fontawesome.com/ea592f04e6.js" crossorigin="anonymous"></script>
   <title>Editar publicación</title>
 </head>
 
@@ -40,22 +41,15 @@
       </div>
       <div class="marcaForm">
         <label for="marca">Marca:</label>
-        <input type="text" name="marca" value="<%= producto.marcas.marca %> ">
+        
+          <select name="marca" id="marca">
+            <% for(var i = 0; i < producto.marcas.length; i++){ %>
+            <option value="<%= producto.marcas[i].idmarca %>" <% if(producto.marcas[i].idmarca==producto.idmarca){ %> selected <% }%>><%= producto.marcas[i].marca %></option>
+              <% } %>
+          </select>
+        
       </div>
-      <div class="img-princialactual">
-          
-        <% for(var i = 0; i < producto.imagenes.length; i++){ %>
-          
-          <% if(producto.imagenes[i].imagenprincipal == 1){ %>
-            <div class="contenedorimgen">
-              <img src="/img/<%= producto.imagenes[i].imagen %>" alt="<%= producto.imagenes[i].nombre %>" class="img-imagen" />
-              <span style="position:relative"><a href="#" onclick=deleteImage(<%= producto.idpublicacion %>,<%= producto.imagenes[i].idimagen %>)>Eliminar Imagen</a></span>
-              </div>
-          <% } %>
-        <% } %>
       
-
-      </div>
       <div class="imagenPrincipal">
        
         <h5>Agregar imágen principal</h5>
@@ -71,6 +65,30 @@
           <% } %>
         </div>
       </div>
+      <h3>Imagen Actual</h3>
+      <div class="img-princialactual">
+          
+        <% for(var i = 0; i < producto.imagenes.length; i++){ %>
+          
+          <% if(producto.imagenes[i].imagenprincipal == 1){ %>
+            <div class="contenedorimgen">
+              <img src="/img/<%= producto.imagenes[i].imagen %>" alt="<%= producto.imagenes[i].nombre %>" class="img-imagen" />
+              <span><a href="#" title="Eliminar Imagen" onclick="deleteImage('<%= producto.idpublicacion %>','<%= producto.imagenes[i].idimagen %>')"><i class="fa-solid fa-trash"></i></a></span>
+              </div>
+          <% } %>
+        <% } %>
+      
+
+      </div>
+      
+      <div class="imagenesSecundarias">
+        <h5>Agregar imágenes secundarias</h5>
+        <div class="imagenForm">
+          <label for="imagenSecundaria">Seleccionar imágenes</label>
+          <input type="file" name="imagenSecundaria[]" id="imagenSecundaria" accept="image/*" multiple />
+        </div>
+      </div>
+      <h3>Imagenes Actuales</h3>
       <div class="img-princialactual">
           
         <% for(var i = 0; i < producto.imagenes.length; i++){ %>
@@ -78,19 +96,12 @@
           <% if(producto.imagenes[i].imagenprincipal == 0){ %>
             <div class="contenedorimgen">
           <img src="/img/<%= producto.imagenes[i].imagen %>" alt="<%= producto.imagenes[i].nombre %>" class="img-imagen" />
-          <span style="position:relative"><a href="#" onclick=deleteImage(<%= producto.idpublicacion %>,<%= producto.imagenes[i].idimagen %>)>Eliminar Imagen</a></span>
+          <span><a href="#" title="Eliminar Imagen" onclick="deleteImage('<%= producto.idpublicacion %>','<%= producto.imagenes[i].idimagen %>')"><i class="fa-solid fa-trash"></i></a></span>
           </div>
           <% } %>
         <% } %>
       
 
-      </div>
-      <div class="imagenesSecundarias">
-        <h5>Agregar imágenes secundarias</h5>
-        <div class="imagenForm">
-          <label for="imagenSecundaria">Seleccionar imágenes</label>
-          <input type="file" name="imagenSecundaria[]" id="imagenSecundaria" accept="image/*" multiple />
-        </div>
       </div>
       <div class="submitForm">
         <button type="submit">Guardar</button>

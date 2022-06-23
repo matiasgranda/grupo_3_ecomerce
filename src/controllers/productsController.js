@@ -190,7 +190,9 @@ let productsController = {
     const imagenes = await db.Imagenes.findAll({
       where: { [Op.and]: [{ idpublicacion: req.params.id }] },
     });
+    const marcas=await db.Marcas.findAll();
     productoSeleccionado.imagenes=imagenes;
+    productoSeleccionado.marcas=marcas;
     res.render(path.resolve(__dirname, "../views/productEdit.ejs"), {
       producto: productoSeleccionado,
       session: sesion
