@@ -14,15 +14,36 @@
     <main>
       <section class="barralateral">
         <div>
-            <h5>Categorias</h5>
+            <h2 clas="tituloseccion">Categorias</h2>
             <ul>
-                <li><a href="/categorias">Todas</a></li>
-                <li><a href="/categorias">Nueva</a></li>
+               
+                    <% for (let categoria of categorias) { %>
+                        
+                        <li class="textocategoria"><a href="/categorias/<%= categoria.idcategoria %>"><%= categoria.descripcion %></a></li>
+                    <% } %>
+                
+                
+                
             </ul>
         </div>
       </section>
       <section class="listadoproductos">
-dddd
+        <% if (locals.productos) { %>
+            <% for (let producto of locals.productos) { %>
+                <div class="item-producto">
+                    <a href="/product/<%= producto.idpublicacion %>">
+                    <div class="imagenproducto">
+                     <img src="/img/<%= producto.imagenes[0].imagen %>" alt="<%= producto.nombre %>">
+                    </div>  
+                    <hr class="separadorimg">
+                   <h4 class="tituloproducto"><%= producto.descripcion %></h4>
+                    
+                    <p class="precio">Precio: $<%= producto.precio %></p>
+                </a>
+                </div>
+            <% } %>
+        <% } %>
+        </div>
       </section>
     </main>
 

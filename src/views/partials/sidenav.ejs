@@ -5,7 +5,7 @@
   <div class="sidenavHeader" onclick="location.href='/login'" style="cursor:pointer">
     <% if(locals.session.user){ %>
 
-        <img src="../img/profiles/<%= locals.session.imagen %>" style="width:24px">
+        <img src="/img/profiles/<%= locals.session.imagen %>" style="width:24px">
       <% } else { %>
         <i class="fas fa-user-circle"></i>
       <% } %>&nbsp;
@@ -22,16 +22,16 @@
   <div id="main-container">
     <div class="sidenavContentHeader">Tu cuenta</div>
     <a href="#">
-      <div class="sidenavContent">Vender</div>
+      <div class="sidenavContent"><a href="/product/create/">Vender</a></div>
     </a>
     <a href="#">
-      <div class="sidenavContent">Mis Publicaciones</div>
+      <div class="sidenavContent"><a href="/admin">Mis Publicaciones</a></div>
     </a>
     
     <hr />
    
     
-    <div class="sidenavContentHeader">Categorias</div>
+    <div class="sidenavContentHeader"><a href="/categorias">Categorias</a></div>
     <a href="#" onclick="openTecno()">
       <div class="sidenavRow">
         <div>Tecnología</div>

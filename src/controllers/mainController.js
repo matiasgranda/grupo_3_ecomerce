@@ -3,6 +3,7 @@ const fs = require("fs");
 const session = require("express-session");
 const db = require("../data/models/");
 const { Op } = require("sequelize");
+const { redirect } = require("express/lib/response");
 
 let mainController = {
   home: (req, res) => {
@@ -126,6 +127,9 @@ let mainController = {
 
   admin: (req, res) => {
     let sesion = req.session;
+    if(!sesion.idusuario){
+      res.redirect("/login");
+    }
     let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
     var productos2 = [];
     var categorias = [];

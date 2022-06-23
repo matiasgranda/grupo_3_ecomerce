@@ -78,7 +78,7 @@
         <br>
         <p>Marca: <%= datosPublicacion.marca[0].marca %></p>
         <br>
-        <p>Categoria: <%= datosPublicacion.categorias[0].descripcion %></p>
+        <p>Categoria: <a href="/categorias/<%= datosPublicacion.categorias[0].idcategoria %>"><%= datosPublicacion.categorias[0].descripcion %></a></p>
       </div>
     </section>
     <hr class="seaparaseccion">

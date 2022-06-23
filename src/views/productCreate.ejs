@@ -85,9 +85,7 @@
       </div>
     </form>
   </div>
-  <textarea>
-      Welcome to TinyMCE!
-   </textarea>
+  
   <script>
     tinymce.init({
       selector: 'textarea',
@@ -98,6 +96,10 @@
       tinycomments_author: 'Author name',
     });
   </script>
+    <%- include('./partials/sidenav') %>
+    <br>
+    <%- include('./partials/footer') %>
+    
 </body>
 
 </html>
