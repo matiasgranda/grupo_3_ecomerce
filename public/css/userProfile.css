@@ -31,57 +31,33 @@ section {
     width: 60%;
     min-width: 300px;
     height: fit-content;
-    min-height: 300px;
+    min-height: 500px;
+    border-radius: 6px;
     border: 1px solid #fff;
     position: relative;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding: 10px;
-    flex-direction: column;
 }
 
-h2 {
-    margin: 10px;
-    text-decoration: underline;
-}
-
-
-.user-name-image {
-    position: relative;
-    display: flex;
-    width: 100%;
-    height: 160px;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: 10px;
-}
-
-.user-name-image div {
+.user-image-name {
     width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    height: 500px;
     align-items: center;
     justify-content: space-around;
-}
-
-.user-name-image img {
-    max-height: 250px;
-    max-width: 250px;
-}
-
-.user-name-image h3 {
-    width: 50%;
-    height: 50px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+}
+
+.user-image-name img {
+    max-height: 200px;
+    max-width: 300px;
+    border-radius: 50px;
 }
 
 .user-info {
-    width: 100%;
-    height: 300px;
+    width: 50%;
+    height: 500px;
     padding: 10px;
     margin: 10px;
     display: flex;
