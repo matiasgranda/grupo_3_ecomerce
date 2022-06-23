@@ -129,6 +129,9 @@ link:visited {
     margin: 0 0 13px;
     text-decoration: none;
 }
+.textocategoria a {
+  display: block;
+}
 li.textocategoria:hover a {
     color: white;
 }
