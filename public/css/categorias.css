@@ -20,10 +20,11 @@ main {
 }
 .barralateral {
   padding: 10px;
-  /* background-color: blue; */
+  
   height: 100%;
   min-height: 630px;
   width: 15%;
+  min-width:130px ;
 }
 .barralateral ul {
   list-style: none;
@@ -45,7 +46,7 @@ main {
 .listadoproductos {
   padding-top: 20px;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   flex-direction: row;
   align-content: center;
   justify-content: space-around;
@@ -66,6 +67,7 @@ main {
   align-content: space-around;
   justify-content: center;
   align-items: stretch;
+  margin-bottom: 20px;
 }
 .tituloproducto {
   font-size: 14px;

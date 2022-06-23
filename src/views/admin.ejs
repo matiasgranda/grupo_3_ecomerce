@@ -18,37 +18,45 @@
             <option value="<%= categorias[i].descripcion %>"><%= categorias[i].descripcion %></option>
             <% } %> 
         </select>
-
+        <table>
+            
+              
+            
         <% for(let i = 0; i < productos2.length; i++) { %>
 
-        <section class="product-box <%= productos2[i].categoria %>">
-
-            <div class="product-image">
-                <img src="/img/<%= productos2[i].imagen %>" alt="">
-            </div>
-
-            <div class="product-title">
-                <p><a href="/product/<%=productos2[i].idpublicacion%>"><%= productos2[i].titulo %> </a></p>
-            </div>
-
-            <div class="product-info">
-                <p><b>Categoria:</b>  <%= productos2[i].categoria %></p>
-            </div>
-
-            <div class="product-info">
-                <p><b>Precio:</b>  <%= productos2[i].precio %></p>
-            </div>
-
+        <!-- <section class="product-box <%= productos2[i].categoria %>"> -->
+            
+<tr class="product-box <%= productos2[i].categoria %>">
+    <td>
+                <div class="product-image">
+                    <img src="/img/<%= productos2[i].imagen %>" alt="">
+                </div>
+            </td>
+            <td>
+                <div class="product-title">
+                    <p><a href="/product/<%=productos2[i].idpublicacion%>"><%= productos2[i].titulo %> </a></p>
+                </div>
+            </td>
+            <td>
+    
+                <div class="product-info">
+                    <p><b>Precio:</b>  <%= productos2[i].precio %></p>
+                </div>
+            </td>
+             <td>
+                <div class="edit-links">
+                    <a href="/product/edit/<%=productos2[i].idpublicacion%> " title="Editar Producto"><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a href="#" onclick=<%= 'deleteProduct('+productos2[i].idpublicacion+')' %> title="Eliminar Producto" class="trash"><i class="fa-solid fa-trash"></i></a>
+                </div>
+            </td> 
+            </tr>
+            
           
-            <div class="edit-links">
-                <a href="/product/edit/<%=productos2[i].idpublicacion%> " title="Editar Producto"><i class="fa-regular fa-pen-to-square"></i></a>
-                <a href="#" onclick=<%= 'deleteProduct('+productos2[i].idpublicacion+')' %> title="Eliminar Producto" class="trash"><i class="fa-solid fa-trash"></i></a>
-            </div>
 
-        </section>
-
+        <!-- </section> -->
+    
         <% } %>
-
+    </table>
     </main>
 
     <%- include('./partials/footer') %>

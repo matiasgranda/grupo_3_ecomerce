@@ -573,3 +573,7 @@ form section {
   padding: 5px;
   color: red;
 }
+link, a , link:visited{
+  text-decoration: none;
+  color: rgb(47, 56, 182);
+}
