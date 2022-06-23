@@ -182,31 +182,19 @@ let productsController = {
   edit: async (req, res) => {
     let sesion = req.session;
     const Op = require("Sequelize").Op;
-    db.Publicaciones.findOne({
-      where: { idpublicacion: req.params.id }, include: [{association: "marcas", attributes: ["marca"]}]
-    }).then((productoSeleccionado) => {
-      db.Imagenes.findOne({
-        where: { [Op.and]: [
-          { idpublicacion: req.params.id }, 
-          { imagenprincipal: 1 }
-        ] } 
-      }).then((imagenprincipal) => {
-        db.Imagenes.findAll({
-          where: { [Op.and]: [
-            { idpublicacion: req.params.id }, 
-            { imagenprincipal: 0 }
-          ] } 
-        }).then((imagenes) => {
-          res.render(path.resolve(__dirname, "../views/productEdit.ejs"), {
-            producto: productoSeleccionado,
-            session: sesion,
-            imagenprincipal: imagenprincipal,
-            imagenes:imagenes
-          });
-        })
-      })
-        
-      })    
+  
+    let productoSeleccionado = await db.Publicaciones.findOne({
+      where: { idpublicacion: req.params.id },
+      include: [{ association: "marcas", attributes: ["marca"] }],
+    });
+    const imagenes = await db.Imagenes.findAll({
+      where: { [Op.and]: [{ idpublicacion: req.params.id }] },
+    });
+    productoSeleccionado.imagenes=imagenes;
+    res.render(path.resolve(__dirname, "../views/productEdit.ejs"), {
+      producto: productoSeleccionado,
+      session: sesion
+    });
   },
 
   editProduct: (req, res) => {
@@ -274,7 +262,7 @@ let productsController = {
   deleteImage: async (req, res) => {
     const db = require("../data/models/");
     const fs = require("fs");
-    
+
     const imageID = parseInt(req.params.idimage);
     const idpublicacion = req.params.idpublicacion;
     const userID = req.session.idusuario;
@@ -285,21 +273,26 @@ let productsController = {
         required: true,
       },
     });
-  
-    if (image && image.imagen.length > 0 && image.publicacion.idusuario==userID) {
+
+    if (
+      image &&
+      image.imagen.length > 0 &&
+      image.publicacion.idusuario == userID
+    ) {
       const path = "public/img/" + image.imagen;
-     
+
       fs.unlink(path, (err) => {
         if (err) {
           console.error(err);
           return;
         }
-        db.Imagenes.destroy({where: {idimagen: imageID}});
-        res.status(200).json({resultado:'ok', mensaje:'Imagen eliminada'});
-     
+        db.Imagenes.destroy({ where: { idimagen: imageID } });
+        res.status(200).json({ resultado: "ok", mensaje: "Imagen eliminada" });
       });
-    }else {
-      res.status(403).json({resultado:'error', mensaje:'Imagen no se pudo eliminar'});
+    } else {
+      res
+        .status(403)
+        .json({ resultado: "error", mensaje: "Imagen no se pudo eliminar" });
     }
   },
 };
