@@ -6,8 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/css/productCreate.css" />
-  <script src="https://cdn.tiny.cloud/1/cj7c003wg04nzozi5ll1ocytntsyx4noo1emr3rno17u51x2/tinymce/6/tinymce.min.js"
-    referrerpolicy="origin"></script>
+
   <%- include('./partials/head') %>
   <title>Nueva Publicación</title>
 </head>
@@ -34,12 +33,9 @@
       <div class="categoriaForm">
         <label for="categoria">Selecciona la categoria:</label>
         <select name="categoria" id="categoria">
-          <option value="1">Tecnologia</option>
-          <option value="2">Moda</option>
-          <option value="3">Hogar</option>
-          <option value="4">Deportes</option>
-          <option value="5">Movilidad</option>
-          <option value="6">Niños</option>
+          <% for(let i = 0; i < categoria.length; i++) { %> 
+          <option value="<%= categoria[i].idcategoria %> "><%= categoria[i].descripcion %> </option>
+          <% } %> 
         </select>
       </div>
       <div class="colorForm">
@@ -48,7 +44,11 @@
       </div>
       <div class="marcaForm">
         <label for="marca">Marca:</label>
-        <input type="text" name="marca">
+        <select name="marca" id="marca">
+          <% for(let j = 0; j < marca.length; j++) { %> 
+          <option value="<%= marca[j].idmarca %> "><%= marca[j].marca %> </option>
+          <% } %> 
+        </select>
       </div>
       <div class="precioForm">
         <label for="precio">Precio:</label>
@@ -86,16 +86,7 @@
     </form>
   </div>
   
-  <script>
-    tinymce.init({
-      selector: 'textarea',
-      plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',
-      toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents',
-      toolbar_mode: 'floating',
-      tinycomments_mode: 'embedded',
-      tinycomments_author: 'Author name',
-    });
-  </script>
+
     <%- include('./partials/sidenav') %>
     <br>
     <%- include('./partials/footer') %>

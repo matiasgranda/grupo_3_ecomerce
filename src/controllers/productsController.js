@@ -83,9 +83,16 @@ let productsController = {
   },
 
   create: (req, res) => {
-    res.render(path.resolve(__dirname, "../views/productCreate.ejs"), {
-      session: req.session,
-    });
+    db.Marcas.findAll().then((marca) => {
+      db.Categorias.findAll().then((categoria) => {
+        res.render(path.resolve(__dirname, "../views/productCreate.ejs"), {
+          session: req.session,
+          categoria: categoria,
+          marca: marca
+        });
+      })
+    })
+    
   },
 
   save: (req, res, next) => {

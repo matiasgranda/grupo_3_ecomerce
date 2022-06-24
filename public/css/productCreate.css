@@ -102,7 +102,7 @@ form div {
     color: rgb(132, 147, 173);
 }
 
-.categoriaForm select {
+.categoriaForm select, .marcaForm select {
     width: 100%;
     font-size: 1em;
     height: 30px;
@@ -119,7 +119,7 @@ form div {
     color: rgb(132, 147, 173);
 }
 
-.precioForm label, .colorForm label, .marcaForm label {
+.precioForm label, .colorForm label {
     width: 100%;
 }
 
