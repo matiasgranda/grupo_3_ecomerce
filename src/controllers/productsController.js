@@ -130,17 +130,16 @@ let productsController = {
       descripcion: req.body.descripcion,
       idcategoria: req.body.categoria,
       precio: req.body.precio,
-      marca: req.body.marca,
+      idmarca: req.body.marca,
       colores: req.body.color,
-      idusuario: 1,
+      idusuario: req.session.idusuario,
     };
 
     db.Publicaciones.create(productoNuevo);
 
     db.Publicaciones.findAll({
       order: [["idpublicacion", "DESC"]],
-      limit: 1,
-      attributes: ["idpublicacion"],
+      limit: 1
     }).then((idProductoNuevo) => {
       console.log(idProductoNuevo[0].idpublicacion);
       let imagenPrincipal = {
