@@ -124,7 +124,7 @@ let productsController = {
         });
       return next(error);
     }
-
+    console.log(imagenesAdicionales)
     let productoNuevo = {
       titulo: req.body.titulo,
       descripcion: req.body.descripcion,
@@ -135,31 +135,32 @@ let productsController = {
       idusuario: req.session.idusuario,
     };
 
-    db.Publicaciones.create(productoNuevo);
-
-    db.Publicaciones.findAll({
-      order: [["idpublicacion", "DESC"]],
-      limit: 1
-    }).then((idProductoNuevo) => {
-      console.log(idProductoNuevo[0].idpublicacion);
-      let imagenPrincipal = {
-        imagen: nombreimagenOrig,
-        imagenprincipal: 1,
-        idpublicacion: idProductoNuevo[0].idpublicacion,
-      };
-
-      db.Imagenes.create(imagenPrincipal);
-
-      for (let i = 0; i < imagenesAdicionales.length; i++) {
-        let imagenesExtra = {
-          imagen: imagenesAdicionales[i],
+    db.Publicaciones.create(productoNuevo).then(() => {
+      db.Publicaciones.findAll({
+        order: [["idpublicacion", "DESC"]],
+        limit: 1
+      }).then((idProductoNuevo) => {
+        console.log(idProductoNuevo[0].idpublicacion);
+        let imagenPrincipal = {
+          imagen: nombreimagenOrig,
+          imagenprincipal: 1,
           idpublicacion: idProductoNuevo[0].idpublicacion,
         };
-        db.Imagenes.create(imagenesExtra);
-      }
+        db.Imagenes.create(imagenPrincipal);
+  
+        for (let i = 0; i < imagenesAdicionales.length; i++) {
+          let imagenesExtra = {
+            imagen: imagenesAdicionales[i],
+            idpublicacion: idProductoNuevo[0].idpublicacion,
+          };
+          db.Imagenes.create(imagenesExtra);
+        }
+  
+        res.status(200).redirect("/product/" + imagenPrincipal.idpublicacion);
+      });
+    })
 
-      res.status(200).redirect("/product/" + imagenPrincipal.idpublicacion);
-    });
+    
   },
 
   comentarios: (req, res) => {
