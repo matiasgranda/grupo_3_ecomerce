@@ -35,6 +35,7 @@ let productsController = {
             where: {
               idpublicacion: publicacion.idpublicacion,
             },
+            order: [["imagenprincipal", "DESC"]]
           });
           const calificacion = await db.Calificacion.findAll({
             where: {
@@ -83,9 +84,16 @@ let productsController = {
   },
 
   create: (req, res) => {
-    res.render(path.resolve(__dirname, "../views/productCreate.ejs"), {
-      session: req.session,
-    });
+    db.Marcas.findAll().then((marca) => {
+      db.Categorias.findAll().then((categoria) => {
+        res.render(path.resolve(__dirname, "../views/productCreate.ejs"), {
+          session: req.session,
+          categoria: categoria,
+          marca: marca
+        });
+      })
+    })
+    
   },
 
   save: (req, res, next) => {
@@ -117,43 +125,50 @@ let productsController = {
         });
       return next(error);
     }
-
+    console.log(imagenesAdicionales)
     let productoNuevo = {
       titulo: req.body.titulo,
       descripcion: req.body.descripcion,
       idcategoria: req.body.categoria,
       precio: req.body.precio,
-      marca: req.body.marca,
+      idmarca: req.body.marca,
       colores: req.body.color,
-      idusuario: 1,
+      idusuario: req.session.idusuario,
     };
 
-    db.Publicaciones.create(productoNuevo);
+    db.Publicaciones.create(productoNuevo).then(() => {
+      db.Publicaciones.findAll({
+        order: [["idpublicacion", "DESC"]],
+        limit: 1
+      }).then((idProductoNuevo) => {
+        console.log(idProductoNuevo[0].idpublicacion);
 
-    db.Publicaciones.findAll({
-      order: [["idpublicacion", "DESC"]],
-      limit: 1,
-      attributes: ["idpublicacion"],
-    }).then((idProductoNuevo) => {
-      console.log(idProductoNuevo[0].idpublicacion);
-      let imagenPrincipal = {
-        imagen: nombreimagenOrig,
-        imagenprincipal: 1,
-        idpublicacion: idProductoNuevo[0].idpublicacion,
-      };
+        let imagenesAInsertar = [];
+        for (let i = 0; i < imagenesAdicionales.length; i++) {
+          let imagenesExtra = {
+            imagen: imagenesAdicionales[i],
+            idpublicacion: idProductoNuevo[0].idpublicacion,
+          };
+          imagenesAInsertar.push(imagenesExtra);
+          
+        }
+        
+        if(imagenesAInsertar.length > 0) {
+          db.Imagenes.bulkCreate(imagenesAInsertar);
+        }
 
-      db.Imagenes.create(imagenPrincipal);
-
-      for (let i = 0; i < imagenesAdicionales.length; i++) {
-        let imagenesExtra = {
-          imagen: imagenesAdicionales[i],
+        let imagenPrincipal = {
+          imagen: nombreimagenOrig,
+          imagenprincipal: 1,
           idpublicacion: idProductoNuevo[0].idpublicacion,
         };
-        db.Imagenes.create(imagenesExtra);
-      }
+        db.Imagenes.create(imagenPrincipal);
+  
+        res.status(200).redirect("/product/" + imagenPrincipal.idpublicacion);
+      });
+    })
 
-      res.status(200).redirect("/product/" + imagenPrincipal.idpublicacion);
-    });
+    
   },
 
   comentarios: (req, res) => {

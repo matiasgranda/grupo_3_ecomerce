@@ -23,6 +23,13 @@
     margin-top: 10px;
     color: #DDD;
 }
+
+.footercontainer li a {
+    color: #DDD;
+    list-style: none;
+    text-decoration: none;
+}
+
 .footercontainer li:hover {
     color:rgb(222, 222, 223);
     cursor: pointer;

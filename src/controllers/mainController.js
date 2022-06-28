@@ -154,7 +154,7 @@ let mainController = {
         });
         const imagenes = await db.Imagenes.findAll({
           where: {
-            idpublicacion: productos2[i].idpublicacion
+            idpublicacion: productos2[i].idpublicacion, imagenprincipal: 1
           }
         });
         productos2[i].categoria = categorias[0].descripcion;
