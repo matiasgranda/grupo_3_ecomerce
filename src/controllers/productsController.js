@@ -35,6 +35,7 @@ let productsController = {
             where: {
               idpublicacion: publicacion.idpublicacion,
             },
+            order: [["imagenprincipal", "DESC"]]
           });
           const calificacion = await db.Calificacion.findAll({
             where: {
@@ -141,20 +142,27 @@ let productsController = {
         limit: 1
       }).then((idProductoNuevo) => {
         console.log(idProductoNuevo[0].idpublicacion);
+
+        let imagenesAInsertar = [];
+        for (let i = 0; i < imagenesAdicionales.length; i++) {
+          let imagenesExtra = {
+            imagen: imagenesAdicionales[i],
+            idpublicacion: idProductoNuevo[0].idpublicacion,
+          };
+          imagenesAInsertar.push(imagenesExtra);
+          
+        }
+        
+        if(imagenesAInsertar.length > 0) {
+          db.Imagenes.bulkCreate(imagenesAInsertar);
+        }
+
         let imagenPrincipal = {
           imagen: nombreimagenOrig,
           imagenprincipal: 1,
           idpublicacion: idProductoNuevo[0].idpublicacion,
         };
         db.Imagenes.create(imagenPrincipal);
-  
-        for (let i = 0; i < imagenesAdicionales.length; i++) {
-          let imagenesExtra = {
-            imagen: imagenesAdicionales[i],
-            idpublicacion: idProductoNuevo[0].idpublicacion,
-          };
-          db.Imagenes.create(imagenesExtra);
-        }
   
         res.status(200).redirect("/product/" + imagenPrincipal.idpublicacion);
       });
