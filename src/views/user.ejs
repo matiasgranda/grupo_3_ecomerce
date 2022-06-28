@@ -1,59 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <%- include('./partials/head') %>
-    <link rel="stylesheet" href="/css/userProfile.css">
+    <link rel="stylesheet" href="/css/userProfile.css" />
     <title>Perfil de usuario</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <%- include('./partials/navbar') %>
     <main>
-        <section>
-            <h2>Mis Datos:</h2>
-            <div class="user-name-image">
-                <div>
-                    <h3>Nombre de usuario: <%= locals.session.user %></h3>
-                    <h3>Total publicaciones: <%= publicaciones.length %> </h3>
-                </div>
-                <div>
-                    <h3>Foto de perfil:</h3>
-                    <img src="img/profiles/<%= locals.session.imagen %> " alt="" style="border-radius: 50%;">
-                </div>    
-
-            <div class="user-image-name">
-               
-                <h2> <%= locals.session.user %></h2>
-                <h3>Total publicaciones: <a href="/admin/"><%= publicaciones.length %></a> </h3>
+      <section>
+        <h2>Mis Datos</h2>
+        <div class="seccion-superior">
+          <div class="contenedorimagen">
+            <div class="lala">
+            <img src="img/profiles/<%= locals.session.imagen %> "/>
+            <i class="fa-solid fa-camera cambiar-foto"></i>
             </div>
+          </div>
+        </div>
+        <div class="">
+          <div>
+            <h3>Nombre de usuario: <%= locals.session.user %></h3>
+            <h3>Total publicaciones: <%= publicaciones.length %></h3>
+          </div>
+         
+        <div class="user-image-name">
+          <h2><%= locals.session.user %></h2>
+          <h3>
+            Total publicaciones:
+            <a href="/admin/"><%= publicaciones.length %></a>
+          </h3>
+        </div>
 
-            <div class="user-info">
-                <div>
-                    <p class="info-title">Nombre:</p>
-                    <p class="info-data"><%= usuario.nombre %></p>
-                </div>
-                <div>
-                    <p class="info-title">Apellido:</p>
-                    <p class="info-data"><%= usuario.apellido %></p>
-                </div>
-                <div>
-                    <p class="info-title">Telefono:</p>
-                    <p class="info-data"><%= usuario.telefono %></p>
-                </div>
-                <div>
-                    <p class="info-title">Fecha de nacimiento:</p>
-                    <p class="info-data"><%= usuario.fechanac %></p>
-                </div>
-                <div>
-                    <p class="info-title">Email:</p>
-                    <p class="info-data"><%= usuario.email %></p>
-                </div>
-            </div>
-        </section>
+        <div class="user-info">
+          <div>
+            <p class="info-title">Nombre:</p>
+            <p class="info-data"><%= usuario.nombre %></p>
+          </div>
+          <div>
+            <p class="info-title">Apellido:</p>
+            <p class="info-data"><%= usuario.apellido %></p>
+          </div>
+          <div>
+            <p class="info-title">Telefono:</p>
+            <p class="info-data"><%= usuario.telefono %></p>
+          </div>
+          <div>
+            <p class="info-title">Fecha de nacimiento:</p>
+            <p class="info-data"><%= usuario.fechanac %></p>
+          </div>
+          <div>
+            <p class="info-title">Email:</p>
+            <p class="info-data"><%= usuario.email %></p>
+          </div>
+        </div>
+      </section>
     </main>
-    <%- include('./partials/footer') %>
-    <%- include('./partials/sidenav') %>
-</body>
-
+    <%- include('./partials/footer') %> <%- include('./partials/sidenav') %>
+  </body>
 </html>

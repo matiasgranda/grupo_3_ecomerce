@@ -6,11 +6,50 @@
     padding: 0;
     font-family: 'Montserrat', sans-serif;
 }
+.user-name-image{
+    width: 100%;
 
+}
+.contenedorimagen{
+    max-height: 400px;
+}
+.lala{
+    margin: auto;
+    width: 100%;
+    max-width: 400px;
+}
+.contenedorimagen img{
+    margin-top: 20px;
+    border-radius: 50%;
+    width: 100%;
+    max-width: 100%;
+   
+}
+.cambiar-foto {
+    font-size: 20pt;
+    position: relative;
+    top: -405px;
+    color: white;
+    padding: 12px;
+    left: 1px;
+    border-radius: 50% 50% 50% 50%;
+    background-color: rgb(0 0 0 / 39%);
+    width: 100%;
+    max-width: 400px;
+    height: 400px;
+    max-height: 400px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: center;
+    align-items: center;
+}
 body {
     width: 100%;
     padding-top: 90px;
-    background-color: #eaeded;
+    background-color: #EAEDED;
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -32,14 +71,24 @@ section {
     min-width: 300px;
     height: fit-content;
     min-height: 500px;
+    background-color:white;
     border-radius: 6px;
     border: 1px solid #fff;
     position: relative;
-    display: flex;
+   /* display: flex;*/
     justify-content: space-evenly;
     align-items: center;
+    padding: 10px;
 }
-
+section h2{
+    font-size: 20pt;
+    font-weight: bold;
+    color: #000;
+    text-align: left;
+    margin-top: 20px;
+    border-bottom: solid 1px rgb(223, 222, 222);
+    padding:5px;
+}
 .user-image-name {
     width: 50%;
     height: 500px;

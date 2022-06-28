@@ -22,7 +22,7 @@
 body {
     width: 100%;
     height: fit-content;
-    background-color: rgb(255, 255, 255);
+    background-color: #EAEDED;
     position: absolute;
     display: flex;
     align-items: center;
