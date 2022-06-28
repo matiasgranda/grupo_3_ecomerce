@@ -10,59 +10,116 @@
     <%- include('./partials/navbar') %>
     <main>
       <section>
-        <h2>Mis Datos</h2>
-        <div class="seccion-superior">
+        <div class="contenedorprincipal">
+        <div class="principal">
+            <div class="seccion-superior">
             
-          <div class="contenedorimagen">
-            <div class="lala">
-            <div class="imagen"><img src="img/profiles/<%= locals.session.imagen %> "/></div>
-            <h2 class="usuario"><%= locals.session.user %></h2>
-            <a href="#" title="Cambiar Imagen"><i class="fa-solid fa-camera cambiar-foto"></i></a>
-            <input type="file" id="imagenperfil" name="imagenperfil" style="display:none;" class="inputimagen" accept="image/*" />
+                <div class="contenedorimagen">
+                  <div class="itemsimagen">
+                    <h2 class="usuario">Hola <%= usuario.nombre %>!</h2>
+                  <div class="imagen"><img src="img/profiles/<%= locals.session.imagen %> "/></div>
+                 
+                  <a href="#" title="Cambiar Imagen"><i class="fa-solid fa-camera cambiar-foto"></i></a>
+                  <input type="file" id="imagenperfil" name="imagenperfil" style="display:none;" class="inputimagen" accept="image/*" />
+                  </div>
+                  
+                </div>
+                
+              </div>
+<hr class="hr">
+              <div class="userdata">
+                <div class="useritems">
+                  <h6>Nombre de usuario: <%= locals.session.user %></h6>
+                  <h6>Tus publicaciones: <a href="/admin/"><%= publicaciones.length %></a></h6>
+                </div>
+               
+              <div class="user-info">
+                <h2>Mis Datos</h2>
+                <form action="#" method="get" name="perfil" id="perfil">
+                  <table>
+                      <tbody>
+                          <tr>
+                              <td><input class="form__field" type="text" id="nombre" name="nombre" placeholder="Nombre" value="<%= usuario.nombre %>">
+                                </td>
+                              <td><input class="form__field" type="text" id="apellido" name="apellido" placeholder="Apellido" value="<%= usuario.apellido %>"></td>
+                          </tr>
+                          <tr>
+                              <td><input class="form__field" type="tel" id="telefono" name="telefono" placeholder="Teléfono" value="<%= usuario.telefono %>"></td>
+                              <td><input class="form__field" type="date" id="fechanac" name="fechanac" placeholder="Fecha de Nac." value="<%= usuario.fechanac %>"></td>
+                         <tr>
+                              <td colspan="2" scope="colgroup"><input class="form__field" type="email" id="email" name="email" value="<%= usuario.email %>"></td>
+                             
+                          </tr>
+                      </tbody>
+      
+                  </table>
+                  <button type="submit" class="button">Guardar</button>
+                </form>
+                <div>
+                  
+                  
+                </div>
+                <div>
+                 
+                  
+                </div>
+              </div>
+              </div>
+        </div>
+        <div class="derecha">
+            <div class="direcciones">
+                <div class="contenedordirecciones">
+                <h3>Direcciones</h3>
+                <div class="direcciones-items">
+                  <div class="direcciones-item">
+                    <h4>Dirección de facturación</h4>
+                    <div class="direcciones-item-info">
+                      <p>Av. Siempre viva 742</p>
+                      <p>Springfield</p>
+                      <p>Nevada</p>
+                      <p>45778</p>
+                    </div>
+                  </div>
+                  <div class="direcciones-item">
+                    <h4>Dirección de envío</h4>
+                    <div class="direcciones-item-info">
+                      <p>Calle falsa 123</p>
+                      <p>Springield</p>
+                      <p>Oregon</p>
+                      <p>98757</p>
+                    </div>
+                  </div>
+                </div>
+              </div></div>
+              <div class="publicaciones">
+                <div class="contenedorpublicaciones">
+                <h3>Tus Publicaciones</h3>
+                <div class="publicaciones-items">
+                    <div class="direcciones-item">
+                        <div class="titulopublicacion">
+                            <a href="/product/1">Auriculares Inalambricos Sony</a>
+                        </div>
+                    </div>
+                    <div class="direcciones-item">
+                        <div class="titulopublicacion"><a href="/product/2">Macbook Air</a></div>
+                    </div>
+                    <div class="direcciones-item">
+                        <div class="titulopublicacion"><a href="/product/3">Notebook MSI</a></div>
+                    </div>
+                    <div class="direcciones-item">
+                        <div class="titulopublicacion"><a href="/product/4">Playstation 5</a></div>
+                    </div>
+                    
+                </div>
+                </div>
+              </div>
             </div>
             
-          </div>
-          
         </div>
-        <div class="userdata">
-          <div class="useritems">
-            <div class="useritem"><strong>Nombre de usuario:</strong> <%= locals.session.user %></div>
-            <div class="useritem"><strong>Total publicaciones: <a href="/admin/"></strong><%= publicaciones.length %></a></div>
-          </div>
-         
-        <div class="user-info">
-            <table>
-                <tbody>
-                    <tr>
-                        <td> Nombre:</td>
-                        <td><%= usuario.nombre %></td>
-                    </tr>
-                    <tr>
-                        <td>Apellido:</td>
-                        <td><%= usuario.apellido %></td>
-                    </tr><tr>
-                        <td>Telefono:</td>
-                        <td><%= usuario.telefono %></td>
-                    </tr><tr>
-                        <td>Fecha de Nac.:</td>
-                        <td><%= usuario.fechanac %></td>
-                    </tr><tr>
-                        <td>Email:</td>
-                        <td><%= usuario.email %></td>
-                    </tr>
-                </tbody>
-
-            </table>
-         
-          <div>
-            
-            
-          </div>
-          <div>
-           
-            
-          </div>
         </div>
+        
+        
+        
       </section>
     </main>
     <%- include('./partials/footer') %> <%- include('./partials/sidenav') %>
