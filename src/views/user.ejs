@@ -29,8 +29,8 @@
 <hr class="hr">
               <div class="userdata">
                 <div class="useritems">
-                  <h6>Nombre de usuario: <%= locals.session.user %></h6>
-                  <h6>Tus publicaciones: <a href="/admin/"><%= publicaciones.length %></a></h6>
+                  <span><strong>Usuario:</strong> <%= locals.session.user %></span>
+                 
                 </div>
                
               <div class="user-info">
@@ -90,7 +90,9 @@
                     </div>
                   </div>
                 </div>
-              </div></div>
+              </div>
+              <small style="text-align: right; margin:10px;display: block; "><a href="/admin/" style="color: black;text-decoration: none;">Gestionar direcciones</a></small>
+            </div>
               <div class="publicaciones">
                 <div class="contenedorpublicaciones">
                 <h3>Tus Publicaciones</h3>
@@ -111,6 +113,7 @@
                     </div>
                     
                 </div>
+                <small style="text-align: right; margin-top: 10px; display: block; "><a href="/admin/" style="color: black;">Ver todas (<%= publicaciones.length %>)</a></small>
                 </div>
               </div>
             </div>

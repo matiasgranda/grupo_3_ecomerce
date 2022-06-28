@@ -26,6 +26,11 @@
 .contenedorpublicaciones{
     padding: 10px;
 }
+.contenedordirecciones a,link,link:visited{
+    color: #719edb;
+    font-weight: 100;
+    text-decoration: none;
+}
 .contenedorpublicaciones a,link,link:visited{
     color: #719edb;
     font-weight: 100;
@@ -233,8 +238,9 @@ table {
   width: 100%;
 }
 .user-info {
-  margin-top: 10px;
-  overflow-wrap: anywhere;
+    margin-top: 10px;
+    overflow-wrap: anywhere;
+    width: 100%;
 }
 .user-info div {
   height: 40px;
