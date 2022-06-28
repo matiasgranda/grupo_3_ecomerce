@@ -6,45 +6,72 @@
     padding: 0;
     font-family: 'Montserrat', sans-serif;
 }
+.seccion-superior{
+    margin-bottom: 50px;
+}
+.useritems{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    font-size: 20px;
+    width: 100%;
+}
+td{
+    padding: 5px;
+    font-size: 20px
+}
+.useritem{
+    padding: 5px;
+}
+.userdata{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: center;
+    align-items: flex-start;
+}
+
 .user-name-image{
     width: 100%;
 
 }
 .contenedorimagen{
-    max-height: 400px;
+    max-height: 200px;
 }
 .lala{
     margin: auto;
     width: 100%;
-    max-width: 400px;
+    text-align: center;
+    max-width: 200px;
 }
 .contenedorimagen img{
     margin-top: 20px;
     border-radius: 50%;
     width: 100%;
     max-width: 100%;
+    height: 150px;
+    max-width: 150px;
+    /* max-width: 100%; */
+    overflow: hidden;
    
 }
+.usuario{
+    border: none;
+    text-align: center;
+}
 .cambiar-foto {
-    font-size: 20pt;
     position: relative;
-    top: -405px;
+    top: -108px;
     color: white;
     padding: 12px;
-    left: 1px;
+    left: 84px;
     border-radius: 50% 50% 50% 50%;
     background-color: rgb(0 0 0 / 39%);
-    width: 100%;
-    max-width: 400px;
-    height: 400px;
-    max-height: 400px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: space-around;
-    justify-content: center;
-    align-items: center;
 }
 body {
     width: 100%;
@@ -64,6 +91,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 section {
@@ -79,6 +107,7 @@ section {
     justify-content: space-evenly;
     align-items: center;
     padding: 10px;
+    overflow: hidden;
 }
 section h2{
     font-size: 20pt;
@@ -103,24 +132,20 @@ section h2{
     max-width: 300px;
     border-radius: 50px;
 }
-
-.user-info {
-    width: 50%;
-    height: 500px;
-    padding: 10px;
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+table{
+    width: 100%;
 }
-
+.user-info{
+    margin-top:10px;
+    overflow-wrap: anywhere;
+}
 .user-info div {
     height: 40px;
     width: 500px;
     min-width: 150px;
     display: flex;
     align-items: center;
+    
 }
 
 .info-title {
@@ -144,5 +169,31 @@ section h2{
 
     .user-name-image img {
         min-width: 150px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    table {
+        width:100%;
+    }
+    thead {
+        display: none;
+    }
+    tr:nth-of-type(2n) {
+        background-color: inherit;
+    }
+    tr td:first-child {
+        background: #f0f0f0;
+        font-weight:bold;
+        /*font-size:0.8em;*/
+    }
+    tbody td {
+        display: block;
+        text-align:center;
+    }
+    tbody td:before {
+        content: attr(data-th);
+        display: block;
+        text-align:center;
     }
 }

@@ -12,51 +12,64 @@
       <section>
         <h2>Mis Datos</h2>
         <div class="seccion-superior">
+            
           <div class="contenedorimagen">
             <div class="lala">
-            <img src="img/profiles/<%= locals.session.imagen %> "/>
-            <i class="fa-solid fa-camera cambiar-foto"></i>
+            <div class="imagen"><img src="img/profiles/<%= locals.session.imagen %> "/></div>
+            <h2 class="usuario"><%= locals.session.user %></h2>
+            <a href="#" title="Cambiar Imagen"><i class="fa-solid fa-camera cambiar-foto"></i></a>
+            <input type="file" id="imagenperfil" name="imagenperfil" style="display:none;" class="inputimagen" accept="image/*" />
             </div>
+            
           </div>
+          
         </div>
-        <div class="">
-          <div>
-            <h3>Nombre de usuario: <%= locals.session.user %></h3>
-            <h3>Total publicaciones: <%= publicaciones.length %></h3>
+        <div class="userdata">
+          <div class="useritems">
+            <div class="useritem"><strong>Nombre de usuario:</strong> <%= locals.session.user %></div>
+            <div class="useritem"><strong>Total publicaciones: <a href="/admin/"></strong><%= publicaciones.length %></a></div>
           </div>
          
-        <div class="user-image-name">
-          <h2><%= locals.session.user %></h2>
-          <h3>
-            Total publicaciones:
-            <a href="/admin/"><%= publicaciones.length %></a>
-          </h3>
-        </div>
-
         <div class="user-info">
+            <table>
+                <tbody>
+                    <tr>
+                        <td> Nombre:</td>
+                        <td><%= usuario.nombre %></td>
+                    </tr>
+                    <tr>
+                        <td>Apellido:</td>
+                        <td><%= usuario.apellido %></td>
+                    </tr><tr>
+                        <td>Telefono:</td>
+                        <td><%= usuario.telefono %></td>
+                    </tr><tr>
+                        <td>Fecha de Nac.:</td>
+                        <td><%= usuario.fechanac %></td>
+                    </tr><tr>
+                        <td>Email:</td>
+                        <td><%= usuario.email %></td>
+                    </tr>
+                </tbody>
+
+            </table>
+         
           <div>
-            <p class="info-title">Nombre:</p>
-            <p class="info-data"><%= usuario.nombre %></p>
+            
+            
           </div>
           <div>
-            <p class="info-title">Apellido:</p>
-            <p class="info-data"><%= usuario.apellido %></p>
-          </div>
-          <div>
-            <p class="info-title">Telefono:</p>
-            <p class="info-data"><%= usuario.telefono %></p>
-          </div>
-          <div>
-            <p class="info-title">Fecha de nacimiento:</p>
-            <p class="info-data"><%= usuario.fechanac %></p>
-          </div>
-          <div>
-            <p class="info-title">Email:</p>
-            <p class="info-data"><%= usuario.email %></p>
+           
+            
           </div>
         </div>
       </section>
     </main>
     <%- include('./partials/footer') %> <%- include('./partials/sidenav') %>
+    <script>
+        document.querySelector('.cambiar-foto').addEventListener('click', function(){
+            document.querySelector('.inputimagen').click();
+        });
+    </script>
   </body>
 </html>
