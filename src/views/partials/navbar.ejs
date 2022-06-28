@@ -28,7 +28,7 @@
         
         <% if(locals.session.user){ %>
           <div class="dropdown">
-            <button class="dropbtn"><img src="/img/profiles/<%= locals.session.imagen %>" style="width:24px">&nbsp;<%= locals.session.user %></button>
+            <button class="dropbtn"><img src="/img/profiles/<%= locals.session.imagen %>" style="width:24px;border-radius: 50%;">&nbsp;<%= locals.session.user %></button>
             <div class="dropdown-content">
               <a href="/perfil">Perfil</a>
               <a href="/product/create/">Vender</a>

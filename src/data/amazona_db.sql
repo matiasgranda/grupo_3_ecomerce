@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2022-06-23 09:03:09
+Date: 2022-06-23 16:12:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -428,7 +428,7 @@ CREATE TABLE `usuarios` (
 -- ----------------------------
 -- Records of usuarios
 -- ----------------------------
-INSERT INTO `usuarios` VALUES ('1', 'José', 'de Figueiredo', '3548978765', '2003-06-12', 'jldefigueiredo@gmail.com', 'Jose', '$2b$10$LTSqR0eQuwCCqzq/xf0./OCwpCwk8BiKttuL1yQtz.T1nNganp7qS', '1', 'default.png');
+INSERT INTO `usuarios` VALUES ('1', 'José', 'de Figueiredo', '3548978765', '2003-06-12', 'jldefigueiredo@gmail.com', 'Jose', '$2b$10$LTSqR0eQuwCCqzq/xf0./OCwpCwk8BiKttuL1yQtz.T1nNganp7qS', '1', 'yo.jpg');
 INSERT INTO `usuarios` VALUES ('2', 'Matias', 'Granda', '126549876', '2022-05-18', 'matigranda93@gmail.com', 'Mati', '$2b$10$.6G4tI.F9yG.LmlAKeVjKe2sI6qtfEWGuvMU5Vy016FT8uyiKNz2i', '1', '1653407731808.jpg');
 INSERT INTO `usuarios` VALUES ('10', 'Roseanna', 'Trahmel', '840-301-1253', '2020-09-12', 'rtrahmel0@weibo.com', 'rtrahmel0', 'NzoQvtChmuuq', '0', 'http://dummyimage.com/210x100.png/5fa2dd/ffffff');
 INSERT INTO `usuarios` VALUES ('11', 'Rebeka', 'Handscombe', '321-238-1947', '2020-05-06', 'rhandscombe1@artisteer.com', 'rhandscombe1', 'XULblP', '1', 'http://dummyimage.com/122x100.png/ff4444/ffffff');
