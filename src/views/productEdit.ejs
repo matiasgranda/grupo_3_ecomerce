@@ -8,10 +8,12 @@
   <link rel="stylesheet" href="/css/productEdit.css" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js""></script>
   <script src="https://kit.fontawesome.com/ea592f04e6.js" crossorigin="anonymous"></script>
+  <%- include('./partials/head') %>
   <title>Editar publicación</title>
 </head>
 
 <body>
+  <%- include('./partials/navbar') %>
   <div class="productForm">
     <div class="logo">
       <a href="/">
@@ -73,7 +75,7 @@
           <% if(producto.imagenes[i].imagenprincipal == 1){ %>
             <div class="contenedorimgen">
               <img src="/img/<%= producto.imagenes[i].imagen %>" alt="<%= producto.imagenes[i].nombre %>" class="img-imagen" />
-              <span><a href="#" title="Eliminar Imagen" onclick="deleteImage('<%= producto.idpublicacion %>','<%= producto.imagenes[i].idimagen %>')"><i class="fa-solid fa-trash"></i></a></span>
+              <span class="span"><a href="#" title="Eliminar Imagen" onclick="deleteImage('<%= producto.idpublicacion %>','<%= producto.imagenes[i].idimagen %>')"><i class="fa-solid fa-trash"></i></a></span class="span">
               </div>
           <% } %>
         <% } %>
@@ -96,7 +98,7 @@
           <% if(producto.imagenes[i].imagenprincipal == 0){ %>
             <div class="contenedorimgen">
           <img src="/img/<%= producto.imagenes[i].imagen %>" alt="<%= producto.imagenes[i].nombre %>" class="img-imagen" />
-          <span><a href="#" title="Eliminar Imagen" onclick="deleteImage('<%= producto.idpublicacion %>','<%= producto.imagenes[i].idimagen %>')"><i class="fa-solid fa-trash"></i></a></span>
+          <span class="span"><a href="#" title="Eliminar Imagen" onclick="deleteImage('<%= producto.idpublicacion %>','<%= producto.imagenes[i].idimagen %>')"><i class="fa-solid fa-trash"></i></a></span class="span">
           </div>
           <% } %>
         <% } %>

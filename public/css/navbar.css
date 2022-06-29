@@ -1,5 +1,6 @@
 header {
     width: 100%;
+    min-width: 300px;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -111,7 +112,7 @@ header {
 
 .searchbar input {
     width: 80%;
-    min-width: 260px;
+    min-width: 150px;
     height: 40px;
     padding: 0px 5px;
     font-size: 20px;
@@ -130,6 +131,7 @@ header {
     color: black;
     text-decoration: none;
     font-size: 10px;
+    border: 1px solid #fff;
 }
 
 .linkizquierda {
@@ -417,20 +419,23 @@ header {
         margin: auto;
         width: 100%;
         padding: 5px;
+        align-self: flex-start;
     }
 }
 
 @media(max-width: 412px) {
+
     header {
         position: absolute;
     }
 
     .searchbar {
-        width: 100%;
+        width: 90%;
+        min-width: 200px;
     }
 
     .searchbar a {
-        width: 50px;
+        width: 60px;
     }
 
     .searchbar a i {
@@ -439,7 +444,7 @@ header {
     }
 
     .searchbar input {
-        width: 100%;
+        width: 80%;
         min-width: 150px;
     }
 

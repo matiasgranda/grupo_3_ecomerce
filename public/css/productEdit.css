@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto&display=swap');
 * {
     box-sizing: border-box;
     margin: 0;
@@ -28,10 +29,10 @@
     justify-content: space-evenly;
     align-content: center;
 }
- span{
+
+ .span{
     position: relative;
     top: -22px;
-   
     left: 52px;
     border-radius: 6px;
     padding: 7px;
@@ -77,6 +78,7 @@ link, a {
 }
 body {
     width: 100%;
+    padding-top: 90px;
     background-color: #EAEDED;
     position: absolute;
     display: flex;
@@ -87,7 +89,7 @@ body {
 .productForm {
     width: 100%;
     max-width: 700px;
-    min-width: 400px;
+    min-width: 320px;
     height: fit-content;
     background-color: rgb(255, 255, 255);
     margin: 50px 20px 20px 20px;
@@ -235,6 +237,7 @@ form div {
     align-content: center;
     justify-content: center;
 }
+
 .logo{
     display: flex;
     flex-direction: column;

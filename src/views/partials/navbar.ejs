@@ -10,17 +10,17 @@
             <i class="fa-solid fa-location-dot"></i>
           </a>
           <p>
-            <span class="enviara">Enviar a</span> <br />
-            <a href="#"><% if(locals.session.user){ %>
-              <%= locals.session.pais %>
+            <span class="enviara">Enviar a</span> <br/>
+            <% if(locals.session.user){ %>
+              <a href=""><%= locals.session.pais %></a>
               <% } else { %>
-              Argentina</a>
+              <a href="">Argentina</a> 
               <% } %>
           </p>
         </div>
       </div>
       <div class="searchbar">
-        <a class="linkizquierda" href="#">Categorias</a>
+        <a class="linkizquierda" href="/categorias">Categorias</a>
         <input type="text" name="searchbox" id="searchbox" />
         <a class="linkderecha" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
       </div>
