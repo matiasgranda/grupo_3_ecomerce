@@ -266,3 +266,12 @@ hr {
   background-color: #eaeded;
   cursor: pointer;
 }
+
+@media (max-width: 600px) {
+  .sidenav {
+    max-width: 300px;
+  }
+  #closeBtn {
+    margin-left: 300px;
+  }
+}
