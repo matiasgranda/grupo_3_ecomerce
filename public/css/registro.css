@@ -179,6 +179,7 @@ input:focus, select:focus{
     .registro {
         width: 50%;
         min-width: 500px;
+        height: 95%;
     }
 
     .form-box input {

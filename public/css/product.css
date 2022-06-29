@@ -527,6 +527,15 @@ form section {
   .usuario {
     width: fit-content;
   }
+  .images {
+    height: 450px;
+  }
+  .productInfo {
+    height: 400px;
+  }
+  .barraderecha {
+    height: 500px;
+  }
 }
 
 /*******   estrellas de rating ************/

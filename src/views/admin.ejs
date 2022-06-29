@@ -26,24 +26,24 @@
 
         <!-- <section class="product-box <%= productos2[i].categoria %>"> -->
             
-<tr class="product-box <%= productos2[i].categoria %>">
-    <td>
+        <tr class="product-box <%= productos2[i].categoria %>">
+            <td class="product-image-td">
                 <div class="product-image">
                     <img src="/img/<%= productos2[i].imagen %>" alt="">
                 </div>
             </td>
-            <td>
+            <td class="product-title-td">
                 <div class="product-title">
                     <p><a href="/product/<%=productos2[i].idpublicacion%>"><%= productos2[i].titulo %> </a></p>
                 </div>
             </td>
-            <td>
+            <td class="product-info-td">
     
                 <div class="product-info">
                     <p><b>Precio:</b>  <%= productos2[i].precio %></p>
                 </div>
             </td>
-             <td>
+             <td class="edit-links-td">
                 <div class="edit-links">
                     <a href="/product/edit/<%=productos2[i].idpublicacion%> " title="Editar Producto"><i class="fa-regular fa-pen-to-square"></i></a>
                     <a href="#" onclick=<%= 'deleteProduct('+productos2[i].idpublicacion+')' %> title="Eliminar Producto" class="trash"><i class="fa-solid fa-trash"></i></a>

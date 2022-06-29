@@ -346,6 +346,7 @@ section h3 {
 
     .principal article {
         width: 100%;
+        min-width: 300px;
     }
 }
 
@@ -357,7 +358,7 @@ section h3 {
 
     header {
         position: fixed;
-        min-width: 400px;
+        min-width: 300px;
     }
 
     .principal article .itemswrapper div:nth-child(n + 3) {
@@ -420,7 +421,7 @@ section h3 {
 @media screen and (max-width: 760px) and (min-width:413px) {
     header {
         position: fixed;
-        min-width: 400px;
+        min-width: 300px;
     }
 
     .principal {

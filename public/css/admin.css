@@ -119,3 +119,35 @@ table td{
 main a:visited {
     color: black;
 }
+
+@media (max-width: 420px) {
+    main {
+        padding: 30px 10px;
+    }
+    .product-image-td {
+        display: flex;
+        justify-content: flex-start;
+    }
+    .product-info-td {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .product-title  {
+        text-align: right;
+    }
+
+    .edit-links-td {
+        display: flex;
+        justify-content: flex-end;
+        width: 20%;
+    }
+    .edit-links {
+        width: fit-content;
+        align-self: flex-end;
+        right: 0px;
+        border: 1px solid black;
+    }
+    .edit-links a {
+        margin: 0px 5px;
+    }
+}
