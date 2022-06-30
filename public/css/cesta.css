@@ -118,6 +118,7 @@
 .opcionesitem select {
     margin-left: 5px;
     width: 100%;
+    min-width: 50px;
     line-height: 30px;
     height: 30px;
     padding: 0px 5px;
@@ -201,4 +202,76 @@
 .divprecio {
     font-size: 14px;
     color: rgb(196, 196, 196);
+}
+
+@media (max-width: 800px) {
+    .contenedor {
+        margin-top: 110px;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .cesta {
+        width: 100%;
+    }
+    .barralateral {
+        margin-top: 10px;
+        width: 100%;
+        margin-left: 0px;
+        justify-content: center;
+    }
+    .barralateralitem {
+        width: 90%;
+        justify-content: center;
+    }
+    .titulodesc, .descripcionitem {
+        text-align: center;
+        margin-bottom: 10px;
+    }    
+    .cajasubtotal {
+        width: 100%;
+    }
+    .opcionesitem {
+        flex-direction: column;
+    }
+    .opcionesitem .linksopciones a {
+        text-align: center;
+        width: 90%;
+        height: 30px;
+    }
+    .opcionesitem select {
+        width: 80px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cestaitem {
+        flex-direction: column;
+        align-items: center;
+    }
+    .detalleitem {
+        align-items: center;
+    }
+    .descripcionitem {
+        display: none;
+    }
+    .opcionesitem {
+        margin-top: 10px;
+        align-items: center;
+    }
+    .cantidad {
+        width: 300px;
+        justify-content: space-evenly;
+    }
+    .linksopciones {
+        margin-top: 10px;
+        justify-content: center;
+    }
+    .precioitem {
+        height: 30px;
+        padding: 0px;
+    }
+    .total {
+        text-align: center;
+    }
 }
