@@ -6,7 +6,7 @@ const multer = require('multer');
 const res = require("express/lib/response");
 let multerDiskStorage=multer.diskStorage({
     destination:(req,file,callback)=>{
-        let folder=path.join(__dirname,'../../public/img');
+        let folder=path.join(__dirname,'../../public/img/profiles');
         callback(null,folder);
     },
     filename:(req,file,callback)=>{

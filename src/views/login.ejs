@@ -12,9 +12,6 @@
     <%- include('./partials/navbar') %>
     <div class="loginbox">
         <form action="/login" method="post">
-            <a class="logo" href="/">
-                <img src="/img/amazona-negro.png" alt="">
-            </a>
             <% if(locals.mensaje && locals.mensaje.msg){ %>
                 <br>
                 <div class="error"><%= locals.mensaje.msg %></div>
@@ -34,7 +31,6 @@
                     <div class="error"><%= locals.errors.password.msg %></div>
                 <% } %>
             </div>
-            
 
 <label class="content-input">
 	<input type="checkbox" name="recordar" id="recordar">Recordar

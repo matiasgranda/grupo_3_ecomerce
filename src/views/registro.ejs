@@ -11,9 +11,7 @@
   <body>
     <%- include('./partials/navbar') %>
     <div class="registro">
-      <form action="/registro/create" method="post" enctype="multipart/form-data">
-        <a href="/"><img src="/img/amazona-negro.png" alt="" /></a>
-        
+      <form action="/registro/create" method="post" enctype="multipart/form-data">        
         <% if(locals.errors) { %>
           <% errors.forEach(error => { %>
             <div class="errores">

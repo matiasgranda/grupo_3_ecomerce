@@ -135,6 +135,10 @@ main a:visited {
     .product-title  {
         text-align: right;
     }
+    .product-title p {
+        width: 100%;
+        word-break: break-all;
+    }
 
     .edit-links-td {
         display: flex;
@@ -145,7 +149,6 @@ main a:visited {
         width: fit-content;
         align-self: flex-end;
         right: 0px;
-        border: 1px solid black;
     }
     .edit-links a {
         margin: 0px 5px;
