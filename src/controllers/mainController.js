@@ -2,14 +2,25 @@ const path = require("path");
 const fs = require("fs");
 const session = require("express-session");
 const db = require("../data/models/");
+const sequelize=require("sequelize");
 const { Op } = require("sequelize");
 const { redirect } = require("express/lib/response");
 
 let mainController = {
-  home: (req, res) => {
+  home: async (req, res) => {
     let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
     let sesion = req.session;
     let db = require("../data/models/");
+    let topventasypopulares=await db.Publicaciones.findAll({ 
+      include: [
+        {
+          association: "imagenes",
+          attributes: ["imagen"],
+          where: { imagenprincipal: 1 },
+        },
+      ],
+      order: sequelize.literal('rand()'), limit: 12 });
+   
     var productos2 = {};
     db.Publicaciones.findAll({
       where: { idcategoria: 1 },
@@ -97,7 +108,8 @@ let mainController = {
                       session: sesion,
                       imagenes,
                       publicaciones,
-                      productos2: productos2
+                      productos2: productos2,
+                      topventasypopulares:topventasypopulares
                     });
                   });
                 });

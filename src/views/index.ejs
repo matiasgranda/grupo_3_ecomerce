@@ -1,229 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
- 
-<head>
- <%- include('./partials/head') %>
-  <link rel="stylesheet" href="/css/styles.css"/>
-  
-  <title>Amazona | Proyecto Grupo 3</title>
-</head>
+  <head>
+    <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/css/styles.css" />
 
-<body>
-  
-  <%- include('./partials/navbar') %>  
-  <main>
-    <section class="banner">
-      
-    </section>
-    <section class="principal">
-      <article>
-        <div>
-          <h2>Tecnología</h2>
-        </div>
-        <div class="itemswrapper">
-          
-          <% for (let i=0; i < productos2.tecnologia.length; i++){ %>
-           <div>
-            <a class="product-image-link" href="/product/<%= productos2.tecnologia[i].idpublicacion %>">
-              <img src="/img/<%= productos2.tecnologia[i].imagenes[0].imagen %>">
-              <span><%= productos2.tecnologia[i].titulo %></span>
-            </a>
+    <title>Amazona | Proyecto Grupo 3</title>
+  </head>
+
+  <body>
+    <%- include('./partials/navbar') %>
+    <main>
+      <section class="banner"></section>
+      <section class="principal">
+        <article>
+          <div>
+            <h2>Tecnología</h2>
           </div>
-          <% } %>
-        </div>
-        <div class="linkitems">
-          <a href="/categorias/1">Ver más</a>
-        </div>
-
-      </article>
-      <article>
-        <div>
-          <h2>Moda</h2>
-        </div>
-
-        <div class="itemswrapper">
-          <% for (let i=0; i < productos2.moda.length; i++){ %>
+          <div class="itemswrapper">
+            <% for (let i=0; i < productos2.tecnologia.length; i++){ %>
             <div>
-             <a class="product-image-link" href="/product/<%= productos2.moda[i].idpublicacion %>">
-               <img src="/img/<%= productos2.moda[i].imagenes[0].imagen %>">
-               <span><%= productos2.moda[i].titulo %></span>
-             </a>
-           </div>
-           <% } %>
-        </div>
-        <div class="linkitems">
-          <a href="/categorias/2">Ver más</a>
-        </div>
-      </article>
-      <article>
-        <div>
-          <h2>Hogar</h2>
-        </div>
+              <a
+                class="product-image-link"
+                href="/product/<%= productos2.tecnologia[i].idpublicacion %>"
+              >
+                <img
+                  src="/img/<%= productos2.tecnologia[i].imagenes[0].imagen %>"
+                />
+                <span><%= productos2.tecnologia[i].titulo %></span>
+              </a>
+            </div>
+            <% } %>
+          </div>
+          <div class="linkitems">
+            <a href="/categorias/1">Ver más</a>
+          </div>
+        </article>
+        <article>
+          <div>
+            <h2>Moda</h2>
+          </div>
 
-        <div class="itemswrapper">
-          <% for (let i=0; i < productos2.hogar.length; i++){ %>
+          <div class="itemswrapper">
+            <% for (let i=0; i < productos2.moda.length; i++){ %>
             <div>
-             <a class="product-image-link" href="/product/<%=productos2.hogar[i].idpublicacion %>">
-               <img src="/img/<%=productos2.hogar[i].imagenes[0].imagen %>">
-               <span><%=  productos2.hogar[i].titulo %></span>
-             </a>
-           </div>
-           <% } %>
+              <a
+                class="product-image-link"
+                href="/product/<%= productos2.moda[i].idpublicacion %>"
+              >
+                <img src="/img/<%= productos2.moda[i].imagenes[0].imagen %>" />
+                <span><%= productos2.moda[i].titulo %></span>
+              </a>
+            </div>
+            <% } %>
+          </div>
+          <div class="linkitems">
+            <a href="/categorias/2">Ver más</a>
+          </div>
+        </article>
+        <article>
+          <div>
+            <h2>Hogar</h2>
+          </div>
 
-        </div>
-        <div class="linkitems">
-          <a href="/categorias/3">Ver más</a>
-        </div>
-      </article>
-
-      <article>
-        <div>
-          <h2>Deportes</h2>
-        </div>
-
-        <div class="itemswrapper">
-          <% for (let i=0; i < productos2.deportes.length; i++){ %>
+          <div class="itemswrapper">
+            <% for (let i=0; i < productos2.hogar.length; i++){ %>
             <div>
-             <a class="product-image-link" href="/product/<%=productos2.deportes[i].idpublicacion %>">
-               <img src="/img/<%=productos2.deportes[i].imagenes[0].imagen %>">
-               <span><%= productos2.deportes[i].titulo %></span>
-             </a>
-           </div>
-           <% } %>
-        </div>
-        <div class="linkitems">
-          <a href="/categorias/4">Ver más</a>
-        </div>
-      </article>
-      <article>
-        <div>
-          <h2>Movilidad</h2>
-        </div>
+              <a
+                class="product-image-link"
+                href="/product/<%=productos2.hogar[i].idpublicacion %>"
+              >
+                <img src="/img/<%=productos2.hogar[i].imagenes[0].imagen %>" />
+                <span><%= productos2.hogar[i].titulo %></span>
+              </a>
+            </div>
+            <% } %>
+          </div>
+          <div class="linkitems">
+            <a href="/categorias/3">Ver más</a>
+          </div>
+        </article>
 
-        <div class="itemswrapper">
-          <% for (let i=0; i < productos2.movilidad.length; i++){ %>
+        <article>
+          <div>
+            <h2>Deportes</h2>
+          </div>
+
+          <div class="itemswrapper">
+            <% for (let i=0; i < productos2.deportes.length; i++){ %>
             <div>
-             <a class="product-image-link" href="/product/<%= productos2.movilidad[i].idpublicacion %>">
-               <img src="/img/<%= productos2.movilidad[i].imagenes[0].imagen %>">
-               <span><%= productos2.movilidad[i].titulo %></span>
-             </a>
-           </div>
-           <% } %>
-        </div>
-        <div class="linkitems">
-          <a href="/categorias/5">Ver más</a>
-        </div>
-      </article>
-      <article>
-        <div>
-          <h2>Niños</h2>
-        </div>
+              <a
+                class="product-image-link"
+                href="/product/<%=productos2.deportes[i].idpublicacion %>"
+              >
+                <img
+                  src="/img/<%=productos2.deportes[i].imagenes[0].imagen %>"
+                />
+                <span><%= productos2.deportes[i].titulo %></span>
+              </a>
+            </div>
+            <% } %>
+          </div>
+          <div class="linkitems">
+            <a href="/categorias/4">Ver más</a>
+          </div>
+        </article>
+        <article>
+          <div>
+            <h2>Movilidad</h2>
+          </div>
 
-        <div class="itemswrapper">
-          <% for (let i=0; i < productos2.ninios.length; i++){ %>
+          <div class="itemswrapper">
+            <% for (let i=0; i < productos2.movilidad.length; i++){ %>
             <div>
-             <a class="product-image-link" href="/product/<%= productos2.ninios[i].idpublicacion %>">
-               <img src="/img/<%= productos2.ninios[i].imagenes[0].imagen %>">
-               <span><%= productos2.movilidad[i].titulo %></span>
-             </a>
-           </div>
-           <% } %>
+              <a
+                class="product-image-link"
+                href="/product/<%= productos2.movilidad[i].idpublicacion %>"
+              >
+                <img
+                  src="/img/<%= productos2.movilidad[i].imagenes[0].imagen %>"
+                />
+                <span><%= productos2.movilidad[i].titulo %></span>
+              </a>
+            </div>
+            <% } %>
+          </div>
+          <div class="linkitems">
+            <a href="/categorias/5">Ver más</a>
+          </div>
+        </article>
+        <article>
+          <div>
+            <h2>Niños</h2>
+          </div>
+
+          <div class="itemswrapper">
+            <% for (let i=0; i < productos2.ninios.length; i++){ %>
+            <div>
+              <a
+                class="product-image-link"
+                href="/product/<%= productos2.ninios[i].idpublicacion %>"
+              >
+                <img
+                  src="/img/<%= productos2.ninios[i].imagenes[0].imagen %>"
+                />
+                <span><%= productos2.movilidad[i].titulo %></span>
+              </a>
+            </div>
+            <% } %>
+          </div>
+          <div class="linkitems">
+            <a href="/categorias/6">Ver más</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="wrapper">
+        <h2>Top ventas para ti</h2>
+        <div class="topventas">
+          <% if(locals.topventasypopulares && locals.topventasypopulares.length
+          > 0){ %> <% for (let i=0; i < locals.topventasypopulares.length; i++){
+          %>
+
+          <article>
+            <a href="/product/<%=productos[0][2].id%>">
+              <h1><%= locals.topventasypopulares[i].titulo %></h1>
+              <img
+                src="/img/<%= locals.topventasypopulares[i].dataValues.imagenes[0].imagen %>"
+                alt=""
+              />
+            </a>
+          </article>
+          <% } } %>
         </div>
         <div class="linkitems">
-          <a href="/categorias/6">Ver más</a>
+          <a href="#">Ver más</a>
         </div>
-      </article>
-    
-   
-    </section>
+      </section>
 
-    <section class="wrapper">
-      <h2>Top ventas para ti</h2>
-      <div class="topventas">
-        <article>
-          <a href="/product/<%=productos[0][2].id%>">
-            <h1><%=productos[0][2].titulo%></h1>
-            <img src="<%=productos[0][2].imagen%>" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="/product/<%=productos[4][2].id%>">
-            <h1><%=productos[4][2].titulo%></h1>
-            <img src="<%=productos[4][2].imagen%>" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="/product/<%=productos[3][1].id%>">
-            <h1><%=productos[3][1].titulo%></h1>
-            <img src="<%=productos[3][1].imagen%>" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="/product/<%=productos[3][0].id%>">
-            <h1><%=productos[3][0].titulo%></h1>
-            <img src="<%=productos[3][0].imagen%>" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="/product/<%=productos[0][0].id%>">
-            <h1><%=productos[0][0].titulo%></h1>
-            <img src="<%=productos[0][0].imagen%>" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="/product/<%=productos[0][1].id%>">
-            <h1><%=productos[0][1].titulo%></h1>
-            <img src="<%=productos[0][1].imagen%>" alt="">
-          </a>
-        </article>
-      </div>
-      <div class="linkitems">
-        <a href="#">Ver más</a>
-      </div>
-    </section>
+      <section class="wrapper">
+        <h2>Productos populares</h2>
+        <div class="prodpopulares">
+          <% if(locals.topventasypopulares && locals.topventasypopulares.length
+          > 0){ %>  
+            <% for (let i=locals.topventasypopulares.length - 1; i >=
+            0; i--){ %>
 
-    <section class="wrapper">
-      <h2>Productos populares</h2>
-      <div class="prodpopulares">
-        <article>
-          <a href="/product/<%=productos[0][3].id%>">
-            <h1><%=productos[0][3].titulo%></h1>
-            <img src="<%=productos[0][3].imagen%>" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="/product/<%=productos[1][0].id%>">
-            <h1><%=productos[1][0].titulo%></h1>
-            <img src="<%=productos[1][0].imagen%>" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="/product/<%=productos[2][1].id%>">
-            <h1><%=productos[2][1].titulo%></h1>
-            <img src="<%=productos[2][1].imagen%>" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="/product/<%=productos[4][1].id%>">
-            <h1><%=productos[4][1].titulo%></h1>
-            <img src="<%=productos[4][1].imagen%>" alt="">
-          </a>
-        </article>
-        <article>
-          <a href="/product/<%=productos[1][2].id%>">
-            <h1><%=productos[1][2].titulo%></h1>
-            <img src="<%=productos[1][2].imagen%>" alt="">
-          </a>
-        </article>
-      </div>
-      <div class="linkitems">
-        <a href="#">Ver más</a>
-      </div>
-    </section>
-    <%- include('./partials/footer') %>
-  </main>
-  <%- include('./partials/sidenav') %>
-  
-</body>
-
+          <article>
+            <a href="/product/<%=productos[0][2].id%>">
+              <h1><%= locals.topventasypopulares[i].titulo %></h1>
+              <img
+                src="/img/<%= locals.topventasypopulares[i].dataValues.imagenes[0].imagen %>"
+                alt=""
+              />
+            </a>
+          </article>
+          <% } } %>
+        </div>
+        <div class="linkitems">
+          <a href="#">Ver más</a>
+        </div>
+      </section>
+      <%- include('./partials/footer') %>
+    </main>
+    <%- include('./partials/sidenav') %>
+  </body>
 </html>
