@@ -310,6 +310,7 @@ let productsController = {
   },
   search: async (req, res) => {
     //res.send(req.params.keyword);
+    let sesion = req.session;
     const db = require("../data/models/");
     const Op = require("Sequelize").Op;
     let productos = await db.Publicaciones.findAll({
@@ -339,6 +340,7 @@ let productsController = {
     });
     res.render(path.resolve(__dirname, "../views/search.ejs"), {
       productos: productos,
+      session: sesion,
     });
     //res.send(productos)
   },

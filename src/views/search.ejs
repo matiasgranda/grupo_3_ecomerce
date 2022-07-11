@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/css/styles.css" />
 
-<head>
-  <%- include('./partials/head') %>
-  <link rel="stylesheet" href="/css/product.css">
+    <title>Amazona | Proyecto Grupo 3</title>
+  </head>
 
-  <script src="https://kit.fontawesome.com/91393ea5bf.js" crossorigin="anonymous"></script>
-  <title>Detalle de Producto</title>
-</head>
-
-<body>
-  <% if (productos!=undefined) { %>
-  <%- include('./partials/navbar') %>
-  <%- include('./partials/sidenav') %>
-   <% } %>
+  <body>
+    <%- include('./partials/navbar') %>
 </body>
 
 </html>
