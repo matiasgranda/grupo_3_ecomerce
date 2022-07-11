@@ -35,7 +35,7 @@ let productsController = {
             where: {
               idpublicacion: publicacion.idpublicacion,
             },
-            order: [["imagenprincipal", "DESC"]]
+            order: [["imagenprincipal", "DESC"]],
           });
           const calificacion = await db.Calificacion.findAll({
             where: {
@@ -89,11 +89,10 @@ let productsController = {
         res.render(path.resolve(__dirname, "../views/productCreate.ejs"), {
           session: req.session,
           categoria: categoria,
-          marca: marca
+          marca: marca,
         });
-      })
-    })
-    
+      });
+    });
   },
 
   save: (req, res, next) => {
@@ -125,7 +124,7 @@ let productsController = {
         });
       return next(error);
     }
-    console.log(imagenesAdicionales)
+    console.log(imagenesAdicionales);
     let productoNuevo = {
       titulo: req.body.titulo,
       descripcion: req.body.descripcion,
@@ -139,7 +138,7 @@ let productsController = {
     db.Publicaciones.create(productoNuevo).then(() => {
       db.Publicaciones.findAll({
         order: [["idpublicacion", "DESC"]],
-        limit: 1
+        limit: 1,
       }).then((idProductoNuevo) => {
         console.log(idProductoNuevo[0].idpublicacion);
 
@@ -150,10 +149,9 @@ let productsController = {
             idpublicacion: idProductoNuevo[0].idpublicacion,
           };
           imagenesAInsertar.push(imagenesExtra);
-          
         }
-        
-        if(imagenesAInsertar.length > 0) {
+
+        if (imagenesAInsertar.length > 0) {
           db.Imagenes.bulkCreate(imagenesAInsertar);
         }
 
@@ -163,12 +161,10 @@ let productsController = {
           idpublicacion: idProductoNuevo[0].idpublicacion,
         };
         db.Imagenes.create(imagenPrincipal);
-  
+
         res.status(200).redirect("/product/" + imagenPrincipal.idpublicacion);
       });
-    })
-
-    
+    });
   },
 
   comentarios: (req, res) => {
@@ -197,7 +193,7 @@ let productsController = {
   edit: async (req, res) => {
     let sesion = req.session;
     const Op = require("Sequelize").Op;
-  
+
     let productoSeleccionado = await db.Publicaciones.findOne({
       where: { idpublicacion: req.params.id },
       include: [{ association: "marcas", attributes: ["marca"] }],
@@ -205,12 +201,12 @@ let productsController = {
     const imagenes = await db.Imagenes.findAll({
       where: { [Op.and]: [{ idpublicacion: req.params.id }] },
     });
-    const marcas=await db.Marcas.findAll();
-    productoSeleccionado.imagenes=imagenes;
-    productoSeleccionado.marcas=marcas;
+    const marcas = await db.Marcas.findAll();
+    productoSeleccionado.imagenes = imagenes;
+    productoSeleccionado.marcas = marcas;
     res.render(path.resolve(__dirname, "../views/productEdit.ejs"), {
       producto: productoSeleccionado,
-      session: sesion
+      session: sesion,
     });
   },
 
@@ -311,6 +307,40 @@ let productsController = {
         .status(403)
         .json({ resultado: "error", mensaje: "Imagen no se pudo eliminar" });
     }
+  },
+  search: async (req, res) => {
+    //res.send(req.params.keyword);
+    const db = require("../data/models/");
+    const Op = require("Sequelize").Op;
+    let productos = await db.Publicaciones.findAll({
+      attributes: [
+        "idpublicacion",
+        "titulo",
+        "precio",
+        "idmarca",
+        "idcategoria",
+        "idsubcategoria",
+      ],
+      include: [{ association: "marcas", attributes: ["marca"] },
+      { association: "categorias", attributes: ["descripcion"] },
+      {
+        association: "imagenes",
+        attributes: ["imagen"],
+        where: { imagenprincipal: 1 },
+      }
+    ],
+      
+      where: {
+        visible: 1,
+        titulo: {
+          [Op.like]: "%" + req.params.keyword + "%",
+        },
+      },
+    });
+    res.render(path.resolve(__dirname, "../views/search.ejs"), {
+      productos: productos,
+    });
+    //res.send(productos)
   },
 };
 

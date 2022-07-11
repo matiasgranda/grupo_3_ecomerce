@@ -1,72 +1,98 @@
 <header>
-    <nav class="topnavbar">
-      <a href="#" onclick="openNav()" class="menu">
-        <i class="fa-solid fa-bars"></i>
-      </a>
-      <div class="logo-envio">
-        <a class="logo-navbar" href="/"><img src="/img/amazona-blanco.png" alt="" /></a>
-        <div class="envio">
-          <a href="#" class="iconoenvio">
-            <i class="fa-solid fa-location-dot"></i>
-          </a>
-          <p>
-            <span class="enviara">Enviar a</span> <br/>
-            <% if(locals.session.user){ %>
-              <a href=""><%= locals.session.pais %></a>
-              <% } else { %>
-              <a href="">Argentina</a> 
-              <% } %>
-          </p>
+  <nav class="topnavbar">
+    <a href="#" onclick="openNav()" class="menu">
+      <i class="fa-solid fa-bars"></i>
+    </a>
+    <div class="logo-envio">
+      <a class="logo-navbar" href="/"
+        ><img src="/img/amazona-blanco.png" alt=""
+      /></a>
+      <div class="envio">
+        <a href="#" class="iconoenvio">
+          <i class="fa-solid fa-location-dot"></i>
+        </a>
+        <p>
+          <span class="enviara">Enviar a</span> <br />
+          <% if(locals.session.user){ %>
+          <a href=""><%= locals.session.pais %></a>
+          <% } else { %>
+          <a href="">Argentina</a>
+          <% } %>
+        </p>
+      </div>
+    </div>
+    <div class="searchbar">
+      <a class="linkizquierda" href="/categorias">Categorias</a>
+      <input type="text" name="searchbox" id="searchbox" />
+      <a class="linkderecha" href="#" onclick="show_search_results()"
+        ><i class="fa-solid fa-magnifying-glass"></i
+      ></a>
+      <form
+        name="searchform"
+        id="searchform"
+        action="/search/"
+        style="display: none"
+      >
+        <input type="hidden" name="search" id="search" value="" />
+      </form>
+    </div>
+    <div class="login-carrito">
+      <% if(locals.session.user){ %>
+      <div class="dropdown">
+        <button class="dropbtn">
+          <img
+            src="/img/profiles/<%= locals.session.imagen %>"
+            style="width: 24px; border-radius: 50%"
+          />&nbsp;<%= locals.session.user %>
+        </button>
+        <div class="dropdown-content">
+          <a href="/perfil">Perfil</a>
+          <a href="/product/create/">Vender</a>
+          <a href="/admin">Publicaciones</a>
+          <a href="/logout">Cerrar Sesión</a>
         </div>
       </div>
-      <div class="searchbar">
-        <a class="linkizquierda" href="/categorias">Categorias</a>
-        <input type="text" name="searchbox" id="searchbox" />
-        <a class="linkderecha" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-      </div>
-      <div class="login-carrito">
-        
-        <% if(locals.session.user){ %>
-          <div class="dropdown">
-            <button class="dropbtn"><img src="/img/profiles/<%= locals.session.imagen %>" style="width:24px;border-radius: 50%;">&nbsp;<%= locals.session.user %></button>
-            <div class="dropdown-content">
-              <a href="/perfil">Perfil</a>
-              <a href="/product/create/">Vender</a>
-              <a href="/admin">Publicaciones</a>
-              <a href="/logout">Cerrar Sesión</a>
-            </div>
-          </div>
-          <% } else { %>
-        <a class="login" href="/login">
-          <i class="fa-solid fa-user"></i>
-          <p>
-            Iniciar <br />
-            sesión
-           
-          </p>
-        </a>
-        <% } %>
-        <a class="carrito" href="/cesta">
-          <i class="fa-solid fa-cart-shopping"></i>
-          <span class="numerocesta"></span>
-        </a>
-      </div>
-    </nav>
-    <nav class="bottomnavbar">
-      <div class="categorias">
-        <a href="#" onclick="openNav()">
-          <i class="fa-solid fa-bars"></i>
-          <p>Más</p>
-        </a>
-      </div>
-      <div class="links">
-        <ul>
-          <li><a href="#">Ofertas del dia</a></li>
-          <li><a href="#">Mas populares</a></li>
-          <li><a href="#">Gift Cards</a></li>
-          <li><a href="#">Servicio al cliente</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
- 
+      <% } else { %>
+      <a class="login" href="/login">
+        <i class="fa-solid fa-user"></i>
+        <p>
+          Iniciar <br />
+          sesión
+        </p>
+      </a>
+      <% } %>
+      <a class="carrito" href="/cesta">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="numerocesta"></span>
+      </a>
+    </div>
+  </nav>
+  <nav class="bottomnavbar">
+    <div class="categorias">
+      <a href="#" onclick="openNav()">
+        <i class="fa-solid fa-bars"></i>
+        <p>Más</p>
+      </a>
+    </div>
+    <div class="links">
+      <ul>
+        <li><a href="#">Ofertas del dia</a></li>
+        <li><a href="#">Mas populares</a></li>
+        <li><a href="#">Gift Cards</a></li>
+        <li><a href="#">Servicio al cliente</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<script>
+  let searchbox = document.querySelector("#searchbox");
+  searchbox.addEventListener("change", function () {
+    
+    let search = document.querySelector("#search");
+    search.value = this.value;
+  });
+  function show_search_results() {
+    let form = document.querySelector("#searchform");
+    form.submit();
+  }
+</script>
