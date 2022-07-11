@@ -27,14 +27,7 @@
       <a class="linkderecha" href="#" onclick="show_search_results()"
         ><i class="fa-solid fa-magnifying-glass"></i
       ></a>
-      <form
-        name="searchform"
-        id="searchform"
-        action="/search/"
-        style="display: none"
-      >
-        <input type="hidden" name="search" id="search" value="" />
-      </form>
+      
     </div>
     <div class="login-carrito">
       <% if(locals.session.user){ %>
@@ -85,14 +78,13 @@
   </nav>
 </header>
 <script>
-  let searchbox = document.querySelector("#searchbox");
-  searchbox.addEventListener("change", function () {
-    
-    let search = document.querySelector("#search");
-    search.value = this.value;
-  });
+  
   function show_search_results() {
-    let form = document.querySelector("#searchform");
-    form.submit();
+    let search = document.querySelector("#searchbox");
+    let search_value = search.value;
+    if (search_value.length > 2) {
+      window.location.href = "/product/search/" + search_value;
+    }
+   
   }
 </script>

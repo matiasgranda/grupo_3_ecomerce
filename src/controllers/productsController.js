@@ -322,12 +322,13 @@ let productsController = {
         "idcategoria",
         "idsubcategoria",
       ],
-      include: [{ association: "marcas", attributes: ["marca"] },
-      { association: "categorias", attributes: ["descripcion"] },
+      include: [{ association: "marcas", attributes: ["marca"], required:true},
+      { association: "categorias", attributes: ["descripcion"],required:true },
       {
         association: "imagenes",
         attributes: ["imagen"],
         where: { imagenprincipal: 1 },
+        require:true
       }
     ],
       
