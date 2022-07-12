@@ -176,6 +176,14 @@ input:focus, select:focus{
     text-decoration: underline;
 }
 
+.prueba {
+    height: 100px;
+}
+
+.error {
+    border: 2px solid #c00 !important;
+}
+
 @media(max-width: 1250px) {
     .registro {
         width: 50%;

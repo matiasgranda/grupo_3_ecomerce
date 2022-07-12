@@ -30,6 +30,7 @@
             required
             minlength="4"
             maxlength="18"
+            onchange="validation(this, 4, 18)"
             value="<%= locals.old && old.nombre ? old.nombre : "" %>"
           />
         </div>
@@ -44,6 +45,7 @@
             required
             minlength="4"
             maxlength="30"
+            onchange="validation(this, 4, 30)"
             value="<%= locals.old && old.apellido ? old.apellido : "" %>"
           />
         </div>
@@ -58,6 +60,7 @@
             required
             minlength="7"
             maxlength="10"
+            onchange="validation(this, 7, 10)"
             value="<%= locals.old && old.telefono ? old.telefono : "" %>"
           />
         </div>
@@ -72,6 +75,7 @@
             required
             minlength="4"
             maxlength="18"
+            onchange="validation(this, 4, 18)"
             value="<%= locals.old && old.usuario ? old.usuario : "" %>"
           />
         </div>
@@ -84,6 +88,7 @@
             autocomplete="email"
             placeholder="ejemplo@correo.com"
             required
+            onchange="validateEmail(this)"
             value="<%= locals.old && old.mail ? old.mail : "" %>"
           />
         </div>
@@ -96,6 +101,7 @@
             autocomplete="new-password"
             required
             minlength="6"
+            onchange="validation(this, 6, 30)"
           />
         </div>
         <div class="form-box">
@@ -107,6 +113,7 @@
             autocomplete="new-password"
             required
             minlength="6"
+            onchange="validation(this, 6, 30)"
           />
         </div>
         <div class="form-date">
@@ -126,4 +133,6 @@
       <a class="redirect-links" href="/">Pagina de inicio.</a>
     </div>
   </body>
+  <script src="/js/registerValidation.js
+  "></script>
 </html>

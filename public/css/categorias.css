@@ -19,6 +19,9 @@ main {
   background-color: #EAEDED;
   display: flex;
 }
+.relleno {
+  height: 100px;
+}
 .barralateral {
   padding: 10px;
   
