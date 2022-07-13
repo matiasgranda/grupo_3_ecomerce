@@ -200,6 +200,14 @@ form div {
     margin-bottom: 10px;
 }
 
+::placeholder {
+    opacity: 0;;
+}
+
+.inputError {
+    border: 2px solid #c00 !important;
+}
+
 @media (max-width: 800px) {
     .productForm {
         margin-top: 20px;

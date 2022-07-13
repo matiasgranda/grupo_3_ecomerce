@@ -54,12 +54,14 @@ let loginController = {
         };
         return res.render(path.resolve(__dirname, "../views/login.ejs"), {
           errors: errors.mapped(),
+          session: req.session,
           old: req.body,
           mensaje: mensaje,
         });
       } else {
         return res.render(path.resolve(__dirname, "../views/login.ejs"), {
           errors: errors.mapped(),
+          session: req.session,
           old: req.body,
         });
       }
