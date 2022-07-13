@@ -1,14 +1,17 @@
 
 
-
+    let inputName = document.querySelector("#nombre");
 
     function validation(obj, min, max) {
-
         if (obj.value.length < min || obj.value.length > max) {
             obj.classList.add("error")
+            let label = obj.previousElementSibling
+            label.textContent = obj.placeholder + " debe tener entre " + min + "-" + max + " caracteres"
         }
         if (obj.value.length > min && obj.value.length < max) {
             obj.classList.remove("error")
+            let label = obj.previousElementSibling
+            label.textContent = obj.placeholder
         }
     }
 
@@ -20,3 +23,22 @@
             inputText.classList.add("error")
         }
     }
+
+
+    let password = document.querySelector("#password");
+    let passwordConfirm = document.querySelector("#confPassword");
+
+    passwordConfirm.addEventListener("change", function() {
+        if (passwordConfirm.value != password.value) {
+            let label = passwordConfirm.previousElementSibling
+            label.textContent = "Passwords don't match."
+            password.classList.add("error")
+            passwordConfirm.classList.add("error")
+        } else {
+            let label = passwordConfirm.previousElementSibling
+            passwordConfirm.classList.remove("error");
+            password.classList.remove("error")
+            label.textContent = "Confirme su contraseña"
+        }
+    })
+

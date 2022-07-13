@@ -20,7 +20,7 @@
           <%  }) %> 
         <% } %> 
         <div class="form-box">
-          <label for="usuario">Nombre:</label>
+          <label for="nombre">Nombre:</label>
           <input
             type="text"
             name="nombre"
@@ -35,7 +35,7 @@
           />
         </div>
         <div class="form-box">
-          <label for="usuario">Apellido:</label>
+          <label for="apellido">Apellido:</label>
           <input
             type="text"
             name="apellido"
@@ -50,7 +50,7 @@
           />
         </div>
         <div class="form-box">
-          <label for="usuario">Teléfono:</label>
+          <label for="telefono">Teléfono:</label>
           <input
             type="tel"
             name="telefono"
@@ -99,6 +99,7 @@
             name="password"
             id="password"
             autocomplete="new-password"
+            placeholder="Contraseña"
             required
             minlength="6"
             onchange="validation(this, 6, 30)"
@@ -111,6 +112,7 @@
             name="confPassword"
             id="confPassword"
             autocomplete="new-password"
+            placeholder="Contraseña"
             required
             minlength="6"
             onchange="validation(this, 6, 30)"

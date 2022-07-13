@@ -82,6 +82,12 @@ label {
     width: 100%;
 }
 
+.errorMsg {
+    height: 20px;
+    display: flex;
+    width: 100%;
+}
+
 .form-box input {
     /*height: 30px;
     width: 80%;
@@ -182,6 +188,15 @@ input:focus, select:focus{
 
 .error {
     border: 2px solid #c00 !important;
+}
+
+.errorMsg {
+    position: relative;
+    z-index: 999;
+    left: 100px;
+    display: flex;
+    width: fit-content;
+    background-color: #3a3737;
 }
 
 @media(max-width: 1250px) {
