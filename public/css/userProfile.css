@@ -172,6 +172,15 @@ body {
   width: 100%;
 }
 
+.publicaciones-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.publicaciones-items a {
+  margin: 3px 1px;
+}
+
 .direcciones {
   margin: 10px;
   border-radius: 1%;

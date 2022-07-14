@@ -17,12 +17,12 @@
                 <div class="error"><%= locals.mensaje.msg %></div>
             <% } %>
             <div class="loginuser">
-                <label for="user">Nombre de usuario:</label>
+                <label for="user">Nombre de usuario o Email:</label>
                 <input 
+                    data-mensaje="Nombre de usuario o Email"
                     type="text" 
                     name="user" 
                     id="user" 
-                    placeholder="Nombre de usuario o Email" 
                     onchange="validation(this, 2, 30)"
                     value="<%= locals.old && old.user ? old.user : "" %>">
                 <% if(locals.errors && locals.errors.user){ %>
@@ -33,10 +33,10 @@
             <div class="loginpassword">
                 <label for="password">Contraseña:</label>
                 <input 
+                    data-mensaje="Contraseña"
                     type="password" 
                     name="password" 
                     id="password" 
-                    placeholder="Contraseña" 
                     onchange="validation(this, 6, 30)">
                 <% if(locals.errors && locals.errors.password){ %>
                     <div class="error"><%= locals.errors.password.msg %></div>

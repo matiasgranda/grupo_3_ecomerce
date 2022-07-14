@@ -97,21 +97,11 @@
                 <div class="contenedorpublicaciones">
                 <h3>Tus Publicaciones</h3>
                 <div class="publicaciones-items">
-                    <div class="direcciones-item">
-                        <div class="titulopublicacion">
-                            <a href="/product/1">Auriculares Inalambricos Sony</a>
-                        </div>
-                    </div>
-                    <div class="direcciones-item">
-                        <div class="titulopublicacion"><a href="/product/2">Macbook Air</a></div>
-                    </div>
-                    <div class="direcciones-item">
-                        <div class="titulopublicacion"><a href="/product/3">Notebook MSI</a></div>
-                    </div>
-                    <div class="direcciones-item">
-                        <div class="titulopublicacion"><a href="/product/4">Playstation 5</a></div>
-                    </div>
-                    
+                    <% for(let i = 0; i < 5; i++) { %> 
+
+                      <a href="/producto/<%= publicaciones[i].idpublicacion %> "><%= publicaciones[i].titulo %> </a>
+                      
+                    <% } %> 
                 </div>
                 <small style="text-align: right; margin-top: 10px; display: block; "><a href="/admin/" style="color: black;">Ver todas (<%= publicaciones.length %>)</a></small>
                 </div>

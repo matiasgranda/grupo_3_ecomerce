@@ -210,6 +210,10 @@ body {
     color: rgb(85, 85, 85);
 }
 
+::placeholder {
+    opacity: 0;
+}
+
 .inputError {
     border: 2px solid #c00 !important;
 }
