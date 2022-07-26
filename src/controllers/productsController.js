@@ -322,6 +322,7 @@ let productsController = {
         "idmarca",
         "idcategoria",
         "idsubcategoria",
+        "stock"
       ],
       include: [{ association: "marcas", attributes: ["marca"], required:true},
       { association: "categorias", attributes: ["descripcion"],required:true },
@@ -344,6 +345,7 @@ let productsController = {
       productos: productos,
       session: sesion,
     });
+    console.log(productos)
 
     //res.send(productos)
   },

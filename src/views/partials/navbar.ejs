@@ -83,7 +83,7 @@
 
     let search = document.querySelector("#searchbox");
     let search_value = search.value;
-    if (search_value.length > 2) {
+    if (search_value.length >= 1) {
       window.location.href = "/product/search/" + search_value;
     }
   }

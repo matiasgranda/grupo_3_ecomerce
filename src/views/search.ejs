@@ -2,27 +2,50 @@
 <html lang="en">
   <head>
     <%- include('./partials/head') %>
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/search.css" />
 
     <title>Amazona | Proyecto Grupo 3</title>
   </head>
 
   <body>
     <%- include('./partials/navbar') %>
-    <%= productos[0].titulo %>
     <main>
-      <section class="categorias">
+      <section class="categoriasSection">
         <% for(let i = 0; i < productos.length; i++) { %>
-
+          <div><p>Prueba</p></div>
         <% } %>
       </section>
 
-      <section class="productos">
+      <section class="productosSection">
         <% for(let i = 0; i < productos.length; i++) { %>
-          <div class="productBox">
-            <div><h3><%= productos[i].titulo %></h3></div>
-            <div><img src="/img/<%= productos[i].imagenes[0].imagen %>"></div>
-            <div><p><%= productos[i].precio %></p></div>
+          
+          <div class="productContainer">
+            <div class="productImgDiv">
+              <a href="/product/<%= productos[i].idpublicacion %>">
+              <img class="productImg" src="/img/<%= productos[i].imagenes[0].imagen %>">
+            </a>
+            </div>
+
+            <div class="productInfoDiv">
+              <div class="productTitleDiv">
+                <a href="/product/<%= productos[i].idpublicacion %>">
+                  <h3><%= productos[i].titulo %></h3>
+                </a>
+                
+              </div>
+              
+              <div>
+                <p><%= productos[i].precio %></p>
+              </div>
+              <div>
+                <p><%= productos[i].marcas.marca %></p>
+              </div>
+              <div>
+                <p><%= productos[i].stock %></p>
+              </div>
+            </div>
+
+            
             
             <div></div>
 
