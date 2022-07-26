@@ -80,11 +80,19 @@
 <script>
   
   function show_search_results() {
+
     let search = document.querySelector("#searchbox");
     let search_value = search.value;
     if (search_value.length > 2) {
       window.location.href = "/product/search/" + search_value;
     }
-   
   }
+  let btn = document.querySelector(".linkderecha");
+  let search = document.querySelector("#searchbox");
+    search.addEventListener("keypress", function(e) {
+      if(e.key === "Enter") {
+        e.preventDefault();
+        btn.click();
+      }
+    })
 </script>

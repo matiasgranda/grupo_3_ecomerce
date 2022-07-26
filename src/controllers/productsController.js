@@ -16,6 +16,7 @@ let productsController = {
     var datosPublicacion = {};
     var productoSeleccionado = parseInt(req.params.id);
     if (productoSeleccionado > 0) {
+      
       db.Publicaciones.findOne({
         include: [
           {
@@ -343,6 +344,7 @@ let productsController = {
       productos: productos,
       session: sesion,
     });
+
     //res.send(productos)
   },
 };

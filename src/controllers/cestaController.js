@@ -5,7 +5,7 @@ const { parse } = require("path");
 const { Console } = require("console");
 const session = require("express-session");
 
-let registroController = {
+let cestaController = {
   main: (req, res) => {
     let sesion = req.session;
     return res.render(path.resolve(__dirname, "../views/cesta.ejs"), {
@@ -100,4 +100,4 @@ let registroController = {
   },
 };
 
-module.exports = registroController;
+module.exports = cestaController;

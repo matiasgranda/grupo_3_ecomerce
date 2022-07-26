@@ -1,57 +1,58 @@
 let db = require("../data/models/index");
+const sequelize = require("sequelize");
 
 let productosApiController = {
 
     "lista": async (req, res) => {
 
-        const tecnologia = await db.Publicaciones.findAll({where: {idcategoria : 1}});
-        const moda = await db.Publicaciones.findAll({where: {idcategoria : 2}})
-        const hogar = await db.Publicaciones.findAll({where: {idcategoria : 3}})
-        const deportes = await db.Publicaciones.findAll({where: {idcategoria : 4}})
-        const movilidad = await db.Publicaciones.findAll({where: {idcategoria : 5}})
-        const ninios = await db.Publicaciones.findAll({where: {idcategoria : 6}})
+        const sumarCategorias = await db.Publicaciones.findAll({
+            group: "idcategoria",
+            attributes:["idcategoria"],
+            include: [
+                {
+                    association: "categorias",
+                    attributes: [
+                        "descripcion",
+                        [sequelize.fn("COUNT", sequelize.col("Publicaciones.idcategoria")), "total"]
+                    ]
+                }
+            ]
+        })
+        let categoriasTotal = [];
+        sumarCategorias.forEach(categoria => {
+            let result = {
+                categoria: categoria.categorias.descripcion,
+                total: categoria.categorias.total
+            }
+            categoriasTotal.push(result)
+        })
 
-        let countByCategory = {
-            tecnologia: tecnologia.length,
-            moda: moda.length,
-            hogar: hogar.length,
-            deportes: deportes.length,
-            movilidad: movilidad.length,
-            ninios: ninios.length
-        }
 
-        const publicaciones = await db.Publicaciones.findAll()
+        db.Publicaciones.findAll({
+            include: [{
+                association: "marcas", attributes: ["marca"], required: true
+            }]
+        }).then((publicaciones) => {
+            var products = [];
+            publicaciones.forEach(producto => {
 
-
-        let arrayProductos = [];
-
-        publicaciones.forEach(async producto => {
-
-            const marca = await db.Marcas.findByPk(producto.idmarca)
-                
-                let product = {
+                let publicacion = {
                     id: producto.idpublicacion,
                     name: producto.titulo,
                     description: producto.descripcion,
-                    relacion: ["color/es: "+producto.colores, "marca: "+marca.marca],
-                    detail: "api/productos"+producto.idpublicacion
+                    array: ["colores: "+producto.colores, "Marca: "+producto.marcas.marca],
+                    detail: "api/productos/"+producto.idpublicacion
                 }
 
-                arrayProductos.push(product)
-                console.log(arrayProductos)  
-        })
-
+                products.push(publicacion)
+            })
             let result = {
-                meta: {
-                    status: 200,
-                    url: "api/productos"
-                },
-                count: publicaciones.length,
-                countByCategory: countByCategory,
-                productos: arrayProductos
+                countByCategory: categoriasTotal,
+                products: products
             }
+    
             res.json(result)
-            
+        })
             
     },
 

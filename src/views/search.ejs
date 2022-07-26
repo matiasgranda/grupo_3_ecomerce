@@ -9,6 +9,27 @@
 
   <body>
     <%- include('./partials/navbar') %>
-</body>
+    <%= productos[0].titulo %>
+    <main>
+      <section class="categorias">
+        <% for(let i = 0; i < productos.length; i++) { %>
+
+        <% } %>
+      </section>
+
+      <section class="productos">
+        <% for(let i = 0; i < productos.length; i++) { %>
+          <div class="productBox">
+            <div><h3><%= productos[i].titulo %></h3></div>
+            <div><img src="/img/<%= productos[i].imagenes[0].imagen %>"></div>
+            <div><p><%= productos[i].precio %></p></div>
+            
+            <div></div>
+
+          </div>
+        <% } %>
+      </section>
+    </main>
+  </body>
 
 </html>
