@@ -10,14 +10,17 @@
   <body>
     <%- include('./partials/navbar') %>
     <main>
+      <% if(productos.length == 0) { %>
+        <h2 class="productosNoEncontrados">No se encontraron productos.</h2>
+      <% } %>
       <section class="categoriasSection">
-        <% for(let i = 0; i < productos.length; i++) { %>
+        <% uniqueCategory.forEach((categoria, i) => { %>
           <div class="categoriaContainer">
-            <a class="categoriaLink" href="#/">
-              <p class="categoriaText">Categoria X</p>
+            <a class="categoriaLink" href="/categorias/<%= i+1 %>">
+              <p class="categoriaText"><%= categoria %></p>
             </a>
           </div>
-        <% } %>
+         <%  }) %>
       </section>
 
       <section class="productosSection">

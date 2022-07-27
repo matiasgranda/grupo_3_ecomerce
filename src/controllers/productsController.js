@@ -341,11 +341,19 @@ let productsController = {
         },
       },
     });
+
+    let duplicateCategory = [];
+    productos.forEach(producto => {
+      duplicateCategory.push(producto.categorias.descripcion)
+    })
+
+    let uniqueCategory = [...new Set(duplicateCategory)];
+
     res.render(path.resolve(__dirname, "../views/search.ejs"), {
       productos: productos,
       session: sesion,
+      uniqueCategory: uniqueCategory
     });
-    console.log(productos)
 
     //res.send(productos)
   },
