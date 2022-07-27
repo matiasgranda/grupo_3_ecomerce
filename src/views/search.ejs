@@ -12,7 +12,11 @@
     <main>
       <section class="categoriasSection">
         <% for(let i = 0; i < productos.length; i++) { %>
-          <div><p>Prueba</p></div>
+          <div class="categoriaContainer">
+            <a class="categoriaLink" href="#/">
+              <p class="categoriaText">Categoria X</p>
+            </a>
+          </div>
         <% } %>
       </section>
 
@@ -26,23 +30,25 @@
             </a>
             </div>
 
-            <div class="productInfoDiv">
+            <div class="productInfoContainer">
               <div class="productTitleDiv">
                 <a href="/product/<%= productos[i].idpublicacion %>">
                   <h3><%= productos[i].titulo %></h3>
                 </a>
                 
               </div>
+              <div class="productInfoDiv">
+                <div>
+                  <p>Precio: <%= productos[i].precio %></p>
+                </div>
+                <div>
+                  <p>Marca: <%= productos[i].marcas.marca %></p>
+                </div>
+                <div>
+                  <p>En stock: <%= productos[i].stock %></p>
+                </div>
+              </div>
               
-              <div>
-                <p><%= productos[i].precio %></p>
-              </div>
-              <div>
-                <p><%= productos[i].marcas.marca %></p>
-              </div>
-              <div>
-                <p><%= productos[i].stock %></p>
-              </div>
             </div>
 
             

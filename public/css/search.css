@@ -16,29 +16,69 @@ body {
 main {
     padding-top: 90px;
     width: 100%;
+    max-height: fit-content;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-left: 15%;
 }
 
 .categoriasSection {
-    width: 15%;
-    height: 100%;
+    margin-top: 20px;
+    width: 300px;
+    height: fit-content;
+    min-height: 100%;
+    box-shadow: 0px 0px 5px 0px rgb(173, 173, 173);
+    margin-right: 20px;
+    border-radius: 4px;
+}
 
+.categoriaContainer {
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+    border-bottom: 1px solid lightgray;
+    border-radius: 4px;
+}
+
+.categoriaLink {
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+    padding-left: 20px;
+    width: 100%;
+    height: 50px;
+    color: black;
+    border-radius: 4px;
+}
+
+.categoriaLink:hover {
+    background-color: rgb(199, 199, 199);
 }
 
 .productosSection {
-    width: 50%;
-    height: 100%;
-
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 600px;
+    height: fit-content;
+    min-height: 100%;
 }
 
 .productContainer {
-    width: 100%;
+    width: 600px;
     height: 220px;
     box-shadow: 0px 0px 5px 0px rgb(173, 173, 173);
     display: flex;
     align-items: center;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    padding-left: 5px;
+}
+
+.productContainer:hover {
+    box-shadow: 0px 0px 5px 2px rgb(173, 173, 173);
 }
 
 .productImgDiv {
@@ -49,16 +89,16 @@ main {
     justify-content: center;
 }
 
-.productInfoDiv {
+.productInfoContainer {
     height: 100%;
     width: 500px;
     display: flex;
     flex-direction: column;
-
+    justify-content: space-evenly;
 }
 
 .productTitleDiv {
-    width: 100%;
+    width: 300px;
     height: 40px;
     display: flex;
     align-items: center;
@@ -68,7 +108,7 @@ main {
 
 .productTitleDiv a {
     padding: 0px 20px;
-
+    color: black;
 }
 
 .productTitleDiv h3 {
@@ -82,4 +122,14 @@ main {
 .productImg {
     max-width: 200px;
     max-height: 200px;
+}
+
+.productInfoDiv {
+    width: 300px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 20px;
+    align-items: flex-start;
 }
