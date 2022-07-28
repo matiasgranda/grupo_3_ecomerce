@@ -26,7 +26,7 @@ let cestaController = {
   },
   add: (req, res) => {
     let sesion = req.session;
-
+    
     if (!isNaN(parseInt(req.params.id))) {
       //let basketProducts = [];
       let productList = JSON.parse(
@@ -89,6 +89,17 @@ let cestaController = {
               stock: publicacion.stock,
             };
             req.session.basketProducts.push(productAdded);
+            //recalcular total de productos en la cesta
+            if(sesion.basketProducts != undefined) {
+              let cesta = sesion.basketProducts
+              var totalProductos = 0;
+              cesta.forEach(producto => {
+                totalProductos = totalProductos + producto.cantidad
+              })
+            }
+            sesion.totalProductos = totalProductos
+
+
             return res.render(path.resolve(__dirname, "../views/cesta.ejs"), {
               session: sesion,
             });
@@ -106,6 +117,14 @@ let cestaController = {
     sesion.basketProducts = sesion.basketProducts.filter(
       (product) => product.id != req.params.id
     );
+    if(sesion.basketProducts != undefined) {
+      let cesta = sesion.basketProducts
+      var totalProductos = 0;
+      cesta.forEach(producto => {
+        totalProductos = totalProductos + producto.cantidad
+      })
+    }
+    sesion.totalProductos = totalProductos
     return res.render(path.resolve(__dirname, "../views/cesta.ejs"), {
       session: sesion,
     });
