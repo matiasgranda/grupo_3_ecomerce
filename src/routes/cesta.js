@@ -10,7 +10,7 @@ router.get("/", cestaController.main);
 router.get("/update/:id/:cantidad",cestaController.update);
 router.post("/agregar/:id", cestaController.add);
 router.get("/delete/:id", cestaController.delete);
-router.get("/confirmar", cestaController.checkout);
+//router.get("/confirmar", cestaController.checkout);
 
 
 
