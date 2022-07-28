@@ -325,7 +325,7 @@ let productsController = {
         "stock"
       ],
       include: [{ association: "marcas", attributes: ["marca"], required:true},
-      { association: "categorias", attributes: ["descripcion"],required:true },
+      { association: "categorias", attributes: ["descripcion", "idcategoria"],required:true },
       {
         association: "imagenes",
         attributes: ["imagen"],
@@ -342,12 +342,20 @@ let productsController = {
       },
     });
 
-    let duplicateCategory = [];
-    productos.forEach(producto => {
-      duplicateCategory.push(producto.categorias.descripcion)
-    })
+    let uniqueCategory = [];
 
-    let uniqueCategory = [...new Set(duplicateCategory)];
+      for(let i = 0; i < productos.length; i++) {
+
+      const found = uniqueCategory.some(item => item.titulo === productos[i].categorias.descripcion);
+      console.log(found)
+      if(!found) {
+        let categoria = {
+          titulo: productos[i].categorias.descripcion,
+          id: productos[i].categorias.idcategoria
+        }
+        uniqueCategory.push(categoria)
+      }
+    }
 
     res.render(path.resolve(__dirname, "../views/search.ejs"), {
       productos: productos,

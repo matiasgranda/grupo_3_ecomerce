@@ -4,13 +4,25 @@ const actions = require("../data/actions");
 const { parse } = require("path");
 const { Console } = require("console");
 const session = require("express-session");
+const db = require("../data/models/");
 
 let cestaController = {
   main: (req, res) => {
     let sesion = req.session;
+
+    if(sesion.basketProducts != undefined) {
+      let cesta = sesion.basketProducts
+      var totalProductos = 0;
+      cesta.forEach(producto => {
+        totalProductos = totalProductos + producto.cantidad
+      })
+    }
+    req.session.totalProductos = totalProductos
+
     return res.render(path.resolve(__dirname, "../views/cesta.ejs"), {
       session: sesion,
     });
+
   },
   add: (req, res) => {
     let sesion = req.session;
@@ -98,6 +110,24 @@ let cestaController = {
       session: sesion,
     });
   },
+
+  buy: (req, res) => {
+    let sesion = req.session;
+
+    if(req.session.username === undefined) {
+      res.redirect("/login");
+    }
+
+    var arrayProductosEnCesta = [];
+
+    req.session.basketProducts
+
+    db.Publicaciones.findAll()
+
+
+
+
+  }
 };
 
 module.exports = cestaController;

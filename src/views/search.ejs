@@ -14,10 +14,10 @@
         <h2 class="productosNoEncontrados">No se encontraron productos.</h2>
       <% } %>
       <section class="categoriasSection">
-        <% uniqueCategory.forEach((categoria, i) => { %>
+        <% uniqueCategory.forEach(categoria => { %>
           <div class="categoriaContainer">
-            <a class="categoriaLink" href="/categorias/<%= i+1 %>">
-              <p class="categoriaText"><%= categoria %></p>
+            <a class="categoriaLink" href="/categorias/<%= categoria.id %>">
+              <p class="categoriaText"><%= categoria.titulo %></p>
             </a>
           </div>
          <%  }) %>

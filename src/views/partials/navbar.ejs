@@ -56,7 +56,9 @@
       <% } %>
       <a class="carrito" href="/cesta">
         <i class="fa-solid fa-cart-shopping"></i>
-        <span class="numerocesta"></span>
+        <% if(locals.session.totalProductos) { %>
+        <span class="numerocesta"> <%= locals.session.totalProductos %> </span>
+        <% } %>
       </a>
     </div>
   </nav>
