@@ -129,7 +129,33 @@ let cestaController = {
       session: sesion,
     });
   },
+  update: (req, res) => {
+    let sesion = req.session;
+    if (!isNaN(parseInt(req.params.id))&&!isNaN(parseInt(req.params.cantidad))) {
+      if(sesion.basketProducts != undefined) {
+        req.session.basketProducts.forEach(producto => {
+          if (producto.id == req.params.id) {
+            producto.cantidad=  parseInt(req.params.cantidad);
+          }
+        });
 
+        let cesta = sesion.basketProducts
+        var totalProductos = 0;
+        cesta.forEach(producto => {
+          totalProductos = totalProductos + producto.cantidad
+        })
+        sesion.totalProductos = totalProductos
+        let mensaje={mensaje:"ok"};
+        return res.status(200).send(mensaje);
+      }
+      return res.status(200).send('ok');
+
+      
+    }
+    return res.render(path.resolve(__dirname, "../views/cesta.ejs"), {
+      session: sesion,
+    });
+  },
   buy: (req, res) => {
     let sesion = req.session;
 

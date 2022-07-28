@@ -33,19 +33,16 @@
                             <label for="selectcantidad">Cant.</label>
                             <% if (locals.session.basketProducts[i].cantidad<=locals.session.basketProducts[i].stock){ %>
                                 
-                            <select name="cantidad">
+                            <select name="cantidad" onChange="update2(<%= locals.session.basketProducts[i].id %>,this.value)">
                                 <% for(let j = 1;j <= locals.session.basketProducts[i].stock;j++){ %> 
                                     
                                     <option value="<%= j %>" <% if (locals.session.basketProducts[i].cantidad==j){%> selected <% } %>><%= j %></option> 
-                                <!-- <option value="1" <% if (locals.session.basketProducts[i].cantidad==1){%> selected <% } %> >1</option>
-                                <option value="2" <% if (locals.session.basketProducts[i].cantidad==2){%> selected <% } %> >2</option>
-                                <option value="3" <% if (locals.session.basketProducts[i].cantidad==3){%> selected <% } %> >3</option>
-                                <option value="4" <% if (locals.session.basketProducts[i].cantidad==4){%> selected <% } %> >4</option> -->
+                                
                                 <% } %>
                             </select>
                            
                             <% } else { %>
-                                <select name="cantidad">
+                                <select name="cantidad" onChange="update2(<%= locals.session.basketProducts[i].id %>,this.value)">
                                     <% for(let j = 1;j <= locals.session.basketProducts[i].stock;j++){ %> 
                                         
                                          <option value="<%= j %>" <% if (locals.session.basketProducts[i].cantidad==locals.session.basketProducts[i].stock){%> selected <% } %>><%= j %></option>
@@ -100,20 +97,38 @@
                 var xhr = new XMLHttpRequest();
                 xhr.open("GET", "/cesta/delete/"+id);
                 xhr.send(formData);
-               /* var url = "/cesta";
-                var xhr = new XMLHttpRequest();
-
-                xhr.open("DELETE", url, true);
-                xhr.onload = function () {
-                    var users = JSON.parse(xhr.responseText);
-                    if (xhr.readyState == 4 && xhr.status == "200") {
-                        console.table(users);
-                    } else {
-                        console.error(users);
-                    }
-                }
-                xhr.send(null);*/
+             
             }
+            function updateProduct(id, cantidad){
+                let iditem=parseInt(id);
+                let cantidadnueva=parseInt(cantidad);
+                var formData = new FormData();
+                formData.append("productId", iditem);
+                formData.append("cantidad", cantidadnueva);
+                var xhr = new XMLHttpRequest();
+                xhr.open("PATCH", "/cesta/update/"+iditem+"/"+cantidadnueva);
+                xhr.send(formData);
+                alert(xhr.status);
+                alert(xhr.responseText);
+                if(xhr.status==200){
+                    location.href="/cesta";
+                }
+            }
+            function update2(id, cantidad){
+                    let iditem=parseInt(id);
+                    let cantidadnueva=parseInt(cantidad);
+                    fetch("/cesta/update/"+iditem+"/"+cantidadnueva).then(function(response){
+                        return response.json();
+                    }).then(function(data){
+                        if(data.mensaje=="ok"){
+                            location.href="/cesta";
+                        }
+                    }).catch(function(error){
+                        console.log(error);
+                    });
+               }
+             
+            
         </script>
     </div>
   <%- include('./partials/sidenav') %>
