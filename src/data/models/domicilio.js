@@ -22,5 +22,16 @@ module.exports = (sequelize, dataTypes) => {
 
     const Domicilios=sequelize.define(alias,cols,config);
 
+    Domicilios.associate = function (models) {
+        Domicilios.belongsTo(models.Paises, {
+            as: 'pais',
+            foreignKey: 'idpais'
+        });
+        Domicilios.belongsTo(models.Provincias, {
+            as: 'provincia',
+            foreignKey: 'idProvincia'
+        });
+    }
+
     return Domicilios;
 }

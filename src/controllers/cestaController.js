@@ -10,23 +10,22 @@ let cestaController = {
   main: (req, res) => {
     let sesion = req.session;
 
-    if(sesion.basketProducts != undefined) {
-      let cesta = sesion.basketProducts
+    if (sesion.basketProducts != undefined) {
+      let cesta = sesion.basketProducts;
       var totalProductos = 0;
-      cesta.forEach(producto => {
-        totalProductos = totalProductos + producto.cantidad
-      })
+      cesta.forEach((producto) => {
+        totalProductos = totalProductos + producto.cantidad;
+      });
     }
-    req.session.totalProductos = totalProductos
+    req.session.totalProductos = totalProductos;
 
     return res.render(path.resolve(__dirname, "../views/cesta.ejs"), {
       session: sesion,
     });
-
   },
   add: (req, res) => {
     let sesion = req.session;
-    
+
     if (!isNaN(parseInt(req.params.id))) {
       //let basketProducts = [];
       let productList = JSON.parse(
@@ -59,7 +58,11 @@ let cestaController = {
             });
           } else {
             return res.render(path.resolve(__dirname, "../views/cesta.ejs"), {
-              session: sesion, mensaje:{mensaje:"La cantidad agregada supera a la existencia",id:product.idProd}
+              session: sesion,
+              mensaje: {
+                mensaje: "La cantidad agregada supera a la existencia",
+                id: product.idProd,
+              },
             });
           }
         }
@@ -90,15 +93,14 @@ let cestaController = {
             };
             req.session.basketProducts.push(productAdded);
             //recalcular total de productos en la cesta
-            if(sesion.basketProducts != undefined) {
-              let cesta = sesion.basketProducts
+            if (sesion.basketProducts != undefined) {
+              let cesta = sesion.basketProducts;
               var totalProductos = 0;
-              cesta.forEach(producto => {
-                totalProductos = totalProductos + producto.cantidad
-              })
+              cesta.forEach((producto) => {
+                totalProductos = totalProductos + producto.cantidad;
+              });
             }
-            sesion.totalProductos = totalProductos
-
+            sesion.totalProductos = totalProductos;
 
             return res.render(path.resolve(__dirname, "../views/cesta.ejs"), {
               session: sesion,
@@ -117,63 +119,107 @@ let cestaController = {
     sesion.basketProducts = sesion.basketProducts.filter(
       (product) => product.id != req.params.id
     );
-    if(sesion.basketProducts != undefined) {
-      let cesta = sesion.basketProducts
+    if (sesion.basketProducts != undefined) {
+      let cesta = sesion.basketProducts;
       var totalProductos = 0;
-      cesta.forEach(producto => {
-        totalProductos = totalProductos + producto.cantidad
-      })
+      cesta.forEach((producto) => {
+        totalProductos = totalProductos + producto.cantidad;
+      });
     }
-    sesion.totalProductos = totalProductos
+    sesion.totalProductos = totalProductos;
     return res.render(path.resolve(__dirname, "../views/cesta.ejs"), {
       session: sesion,
     });
   },
   update: (req, res) => {
     let sesion = req.session;
-    if (!isNaN(parseInt(req.params.id))&&!isNaN(parseInt(req.params.cantidad))) {
-      if(sesion.basketProducts != undefined) {
-        req.session.basketProducts.forEach(producto => {
+    if (
+      !isNaN(parseInt(req.params.id)) &&
+      !isNaN(parseInt(req.params.cantidad))
+    ) {
+      if (sesion.basketProducts != undefined) {
+        req.session.basketProducts.forEach((producto) => {
           if (producto.id == req.params.id) {
-            producto.cantidad=  parseInt(req.params.cantidad);
+            producto.cantidad = parseInt(req.params.cantidad);
           }
         });
 
-        let cesta = sesion.basketProducts
+        let cesta = sesion.basketProducts;
         var totalProductos = 0;
-        cesta.forEach(producto => {
-          totalProductos = totalProductos + producto.cantidad
-        })
-        sesion.totalProductos = totalProductos
-        let mensaje={mensaje:"ok"};
+        cesta.forEach((producto) => {
+          totalProductos = totalProductos + producto.cantidad;
+        });
+        sesion.totalProductos = totalProductos;
+        let mensaje = { mensaje: "ok" };
         return res.status(200).send(mensaje);
       }
-      let mensaje={mensaje:"error"};
+      let mensaje = { mensaje: "error" };
       return res.status(200).send(mensaje);
-
-      
     }
     return res.render(path.resolve(__dirname, "../views/cesta.ejs"), {
       session: sesion,
     });
   },
-  buy: (req, res) => {
+  checkout: (req, res) => {
     let sesion = req.session;
-    console.log(sesion)
-    if(req.session.user === undefined) {
+    if (req.session.user === undefined) {
       res.redirect("/login");
     }
 
+    db.Domicilios.findOne({
+      where: { idusuario: sesion.idusuario },
+      include: [
+        { association: "pais", attributes: ["PaisNombre"] },
+        { association: "provincia", attributes: ["Provincia"] },
+      ],
+    }).then((domicilio) => {
+      return res.render(path.resolve(__dirname, "../views/checkout.ejs"), {
+        session: sesion,
+        domicilio: domicilio,
+      });
+    });
+  },
+
+  buy: async (req, res) => {
+    let sesion = req.session;
+    if (req.session.user === undefined) {
+      res.redirect("/login");
+    }
+
+      let productosAComprar = [];
+
+      sesion.basketProducts.forEach(producto => {
         
-    console.log(sesion)
-    db.Domicilios.findOne({where: {idusuario: sesion.idusuario}})
-      .then(domicilio => {
-        return res.render(path.resolve(__dirname, "../views/checkout.ejs"), {
-          session: sesion,
-          domicilio: domicilio
-        });
+        productosAComprar.push(producto.id)
       })
 
+      const productosEnDb = await db.Publicaciones.findAll({ where: { idpublicacion : productosAComprar} , attributes: ["idpublicacion", "stock"] });
+
+      var error = false;
+
+      productosEnDb.forEach(producto => {
+        productosAComprar.forEach(prodcutoEnCesta => {
+          if((producto.id === prodcutoEnCesta.id) && producto.cantidad < prodcutoEnCesta.stock ) {
+            error = true;
+          }
+        })
+      })
+
+      if(!error) {
+
+        
+        db.Ventas.create()
+      }
+
+      if(error) {
+
+      }
+
+      res.send(productosEnDb)
+
+
+   
+    
   }
 };
 
