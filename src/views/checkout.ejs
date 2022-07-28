@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/checkout.css">
+    <%- include('./partials/head') %>
+    <title>Confirmar compra</title>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <main>
+        <div class="confirmarDireccion">
+           <p> <%= domicilio.calle %> </p> 
+           <p> <%= domicilio.altura %> </p> 
+           <p> <%= domicilio.idpais %> </p> 
+           <p> <%= domicilio.idprovincia %> </p> 
+           <p> <%= domicilio.cp %> </p>
+        </div>
+
+        <div class="confirmarProductos">
+            <% if(session.basketProducts != undefined) { %>
+                <% session.basketProducts.forEach(producto => { %>
+                    <p><%= producto.titulo, producto.cantidad %></p>
+                    <p><%= producto.cantidad %></p>
+                    <p><%= producto.precio * producto.cantidad %></p>
+                <% }) %>
+                
+            <% } %>
+        </div>
+
+        <div class="confirmarPago">
+
+        </div>
+        
+    </main>
+   
+</body>
+
+</html>

@@ -148,7 +148,8 @@ let cestaController = {
         let mensaje={mensaje:"ok"};
         return res.status(200).send(mensaje);
       }
-      return res.status(200).send('ok');
+      let mensaje={mensaje:"error"};
+      return res.status(200).send(mensaje);
 
       
     }
@@ -158,19 +159,20 @@ let cestaController = {
   },
   buy: (req, res) => {
     let sesion = req.session;
-
-    if(req.session.username === undefined) {
+    console.log(sesion)
+    if(req.session.user === undefined) {
       res.redirect("/login");
     }
 
-    var arrayProductosEnCesta = [];
-
-    req.session.basketProducts
-
-    db.Publicaciones.findAll()
-
-
-
+        
+    console.log(sesion)
+    db.Domicilios.findOne({where: {idusuario: sesion.idusuario}})
+      .then(domicilio => {
+        return res.render(path.resolve(__dirname, "../views/checkout.ejs"), {
+          session: sesion,
+          domicilio: domicilio
+        });
+      })
 
   }
 };
