@@ -86,7 +86,7 @@
             <article class="barralateralitem">
                 <div class="cajasubtotal">
                     <span>Subtotal (<%= locals.session.basketProducts.length %> Productos):<strong> $ <%= locals.session.basketProducts.reduce((acumulador, actual) => acumulador + (actual.precio*actual.cantidad), 0).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}); %></strong></span>
-                    <button class="botonpedido">Finalizar pedido</button>
+                    <a href="/cesta/confirmar" class="botonpedido">Finalizar pedido</a>
                 </div>
             </article>
 

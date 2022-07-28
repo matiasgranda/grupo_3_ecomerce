@@ -130,21 +130,22 @@ let cestaController = {
     });
   },
 
-  buy: (req, res) => {
+  checkout: (req, res) => {
     let sesion = req.session;
-
-    if(req.session.username === undefined) {
+    console.log(sesion)
+    if(req.session.user === undefined) {
       res.redirect("/login");
     }
 
-    var arrayProductosEnCesta = [];
-
-    req.session.basketProducts
-
-    db.Publicaciones.findAll()
-
-
-
+        
+    console.log(sesion)
+    db.Domicilios.findOne({where: {idusuario: sesion.idusuario}})
+      .then(domicilio => {
+        return res.render(path.resolve(__dirname, "../views/checkout.ejs"), {
+          session: sesion,
+          domicilio: domicilio
+        });
+      })
 
   }
 };
