@@ -12,11 +12,72 @@
     <%- include('./partials/navbar') %>
     <main>
         <div class="confirmarDireccion">
-           <p> <%= domicilio.calle %> </p> 
-           <p> <%= domicilio.altura %> </p> 
-           <p> <%= domicilio.idpais %> </p> 
-           <p> <%= domicilio.provincia.Provincia %> </p> 
-           <p> <%= domicilio.pais.PaisNombre %> </p>
+            <h3>Confirme su dirección de envio:</h3>
+            <form class="formConfirmarDireccion">
+
+                <div class="divConfirmarDireccionSelect">
+                    <div>
+                        <label for="usuarioDomicilioPais">Pais:</label>
+                        <select name="usuarioDomicilioPais" id="usuarioDomicilioPais">
+                            <option value="<%= domicilio.pais.PaisNombre %>" selected> <%= domicilio.pais.PaisNombre %> </option>
+                            <% paises.forEach(pais => { %>
+                                <option value="<%= pais.PaisNombre %>"> <%= pais.PaisNombre %> </option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    
+                     <div>
+                        <label for="usuarioDomicilioProvincia">Provincia:</label>
+                        <select name="usuarioDomicilioProvincia" id="usuarioDomicilioProvincia">
+                            <option selected> <%= domicilio.provincia.Provincia %> </option>
+                            <% provincias.forEach(provincia => { %>
+                                <option value="<%= provincia.Provincia %>"> <%= provincia.Provincia %> </option>
+                            <% }) %>
+                        </select>
+                     </div>
+                </div>
+                
+
+                <div class="divConfirmarDireccionCalleInput">
+                    <div class="divCalleAltura">
+                        <div>
+                            <label for="usuarioDomicilioCalle">Calle:</label>
+                            <input type="text" name="usuarioDomicilioCalle" id="usuarioDomicilioCalle" value="<%= domicilio.calle %>">
+                        </div>
+    
+                        <div>
+                            <label for="usuarioDomicilioAlturaCalle">Altura:</label>
+                            <input type="text" name="usuarioDomicilioAlturaCalle" id="usuarioDomicilioAlturaCalle" value="<%= domicilio.altura %>">
+                        </div>
+                    </div>
+                   
+                    <div class="divPisoDepto">
+                        <div>
+                            <label for="usuarioDomicilioDepto">Depto:</label>
+                            <input type="text" name="usuarioDomicilioDepto" id="usuarioDomicilioDepto" value="<%= domicilio.depto %>">
+                        </div>
+    
+                        <div>
+                            <label for="usuarioDomicilioPiso">Piso:</label>
+                            <input type="text" name="usuarioDomicilioPiso" id="usuarioDomicilioPiso" value="<%= domicilio.piso %>">
+                        </div>
+                    </div>
+                </div>             
+
+                
+                <div class="divConfirmarCpInput">
+                    <div>
+                        <label for="usuarioDomicilioCp">Codigo postal:</label>
+                        <input type="text" name="usuarioDomicilioCp" id="usuarioDomicilioCp" value="<%= domicilio.cp %>">
+                    </div>
+                </div>
+
+                <div class="confirmButtonDiv">
+                    <button type="submit">Confirmar</button>
+                </div>
+
+            </form>
+           
         </div>
 
         <div class="confirmarProductos">
@@ -31,7 +92,17 @@
         </div>
 
         <div class="confirmarPago">
-
+            <label for="metodoDePago">Seleccione su metodo de pago</label>
+            <select name="usuarioMetodoDePago" id="usuarioMetodoDePago">
+                <option value="mercadopago">Mercado Pago</option>
+                <option value="transferenciabancaria">Transferencia Bancaria</option>
+                <option value="visacredito">Visa (credito)</option>
+                <option value="visadebito">Visa (debito)</option>
+                <option value="mastercardcredito">Master Card (credito)</option>
+                <option value="mastercarddebito">Master Card (debito)</option>
+                <option value="pagofacil">Pago Facil</option>
+                <option value="rapipago">Rapi Pago</option>
+            </select>
         </div>
         
     </main>

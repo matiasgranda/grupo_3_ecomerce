@@ -172,10 +172,20 @@ let cestaController = {
         { association: "pais", attributes: ["PaisNombre"] },
         { association: "provincia", attributes: ["Provincia"] },
       ],
-    }).then((domicilio) => {
+    }).then(async (domicilio) => {
+
+      const paises = await db.Paises.findAll({attributes: ["PaisNombre"]});
+      const paisesFilter = paises.filter(pais => pais.PaisNombre !== domicilio.pais.PaisNombre);
+
+      const provincias = await db.Provincias.findAll({attributes: ["Provincia"]});
+      const provinciasFilter = provincias.filter(provincia => provincia.Provincia !== domicilio.provincia.Provincia)
+
+      console.log(domicilio)
       return res.render(path.resolve(__dirname, "../views/checkout.ejs"), {
         session: sesion,
         domicilio: domicilio,
+        paises: paisesFilter,
+        provincias: provinciasFilter
       });
     });
   },
