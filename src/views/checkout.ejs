@@ -10,7 +10,7 @@
 </head>
 <body>
     <%- include('./partials/navbar') %>
-    <main>
+    <main class="mainForm">
         <div class="confirmarDireccion">
             <h3>Confirme su dirección de envio:</h3>
             <form class="formConfirmarDireccion">
@@ -81,32 +81,57 @@
         </div>
 
         <div class="confirmarProductos">
+
             <% if(session.basketProducts != undefined) { %>
+            <div class="cantidadProductos">
+                <% var total = 0; %>
                 <% session.basketProducts.forEach(producto => { %>
-                    <p><%= producto.titulo, producto.cantidad %></p>
-                    <p><%= producto.cantidad %></p>
-                    <p><%= producto.precio * producto.cantidad %></p>
-                <% }) %>
-                
-            <% } %>
+                    <div class="detalleProductos">
+                        <div class="detalleTituloCantidad">
+                            <p>Producto: <%=  producto.titulo %></p>
+                        <p>Cantidad: <%=  producto.cantidad %></p>
+                        </div>
+                        <div class="detallePrecio">
+                            <p>Precio por unidad: <%=  producto.precio.toLocaleString() %></p>
+                        </div>
+                        
+                        
+                    </div>
+                    <% total = (producto.precio * producto.cantidad) + total %>
+                    
+                <% }) %>       
+            </div>
+            <% } %>  
+
+            <div class="confirmarPago">
+                <label for="metodoDePago">Seleccione su metodo de pago</label>
+                <select name="usuarioMetodoDePago" id="usuarioMetodoDePago">
+                    <option value="mercadopago">Mercado Pago</option>
+                    <option value="transferenciabancaria">Transferencia Bancaria</option>
+                    <option value="visacredito">Visa (credito)</option>
+                    <option value="visadebito">Visa (debito)</option>
+                    <option value="mastercardcredito">Master Card (credito)</option>
+                    <option value="mastercarddebito">Master Card (debito)</option>
+                    <option value="pagofacil">Pago Facil</option>
+                    <option value="rapipago">Rapi Pago</option>
+                </select>
+            </div>
+
+            <div class="total">
+                <p>Precio total: <%= total.toLocaleString() %></p>
+            </div>
+
+            <div class="confirmarButtonDiv">
+                <button id="confirmBuyButton">Confirmar y enviar!</button>
+            </div>
+           
         </div>
 
-        <div class="confirmarPago">
-            <label for="metodoDePago">Seleccione su metodo de pago</label>
-            <select name="usuarioMetodoDePago" id="usuarioMetodoDePago">
-                <option value="mercadopago">Mercado Pago</option>
-                <option value="transferenciabancaria">Transferencia Bancaria</option>
-                <option value="visacredito">Visa (credito)</option>
-                <option value="visadebito">Visa (debito)</option>
-                <option value="mastercardcredito">Master Card (credito)</option>
-                <option value="mastercarddebito">Master Card (debito)</option>
-                <option value="pagofacil">Pago Facil</option>
-                <option value="rapipago">Rapi Pago</option>
-            </select>
-        </div>
+        
         
     </main>
-   
+    <script src="/js/checkout.js"></script>
+    <%- include('./partials/footer') %>
 </body>
 
 </html>

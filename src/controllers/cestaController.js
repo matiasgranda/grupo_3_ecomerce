@@ -195,7 +195,7 @@ let cestaController = {
     if (req.session.user === undefined) {
       res.redirect("/login");
     }
-
+    console.log(req.body.usuarioDomicilioAlturaCalle)
       let productosAComprar = [];
 
       sesion.basketProducts.forEach(producto => {
@@ -215,7 +215,7 @@ let cestaController = {
         })
       })
 
-      if(!error) {
+    /*  if(!error) {
 
         
         db.Ventas.create()
@@ -223,7 +223,7 @@ let cestaController = {
 
       if(error) {
 
-      }
+      }*/
 
       res.send(productosEnDb)
 
