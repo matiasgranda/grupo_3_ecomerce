@@ -14,6 +14,9 @@ module.exports = (sequelize, dataTypes) => {
         idpais:{ type: dataTypes.STRING },   
         idprovincia:{ type: dataTypes.INTEGER },
         cp:{ type: dataTypes.INTEGER },
+        entregadefault:{ type: dataTypes.INTEGER },
+        facturaciondefault:{ type: dataTypes.INTEGER },
+        alias:{type: dataTypes.STRING },
     };
     let config={
         tableName:'domicilios',

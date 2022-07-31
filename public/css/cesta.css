@@ -16,9 +16,11 @@
     padding-bottom: 30px;
     height: fit-content;
 }
-.mensajeError{
+
+.mensajeError {
     color: red;
 }
+
 .cesta {
     width: 80%;
     background-color: white;
@@ -74,7 +76,8 @@
     flex-wrap: wrap;
     align-content: center;
 }
-.imagenitem img{
+
+.imagenitem img {
     max-width: 100%;
     max-height: 90px;
 }
@@ -191,6 +194,14 @@
     color: #3a3737;
 }
 
+.botonpedido link,
+a {
+    text-decoration: none;
+    color: black;
+
+
+}
+
 .headitems {
     display: flex;
     height: fit-content;
@@ -220,34 +231,43 @@
         align-items: center;
         width: 100%;
     }
+
     .cesta {
         width: 100%;
     }
+
     .barralateral {
         margin-top: 10px;
         width: 100%;
         margin-left: 0px;
         justify-content: center;
     }
+
     .barralateralitem {
         width: 90%;
         justify-content: center;
     }
-    .titulodesc, .descripcionitem {
+
+    .titulodesc,
+    .descripcionitem {
         text-align: center;
         margin-bottom: 10px;
-    }    
+    }
+
     .cajasubtotal {
         width: 100%;
     }
+
     .opcionesitem {
         flex-direction: column;
     }
+
     .opcionesitem .linksopciones a {
         text-align: center;
         width: 90%;
         height: 30px;
     }
+
     .opcionesitem select {
         width: 80px;
     }
@@ -258,28 +278,35 @@
         flex-direction: column;
         align-items: center;
     }
+
     .detalleitem {
         align-items: center;
     }
+
     .descripcionitem {
         display: none;
     }
+
     .opcionesitem {
         margin-top: 10px;
         align-items: center;
     }
+
     .cantidad {
         width: 300px;
         justify-content: space-evenly;
     }
+
     .linksopciones {
         margin-top: 10px;
         justify-content: center;
     }
+
     .precioitem {
         height: 30px;
         padding: 0px;
     }
+
     .total {
         text-align: center;
     }

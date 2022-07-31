@@ -2,7 +2,7 @@ const path = require("path");
 const fs = require("fs");
 const actions = require("../data/actions");
 const {
-  parse
+  parse, resolve
 } = require("path");
 const {
   Console
@@ -172,8 +172,9 @@ let cestaController = {
   },
   checkout: (req, res) => {
     let sesion = req.session;
+
     if (req.session.user === undefined) {
-      res.redirect("/login");
+      return res.redirect("/login?redirect=checkuout");
     }
 
     db.Domicilios.findOne({
@@ -201,12 +202,29 @@ let cestaController = {
       });
       const provinciasFilter = provincias.filter(provincia => provincia.Provincia !== domicilio.provincia.Provincia)
       const mediosPago = await db.MediosDePago.findAll({
-        where: {activo:1},
+        where: {
+          activo: 1
+        },
         attributes: ["nombre", "idmediosdepago"]
       });
-      console.log(mediosPago)
+      const domiciliosUsuario = await db.Domicilios.findAll({
+        where: {
+          idusuario: sesion.idusuario
+        },
+        include: [{
+            association: "pais",
+            attributes: ["PaisNombre"]
+          },
+          {
+            association: "provincia",
+            attributes: ["Provincia"]
+          },
+        ],
+      })
+      //console.log(mediosPago)
       return res.render(path.resolve(__dirname, "../views/checkout.ejs"), {
         session: sesion,
+        domiciliosUsuario: domiciliosUsuario,
         domicilio: domicilio,
         paises: paisesFilter,
         provincias: provinciasFilter,
@@ -262,6 +280,31 @@ let cestaController = {
 
 
 
+  },
+  getdomicilio: async (req, res) => {
+    // let respuesta={mensaje:"ok"}
+    // return res.send(respuesta);
+    let sesion = req.session;
+    if (!isNaN(parseInt(req.params.id))) {
+
+      let domicilio=await db.Domicilios.findOne({
+        where: {
+          idusuario: sesion.idusuario,
+          iddomicilios:req.params.id
+
+        },
+        include: [{
+            association: "pais",
+            attributes: ["PaisNombre"]
+          },
+          {
+            association: "provincia",
+            attributes: ["Provincia"]
+          },
+        ],
+      });
+      return res.send(domicilio)
+    }
   }
 };
 

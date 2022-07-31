@@ -12,5 +12,6 @@ router.post("/agregar/:id", cestaController.add);
 router.get("/delete/:id", cestaController.delete);
 router.get("/confirmar", cestaController.checkout);
 router.get("/buy", cestaController.buy);
+router.get("/getdomicilio/:id", cestaController.getdomicilio);
 
 module.exports = router;
