@@ -106,14 +106,17 @@
             <div class="confirmarPago">
                 <label for="metodoDePago">Seleccione su metodo de pago</label>
                 <select name="usuarioMetodoDePago" id="usuarioMetodoDePago">
-                    <option value="mercadopago">Mercado Pago</option>
+                    <% mediosPago.forEach(metodo => { %>
+                        <option value="<%= metodo.idmediosdepago %>"> <%= metodo.nombre %> </option>
+                    <% }) %>
+                    <!-- <option value="mercadopago">Mercado Pago</option>
                     <option value="transferenciabancaria">Transferencia Bancaria</option>
                     <option value="visacredito">Visa (credito)</option>
                     <option value="visadebito">Visa (debito)</option>
                     <option value="mastercardcredito">Master Card (credito)</option>
                     <option value="mastercarddebito">Master Card (debito)</option>
                     <option value="pagofacil">Pago Facil</option>
-                    <option value="rapipago">Rapi Pago</option>
+                    <option value="rapipago">Rapi Pago</option> -->
                 </select>
             </div>
 
