@@ -1,8 +1,12 @@
 const path = require("path");
 const fs = require("fs");
 const actions = require("../data/actions");
-const { parse } = require("path");
-const { Console } = require("console");
+const {
+  parse
+} = require("path");
+const {
+  Console
+} = require("console");
 const session = require("express-session");
 const db = require("../data/models/");
 
@@ -47,7 +51,7 @@ let cestaController = {
           if (
             parseInt(
               req.session.basketProducts[i].cantidad +
-                parseInt(req.body.cantidad)
+              parseInt(req.body.cantidad)
             ) <= req.session.basketProducts[i].stock
           ) {
             req.session.basketProducts[i].cantidad =
@@ -72,14 +76,16 @@ let cestaController = {
         let db = require("../data/models/");
         const Op = require("Sequelize").Op;
         db.Publicaciones.findOne({
-          where: { idpublicacion: parseInt(req.params.id) },
-          include: [
-            {
-              association: "imagenes",
-              attributes: ["imagen"],
-              where: { imagenprincipal: 1 },
+          where: {
+            idpublicacion: parseInt(req.params.id)
+          },
+          include: [{
+            association: "imagenes",
+            attributes: ["imagen"],
+            where: {
+              imagenprincipal: 1
             },
-          ],
+          }, ],
         }).then((publicacion) => {
           if (publicacion) {
             let productAdded = {
@@ -150,10 +156,14 @@ let cestaController = {
           totalProductos = totalProductos + producto.cantidad;
         });
         sesion.totalProductos = totalProductos;
-        let mensaje = { mensaje: "ok" };
+        let mensaje = {
+          mensaje: "ok"
+        };
         return res.status(200).send(mensaje);
       }
-      let mensaje = { mensaje: "error" };
+      let mensaje = {
+        mensaje: "error"
+      };
       return res.status(200).send(mensaje);
     }
     return res.render(path.resolve(__dirname, "../views/cesta.ejs"), {
@@ -167,25 +177,40 @@ let cestaController = {
     }
 
     db.Domicilios.findOne({
-      where: { idusuario: sesion.idusuario },
-      include: [
-        { association: "pais", attributes: ["PaisNombre"] },
-        { association: "provincia", attributes: ["Provincia"] },
+      where: {
+        idusuario: sesion.idusuario
+      },
+      include: [{
+          association: "pais",
+          attributes: ["PaisNombre"]
+        },
+        {
+          association: "provincia",
+          attributes: ["Provincia"]
+        },
       ],
     }).then(async (domicilio) => {
 
-      const paises = await db.Paises.findAll({attributes: ["PaisNombre"]});
+      const paises = await db.Paises.findAll({
+        attributes: ["PaisNombre"]
+      });
       const paisesFilter = paises.filter(pais => pais.PaisNombre !== domicilio.pais.PaisNombre);
 
-      const provincias = await db.Provincias.findAll({attributes: ["Provincia"]});
+      const provincias = await db.Provincias.findAll({
+        attributes: ["Provincia"]
+      });
       const provinciasFilter = provincias.filter(provincia => provincia.Provincia !== domicilio.provincia.Provincia)
-
-      console.log(domicilio)
+      const mediosPago = await db.MediosDePago.findAll({
+        where: {activo:1},
+        attributes: ["nombre", "idmediosdepago"]
+      });
+      console.log(mediosPago)
       return res.render(path.resolve(__dirname, "../views/checkout.ejs"), {
         session: sesion,
         domicilio: domicilio,
         paises: paisesFilter,
-        provincias: provinciasFilter
+        provincias: provinciasFilter,
+        mediosPago: mediosPago
       });
     });
   },
@@ -196,25 +221,30 @@ let cestaController = {
       res.redirect("/login");
     }
     console.log(req.body.usuarioDomicilioAlturaCalle)
-      let productosAComprar = [];
+    let productosAComprar = [];
 
-      sesion.basketProducts.forEach(producto => {
-        
-        productosAComprar.push(producto.id)
+    sesion.basketProducts.forEach(producto => {
+
+      productosAComprar.push(producto.id)
+    })
+
+    const productosEnDb = await db.Publicaciones.findAll({
+      where: {
+        idpublicacion: productosAComprar
+      },
+      attributes: ["idpublicacion", "stock"]
+    });
+
+    var error = false;
+
+    productosEnDb.forEach(producto => {
+      productosAComprar.forEach(prodcutoEnCesta => {
+        if ((producto.id === prodcutoEnCesta.id) && producto.cantidad < prodcutoEnCesta.stock) {
+          error = true;
+        }
       })
-
-      const productosEnDb = await db.Publicaciones.findAll({ where: { idpublicacion : productosAComprar} , attributes: ["idpublicacion", "stock"] });
-
-      var error = false;
-
-      productosEnDb.forEach(producto => {
-        productosAComprar.forEach(prodcutoEnCesta => {
-          if((producto.id === prodcutoEnCesta.id) && producto.cantidad < prodcutoEnCesta.stock ) {
-            error = true;
-          }
-        })
-      });
-      console.log(error);
+    });
+    console.log(error);
 
 
     /*  if(!error) {
@@ -227,11 +257,11 @@ let cestaController = {
 
       }*/
 
-      res.send(productosEnDb)
+    res.send(productosEnDb)
 
 
-   
-    
+
+
   }
 };
 
