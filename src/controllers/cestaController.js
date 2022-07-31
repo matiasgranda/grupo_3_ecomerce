@@ -213,7 +213,9 @@ let cestaController = {
             error = true;
           }
         })
-      })
+      });
+      console.log(error);
+
 
     /*  if(!error) {
 
