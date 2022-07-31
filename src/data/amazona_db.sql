@@ -125,7 +125,7 @@ CREATE TABLE `domicilios` (
   CONSTRAINT `fk_pais` FOREIGN KEY (`idpais`) REFERENCES `paises` (`idpais`),
   CONSTRAINT `fk_provincia` FOREIGN KEY (`idProvincia`) REFERENCES `provincias` (`idProvincia`),
   CONSTRAINT `fk_usuarios_domicilios` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`idusuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -134,7 +134,7 @@ CREATE TABLE `domicilios` (
 
 LOCK TABLES `domicilios` WRITE;
 /*!40000 ALTER TABLE `domicilios` DISABLE KEYS */;
-INSERT INTO `domicilios` VALUES (1,2,'chile',1200,NULL,NULL,1,1,'1500',0);
+INSERT INTO `domicilios` VALUES (1,2,'chile',1200,NULL,NULL,1,1,'1500',0),(2,1,'Calle Falsa',123,NULL,NULL,1,1,'4000',1);
 /*!40000 ALTER TABLE `domicilios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -189,6 +189,31 @@ LOCK TABLES `marcas` WRITE;
 /*!40000 ALTER TABLE `marcas` DISABLE KEYS */;
 INSERT INTO `marcas` VALUES (1,'Sony',1),(2,'Apple',1),(3,'MSI',1),(4,'Hoodies',2),(5,'Nike',2),(6,'Montagne',2),(7,'Columbia',2),(8,'Piero',3),(9,'Deco Hogar',3),(10,'Sillones Comfy',3),(11,'Nike',4),(12,'Fit Shop',4),(13,'Furia Sobre 2 Ruedas',5),(14,'Bike N\' Chill',5),(15,'Furia Sobre 2 Ruedas',6),(16,'Deetoys',6),(17,'Grafica & Utiles',6),(18,'LG',1);
 /*!40000 ALTER TABLE `marcas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `mediosdepago`
+--
+
+DROP TABLE IF EXISTS `mediosdepago`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `mediosdepago` (
+  `idmediosdepago` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) NOT NULL,
+  `activo` int NOT NULL DEFAULT '1',
+  PRIMARY KEY (`idmediosdepago`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `mediosdepago`
+--
+
+LOCK TABLES `mediosdepago` WRITE;
+/*!40000 ALTER TABLE `mediosdepago` DISABLE KEYS */;
+INSERT INTO `mediosdepago` VALUES (1,'Visa (Débito)',1),(2,'Visa (Crédito)',1),(3,'MasterCard (Débito)',1),(4,'MasterCard (Crédito)',1),(5,'MercadoPago',1),(6,'Rapipago',1),(7,'PagoFacil',1),(8,'Transferencia Bancaria',1);
+/*!40000 ALTER TABLE `mediosdepago` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -414,4 +439,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-28 17:26:38
+-- Dump completed on 2022-07-31 10:49:19
