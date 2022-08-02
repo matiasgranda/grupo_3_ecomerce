@@ -6,5 +6,6 @@ let userController = require("../controllers/userController.js");
 
 
 router.get("/", authMiddleware , userController.main);
+router.post("/modificardireccion", userController.cambiarDireccion)
 
 module.exports = router;

@@ -3,6 +3,7 @@
   <head>
     <%- include('./partials/head') %>
     <link rel="stylesheet" href="/css/userProfile.css" />
+    <script src="https://kit.fontawesome.com/91393ea5bf.js" crossorigin="anonymous"></script>
     <title>Perfil de usuario</title>
   </head>
 
@@ -71,27 +72,21 @@
                 <div class="contenedordirecciones">
                 <h3>Direcciones</h3>
                 <div class="direcciones-items">
-                  <div class="direcciones-item">
-                    <h4>Dirección de facturación</h4>
-                    <div class="direcciones-item-info">
-                      <p>Av. Siempre viva 742</p>
-                      <p>Springfield</p>
-                      <p>Nevada</p>
-                      <p>45778</p>
-                    </div>
-                  </div>
+                  
                   <div class="direcciones-item">
                     <h4>Dirección de envío</h4>
                     <div class="direcciones-item-info">
-                      <p>Calle falsa 123</p>
-                      <p>Springield</p>
-                      <p>Oregon</p>
-                      <p>98757</p>
+                      <p>Pais: <%=domicilio.pais.PaisNombre%></p>
+                      <p>Provincia: <%=domicilio.provincia.Provincia%></p>
+                      <p>Calle: <%= domicilio.calle %></p>
+                      <p>Altura: <%= domicilio.altura %> </p>
+                      <p>Codigo postal: <%= domicilio.cp %> </p>
+                      
                     </div>
                   </div>
                 </div>
               </div>
-              <small style="text-align: right; margin:10px;display: block; "><a href="/admin/" style="color: black;text-decoration: none;">Gestionar direcciones</a></small>
+              <small style="text-align: right; margin:10px;display: block; "><a class="gestionarDireccionBtn" style="color: black;text-decoration: none;">Gestionar direcciones</a></small>
             </div>
               <div class="publicaciones">
                 <div class="contenedorpublicaciones">
@@ -108,7 +103,71 @@
               </div>
             </div>
             
+     
+
+              <form class="gestionarDireccionForm" method="POST" action="/perfil/modificardireccion">
+
+                <div class="closeBtnDiv">
+                  <p class="errorMessage"></p>
+                  <button class="closeBtn"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <div class="gestionarDireccionInputDiv">
+
+                  <div class="gestionarDireccionPais">
+                    <label for="direccionPais">Pais:*</label>
+                    <select class="direccionPais" name="direccionPais">
+                      <% paises.forEach(pais => { %>
+                        <option value="<%= pais.idpais %>"><%= pais.PaisNombre%></option>
+                      <% }) %>
+                    </select>
+                  </div>
+
+                  <div class="gestionarDireccionProvincia">
+                    <label for="direccionProvincia">Provincia:*</label>
+                    <select class="direccionProvincia" name="direccionProvincia">
+                    <% provincias.forEach(provincia => { %>   
+                      <option value="<%= provincia.idProvincia %>"><%= provincia.Provincia %></option>
+                    <% }) %>
+                  </select>
+                  </div>
+
+                  <div class="gestionarDireccionCalle">
+                    <label for="direccionCalle">Calle:*</label>
+                    <input class="direccionCalle" type="text" name="direccionCalle">
+                  </div>
+
+                  <div class="gestionarDireccionAltura">
+                    <label for="direccionAltura">Altura:*</label>
+                    <input class="direccionAltura" type="text" name="direccionAltura">
+                  </div>
+
+                  <div class="gestionarDireccionPiso">
+                    <label for="direccionPiso">Piso:</label>
+                    <input class="direccionPiso" type="text" name="direccionPiso">
+                  </div>
+
+                  <div class="gestionarDireccionDepto">
+                    <label for="direccionDepto">Depto:</label>
+                    <input class="direccionDepto" type="text" name="direccionDepto">
+                  </div>
+
+                  <div class="gestionarDireccionCp">
+                    <label for="direccionCp">Codigo postal:*</label>
+                    <input class="direccionCp" type="text" name="direccionCp">
+                  </div>
+                </div>
+
+                <div class="confirmarDireccionDiv">
+                  <button class="confirmSubmitButton" type="submit">Confirmar</button>
+                </div>
+
+              </form>
+
+        
+
         </div>
+        
         </div>
         
         
@@ -122,4 +181,5 @@
         });
     </script>
   </body>
+  <script src="/js/gestionarDireccion.js"></script>
 </html>

@@ -27,6 +27,9 @@ let productosApiController = {
             categoriasTotal.push(result)
         })
 
+        const lastAdded = await db.Publicaciones.findOne({
+            order: [[ "idpublicacion", "desc" ]], include: [{ association: "categorias", attributes: ["descripcion"]}, { association: "usuarios", attributes: ["usuario", "email"] }]
+        })
 
         db.Publicaciones.findAll({
             include: [{
@@ -48,7 +51,8 @@ let productosApiController = {
             })
             let result = {
                 countByCategory: categoriasTotal,
-                products: products
+                products: products,
+                lastAdded: lastAdded
             }
     
             res.json(result)

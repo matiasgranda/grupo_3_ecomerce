@@ -157,6 +157,10 @@ body {
   align-items: stretch;
 }
 
+.gestionarDireccionBtn {
+  cursor: pointer;
+}
+
 .contenedordirecciones {
   padding: 10px;
 }
@@ -305,6 +309,111 @@ table {
   justify-content: flex-start;
   display: flex;
 }
+
+.gestionarDireccionForm {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 360px;
+  height: 540px;
+  background-color: #fff;
+  display: none;
+  padding: 10px;
+  flex-direction: column;
+  z-index: 99;
+  border-radius: 4px;
+  border: 1px solid rgb(70, 70, 70);
+  box-shadow: 0px 0px 4px 0px rgb(70, 70, 70);
+}
+
+.closeBtnDiv {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.errorMessage {
+  color: red;
+  height: 30px;
+  padding-left: 5px;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.closeBtn {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.closeBtn i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: red;
+}
+
+.gestionarDireccionInputDiv {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.gestionarDireccionInputDiv div {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 60px;
+  justify-content: space-evenly;
+}
+
+.gestionarDireccionInputDiv select {
+  border: none;
+  outline: none;
+  height: 26px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+}
+
+.gestionarDireccionInputDiv input {
+  border: none;
+  outline: none;
+  height: 26px;
+  padding-left: 10px;
+  border-radius: 4px;
+  border: 1px solid lightgray;
+}
+
+.confirmarDireccionDiv {
+  width: 90%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.confirmarDireccionDiv button {
+  width: 50%;
+  height: 28px;
+  background-color: #FEBD6A;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+
+
 @media screen and (max-width: 1000px) {
     .contenedorprincipal {
         display: flex;
