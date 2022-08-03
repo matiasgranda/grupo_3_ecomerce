@@ -92,7 +92,7 @@ let cestaController = {
               titulo: publicacion.titulo,
               id: publicacion.idpublicacion,
               cantidad: product.cantidad,
-              precio: publicacion.precio,
+              precio: parseInt(publicacion.precio),
               descripcion: publicacion.descripcion,
               imagen: publicacion.imagenes[0].imagen,
               stock: publicacion.stock,
@@ -250,13 +250,22 @@ let cestaController = {
     if (req.session.user === undefined) {
       res.redirect("/login");
     }
+    console.log(req.session.basketProducts)
+
+    // TOTAL DEVUELVE SIEMPRE NAN, FALTA ARREGLARLO
+    let total;
+    req.session.basketProducts.forEach(producto => {
+      total = (producto.precio * producto.cantidad) + total
+    /*  console.log(typeof(producto.precio))
+      console.log(typeof(producto.cantidad))
+      console.log(typeof(total))*/
+    });
+
+
     let productosAComprar = [];
-
     sesion.basketProducts.forEach(producto => {
-
       productosAComprar.push(producto.id)
     })
-
     const productosEnDb = await db.Publicaciones.findAll({
       where: {
         idpublicacion: productosAComprar
@@ -264,17 +273,47 @@ let cestaController = {
       attributes: ["idpublicacion", "stock"]
     });
 
-    var error = false;
+    const domicilio = await db.Domicilios.findOne({
+      where: {
+        idusuario: req.session.idusuario
+      },
+      attributes: ["iddomicilios"]
+    });
 
+    var error = false;
     productosEnDb.forEach(producto => {
       productosAComprar.forEach(prodcutoEnCesta => {
-        if ((producto.id === prodcutoEnCesta.id) && producto.cantidad < prodcutoEnCesta.stock) {
+        if ((producto.id === prodcutoEnCesta.id) && producto.cantidad > prodcutoEnCesta.stock) {
           error = true;
         }
       })
     });
 
-    res.send(productosEnDb)
+    const timeElapsed = Date.now();
+    const today = new Date(timeElapsed);
+    const fecha=today.toLocaleDateString()+ " "+today.getHours()+ ":"+('0'+today.getMinutes()).slice(-2)+ ":"+('0'+today.getSeconds()).slice(-2);
+
+    let venta = {
+      idusuario: req.session.idusuario,
+      montototal: 10500,
+      mediodepago: req.body.usuarioMetodoDePago,
+      domicilioentrega: domicilio.iddomicilios,
+      fechayhora: fecha
+    }
+
+    const ultimaVenta = await db.Ventas.create(venta);
+
+    sesion.basketProducts.forEach(producto => {
+      detalleVenta = {
+        cantidad: producto.cantidad,
+        producto: producto.titulo,
+        precio: producto.precio * producto.cantidad,
+        idventa: ultimaVenta.idventa
+      }
+      db.DetalleVenta.create(detalleVenta)
+    })
+    
+    return res.send(ultimaVenta)
 
   },
   getdomicilio: async (req, res) => {

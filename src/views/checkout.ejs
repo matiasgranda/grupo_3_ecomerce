@@ -80,7 +80,7 @@
 
             </div>
 
-            <div class="confirmarProductos">
+            <form class="confirmarProductos" method="POST" action="/cesta/buy">
 
                 <% if(session.basketProducts != undefined) { %>
                 <div class="cantidadProductos">
@@ -121,7 +121,7 @@
                     <button id="confirmBuyButton">Confirmar y enviar!</button>
                 </div>
 
-            </div>
+            </form>
 
     </main>
     <%- include('./partials/footer') %>
