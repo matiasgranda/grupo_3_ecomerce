@@ -34,8 +34,7 @@ module.exports = (sequelize, dataTypes) => {
         });
         Pregunta.hasMany(models.Respuesta, {
             as:'respuestas',
-            foreignKey: 'idrespuesta',
-            targetKey: 'idpregunta'
+            foreignKey: 'idpregunta'
         });
       
     }

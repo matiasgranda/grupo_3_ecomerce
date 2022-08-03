@@ -452,6 +452,47 @@ form section {
   display: none;
   margin: auto;
 }
+
+.respuestaDiv {
+  width: 400px;
+  height: 90px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 20px;
+}
+.respuestaForm {
+  display: flex;
+  flex-direction: column;
+  height: 90px;
+}
+
+.respuestaInput {
+  padding-left: 5px;
+  padding-top: 2px;
+  max-height: 60px;
+  min-height: 40px;
+  min-width: 300px;
+  height: 60px;
+  max-width: 380px;
+  border-radius: 4px;
+  border: 1px solid lightgray;
+  outline: none;
+  width: 380px;
+}
+
+.respuestaBtn {
+  align-self: center;
+  height: 30px;
+  width: 100px;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid lightgray;
+  cursor: pointer;
+  background-color: #FEBD6A;
+  padding: 0px 5px;
+}
+
 @media (max-width: 1024px) {
   .seaparaseccion {
     display: block;

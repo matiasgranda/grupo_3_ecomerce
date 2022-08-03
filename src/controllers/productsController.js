@@ -51,7 +51,7 @@ let productsController = {
                 required: true,
               },
               {
-                association: "respuestas",
+                association: "respuestas"
               },
             ],
             where: {
@@ -71,6 +71,7 @@ let productsController = {
           datosPublicacion.preguntas = pregunta;
           datosPublicacion.categorias = categorias;
           datosPublicacion.marca = marca;
+
           return res.render(path.resolve(__dirname, "../views/product.ejs"), {
             datosPublicacion: datosPublicacion,
             session: req.session,
@@ -191,6 +192,23 @@ let productsController = {
     return res.redirect("/product/" + req.params.id);
   },
 
+  respuesta: async (req, res) => {
+    const timeElapsed = Date.now();
+    const today = new Date(timeElapsed);
+    const fecha=today.toLocaleDateString()+ " "+today.getHours()+ ":"+('0'+today.getMinutes()).slice(-2)+ ":"+('0'+today.getSeconds()).slice(-2);
+
+    let respuesta = {
+      idpregunta: req.params.resId,
+      respuesta: req.body.respuestaInput,
+      fecharepuesta: fecha
+    }
+    
+    const nuevaRespuesta = await db.Respuesta.create(respuesta);
+
+    return res.redirect("/product/" + req.params.id);
+
+  },
+
   edit: async (req, res) => {
     let sesion = req.session;
     const Op = require("Sequelize").Op;
@@ -202,6 +220,7 @@ let productsController = {
     const imagenes = await db.Imagenes.findAll({
       where: { [Op.and]: [{ idpublicacion: req.params.id }] },
     });
+    
     const marcas = await db.Marcas.findAll();
     productoSeleccionado.imagenes = imagenes;
     productoSeleccionado.marcas = marcas;

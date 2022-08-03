@@ -58,7 +58,7 @@
         <br>
         <div class="imagenForm">
           <label for="imagenPrincipal">Seleccionar Imagen</label>
-          <input type="file" name="imagenPrincipal" value="<%= producto.imagenPrincipal %> " id="imagenPrincipal" accept="image/*" />
+          <input type="file" name="imagenPrincipal" value="<%= producto.imagenes[0].imagen %> " id="imagenPrincipal" accept="image/*" />
           <% if(locals && locals.mensaje){ %>
           <br>
           <div class="error">

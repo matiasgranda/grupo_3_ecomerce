@@ -170,10 +170,11 @@
         <% } %>
       </div>
     </div>
-    <% if (datosPublicacion.publicacion.idusuario == session.idusuario) {%>
+    <% if (datosPublicacion.publicacion.idusuario == session.idusuario && datosPublicacion.preguntas[i].respuestas.length == 0) {%>
       <div class="respuestaDiv">
         <form class="respuestaForm" method="POST" action="/product/<%=datosPublicacion.publicacion.idpublicacion%>/respuesta/<%=datosPublicacion.preguntas[i].idpregunta%>">
-          <input name="respuestaInput" type="text" class="respuestaInput">
+          <textarea name="respuestaInput" type="text" class="respuestaInput"> </textarea>
+          <button class="respuestaBtn" type="submit">Responder</button>
         </form>
       </div>
     <% } %>
@@ -192,7 +193,7 @@
       <form class="form-preguntas" action="/product/<%=datosPublicacion.publicacion.idpublicacion%>/pregunta" method="post">
 
         <label for="pregunta"></label>
-        <textarea name="pregunta" id="pregunta" required minlength="20"></textarea>
+        <textarea name="pregunta" id="pregunta" required minlength="10"></textarea>
 
         <button class="btnenviar" type="submit">Enviar</button>
       </form>
