@@ -34,20 +34,14 @@ let userController = {
       const db = require("../data/models/");
       let sesion = req.session;
 
-      let nuevaDireccion = {
-        idusuario: req.session.idusuario,
-        idpais: req.body.direccionPais ,
-        idprovincia: req.body.direccionProvincia ,
-        calle: req.body.direccionCalle ,
-        altura: req.body.direccionAltura ,
-        piso: req.body.direccionPiso ,
-        depto: req.body.direccionDepto ,
-        cp: req.body.direccionCp
-      }
-      console.log(nuevaDireccion)
+      const domicilio = await db.Domicilios.findOne({
+        where: { idusuario: req.session.idusuario }
+      })
+      console.log(domicilio)
+      
 
       db.Domicilios.upsert({
-        id: domicilio.iddomicilios,
+        iddomicilios: domicilio.iddomicilios,
         idusuario: req.session.idusuario,
         idpais: req.body.direccionPais ,
         idprovincia: req.body.direccionProvincia ,

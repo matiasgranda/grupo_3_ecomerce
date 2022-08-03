@@ -183,54 +183,66 @@ let cestaController = {
       },
       include: [{
           association: "pais",
-          attributes: ["PaisNombre"]
+          attributes: ["PaisNombre", "idpais"]
         },
         {
           association: "provincia",
-          attributes: ["Provincia"]
+          attributes: ["Provincia", "idProvincia"]
         },
       ],
     }).then(async (domicilio) => {
 
       const paises = await db.Paises.findAll({
-        attributes: ["PaisNombre"]
+        attributes: ["PaisNombre", "idpais"]
       });
-      const paisesFilter = paises.filter(pais => pais.PaisNombre !== domicilio.pais.PaisNombre);
 
       const provincias = await db.Provincias.findAll({
-        attributes: ["Provincia"]
+        attributes: ["Provincia", "idProvincia"]
       });
-      const provinciasFilter = provincias.filter(provincia => provincia.Provincia !== domicilio.provincia.Provincia)
+
       const mediosPago = await db.MediosDePago.findAll({
         where: {
           activo: 1
         },
         attributes: ["nombre", "idmediosdepago"]
       });
-      const domiciliosUsuario = await db.Domicilios.findAll({
-        where: {
-          idusuario: sesion.idusuario
-        },
-        include: [{
-            association: "pais",
-            attributes: ["PaisNombre"]
-          },
-          {
-            association: "provincia",
-            attributes: ["Provincia"]
-          },
-        ],
-      })
+
       //console.log(mediosPago)
+
       return res.render(path.resolve(__dirname, "../views/checkout.ejs"), {
         session: sesion,
-        domiciliosUsuario: domiciliosUsuario,
         domicilio: domicilio,
-        paises: paisesFilter,
-        provincias: provinciasFilter,
+        paises: paises,
+        provincias: provincias,
         mediosPago: mediosPago
       });
     });
+  },
+
+  confirmarDireccion: async (req, res) => {
+    let sesion = req.session;
+    if (req.session.user === undefined) {
+      res.redirect("/login");
+    }
+
+    const domicilio = await db.Domicilios.findOne({
+      where: { idusuario: req.session.idusuario }
+    })
+
+    db.Domicilios.upsert({
+      iddomicilios: domicilio.iddomicilios,
+      idusuario: req.session.idusuario,
+      idpais: req.body.usuarioDomicilioPais ,
+      idprovincia: req.body.usuarioDomicilioProvincia ,
+      calle: req.body.usuarioDomicilioCalle ,
+      altura: req.body.usuarioDomicilioAltura ,
+      piso: req.body.usuarioDomicilioPiso ,
+      depto: req.body.usuarioDomicilioDepto ,
+      cp: req.body.usuarioDomicilioCp
+    })
+    console.log("Domicilio modificado")
+    return res.redirect("/cesta/confirmar")
+
   },
 
   buy: async (req, res) => {
@@ -238,7 +250,6 @@ let cestaController = {
     if (req.session.user === undefined) {
       res.redirect("/login");
     }
-    console.log(req.body.usuarioDomicilioAlturaCalle)
     let productosAComprar = [];
 
     sesion.basketProducts.forEach(producto => {
@@ -262,8 +273,8 @@ let cestaController = {
         }
       })
     });
-    console.log(error);
-
+    
+    
 
     /*  if(!error) {
 

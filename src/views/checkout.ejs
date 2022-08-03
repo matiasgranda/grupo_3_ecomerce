@@ -15,84 +15,68 @@
     <main class="mainForm">
         <div class="confirmarDireccion">
             <h3>Confirme su dirección de envio:</h3>
-            <div class="confirmarPago">
-                <label for="metodoDePago">Direcciones de entrega</label>
-                <select name="usuarioMetodoDePago" id="usuarioMetodoDePago" onchange="getDomicilio(this.value);">
-                    <% domiciliosUsuario.forEach(domicilio => { %>
-                    <option value="<%= domicilio.iddomicilios %>" <% if (domicilio.entregadefault==1) { %> selected
-                        <% } %> </option> <%= domicilio.alias + ' - ' +domicilio.calle %> </option> <% }) %> </select>
-                        </div> <form class="formConfirmarDireccion">
 
-                        <div class="divConfirmarDireccionSelect">
-                            <div>
-                                <label for="usuarioDomicilioPais">Pais:</label>
-                                <div id="paisentrega"></div>
-                                <select name="usuarioDomicilioPais" id="usuarioDomicilioPais">
-                                    <option value="<%= domicilio.pais.PaisNombre %>" selected>
-                                        <%= domicilio.pais.PaisNombre %> </option>
-                                    <% paises.forEach(pais => { %>
-                                    <option value="<%= pais.PaisNombre %>"> <%= pais.PaisNombre %> </option>
-                                    <% }) %>
-                                </select>
-                            </div>
+            <form class="formConfirmarDireccion" method="POST" action="/cesta/confirmardireccion">
 
-                            <div>
-                                <label for="usuarioDomicilioProvincia">Provincia:</label>
-                                <div id="provinciaentrega"></div>
-                                <select name="usuarioDomicilioProvincia" id="usuarioDomicilioProvincia">
-                                    <option selected> <%= domicilio.provincia.Provincia %> </option>
-                                    <% provincias.forEach(provincia => { %>
-                                    <option value="<%= provincia.Provincia %>"> <%= provincia.Provincia %> </option>
-                                    <% }) %>
-                                </select>
-                            </div>
-                        </div>
+                <div class="divConfirmarDireccionSelect">
+                    <div>
+                        <label for="usuarioDomicilioPais">Pais:</label>
+                        <select name="usuarioDomicilioPais" id="usuarioDomicilioPais">
+                            <option value="<%= domicilio.pais.idpais %>" selected>
+                                <%= domicilio.pais.PaisNombre %> </option>
+                            <% paises.forEach(pais => { %>
+                            <option value="<%= pais.idpais %>"> <%= pais.PaisNombre %> </option>
+                            <% }) %>
+                        </select>
+                    </div>
 
+                    <div>
+                        <label for="usuarioDomicilioProvincia">Provincia:</label>
+                        <select name="usuarioDomicilioProvincia" id="usuarioDomicilioProvincia">
+                            <option selected value="<%=domicilio.provincia.idProvincia%>"> <%= domicilio.provincia.Provincia %> </option>
+                            <% provincias.forEach(provincia => { %>
+                            <option value="<%= provincia.idProvincia %>"> <%= provincia.Provincia %> </option>
+                            <% }) %>
+                        </select>
+                    </div>
+                </div>
 
-                        <div class="divConfirmarDireccionCalleInput">
-                            <div class="divCalleAltura">
-                                <div>
-                                    <label for="usuarioDomicilioCalle">Calle:</label>
-                                    <div id="calleentrega"><%= domicilio.calle %></div>
-                                    
-                                </div>
+                <div class="divCalleAltura">
+                    <div>
+                        <label for="usuarioDomicilioCalle">Calle:</label>
+                        <input name="usuarioDomicilioCalle" id="calleentrega" value="<%= domicilio.calle %>"></input>
+                    </div>
 
-                                <div>
-                                    <label for="usuarioDomicilioAlturaCalle">Altura:</label>
-                                    <div id="alturaentrega"><%= domicilio.altura %></div>
-                                    
-                                </div>
-                            </div>
+                    <div>
+                        <label for="usuarioDomicilioAlturaCalle">Altura:</label>
+                        <input name="usuarioDomicilioAltura" id="alturaentrega" value="<%= domicilio.altura %>"></input>
+                    </div>
+                </div>
 
-                            <div class="divPisoDepto">
-                                <div>
-                                    <label for="usuarioDomicilioDepto">Depto:</label>
-                                    <div id="deptoentrega"><%= domicilio.depto %></div>
-                                    
-                                </div>
+                <div class="divPisoDepto">
+                    <div>
+                        <label for="usuarioDomicilioDepto">Depto:</label>
+                        <input name="usuarioDomicilioDepto" id="deptoentrega" value="<%= domicilio.depto %>"></input>
+                    </div>
 
-                                <div>
-                                    <label for="usuarioDomicilioPiso">Piso:</label>
-                                    <div id="pisoentrega"><%= domicilio.piso %></div>
-                                    
-                                </div>
-                            </div>
-                        </div>
+                    <div>
+                        <label for="usuarioDomicilioPiso">Piso:</label>
+                        <input name="usuarioDomicilioPiso" id="pisoentrega" value="<%= domicilio.piso %>"></input>
+                    </div>
+                </div>
+                          
 
 
-                        <div class="divConfirmarCpInput">
-                            <div>
-                                <label for="usuarioDomicilioCp">Codigo postal:</label>
-                                <div id="cpentrega"><%= domicilio.cp %></div>
-                               
-                            </div>
-                        </div>
+                <div class="divConfirmarCpInput">
+                    <label for="usuarioDomicilioCp">Codigo postal:</label>
+                    <input name="usuarioDomicilioCp" id="cpentrega" value="<%= domicilio.cp %>"></input>
+                </div>
 
-                        <div class="confirmButtonDiv">
-                            <button type="submit">Confirmar</button>
-                        </div>
+                <div class="confirmButtonDiv">
+                    <button type="submit">Confirmar</button>
+                </div>
 
-                        </form>
+            </form>
 
             </div>
 
@@ -139,25 +123,7 @@
 
             </div>
 
-            <script>
-                function getDomicilio(domicilio) {
-                    fetch('/cesta/getdomicilio/'+domicilio).then(function (response) {
-                        response.json().then(function (data) {
-                            console.log(data)
-                            document.querySelector('#paisentrega').innerHTML = data.pais.PaisNombre;
-                            document.querySelector('#provinciaentrega').innerHTML = data.provincia.Provincia;
-                            document.querySelector('#calleentrega').innerHTML = data.calle;
-                            document.querySelector('#alturaentrega').innerHTML = data.altura;
-                            document.querySelector('#deptoentrega').innerHTML = data.depto || "-";
-                            document.querySelector('#pisoentrega').innerHTML = data.piso || "-";
-                            document.querySelector('#cpentrega').innerHTML = data.cp;
-                        });
-                    });
-                }
-            </script>
-
     </main>
-    <script src="/js/checkout.js"></script>
     <%- include('./partials/footer') %>
 </body>
 

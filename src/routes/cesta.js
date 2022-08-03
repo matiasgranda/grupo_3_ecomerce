@@ -13,5 +13,6 @@ router.get("/delete/:id", cestaController.delete);
 router.get("/confirmar", cestaController.checkout);
 router.get("/buy", cestaController.buy);
 router.get("/getdomicilio/:id", cestaController.getdomicilio);
+router.post("/confirmardireccion", cestaController.confirmarDireccion);
 
 module.exports = router;
