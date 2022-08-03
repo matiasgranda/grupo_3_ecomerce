@@ -273,23 +273,8 @@ let cestaController = {
         }
       })
     });
-    
-    
-
-    /*  if(!error) {
-
-        
-        db.Ventas.create()
-      }
-
-      if(error) {
-
-      }*/
 
     res.send(productosEnDb)
-
-
-
 
   },
   getdomicilio: async (req, res) => {

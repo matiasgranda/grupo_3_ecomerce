@@ -75,14 +75,23 @@
                   
                   <div class="direcciones-item">
                     <h4>Dirección de envío</h4>
+                    <% if(domicilio) { %>
                     <div class="direcciones-item-info">
                       <p>Pais: <%=domicilio.pais.PaisNombre%></p>
                       <p>Provincia: <%=domicilio.provincia.Provincia%></p>
                       <p>Calle: <%= domicilio.calle %></p>
                       <p>Altura: <%= domicilio.altura %> </p>
                       <p>Codigo postal: <%= domicilio.cp %> </p>
-                      
                     </div>
+                    <% } else { %>
+                      <div class="direcciones-item-info">
+                        <p>Pais:</p>
+                        <p>Provincia:</p>
+                        <p>Calle:</p>
+                        <p>Altura:</p>
+                        <p>Codigo postal:</p>
+                      </div>
+                    <% } %>
                   </div>
                 </div>
               </div>
@@ -91,14 +100,22 @@
               <div class="publicaciones">
                 <div class="contenedorpublicaciones">
                 <h3>Tus Publicaciones</h3>
-                <div class="publicaciones-items">
-                    <% for(let i = 0; i < 5; i++) { %> 
+                <% if(publicaciones.length > 0) { %>
+                  <div class="publicaciones-items">
+                      <% for(let i = 0; i < 5; i++) { %> 
 
-                      <a href="/producto/<%= publicaciones[i].idpublicacion %> "><%= publicaciones[i].titulo %> </a>
-                      
-                    <% } %> 
-                </div>
+                        <a href="/producto/<%= publicaciones[i].idpublicacion %> "><%= publicaciones[i].titulo %> </a>
+                        
+                      <% } %> 
+                  </div>
+                <% } else { %> 
+                  <div class="publicaciones-items">
+                    <p>Aun no tienes publicaciones.</p>
+                  </div>
+                <% } %>
+                <% if(publicaciones) { %>
                 <small style="text-align: right; margin-top: 10px; display: block; "><a href="/admin/" style="color: black;">Ver todas (<%= publicaciones.length %>)</a></small>
+                <% } %>
                 </div>
               </div>
             </div>
@@ -163,9 +180,6 @@
                 </div>
 
               </form>
-
-        
-
         </div>
         
         </div>

@@ -36,24 +36,34 @@ let userController = {
 
       const domicilio = await db.Domicilios.findOne({
         where: { idusuario: req.session.idusuario }
-      })
-      console.log(domicilio)
-      
+      })      
 
-      db.Domicilios.upsert({
-        iddomicilios: domicilio.iddomicilios,
-        idusuario: req.session.idusuario,
-        idpais: req.body.direccionPais ,
-        idprovincia: req.body.direccionProvincia ,
-        calle: req.body.direccionCalle ,
-        altura: req.body.direccionAltura ,
-        piso: req.body.direccionPiso ,
-        depto: req.body.direccionDepto ,
-        cp: req.body.direccionCp
-      })
+      if(domicilio != undefined) {
+        db.Domicilios.upsert({
+          iddomicilios: domicilio.iddomicilios,
+          idusuario: req.session.idusuario,
+          idpais: req.body.direccionPais ,
+          idprovincia: req.body.direccionProvincia ,
+          calle: req.body.direccionCalle ,
+          altura: req.body.direccionAltura ,
+          piso: req.body.direccionPiso ,
+          depto: req.body.direccionDepto ,
+          cp: req.body.direccionCp
+        })
+      } else {
+        db.Domicilios.create({
+          idusuario: req.session.idusuario,
+          idpais: req.body.direccionPais ,
+          idprovincia: req.body.direccionProvincia ,
+          calle: req.body.direccionCalle ,
+          altura: req.body.direccionAltura ,
+          piso: req.body.direccionPiso ,
+          depto: req.body.direccionDepto ,
+          cp: req.body.direccionCp
+        })
+      }
 
       return res.redirect("/perfil")
-       
 
     }
 }

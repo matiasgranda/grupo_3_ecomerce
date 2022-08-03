@@ -23,9 +23,9 @@ closeButton.addEventListener("click", function() {
 
 submitButton.addEventListener("click", function(e) {
     e.preventDefault();
-    if(inputCalle.value == "" || inputAlturaCalle == "" || inputPiso == "" || inputDepto == "" || inputCodigoPostal == "") {
+    if(inputCalle.value.length < 1 || inputAlturaCalle.length < 1 || inputPiso.length < 1 || inputDepto.length < 1|| inputCodigoPostal.length < 1 ) {
         errorMessage.textContent = "Los campos marcados con * son obligatorios"
     } else {
-        form.submit();
+        submitButton.click();
     }
 })
