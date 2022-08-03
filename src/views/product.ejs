@@ -170,6 +170,13 @@
         <% } %>
       </div>
     </div>
+    <% if (datosPublicacion.publicacion.idusuario == session.idusuario) {%>
+      <div class="respuestaDiv">
+        <form class="respuestaForm" method="POST" action="/product/<%=datosPublicacion.publicacion.idpublicacion%>/respuesta/<%=datosPublicacion.preguntas[i].idpregunta%>">
+          <input name="respuestaInput" type="text" class="respuestaInput">
+        </form>
+      </div>
+    <% } %>
 
     <% } %>
    
@@ -182,7 +189,7 @@
   <% if (datosPublicacion.publicacion.idusuario!=session.idusuario) {%>
     <article class="postComentario">
       <h3>Realizar una pregunta al vendedor</h3>
-      <form class="form-preguntas" action="/product/<%=datosPublicacion.id%>/pregunta" method="post">
+      <form class="form-preguntas" action="/product/<%=datosPublicacion.publicacion.idpublicacion%>/pregunta" method="post">
 
         <label for="pregunta"></label>
         <textarea name="pregunta" id="pregunta" required minlength="20"></textarea>

@@ -26,6 +26,7 @@ router.get("/:id", productsController.product);
 router.post("/create", fileupload.any(),log,productsController.save);
 router.post("/:id/comentario", productsController.comentarios);
 router.post("/:id/pregunta", productsController.pregunta);
+router.post("/:id/respuesta/:resId")
 router.delete("/delete/:id", productsController.delete);
 router.delete("/delete/publicacion/:idpublicacion/image/:idimage", productsController.deleteImage);
 
