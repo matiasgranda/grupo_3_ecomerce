@@ -10,7 +10,7 @@ module.exports = (sequelize, dataTypes) => {
         },
         idusuario:{ type: dataTypes.INTEGER },
         montototal:{ type: dataTypes.INTEGER },
-        mediodepago:{ type: dataTypes.STRING },
+        mediodepago:{ type: dataTypes.INTEGER },
         domicilioentrega:{ type: dataTypes.STRING },
         fechayhora:{ type: dataTypes.DATE },
         

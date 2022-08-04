@@ -88,7 +88,7 @@ CREATE TABLE `detalleventa` (
   UNIQUE KEY `iddetalleventa_UNIQUE` (`iddetalleventa`),
   KEY `fk_venta_idx` (`idventa`),
   CONSTRAINT `fk_venta` FOREIGN KEY (`idventa`) REFERENCES `ventas` (`idventa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,6 +97,7 @@ CREATE TABLE `detalleventa` (
 
 LOCK TABLES `detalleventa` WRITE;
 /*!40000 ALTER TABLE `detalleventa` DISABLE KEYS */;
+INSERT INTO `detalleventa` VALUES (1,1,'Auriculares inalambricos Sony',1234,7),(2,1,'Buzo Canguro',6500,8),(3,1,'Buzo Canguro',6500,9),(4,1,'Auriculares inalambricos Sony',1234,10),(5,1,'Cama Box Base',75000,11),(6,1,'Cama Box Base',75000,12),(7,1,'Zapatillas Nike',12600,12),(8,2,'Notebook MSI',690196,12),(9,1,'Zapatillas Nike',12600,13),(10,1,'Zapatillas Nike',12600,14),(11,1,'Macbook Air',265800,15),(12,1,'Macbook Air',265800,16),(13,1,'Buzo Canguro',6500,16),(14,1,'Zapatillas Nike',12600,17),(15,2,'Auriculares inalambricos Sony',2468,19),(16,2,'Macbook Air',531600,21);
 /*!40000 ALTER TABLE `detalleventa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -136,7 +137,7 @@ CREATE TABLE `domicilios` (
 
 LOCK TABLES `domicilios` WRITE;
 /*!40000 ALTER TABLE `domicilios` DISABLE KEYS */;
-INSERT INTO `domicilios` VALUES (1,2,'chile',1200,NULL,NULL,1,1,'1500',0,0,'Casa'),(2,1,'Calle Falsa',123,NULL,NULL,1,1,'4000',0,0,'Trabajo'),(3,1,'Av. Siempre viva',742,NULL,NULL,1,1,'232',1,1,'Evergreen');
+INSERT INTO `domicilios` VALUES (1,2,'calle',666,0,'',1,1,'666',0,0,'Casa'),(2,1,'Calle Falsa',123,NULL,NULL,1,1,'4000',0,0,'Trabajo'),(3,1,'Av. Siempre viva',742,NULL,NULL,1,1,'232',1,1,'Evergreen');
 /*!40000 ALTER TABLE `domicilios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,10 +178,10 @@ DROP TABLE IF EXISTS `marcas`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `marcas` (
   `idmarca` int NOT NULL AUTO_INCREMENT,
-  `marca` varchar(45) NOT NULL,
+  `marca` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
   `idcategoria` int NOT NULL,
   PRIMARY KEY (`idmarca`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -202,10 +203,10 @@ DROP TABLE IF EXISTS `mediosdepago`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `mediosdepago` (
   `idmediosdepago` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
+  `nombre` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
   `activo` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`idmediosdepago`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -227,10 +228,10 @@ DROP TABLE IF EXISTS `paises`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `paises` (
   `idpais` int NOT NULL AUTO_INCREMENT,
-  `PaisNombre` char(52) NOT NULL,
+  `PaisNombre` char(52) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`idpais`),
   UNIQUE KEY `PaisCodigo_UNIQUE` (`idpais`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -283,9 +284,9 @@ DROP TABLE IF EXISTS `provincias`;
 CREATE TABLE `provincias` (
   `idProvincia` int NOT NULL AUTO_INCREMENT,
   `PaisCodigo` int NOT NULL,
-  `Provincia` char(20) NOT NULL DEFAULT '',
+  `Provincia` char(20) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`idProvincia`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -337,7 +338,7 @@ CREATE TABLE `publicaciones` (
 
 LOCK TABLES `publicaciones` WRITE;
 /*!40000 ALTER TABLE `publicaciones` DISABLE KEYS */;
-INSERT INTO `publicaciones` VALUES (1,1234.00,'Auriculares inalambricos Sony WH-1000XM4 black. Alcance inalambrico de 10m. Duracion de bateria de 30h. Manos libres incluido',1,1,1,1,'2022-06-07',0,'Auriculares inalambricos Sony','<h2>Este sería el titulo del detalle de la publicacion</h2>\r\n<p>un parrafito de prueba</p>\r\n',8,'Negro',1,1),(2,265800.00,'Apple Macbook Air Capacidad: 8GB RAM / 512 GB SSD Hasta 18 horas de bateria. GPU de hasta 8 nucleos. Pantalla Retina de 13.3 pulgadas',1,1,1,1,'2022-06-09',0,'Macbook Air','<h2>Este sería el titulo del detalle de la publicacion</h2>',4,'Blanco, Griz',2,1),(3,345098.00,'Notebook gamer MSI Thin GF63 Capacidad: 8GB RAM / 512 GB SSD Hasta 20 horas de bateria Placa de video NVIDIA GeForce GTX 1650 Max-Q Pantalla LED de 15.6 pulgadas.',2,1,1,1,'2022-06-01',0,'Notebook MSI','<h2>Este sería el titulo del detalle de la publicacion</h2>',3,'Negro',3,1),(4,240000.00,'Sony Playstation 5 Digital edition Memoria de 825GB Resolucion de 3840px x 2160px.Memoria RAM de 16GB Cuenta con: 1 cable de alimentación ca, 1 cable hdmi, 1 cable de carga usb, 1 dock.',1,1,1,1,'2022-04-21',0,'Playstation 5','<h2>Este sería el titulo del detalle de la publicacion</h2>',56,'Blanco, Griz',1,1),(5,6500.00,'Buzo Canguro Hoodie con capucha 100% algodon Talles S, M, L, XL disponibles Ideal para el invierno.',2,1,2,1,'2022-05-14',0,'Buzo Canguro','<h2>Este sería el titulo del detalle de la publicacion</h2>',2,'Negro',4,1),(6,12600.00,'Agregar descripcion',1,1,2,1,'2022-05-14',0,'Zapatillas Nike','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Negro',5,1),(7,8000.00,'Agregar descripcion',2,1,2,1,'2022-05-14',0,'Pantalon Cargo','<h2>Este sería el titulo del detalle de la publicacion</h2>',3,'Griz Oscuro',6,1),(8,16000.00,'Campera Softshell Verde Con Capucha. Impermeable. Ideal para el invierno. Talles M, L, XL disponibles.',1,1,2,1,'2022-05-14',0,'Campera Softshell','<h2>Este sería el titulo del detalle de la publicacion</h2>',78,'Verde',7,1),(9,75000.00,'Agregar descripcion',2,1,3,1,'2022-05-14',0,'Cama Box Base','<h2>Este sería el titulo del detalle de la publicacion</h2>',9,'Griz Claro',8,1),(10,25000.00,'Agregar descripcion',2,1,3,1,'2022-05-14',0,'Silla de Comedor','<h2>Este sería el titulo del detalle de la publicacion</h2>',6,'Blanco',9,1),(11,320000.00,'Agregar descripcion',1,1,3,1,'2022-05-14',0,'Sillón Esquinero','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Griz, Negro, Blanco, Marron',10,1),(12,48000.00,'Agregar descripcion',2,1,3,1,'2022-05-14',0,'Mesa Ratona','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Madera, Negro',9,1),(13,6500.00,'Agregar descripcion',1,1,4,1,'2022-05-14',0,'Pelota Nike','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Blanco, Negro',11,1),(14,13000.00,'Agregar descripcion',1,1,4,1,'2022-05-14',0,'Botines Nike','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Griz',11,1),(15,7000.00,'Agregar descripcion',1,1,4,1,'2022-05-14',0,'Mancuerna','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Metalico, Negro',12,1),(16,4300.00,'Agregar descripcion',2,1,4,1,'2022-05-14',0,'Colchonetas','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Rojo, Naranja, Verde, Azul, Violeta',12,1),(17,107000.00,'Agregar descripcion',2,1,5,1,'2022-05-14',0,'Monopatín Eléctrico','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Griz, Metalico',15,1),(18,140000.00,'Agregar descripcion',1,1,5,1,'2022-05-14',0,'Hoverboard','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Negro, Rojo',15,1),(19,120000.00,'Agregar descripcion',1,1,5,1,'2022-05-14',0,'Bicicleta MTB','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Naranja',15,1),(20,190000.00,'Agregar descripcion',2,1,5,1,'2022-05-14',0,'Bicicleta Eléctrica','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Rojo',15,1),(21,7000.00,'Agregar descripcion',1,1,6,1,'2022-05-14',0,'Monopatín','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Azul, Negro',15,1),(22,11000.00,'Agregar descripcion',1,1,6,1,'2022-05-14',0,'Auto a control remoto','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Azul, Rojo',16,1),(23,5000.00,'Agregar descripcion',1,1,6,1,'2022-05-14',0,'Kit utiles escolares','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Multicolor',17,1),(24,9800.00,'Agregar descripcion',2,1,6,1,'2022-05-14',0,'Triciclo','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Rojo, Azul, Amarillo',15,1),(52,99.00,'prueba',2,1,1,NULL,NULL,0,'prueba',NULL,1,'prueba',1,1);
+INSERT INTO `publicaciones` VALUES (1,1234.00,'Auriculares inalambricos Sony WH-1000XM4 black. Alcance inalambrico de 10m. Duracion de bateria de 30h. Manos libres incluido',1,1,1,1,'2022-06-07',0,'Auriculares inalambricos Sony','<h2>Este sería el titulo del detalle de la publicacion</h2>\r\n<p>un parrafito de prueba</p>\r\n',8,'Negro',1,1),(2,265800.00,'Apple Macbook Air Capacidad: 8GB RAM / 512 GB SSD Hasta 18 horas de bateria. GPU de hasta 8 nucleos. Pantalla Retina de 13.3 pulgadas',1,1,1,1,'2022-06-09',0,'Macbook Air','<h2>Este sería el titulo del detalle de la publicacion</h2>',4,'Blanco, Griz',2,1),(3,345098.00,'Notebook gamer MSI Thin GF63 Capacidad: 8GB RAM / 512 GB SSD Hasta 20 horas de bateria Placa de video NVIDIA GeForce GTX 1650 Max-Q Pantalla LED de 15.6 pulgadas.',2,1,1,1,'2022-06-01',0,'Notebook MSI','<h2>Este sería el titulo del detalle de la publicacion</h2>',3,'Negro',3,1),(4,240000.00,'Sony Playstation 5 Digital edition Memoria de 825GB Resolucion de 3840px x 2160px.Memoria RAM de 16GB Cuenta con: 1 cable de alimentación ca, 1 cable hdmi, 1 cable de carga usb, 1 dock.',1,1,1,1,'2022-04-21',0,'Playstation 5','<h2>Este sería el titulo del detalle de la publicacion</h2>',30,'Blanco, Griz',1,1),(5,6500.00,'Buzo Canguro Hoodie con capucha 100% algodon Talles S, M, L, XL disponibles Ideal para el invierno.',2,1,2,1,'2022-05-14',0,'Buzo Canguro','<h2>Este sería el titulo del detalle de la publicacion</h2>',2,'Negro',4,1),(6,12600.45,'Agregar descripcion',1,1,2,1,'2022-05-14',0,'Zapatillas Nike','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Negro',5,1),(7,8000.00,'Agregar descripcion',2,1,2,1,'2022-05-14',0,'Pantalon Cargo','<h2>Este sería el titulo del detalle de la publicacion</h2>',3,'Griz Oscuro',6,1),(8,16000.00,'Campera Softshell Verde Con Capucha. Impermeable. Ideal para el invierno. Talles M, L, XL disponibles.',1,1,2,1,'2022-05-14',0,'Campera Softshell','<h2>Este sería el titulo del detalle de la publicacion</h2>',50,'Verde',7,1),(9,75000.00,'Agregar descripcion',2,1,3,1,'2022-05-14',0,'Cama Box Base','<h2>Este sería el titulo del detalle de la publicacion</h2>',9,'Griz Claro',8,1),(10,25000.00,'Agregar descripcion',2,1,3,1,'2022-05-14',0,'Silla de Comedor','<h2>Este sería el titulo del detalle de la publicacion</h2>',6,'Blanco',9,1),(11,320000.00,'Agregar descripcion',1,1,3,1,'2022-05-14',0,'Sillón Esquinero','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Griz, Negro, Blanco, Marron',10,1),(12,48000.00,'Agregar descripcion',2,1,3,1,'2022-05-14',0,'Mesa Ratona','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Madera, Negro',9,1),(13,6500.00,'Agregar descripcion',1,1,4,1,'2022-05-14',0,'Pelota Nike','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Blanco, Negro',11,1),(14,13000.00,'Agregar descripcion',1,1,4,1,'2022-05-14',0,'Botines Nike','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Griz',11,1),(15,7000.00,'Agregar descripcion',1,1,4,1,'2022-05-14',0,'Mancuerna','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Metalico, Negro',12,1),(16,4300.00,'Agregar descripcion',2,1,4,1,'2022-05-14',0,'Colchonetas','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Rojo, Naranja, Verde, Azul, Violeta',12,1),(17,107000.00,'Agregar descripcion',2,1,5,1,'2022-05-14',0,'Monopatín Eléctrico','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Griz, Metalico',15,1),(18,140000.00,'Agregar descripcion',1,1,5,1,'2022-05-14',0,'Hoverboard','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Negro, Rojo',15,1),(19,120000.00,'Agregar descripcion',1,1,5,1,'2022-05-14',0,'Bicicleta MTB','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Naranja',15,1),(20,190000.00,'Agregar descripcion',2,1,5,1,'2022-05-14',0,'Bicicleta Eléctrica','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Rojo',15,1),(21,7000.00,'Agregar descripcion',1,1,6,1,'2022-05-14',0,'Monopatín','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Azul, Negro',15,1),(22,11000.00,'Agregar descripcion',1,1,6,1,'2022-05-14',0,'Auto a control remoto','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Azul, Rojo',16,1),(23,5000.00,'Agregar descripcion',1,1,6,1,'2022-05-14',0,'Kit utiles escolares','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Multicolor',17,1),(24,9800.00,'Agregar descripcion',2,1,6,1,'2022-05-14',0,'Triciclo','<h2>Este sería el titulo del detalle de la publicacion</h2>',1,'Rojo, Azul, Amarillo',15,1),(52,99.00,'prueba',2,1,1,NULL,NULL,0,'prueba',NULL,1,'prueba',1,1);
 /*!40000 ALTER TABLE `publicaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -414,13 +415,12 @@ CREATE TABLE `ventas` (
   `idventa` int NOT NULL AUTO_INCREMENT,
   `idusuario` int DEFAULT NULL,
   `montototal` int DEFAULT NULL,
-  `mediodepago` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `domicilioentrega` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `fechayhora` date NOT NULL,
+  `mediodepago` int DEFAULT NULL,
+  `domicilioentrega` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `fechayhora` datetime NOT NULL,
   PRIMARY KEY (`idventa`),
-  UNIQUE KEY `idventa_UNIQUE` (`idventa`),
-  CONSTRAINT `fk_detalleventa` FOREIGN KEY (`idventa`) REFERENCES `detalleventa` (`idventa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  UNIQUE KEY `idventa_UNIQUE` (`idventa`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -429,6 +429,7 @@ CREATE TABLE `ventas` (
 
 LOCK TABLES `ventas` WRITE;
 /*!40000 ALTER TABLE `ventas` DISABLE KEYS */;
+INSERT INTO `ventas` VALUES (5,2,10500,1,'1','2022-08-03 00:00:00'),(6,2,10500,1,'1','2022-08-03 00:00:00'),(7,2,10500,1,'1','2022-08-03 00:00:00'),(8,2,0,1,'1','2022-08-03 00:00:00'),(9,2,0,1,'1','2022-08-03 00:00:00'),(10,2,0,1,'1','2022-08-03 00:00:00'),(11,2,75000,1,'1','2022-08-03 00:00:00'),(12,2,777796,1,'1','2022-08-03 00:00:00'),(13,2,12600,1,'1','2022-08-03 00:00:00'),(14,2,12600,1,'1','2022-08-03 00:00:00'),(15,2,265800,1,'1','2022-07-04 00:00:00'),(16,2,272300,1,'1','2022-07-04 00:02:35'),(17,2,12600,1,'1','2022-08-03 21:06:02'),(18,2,2468,1,'1','2022-08-03 21:15:39'),(19,2,2468,1,'1','2022-08-03 21:16:39'),(20,2,531600,1,'1','2022-08-03 21:18:46'),(21,2,531600,1,'1','2022-08-03 21:20:10');
 /*!40000 ALTER TABLE `ventas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -441,4 +442,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-01  2:26:36
+-- Dump completed on 2022-08-03 21:31:59

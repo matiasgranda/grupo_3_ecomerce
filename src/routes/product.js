@@ -3,6 +3,7 @@ const path = require("path");
 let router = express.Router();
 const multer=require('multer');
 const log=require('../middelwares/logMiddleware');
+const authMiddleware = require("../middelwares/authMiddleware")
 let multerDiskStorage=multer.diskStorage({
     destination:(req,file,callback)=>{
         let folder=path.join(__dirname,'../../public/img');  
@@ -18,7 +19,7 @@ let fileupload=multer({storage:multerDiskStorage})
 let productsController = require("../controllers/productsController");
 const logMiddelware = require("../middelwares/logMiddleware");
 
-router.get("/create", productsController.create);
+router.get("/create", authMiddleware, productsController.create);
 router.get("/search/:keyword", productsController.search);
 router.get("/edit/:id", productsController.edit);
 router.put("/edit/:id", fileupload.any(),productsController.editProduct);

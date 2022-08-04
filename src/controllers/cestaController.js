@@ -92,7 +92,7 @@ let cestaController = {
               titulo: publicacion.titulo,
               id: publicacion.idpublicacion,
               cantidad: product.cantidad,
-              precio: parseInt(publicacion.precio),
+              precio: parseFloat(publicacion.precio),
               descripcion: publicacion.descripcion,
               imagen: publicacion.imagenes[0].imagen,
               stock: publicacion.stock,
@@ -253,9 +253,9 @@ let cestaController = {
     console.log(req.session.basketProducts)
 
     // TOTAL DEVUELVE SIEMPRE NAN, FALTA ARREGLARLO
-    let total;
+    var total = 0;
     req.session.basketProducts.forEach(producto => {
-      total = (producto.precio * producto.cantidad) + total
+      total = (parseFloat(producto.precio) * parseFloat(producto.cantidad)) + total
     /*  console.log(typeof(producto.precio))
       console.log(typeof(producto.cantidad))
       console.log(typeof(total))*/
@@ -291,18 +291,18 @@ let cestaController = {
 
     const timeElapsed = Date.now();
     const today = new Date(timeElapsed);
-    const fecha=today.toLocaleDateString()+ " "+today.getHours()+ ":"+('0'+today.getMinutes()).slice(-2)+ ":"+('0'+today.getSeconds()).slice(-2);
+    const fecha=today.getFullYear()+ "-"+(today.getMonth()+1) + "-"+today.getDay()+ " " + (today.getHours()-3)+":"+today.getMinutes()+":"+today.getSeconds();
 
     let venta = {
       idusuario: req.session.idusuario,
-      montototal: 10500,
-      mediodepago: req.body.usuarioMetodoDePago,
+      montototal: total,
+      mediodepago: parseInt(req.body.usuarioMetodoDePago),
       domicilioentrega: domicilio.iddomicilios,
       fechayhora: fecha
     }
 
     const ultimaVenta = await db.Ventas.create(venta);
-
+    console.log(ultimaVenta)
     sesion.basketProducts.forEach(producto => {
       detalleVenta = {
         cantidad: producto.cantidad,
@@ -311,9 +311,14 @@ let cestaController = {
         idventa: ultimaVenta.idventa
       }
       db.DetalleVenta.create(detalleVenta)
+
+      db.Publicaciones.decrement("stock", { 
+        by: producto.cantidad,  
+        where: { idpublicacion: producto.id }
+      })
     })
-    
-    return res.send(ultimaVenta)
+
+    return res.redirect("/");
 
   },
   getdomicilio: async (req, res) => {
