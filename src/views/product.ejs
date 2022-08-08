@@ -70,7 +70,7 @@
       </div>
       <div class="productDescription">
 
-        <p> <%= datosPublicacion.publicacion.descripcion %> </p>
+        <p> <%- datosPublicacion.publicacion.descripcion %> </p>
 
       </div>
       <div class="productStyles">
@@ -136,17 +136,18 @@
       </div>
     </section>
   </main>
-
+  <!--
   <hr class="separador">
-  <article class="compralocon">
-    compralo con
-
-  </article>
+      <article class="compralocon">
+        compralo con
+      </article> 
+  
   <hr class="separador">
-
+  
   <article class="publicacion">
-    <p> <%- datosPublicacion.publicacion.detallepublicacion %> </p>
+    <p> <% datosPublicacion.publicacion.detallepublicacion %> </p>
   </article>
+  -->
   <hr class="separador">
   <% if(datosPublicacion.preguntas!=undefined && datosPublicacion.preguntas.length>0) { %>
   <article class="preguntas">
@@ -210,7 +211,7 @@
   <% if(datosPublicacion.calificaciones!=undefined && datosPublicacion.calificaciones.length>0) { %>
   <hr class="separador">
   <article class="comentario-calificacion">
-   
+
     <h2>Otros usuarios opinaron</h2>
    
     <% for(let i = 0; i < datosPublicacion.calificaciones.length; i++) { %>
@@ -240,6 +241,9 @@
   <% } %>
   <hr class="separador">
   <% if (datosPublicacion.publicacion.idusuario!=session.idusuario) {%>
+    <% if(!session.idusuario){ %>
+    <h4 class="loginMessage">Debes iniciar sesión para dejar un comentario</h4>
+    <% } else { %>
     <article class="postComentario">
     <h3>Dejanos tu comentario y calificacion:</h3>
     <form action="/product/<%=datosPublicacion.publicacion.idpublicacion%>/comentario" method="post">
@@ -264,6 +268,7 @@
       <button class="btnenviar" type="submit">Enviar</button>
     </form>
   </article>
+    <% } %>
       <% } %> 
  
   <%- include('./partials/sidenav') %>
