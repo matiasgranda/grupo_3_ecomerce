@@ -5,6 +5,12 @@ let productosApiController = {
 
     "lista": async (req, res) => {
 
+        const sumarPrecioProductos = await db.Publicaciones.findAll({
+            attributes: [ 
+                [sequelize.fn("SUM", sequelize.col("precio")), "total"] ]
+        })
+        console.log(sumarPrecioProductos)
+
         const sumarCategorias = await db.Publicaciones.findAll({
             group: "idcategoria",
             attributes:["idcategoria"],
