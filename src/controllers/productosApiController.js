@@ -1,47 +1,50 @@
 let db = require("../data/models/index");
 const sequelize = require("sequelize");
+const { response } = require("express");
 
 let productosApiController = {
 
     "lista": async (req, res) => {
+        
+        try {
 
-        const sumarPrecioProductos = await db.Publicaciones.findAll({
-            attributes: [ 
-                [sequelize.fn("SUM", sequelize.col("precio")), "total"] ]
-        })
-        console.log(sumarPrecioProductos)
+            const sumarPrecioProductos = await db.Publicaciones.findAll({
+                attributes: [ 
+                    [sequelize.fn("SUM", sequelize.col("precio")), "total"] ]
+            })
 
-        const sumarCategorias = await db.Publicaciones.findAll({
-            group: "idcategoria",
-            attributes:["idcategoria"],
-            include: [
-                {
-                    association: "categorias",
-                    attributes: [
-                        "descripcion",
-                        [sequelize.fn("COUNT", sequelize.col("Publicaciones.idcategoria")), "total"]
-                    ]
+            const sumarCategorias = await db.Publicaciones.findAll({
+                group: "idcategoria",
+                attributes:["idcategoria"],
+                include: [
+                    {
+                        association: "categorias",
+                        attributes: [
+                            "descripcion",
+                            [sequelize.fn("COUNT", sequelize.col("Publicaciones.idcategoria")), "total"]
+                        ]
+                    }
+                ]
+            })
+            let categoriasTotal = [];
+            sumarCategorias.forEach(categoria => {
+                let result = {
+                    categoria: categoria.categorias.descripcion,
+                    total: categoria.categorias.total
                 }
-            ]
-        })
-        let categoriasTotal = [];
-        sumarCategorias.forEach(categoria => {
-            let result = {
-                categoria: categoria.categorias.descripcion,
-                total: categoria.categorias.total
-            }
-            categoriasTotal.push(result)
-        })
+                categoriasTotal.push(result)
+            })
 
-        const lastAdded = await db.Publicaciones.findOne({
-            order: [[ "idpublicacion", "desc" ]], include: [{ association: "categorias", attributes: ["descripcion"]}, { association: "usuarios", attributes: ["usuario", "email"] }]
-        })
+            const lastAdded = await db.Publicaciones.findOne({
+                order: [[ "idpublicacion", "desc" ]], include: [{ association: "categorias", attributes: ["descripcion"]}, { association: "usuarios", attributes: ["usuario", "email"] }]
+            })
 
-        db.Publicaciones.findAll({
-            include: [{
-                association: "marcas", attributes: ["marca"], required: true
-            }]
-        }).then((publicaciones) => {
+            const publicaciones = await db.Publicaciones.findAll({
+                include: [{
+                    association: "marcas", attributes: ["marca"], required: true
+                }]
+            })
+
             var products = [];
             publicaciones.forEach(producto => {
 
@@ -58,26 +61,41 @@ let productosApiController = {
             let result = {
                 countByCategory: categoriasTotal,
                 products: products,
-                lastAdded: lastAdded
+                lastAdded: lastAdded,
+                amountInProducts: sumarPrecioProductos[0]
             }
     
             res.json(result)
-        })
             
-    },
+            
+        } catch(error) {
+            res.status(400).json(error)
+        }
+    }, /* */
 
-    "detalle": (req, res) => {
-        db.Publicaciones.findByPk(req.params.id)
-            .then((producto) => {
-                let result = {
-                    meta: {
-                        status: 200,
-                        url: "api/producto/id"
-                    },
-                    data: producto
-                }
-                res.json(result)
-            })
+    "detalle": async (req, res) => {
+
+        try {
+
+            const publicaciones = await db.Publicaciones.findByPk(req.params.id);
+
+            if(!response.ok) {
+                throw new Error(res.status)
+            }
+
+            const result = {
+                meta: {
+                    status: 200,
+                    url: "api/producto/id"
+                },
+                data: publicaciones
+            }
+
+            return res.json(result)
+
+        } catch(error) {
+            return res.status(400).json(error)
+        }
     }
 
 };

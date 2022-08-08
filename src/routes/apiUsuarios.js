@@ -4,5 +4,6 @@ const usuariosApiController = require('../controllers/usuariosApiController');
 
 router.get("/", usuariosApiController.lista);
 router.get("/:id", usuariosApiController.detalle);
+router.post("/adminlogin", usuariosApiController.adminLogin);
 
 module.exports = router;

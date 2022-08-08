@@ -1,4 +1,5 @@
 let db = require("../data/models/index");
+const bcrypt = require("bcrypt");
 
 let usuariosApiController = {
 
@@ -44,6 +45,21 @@ let usuariosApiController = {
             }
             res.json(result)
         })
+    },
+
+    "adminLogin": (req, res, next) => {
+        var user = {
+            loginUsername: req.body.loginUsername,
+            loginPassword: req.body.loginPassword
+        }
+
+        if(user.loginUsername === process.env.USER_ADMIN && user.loginPassword === process.env.PASS_ADMIN) {
+            next();
+        } else {
+            throw new Error("Invalid credentials")
+        }
+        return res.json()
+
     }
 
 };

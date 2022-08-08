@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const app = express();
+require("dotenv").config();
 const methodOverride=require('method-override');
 let productRoutes = require("./routes/product.js");
 let mainRoutes = require("./routes/main.js");
@@ -50,7 +51,7 @@ app.use("/perfil", userRoutes);
 app.use("/categorias", categoriasRoutes);
 
 app.use("/api/usuarios", apiUsuarios);
-app.use("/api/productos", apiProductos)
+app.use("/api/productos", apiProductos);
 /******************************************************/
 app.use((req,res,next)=>{
     res.status(404).render('../src/views/not-found');
