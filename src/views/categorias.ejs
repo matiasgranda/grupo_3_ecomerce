@@ -16,14 +16,9 @@
         <div>
             <h2 clas="tituloseccion">Categorias</h2>
             <ul>
-               
-                    <% for (let categoria of categorias) { %>
-                        
-                        <li class="textocategoria"><a href="/categorias/<%= categoria.idcategoria %>"><%= categoria.descripcion %></a></li>
-                    <% } %>
-                
-                
-                
+                <% for (let categoria of categorias) { %>
+                    <li class="textocategoria"><a href="/categorias/<%= categoria.idcategoria %>"><%= categoria.descripcion %></a></li>
+                <% } %>
             </ul>
         </div>
       </section>
@@ -32,15 +27,13 @@
             <% for (let producto of locals.productos) { %>
                 <div class="item-producto">
                     <a href="/product/<%= producto.idpublicacion %>">
-                    <div class="imagenproducto">
-                     <img src="/img/<%= producto.imagenes[0].imagen %>" alt="<%= producto.nombre %>">
-                    </div>  
-                    <hr class="separadorimg">
-                    <p class="precio">Precio: $<%= producto.precio %></p>
-                   <h4 class="tituloproducto"><%= producto.descripcion %></h4>
-                    
-                    
-                </a>
+                        <div class="imagenproducto">
+                            <img src="/img/<%= producto.imagenes[0].imagen %>" alt="<%= producto.nombre %>">
+                        </div>  
+                        <hr class="separadorimg">
+                        <p class="precio">Precio: $<%= producto.precio %></p>
+                        <h4 class="tituloproducto"><%- producto.descripcion %></h4>
+                    </a>
                 </div>
             <% } %>
         <% } %>

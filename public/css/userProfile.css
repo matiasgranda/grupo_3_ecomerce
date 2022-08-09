@@ -430,7 +430,7 @@ table {
 
 .detalleCompra {
   width: 100%;
-  height: 30px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -440,19 +440,48 @@ table {
 .idCompra {
   width: 20%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .precioCompra {
   width: 40%;
   display: flex;
-  justify-content: flex-start;
+  text-align: center;
+  justify-content: center;
 }
 
 .fechaCompra {
   width: 40%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  text-align: center;
+}
+
+.divDetallesVenta {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 260px;
+  height: 380px;
+  background-color: #fff;
+  display: none;
+  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999;
+  border-radius: 4px;
+  border: 1px solid rgb(70, 70, 70);
+  box-shadow: 0px 0px 4px 0px rgb(70, 70, 70);
+  pointer-events: none;
+}
+
+.cerrarDetalleVenta {
+  position: absolute;
+  bottom: 5px;
+  width: 90%;
+  height: 30px;
+  pointer-events: auto;
 }
 
 @media screen and (max-width: 1000px) {

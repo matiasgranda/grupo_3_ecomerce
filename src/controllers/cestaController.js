@@ -226,9 +226,14 @@ let cestaController = {
     const domicilio = await db.Domicilios.findOne({
       where: { idusuario: req.session.idusuario },
     });
-
+    var id;
+    if(domicilio !== null) {
+      id = domicilio.iddomicilios
+    } else {
+      id = null
+    }
     db.Domicilios.upsert({
-      iddomicilios: domicilio.iddomicilios,
+      iddomicilios: id,
       idusuario: req.session.idusuario,
       idpais: req.body.usuarioDomicilioPais,
       idprovincia: req.body.usuarioDomicilioProvincia,

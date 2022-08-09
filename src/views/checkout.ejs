@@ -51,24 +51,24 @@
                 <div class="divCalleAltura">
                     <div>
                         <label for="usuarioDomicilioCalle">Calle:</label>
-                        <input name="usuarioDomicilioCalle" id="calleentrega"<% if(locals.domicilio) { %> value="<%= domicilio.calle %>" <% } %> ></input>
+                        <input maxlength="100" name="usuarioDomicilioCalle" id="calleentrega"<% if(locals.domicilio) { %> value="<%= domicilio.calle %>" <% } %> ></input>
                     </div>
 
                     <div>
                         <label for="usuarioDomicilioAlturaCalle">Altura:</label>
-                        <input name="usuarioDomicilioAltura" id="alturaentrega"<% if(locals.domicilio) { %> value="<%= domicilio.altura %>" <% } %> ></input>
+                        <input type="number" maxlength="10" name="usuarioDomicilioAltura" id="alturaentrega"<% if(locals.domicilio) { %> value="<%= domicilio.altura %>" <% } %> ></input>
                     </div>
                 </div>
 
                 <div class="divPisoDepto">
                     <div>
                         <label for="usuarioDomicilioDepto">Depto:</label>
-                        <input name="usuarioDomicilioDepto" id="deptoentrega" <% if(locals.domicilio) { %> value="<%= domicilio.depto %>" <% } %> ></input>
+                        <input maxlength="3" name="usuarioDomicilioDepto" id="deptoentrega" <% if(locals.domicilio) { %> value="<%= domicilio.depto %>" <% } %> ></input>
                     </div>
 
                     <div>
                         <label for="usuarioDomicilioPiso">Piso:</label>
-                        <input name="usuarioDomicilioPiso" id="pisoentrega" <% if(locals.domicilio) { %> value="<%= domicilio.piso %>" <% } %> ></input>
+                        <input type="number" maxlength="5"  name="usuarioDomicilioPiso" id="pisoentrega" <% if(locals.domicilio) { %> value="<%= domicilio.piso %>" <% } %> ></input>
                     </div>
                 </div>
                           
@@ -76,7 +76,7 @@
 
                 <div class="divConfirmarCpInput">
                     <label for="usuarioDomicilioCp">Codigo postal:</label>
-                    <input name="usuarioDomicilioCp" id="cpentrega" <% if(locals.domicilio) { %> value="<%= domicilio.cp %>" <% } %> ></input>
+                    <input type="number" maxlength="6" name="usuarioDomicilioCp" id="cpentrega" <% if(locals.domicilio) { %> value="<%= domicilio.cp %>" <% } %> ></input>
                 </div>
 
                 <div class="confirmButtonDiv">

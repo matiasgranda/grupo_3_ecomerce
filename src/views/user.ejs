@@ -123,18 +123,24 @@
                 <h3>Historial de Compras</h3>
                 <% if(compras.length > 0) { %>
                   <% compras.forEach((compra) => { %>
+                    <hr>
                     <div class="detalleCompra">
-                      <p class="idCompra">ID:  <%= compra.idventa %> </p>
-                      <p class="precioCompra">Precio total:  <%= compra.montototal %> </p>
-                      <p class="fechaCompra">Fecha: <%= compra.fechayhora.toISOString().slice(0, 10) %> </p>
+                      <a href="#/" id="<%=compra.idventa%>"  class="idCompra">ID: <%= compra.idventa %> </a>
+                      <p class="precioCompra">Precio total: <br>  <%= compra.montototal %> </p>
+                      <p class="fechaCompra">Fecha: <br> <%= compra.fechayhora.toISOString().slice(0, 10) %> </p>
                     </div>
                   <% }) %>
                 <% } %>
               </div>
             </div>
-            
-     
-
+              <div class="megaDiv">
+                <div class="divDetallesVenta">
+                  <p class="detalleVentaTitulo"></p>
+                  <p class="detalleVentaCantidad"></p>
+                  <p class="detalleVentaPrecio"></p>
+                  <button class="cerrarDetalleVenta">Close</button>
+                </div>
+              </div>
               <form class="gestionarDireccionForm" method="POST" action="/perfil/modificardireccion">
 
                 <div class="closeBtnDiv">
@@ -208,5 +214,6 @@
         });
     </script>
   </body>
+  <script src="/js/userDetalleVentas.js"></script>
   <script src="/js/gestionarDireccion.js"></script>
 </html>

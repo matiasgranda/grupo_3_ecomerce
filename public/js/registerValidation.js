@@ -23,7 +23,6 @@
             label.textContent = inputText.dataset.mensaje
         } else {
             inputText.classList.add("error")
-            
             let label = inputText.previousElementSibling
             label.textContent = "La direccion de Email no es valida"
         }
