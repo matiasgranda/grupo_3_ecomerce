@@ -9,8 +9,7 @@ let productosApiController = {
         try {
 
             const sumarPrecioProductos = await db.Publicaciones.findAll({
-                attributes: [ 
-                    [sequelize.fn("SUM", sequelize.col("precio")), "total"] ]
+                attributes: [[ db.sequelize.literal('sum(precio * stock)'), "total" ]]
             })
 
             const sumarCategorias = await db.Publicaciones.findAll({
@@ -58,6 +57,7 @@ let productosApiController = {
 
                 products.push(publicacion)
             })
+            console.log(sumarPrecioProductos[0])
             let result = {
                 countByCategory: categoriasTotal,
                 products: products,
