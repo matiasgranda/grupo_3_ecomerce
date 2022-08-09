@@ -360,7 +360,7 @@ let cestaController = {
     }
   },
 
-  misCompras: async (req, res) => {
+  finalizarCompra: async (req, res) => {
     const venta = await db.Ventas.findOne({
       order: [["idventa", "desc"]],
     });

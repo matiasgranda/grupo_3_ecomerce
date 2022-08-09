@@ -118,6 +118,19 @@
                 <% } %>
                 </div>
               </div>
+
+              <div class="tusCompras">
+                <h3>Historial de Compras</h3>
+                <% if(compras.length > 0) { %>
+                  <% compras.forEach((compra) => { %>
+                    <div class="detalleCompra">
+                      <p class="idCompra">ID:  <%= compra.idventa %> </p>
+                      <p class="precioCompra">Precio total:  <%= compra.montototal %> </p>
+                      <p class="fechaCompra">Fecha: <%= compra.fechayhora.toISOString().slice(0, 10) %> </p>
+                    </div>
+                  <% }) %>
+                <% } %>
+              </div>
             </div>
             
      

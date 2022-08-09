@@ -14,5 +14,5 @@ router.get("/confirmar", cestaController.checkout);
 router.post("/buy", cestaController.buy);
 router.get("/getdomicilio/:id", cestaController.getdomicilio);
 router.post("/confirmardireccion", cestaController.confirmarDireccion);
-router.get("/miscompras", cestaController.misCompras);
+router.get("/finalizarcompra", cestaController.finalizarCompra);
 module.exports = router;

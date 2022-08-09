@@ -15,6 +15,10 @@ let userController = {
       const paises = await db.Paises.findAll({
         attributes: ["PaisNombre", "idpais"]
       });
+      const compras = await db.Ventas.findAll({
+        where: { idusuario: req.session.idusuario}
+      });
+      
       db.Publicaciones.findAll({
         where: { idusuario: req.session.idusuario }}).then(publicaciones => {
           db.Usuarios.findOne({
@@ -25,7 +29,8 @@ let userController = {
                 usuario: usuario,
                 paises: paises,
                 provincias: provincias,
-                domicilio: domicilio
+                domicilio: domicilio,
+                compras: compras
                 });
             })
         })

@@ -1,22 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto&display=swap');
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
 }
+
 body {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
+  min-height: 90vh;
   background: rgb(200, 195, 195);
   padding-top: 120px;
 }
+
 .contenedor {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   max-width: 80%;
   width: 80%;
-  height: 60%;
-  border: 2px solid rgba(0, 0, 0);
+  min-height: 500px;
+  height: 70%;
+  border-radius: 4px;
   background: rgb(251, 249, 249);
   padding: 20px;
+}
+
+.contenedor-arriba {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 90%;
+}
+
+h4 {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h2 {
@@ -26,6 +53,9 @@ h2 {
 
 .divDescripcion h3 {
   opacity: 0.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .divInfoPedido {
@@ -43,7 +73,7 @@ h2 {
   position: relative;
   padding: 5px;
   background-color: rgb(239, 233, 233);
-  box-shadow: 0px 2px 8px 2px rgb(20 31 56 / 10%);
+  box-shadow: 0px 2px 4px 1px rgb(20 31 56 / 40%);
 }
 
 .entrega {
@@ -71,8 +101,9 @@ h2 {
 }
 
 .verDetalle {
-  position: relative;
-  left: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .verDetalle a {
@@ -82,7 +113,6 @@ h2 {
   text-align: center;
   font-weight: 600;
   border-radius: 5px;
-  margin: 15px 13px;
   padding: 10px;
   background-color: #1268e2;
   color: cornsilk;
