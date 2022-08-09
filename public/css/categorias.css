@@ -10,13 +10,13 @@
 body {
   margin: 0px;
   padding: 0px;
-  background-color: #EAEDED;
+  background-color: #eaeded;
 }
 main {
   margin-top: 90px;
   width: 100%;
   height: 100%;
-  background-color: #EAEDED;
+  background-color: #eaeded;
   display: flex;
 }
 .relleno {

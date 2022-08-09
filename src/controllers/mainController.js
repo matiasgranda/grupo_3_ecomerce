@@ -10,6 +10,7 @@ let mainController = {
   home: async (req, res) => {
     let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
     let sesion = req.session;
+    
     let db = require("../data/models/");
     let topventasypopulares=await db.Publicaciones.findAll({ 
       include: [

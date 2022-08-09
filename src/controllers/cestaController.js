@@ -318,7 +318,7 @@ let cestaController = {
       detalleVenta = {
         cantidad: producto.cantidad,
         producto: producto.titulo,
-        precio: producto.precio * producto.cantidad,
+        precio: producto.precio,
         idventa: ultimaVenta.idventa,
       };
       db.DetalleVenta.create(detalleVenta);
@@ -327,9 +327,13 @@ let cestaController = {
         by: producto.cantidad,
         where: { idpublicacion: producto.id },
       });
+      req.session.basketProducts=[];
+      sesion.basketProducts=[];
     });
-
-    return res.redirect("/");
+    req.session.basketProducts=[];
+    sesion.basketProducts=[];
+    req.session.totalProductos=0;
+    return res.redirect('/');
   },
   getdomicilio: async (req, res) => {
     // let respuesta={mensaje:"ok"}
