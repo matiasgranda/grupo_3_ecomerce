@@ -57,10 +57,9 @@ main {
   align-items: flex-start;
 }
 .item-producto {
-  border: 1px solid black;
   display: flex;
   width: 250px;
-  height: 515px;
+  height: 400px;
   background-color: #fff;
   margin-left: 10px;
   margin-right: 10px;
@@ -74,18 +73,25 @@ main {
   align-items: stretch;
   margin-bottom: 20px;
 }
+
+.item-producto a {
+  width: 100%;
+  height: 100%;
+}
 .tituloproducto {
-  font-size: 14px;
+  font-size: 1.2em;
+  font-weight: 500;
   font-weight: lighter;
   margin-bottom: 10px;
   color: #3e3e3e;
+  height: 30%;
 }
 .item-producto a img {
   max-width: 100%;
-  max-height: 320px;
+  max-height: 100%;
 }
 .imagenproducto {
-  height: 60%;
+  height: 70%;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -94,7 +100,6 @@ main {
   align-items: center;
   margin-bottom: 10px;
   overflow: hidden;
-  border: 1px solid black;
 }
 .precio {
   color: rgb(35 47 63);
