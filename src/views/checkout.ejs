@@ -14,17 +14,22 @@
     <%- include('./partials/navbar') %>
     <main class="mainForm">
         <div class="confirmarDireccion">
+            <% if(locals.query) { %>
+                <h3 class="confirmarDireccionError">Por favor confirme su direccion de envio! </h3>
+            <% } else { %>
             <h3>Confirme su dirección de envio:</h3>
-
+            <% } %>
             <form class="formConfirmarDireccion" method="POST" action="/cesta/confirmardireccion">
 
                 <div class="divConfirmarDireccionSelect">
                     <div>
                         <label for="usuarioDomicilioPais">Pais:</label>
                         <select name="usuarioDomicilioPais" id="usuarioDomicilioPais">
+                            <% if(locals.domicilio) { %>
                             <option value="<%= domicilio.pais.idpais %>" selected>
                                 <%= domicilio.pais.PaisNombre %> </option>
-                            <% paises.forEach(pais => { %>
+                            <% } %>
+                                <% paises.forEach(pais => { %>
                             <option value="<%= pais.idpais %>"> <%= pais.PaisNombre %> </option>
                             <% }) %>
                         </select>
@@ -33,7 +38,9 @@
                     <div>
                         <label for="usuarioDomicilioProvincia">Provincia:</label>
                         <select name="usuarioDomicilioProvincia" id="usuarioDomicilioProvincia">
+                            <% if(locals.domicilio) { %>
                             <option selected value="<%=domicilio.provincia.idProvincia%>"> <%= domicilio.provincia.Provincia %> </option>
+                            <% } %>
                             <% provincias.forEach(provincia => { %>
                             <option value="<%= provincia.idProvincia %>"> <%= provincia.Provincia %> </option>
                             <% }) %>
@@ -44,24 +51,24 @@
                 <div class="divCalleAltura">
                     <div>
                         <label for="usuarioDomicilioCalle">Calle:</label>
-                        <input name="usuarioDomicilioCalle" id="calleentrega" value="<%= domicilio.calle %>"></input>
+                        <input name="usuarioDomicilioCalle" id="calleentrega"<% if(locals.domicilio) { %> value="<%= domicilio.calle %>" <% } %> ></input>
                     </div>
 
                     <div>
                         <label for="usuarioDomicilioAlturaCalle">Altura:</label>
-                        <input name="usuarioDomicilioAltura" id="alturaentrega" value="<%= domicilio.altura %>"></input>
+                        <input name="usuarioDomicilioAltura" id="alturaentrega"<% if(locals.domicilio) { %> value="<%= domicilio.altura %>" <% } %> ></input>
                     </div>
                 </div>
 
                 <div class="divPisoDepto">
                     <div>
                         <label for="usuarioDomicilioDepto">Depto:</label>
-                        <input name="usuarioDomicilioDepto" id="deptoentrega" value="<%= domicilio.depto %>"></input>
+                        <input name="usuarioDomicilioDepto" id="deptoentrega" <% if(locals.domicilio) { %> value="<%= domicilio.depto %>" <% } %> ></input>
                     </div>
 
                     <div>
                         <label for="usuarioDomicilioPiso">Piso:</label>
-                        <input name="usuarioDomicilioPiso" id="pisoentrega" value="<%= domicilio.piso %>"></input>
+                        <input name="usuarioDomicilioPiso" id="pisoentrega" <% if(locals.domicilio) { %> value="<%= domicilio.piso %>" <% } %> ></input>
                     </div>
                 </div>
                           
@@ -69,7 +76,7 @@
 
                 <div class="divConfirmarCpInput">
                     <label for="usuarioDomicilioCp">Codigo postal:</label>
-                    <input name="usuarioDomicilioCp" id="cpentrega" value="<%= domicilio.cp %>"></input>
+                    <input name="usuarioDomicilioCp" id="cpentrega" <% if(locals.domicilio) { %> value="<%= domicilio.cp %>" <% } %> ></input>
                 </div>
 
                 <div class="confirmButtonDiv">

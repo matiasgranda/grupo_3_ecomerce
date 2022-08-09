@@ -206,8 +206,8 @@ let cestaController = {
       });
 
       //console.log(mediosPago)
-
       return res.render(path.resolve(__dirname, "../views/checkout.ejs"), {
+        query: req.query.data,
         session: sesion,
         domicilio: domicilio,
         paises: paises,
@@ -277,6 +277,10 @@ let cestaController = {
       attributes: ["iddomicilios"],
     });
 
+    if(domicilio === null) {
+      return res.redirect("/cesta/confirmar/?data=confirmardireccion")
+    }
+
     var error = false;
     productosEnDb.forEach((producto) => {
       productosAComprar.forEach((prodcutoEnCesta) => {
@@ -313,7 +317,6 @@ let cestaController = {
     };
 
     const ultimaVenta = await db.Ventas.create(venta);
-    console.log(ultimaVenta);
     sesion.basketProducts.forEach((producto) => {
       detalleVenta = {
         cantidad: producto.cantidad,
@@ -375,14 +378,7 @@ let cestaController = {
         iddomicilios: venta.domicilioentrega,
       },
     });
-    const fecha = JSON.stringify(venta.fechayhora);
-    const fechayhora = fecha.split("T");
-    // const domicilioEntrega = {
-    //   calle: domicilioDeEntrega.calle,
-    //   altura: domicilioDeEntrega.altura,
-    //   piso: domicilioDeEntrega.piso,
-    //   depto: domicilioDeEntrega.depto,
-    // };
+    const fecha = venta.fechayhora.toISOString().slice(0, 10);
 
     const detalleVenta = [];
     detalleDeVenta.forEach((venta) => {
@@ -395,7 +391,7 @@ let cestaController = {
       venta: venta,
       montoTotal: venta.montototal,
       domicilio: domicilioDeEntrega,
-      fecha: fechayhora[0],
+      fecha: fecha,
       resumen: detalleVenta,
     });
   },

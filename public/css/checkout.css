@@ -36,6 +36,17 @@ main {
     margin-right: 20px;
 }
 
+.confirmarDireccionError {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 20px;
+    background-color: red;
+}
+
 .confirmarDireccion h3 {
     width: 100%;
     height: 50px;
