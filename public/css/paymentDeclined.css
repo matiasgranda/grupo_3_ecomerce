@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+.ContenedorTop {
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 15%;
+  background: rgb(250, 237, 250);
+  padding: 40px 20px 40px 20px;
+}
+
+.divDeclined h1 {
+  font-weight: 100;
+}
+
+.divComent {
+  display: flex;
+  margin-top: 10px;
+  margin-left: 35px;
+}
+
+.icono {
+  color: rgb(242, 75, 75);
+}
+
+.ContenedorBottom {
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  position: absolute;
+  background: rgb(253, 251, 253);
+  padding: 40px 20px 40px 20px;
+  top: 35%;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="/css/paymentDeclined.css">
+  <script src="https://unpkg.com/feather-icons"></script>
+  <!-- <script src="https://kit.fontawesome.com/6fef4eeb95.js" crossorigin="anonymous"></script> -->
+
+  <%- include('./partials/head') %>
+    <title>Mis Compras</title>
+</head>
+
+<body>
+  <%- include('./partials/navbar1') %>
+
+    <div class="ContenedorTop">
+      <div class="divDeclined">
+        <h1> <i class="icono" data-feather="alert-circle"></i>&nbspPago rechazado</h1>
+      </div>
+      <div class="divComent">
+        <h2>Por seguridad rechazamos tu pago. Podes retomar el pago con otro medio.</h2>
+      </div>
+    </div>
+    <div class="ContenedorBottom">
+      <div class="divPregunta">
+        <h2>No puedes hacer el pago con tarjeta de credito</h2>
+        <div class="divcambiarMetodo">
+          <h3>Para terminar la compra, usa un medio distinto de tarjeta</h3>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      feather.replace()
+    </script>
+
+    <!-- <div class="verDetalle">
+      <a href="/">Pagar con otro medio</a>
+    </div> -->
+</body>
+
+</html>

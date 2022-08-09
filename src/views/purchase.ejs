@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="/css/purchase.css">
+  <script src="https://kit.fontawesome.com/6fef4eeb95.js" crossorigin="anonymous"></script>
+  <%- include('./partials/head') %>
+    <title>Mis Compras</title>
+</head>
+
+<body>
+  <%- include('./partials/navbar') %>
+    <div class="contenedor">
+      <div class="contenedor-arriba">
+        <div class="divcompra">
+
+          <h2> <i class="fa-solid fa-check"></i> &nbsp ¡ Gracias por tu compra !</h2>
+        </div>
+        <div class="divDescripcion">
+          <h3>Tu pedido se encuentra en proceso de validacion, en breve recibiras un correo con el detalle de la compra
+          </h3>
+        </div>
+        <!-- <div class="llegada">
+          <h2>Llega mañana</h2>
+        </div> -->
+        <div class="divInfoPedido">
+          Pedido: <%=venta.idventa%>
+            <br>
+            Fecha de Solicitud de compra: <%=fecha%>
+        </div>
+
+        <div class="detalleDeCompra">
+          <div class="entrega">
+
+            <h3 class="divTitulos"> <i class="fa-solid fa-location-dot"></i> Entrega</h3>
+            <div class="detalle">
+              <p>Fecha de Entrega:
+              </p>
+              <p>Direccion de entrega: </p>
+              <p>
+                Calle: <%=domicilio.calle%>
+
+              </p>
+              <p>
+                Altura: <%=domicilio.altura%>
+
+              </p>
+              <p>
+                Piso:<%=domicilio.piso%>
+
+              </p>
+              <p>
+                Depto: <%=domicilio.depto%>
+
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="medioDePago">
+            <h3 class="divTitulos"><i class="fa-solid fa-hand-holding-dollar"></i> Medio de Pago</h3>
+            <p>Numero de Tarjeta: </p>
+            <p>**** **** **** 1111</p>
+            <p>$ <%=montoTotal%>
+            </p>
+
+          </div>
+
+          <div class="resumenDeCompra">
+            <h3 class="divTitulos">Resumen de la Orden</h3>
+            <% resumen.forEach(producto=>{%>
+              <p>
+                <%=producto%>
+              </p>
+              <% })%>
+          </div>
+        </div>
+        <div class="verDetalle">
+          <a href="/">Seguir Comprando</a>
+        </div>
+      </div>
+      <h4>Recuerda que para poder retirar la compra debera presentar su DNI</h4>
+      <br>
+
+
+
+    </div>
+
+</body>
+
+</html>
