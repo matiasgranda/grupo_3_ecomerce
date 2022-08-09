@@ -36,18 +36,19 @@
             <div class="productInfoContainer">
               <div class="productTitleDiv">
                 <a href="/product/<%= productos[i].idpublicacion %>">
+                  <span class="marca"><%= productos[i].marcas.marca %></span>
                   <h3><%= productos[i].titulo %></h3>
                 </a>
                 
               </div>
               <div class="productInfoDiv">
-                <div>
-                  <p>Precio: <%= productos[i].precio %></p>
+                <div class="precio">
+                  <p>$ <%= productos[i].precio %></p>
                 </div>
-                <div>
+                <div style="display: none;">
                   <p>Marca: <%= productos[i].marcas.marca %></p>
                 </div>
-                <div>
+                <div style="display: none;">
                   <p>En stock: <%= productos[i].stock %></p>
                 </div>
               </div>

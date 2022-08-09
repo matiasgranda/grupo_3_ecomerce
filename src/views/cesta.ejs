@@ -26,8 +26,8 @@
                     <img src="/img/<%= locals.session.basketProducts[i].imagen %>">
                 </div>
                 <div class="detalleitem">
-                    <div class="titulodesc"><%= locals.session.basketProducts[i].titulo %></div>
-                    <div class="descripcionitem"><%= locals.session.basketProducts[i].descripcion %> </div>
+                    <div class="titulodesc"><%- locals.session.basketProducts[i].titulo %></div>
+                    <div class="descripcionitem"><%- locals.session.basketProducts[i].descripcion %> </div>
                     <div class="opcionesitem">
                         <div class="cantidad">
                             <label for="selectcantidad">Cant.</label>
@@ -53,7 +53,8 @@
                            
                         </div>
                         <div class="linksopciones">
-                            <a href="http://localhost:3000/cesta/delete/<%=locals.session.basketProducts[i].id %>">Eliminar</a><a href="#">Ver productos similares</a>
+                            <a href="http://localhost:3000/cesta/delete/<%=locals.session.basketProducts[i].id %>" >Eliminar</a>
+                            <a href="#" class="prodsim">Ver productos similares</a>
                             <% if (locals.mensaje && (locals.session.basketProducts[i].id==locals.mensaje.id)){ %>
                                 <span class="mensajeError"><%= locals.mensaje.mensaje %></span>
                             <% } %>

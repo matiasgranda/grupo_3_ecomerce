@@ -14,6 +14,7 @@
     margin-right: 10px;
     
 }
+
 .content-input{
 	position: relative;
     margin-top: 30px;
@@ -83,7 +84,8 @@ de un input de tipo checkbox*/
 body {
     width: 100%;
     height: 100%;
-    background-color: rgb(255, 255, 255);
+    /*background-color: rgb(255, 255, 255);*/
+    background-color: #eaeded;
     position: absolute;
     display: flex;
     align-items: center;
