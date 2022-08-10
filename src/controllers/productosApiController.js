@@ -39,9 +39,7 @@ let productosApiController = {
             })
 
             const publicaciones = await db.Publicaciones.findAll({
-                include: [{
-                    association: "marcas", attributes: ["marca"], required: true
-                }]
+                include: [{association: "marcas", attributes: ["marca"]}, { association: "imagenes", attributes: ["imagen"], groupBy: "idpublicacion" }]
             })
 
             var products = [];
@@ -52,12 +50,17 @@ let productosApiController = {
                     name: producto.titulo,
                     description: producto.descripcion,
                     array: ["colores: "+producto.colores, "Marca: "+producto.marcas.marca],
-                    detail: "api/productos/"+producto.idpublicacion
+                    detail: "api/productos/"+producto.idpublicacion,
+                    imagenes: []
                 }
-
+                
+                for(let i = 0; i < producto.imagenes.length; i++) {
+                    publicacion.imagenes.push("http://localhost:3000/img/"+producto.imagenes[i].imagen)
+                }
+                
                 products.push(publicacion)
+
             })
-            console.log(sumarPrecioProductos[0])
             let result = {
                 countByCategory: categoriasTotal,
                 products: products,

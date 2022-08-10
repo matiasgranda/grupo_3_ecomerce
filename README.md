@@ -23,25 +23,6 @@
 <h3>Público Objetivo</h3>
 Publico general que busca una excelente experiencia de compra y un servicio al cliente inigualable
 
-<h4>Tareas</h4>
-
-<h3>Sprint 1</h3>
-
-- [x] Completar el Readme
-- [x] Subir los Mockups de pagina principal, producto, login y registro
-- [x] Agregar a los profes a los colaboradores
-
-<hr>
-<h3>Sprint 2</h3>
-
-- [x] Archivo retro.md con el resultado de la retrospectiva.
-- [x] Enlace al tablero de trabajo en el archivo README.md.
-- [x] Aplicación Node.js+Express con:
-- [x] Home (index.html)
-- [x] Detalle del producto (productDetail.html)
-- [x] Carrito de compras (productCart.html)
-- [x] Formulario de registro (register.html)
-- [x] Formulario de login (login.html)
 
 <hr>
 <h4> Tablero de Trello </h4>
