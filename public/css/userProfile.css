@@ -449,7 +449,7 @@ table {
   width: 320px;
   height: 300px;
   max-height: 500px;
-  overflow-y: scroll;
+  overflow-y: auto;
   background-color: #fff;
   display: none;
   padding: 20px;
