@@ -326,8 +326,14 @@ header {
     font-size: 16px;
     border: none;
     display: flex;
+    max-height: 50px;
     flex-direction: row;
     align-items: center;
+}
+
+.dropbtn img {
+    max-height: 40px;
+    border-radius: 10px;
 }
 
 .dropdown {

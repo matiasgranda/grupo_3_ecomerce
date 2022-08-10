@@ -154,3 +154,16 @@ li.textocategoria:hover {
     background-color: rgb(35 47 63);
     color: white;
 }
+
+@media(max-width: 600px) {
+  .item-producto {
+    width: 220px;
+  }
+
+  .barralateral {
+    margin-top: 20px;
+  }
+  .barralateral h2 {
+    font-size: 1.1em;
+  }
+}

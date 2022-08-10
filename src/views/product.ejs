@@ -136,7 +136,7 @@
       </div>
     </section>
   </main>
-
+  <!--
   <hr class="separador">
       <article class="compralocon">
         compralo con
@@ -147,11 +147,11 @@
   <article class="publicacion">
     <p> <%- datosPublicacion.publicacion.detallepublicacion %> </p>
   </article>
-
+-->
   <hr class="separador">
   <% if(datosPublicacion.preguntas!=undefined && datosPublicacion.preguntas.length>0) { %>
   <article class="preguntas">
-    <h3>Otras preguntas</h3>
+    <h2>Otros usuarios preguntaron: </h2>
     <% for(let i = 0; i < datosPublicacion.preguntas.length; i++) { %>
 
     <div class="itempreguntas">
