@@ -174,7 +174,7 @@ let mainController = {
         productos2[i].imagen = imagenes[0].imagen
       }
       res.render(path.resolve(__dirname, "../views/admin.ejs"), {
-        productos: productos,
+        //productos: productos,
         productos2: productos2,
         session: sesion,
         categorias: categorias
@@ -182,6 +182,10 @@ let mainController = {
     })    
     
   },
+  purchase: (req, res) => {
+    console.log("estoy en purchase")
+    res.render(path.resolve(__dirname, "../views/purchase.ejs"))
+  }
 };
 
 module.exports = mainController;

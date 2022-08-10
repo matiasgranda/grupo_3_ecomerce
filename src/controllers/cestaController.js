@@ -205,7 +205,7 @@ let cestaController = {
         attributes: ["nombre", "idmediosdepago"],
       });
 
-      //console.log(mediosPago)
+     
       return res.render(path.resolve(__dirname, "../views/checkout.ejs"), {
         query: req.query.data,
         session: sesion,
@@ -252,16 +252,14 @@ let cestaController = {
     if (req.session.user === undefined) {
       res.redirect("/login");
     }
-    console.log(req.session.basketProducts);
+    
 
     // TOTAL DEVUELVE SIEMPRE NAN, FALTA ARREGLARLO
     var total = 0;
     req.session.basketProducts.forEach((producto) => {
       total =
         parseFloat(producto.precio) * parseFloat(producto.cantidad) + total;
-      /*  console.log(typeof(producto.precio))
-      console.log(typeof(producto.cantidad))
-      console.log(typeof(total))*/
+      
     });
 
     let productosAComprar = [];
@@ -335,13 +333,13 @@ let cestaController = {
         by: producto.cantidad,
         where: { idpublicacion: producto.id },
       });
-      req.session.basketProducts=[];
-      sesion.basketProducts=[];
+      
     });
     req.session.basketProducts=[];
     sesion.basketProducts=[];
     req.session.totalProductos=0;
-    return res.redirect('/');
+    console.log('metodo buy redireccionando a finalizar compra')
+    return res.redirect('/finalizarcompra');
   },
   getdomicilio: async (req, res) => {
     // let respuesta={mensaje:"ok"}
@@ -369,6 +367,7 @@ let cestaController = {
   },
 
   finalizarCompra: async (req, res) => {
+    console.log('metodo finalizar compra')
     const venta = await db.Ventas.findOne({
       order: [["idventa", "desc"]],
     });
@@ -389,7 +388,7 @@ let cestaController = {
     detalleDeVenta.forEach((venta) => {
       detalleVenta.push(venta.producto);
     });
-    console.log(venta.fechayhora);
+   
 
     return res.render(path.resolve(__dirname, "../views/purchase.ejs"), {
       session: req.session,

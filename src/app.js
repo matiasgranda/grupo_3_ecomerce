@@ -42,12 +42,14 @@ app.set("view engine", "ejs");
 
 /****************** Rutas *****************************/
 app.use("/", mainRoutes);
+app.use("/purchase", mainRoutes);
 app.use("/logout",logOutRoutes);
 app.use("/product", productRoutes);
 app.use("/registro",registroRoutes);
 app.use("/login",loginRoutes);
 app.use("/cesta",cestaRoutes);
 app.use("/perfil", userRoutes);
+app.use("/confirmarcompra", cestaRoutes);
 app.use("/categorias", categoriasRoutes);
 
 app.use("/api/usuarios", apiUsuarios);
