@@ -47,7 +47,7 @@ let cestaController = {
           if (
             parseInt(
               req.session.basketProducts[i].cantidad +
-                parseInt(req.body.cantidad)
+              parseInt(req.body.cantidad)
             ) <= req.session.basketProducts[i].stock
           ) {
             req.session.basketProducts[i].cantidad =
@@ -205,7 +205,7 @@ let cestaController = {
         attributes: ["nombre", "idmediosdepago"],
       });
 
-     
+
       return res.render(path.resolve(__dirname, "../views/checkout.ejs"), {
         query: req.query.data,
         session: sesion,
@@ -227,7 +227,7 @@ let cestaController = {
       where: { idusuario: req.session.idusuario },
     });
     var id;
-    if(domicilio !== null) {
+    if (domicilio !== null) {
       id = domicilio.iddomicilios
     } else {
       id = null
@@ -252,14 +252,14 @@ let cestaController = {
     if (req.session.user === undefined) {
       res.redirect("/login");
     }
-    
+
 
     // TOTAL DEVUELVE SIEMPRE NAN, FALTA ARREGLARLO
     var total = 0;
     req.session.basketProducts.forEach((producto) => {
       total =
         parseFloat(producto.precio) * parseFloat(producto.cantidad) + total;
-      
+
     });
 
     let productosAComprar = [];
@@ -280,7 +280,7 @@ let cestaController = {
       attributes: ["iddomicilios"],
     });
 
-    if(domicilio === null) {
+    if (domicilio === null) {
       return res.redirect("/cesta/confirmar/?data=confirmardireccion")
     }
 
@@ -320,50 +320,41 @@ let cestaController = {
     };
 
     const ultimaVenta = await db.Ventas.create(venta);
-    sesion.basketProducts.forEach((producto) => {
-      detalleVenta = {
+    sesion.basketProducts.forEach(async (producto) => {
+      let detalleVenta = {
         cantidad: producto.cantidad,
         producto: producto.titulo,
         precio: producto.precio,
         idventa: ultimaVenta.idventa,
       };
-      db.DetalleVenta.create(detalleVenta);
+      await db.DetalleVenta.create(detalleVenta);
 
-      db.Publicaciones.decrement("stock", {
+      await db.Publicaciones.decrement("stock", {
         by: producto.cantidad,
         where: { idpublicacion: producto.id },
       });
-      
+
     });
-    req.session.basketProducts=[];
-    sesion.basketProducts=[];
-    req.session.totalProductos=0;
+    req.session.basketProducts = [];
+    sesion.basketProducts = [];
+    req.session.totalProductos = 0;
     console.log('metodo buy redireccionando a finalizar compra')
     ////////////////////////////////////////////////////////
     //res.render(path.resolve(__dirname, "../views/purchase.ejs"));
     console.log('metodo finalizar compra')
     const ultimaventa = await db.Ventas.findOne({
-      where:{idusuario: req.session.idusuario},
+      where: { idusuario: req.session.idusuario },
       order: [["idventa", "desc"]],
-      limit:1
+      limit: 1
     });
     console.log('//////////////////////////')
-    // const detalleDeVenta3 = await db.DetalleVenta.findAll({
-    //   where: {
-    //     idventa: ultimaventa.idventa,
-        
-    //   },
-    // });
-    const detalleDeVenta3 =[];
-    db.DetalleVenta.findAll({
+    const detalleDeVenta3 = await db.DetalleVenta.findAll({
       where: {
         idventa: ultimaventa.idventa,
-        
+
       },
-    }).then((detventa) => {
-      detalleDeVenta3.push(detventa);
-      console.log(detventa);
-  });
+    });
+
     const detalleVenta2 = [];
     detalleDeVenta3.forEach((ultimaventa) => {
       detalleVenta2.push(ultimaventa.producto);
@@ -376,8 +367,8 @@ let cestaController = {
     });
     const ultfecha = ultimaventa.fechayhora.toISOString().slice(0, 10);
 
- 
-   
+
+
 
     return res.render(path.resolve(__dirname, "../views/purchase.ejs"), {
       session: req.session,
@@ -435,7 +426,7 @@ let cestaController = {
     detalleDeVenta.forEach((venta) => {
       detalleVenta.push(venta.producto);
     });
-   
+
 
     return res.render(path.resolve(__dirname, "../views/purchase.ejs"), {
       session: req.session,
