@@ -7,8 +7,7 @@ let apiDetalleVenta = {
         const detalleVenta = await db.DetalleVenta.findAll({
             where: { idventa: idBuscado }
         })
-        
-        res.json(detalleVenta)
+        await res.json(detalleVenta)
     }
 };
 

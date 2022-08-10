@@ -7,7 +7,7 @@ let usuariosApiController = {
 
         db.Usuarios.findAll()
         .then((usuarios) => {
-            console.log(usuarios)
+
             let arrayUsuarios = [];
 
             usuarios.forEach(usuario => {
