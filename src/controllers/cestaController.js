@@ -339,7 +339,54 @@ let cestaController = {
     sesion.basketProducts=[];
     req.session.totalProductos=0;
     console.log('metodo buy redireccionando a finalizar compra')
-    return res.redirect('/finalizarcompra');
+    ////////////////////////////////////////////////////////
+    //res.render(path.resolve(__dirname, "../views/purchase.ejs"));
+    console.log('metodo finalizar compra')
+    const ultimaventa = await db.Ventas.findOne({
+      where:{idusuario: req.session.idusuario},
+      order: [["idventa", "desc"]],
+      limit:1
+    });
+    console.log('//////////////////////////')
+    // const detalleDeVenta3 = await db.DetalleVenta.findAll({
+    //   where: {
+    //     idventa: ultimaventa.idventa,
+        
+    //   },
+    // });
+    const detalleDeVenta3 =[];
+    db.DetalleVenta.findAll({
+      where: {
+        idventa: ultimaventa.idventa,
+        
+      },
+    }).then((detventa) => {
+      detalleDeVenta3.push(detventa);
+      console.log(detventa);
+  });
+    const detalleVenta2 = [];
+    detalleDeVenta3.forEach((ultimaventa) => {
+      detalleVenta2.push(ultimaventa.producto);
+    });
+    console.log('//////////////////////////')
+    const domicilioDeEntrega = await db.Domicilios.findOne({
+      where: {
+        iddomicilios: ultimaventa.domicilioentrega,
+      },
+    });
+    const ultfecha = ultimaventa.fechayhora.toISOString().slice(0, 10);
+
+ 
+   
+
+    return res.render(path.resolve(__dirname, "../views/purchase.ejs"), {
+      session: req.session,
+      venta: ultimaventa,
+      montoTotal: ultimaventa.montototal,
+      domicilio: domicilioDeEntrega,
+      fecha: ultfecha,
+      resumen: detalleVenta2,
+    });
   },
   getdomicilio: async (req, res) => {
     // let respuesta={mensaje:"ok"}

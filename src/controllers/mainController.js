@@ -182,10 +182,10 @@ let mainController = {
     })    
     
   },
-  purchase: (req, res) => {
-    console.log("estoy en purchase")
-    res.render(path.resolve(__dirname, "../views/purchase.ejs"))
-  }
+  // purchase: (req, res) => {
+  //   console.log("estoy en purchase")
+  //   res.render(path.resolve(__dirname, "../views/purchase.ejs"))
+  // }
 };
 
 module.exports = mainController;

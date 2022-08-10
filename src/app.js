@@ -49,7 +49,7 @@ app.use("/registro",registroRoutes);
 app.use("/login",loginRoutes);
 app.use("/cesta",cestaRoutes);
 app.use("/perfil", userRoutes);
-app.use("/confirmarcompra", cestaRoutes);
+app.use("/finalizarcompra", cestaRoutes);
 app.use("/categorias", categoriasRoutes);
 
 app.use("/api/usuarios", apiUsuarios);

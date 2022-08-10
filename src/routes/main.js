@@ -15,6 +15,8 @@ router.get("/home", mainController.home);
 
 router.get("/admin", mainController.admin)
 
+//router.get("/purchase", mainController.purchase);
+
 
 
 module.exports=router;
