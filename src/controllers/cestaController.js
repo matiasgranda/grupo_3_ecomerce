@@ -253,8 +253,6 @@ let cestaController = {
       res.redirect("/login");
     }
 
-
-    // TOTAL DEVUELVE SIEMPRE NAN, FALTA ARREGLARLO
     var total = 0;
     req.session.basketProducts.forEach((producto) => {
       total =
@@ -351,13 +349,12 @@ let cestaController = {
     const detalleDeVenta3 = await db.DetalleVenta.findAll({
       where: {
         idventa: ultimaventa.idventa,
-
       },
     });
 
     const detalleVenta2 = [];
-    detalleDeVenta3.forEach((ultimaventa) => {
-      detalleVenta2.push(ultimaventa.producto);
+    detalleDeVenta3.forEach((venta3) => {
+      detalleVenta2.push(venta3.producto);
     });
     console.log('//////////////////////////')
     const domicilioDeEntrega = await db.Domicilios.findOne({
@@ -366,8 +363,6 @@ let cestaController = {
       },
     });
     const ultfecha = ultimaventa.fechayhora.toISOString().slice(0, 10);
-
-
 
 
     return res.render(path.resolve(__dirname, "../views/purchase.ejs"), {
