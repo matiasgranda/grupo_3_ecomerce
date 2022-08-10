@@ -7,7 +7,7 @@ let usuariosApiController = {
 
         db.Usuarios.findAll()
         .then((usuarios) => {
-
+            console.log(usuarios)
             let arrayUsuarios = [];
 
             usuarios.forEach(usuario => {
@@ -15,7 +15,8 @@ let usuariosApiController = {
                     id: usuario.idusuario,
                     nombre: usuario.nombre,
                     email: usuario.email,
-                    detail: "api/usuarios/"+usuario.idusuario
+                    detail: "api/usuarios/"+usuario.idusuario,
+                    imagen: "http://localhost:3000/img/profiles/"+usuario.imagen
                 }
                 arrayUsuarios.push(user)
             });
