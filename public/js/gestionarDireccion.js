@@ -1,8 +1,10 @@
+//const { setdefault } = require("../../src/controllers/apiDomicilioController");
+
 var button = document.querySelector(".gestionarDireccionBtn");
 
 var closeButton = document.querySelector(".closeBtn");
 
-var form = document.querySelector(".gestionarDireccionForm");
+var form = document.querySelector("#formDatos");
 
 var inputAlias = document.querySelector(".direccionAlias");
 var submitButton = document.querySelector(".confirmSubmitButton")
@@ -18,16 +20,16 @@ var checkboxSetDefault = document.querySelector(".checkboxSetDefault");
 
 var errorMessage = document.querySelector(".errorMessage")
 
-button.addEventListener("click", function() {
+button.addEventListener("click", function () {
     form.style.display = "flex"
 })
 
-closeButton.addEventListener("click", function() {
+closeButton.addEventListener("click", function () {
     form.style.display = "none"
 })
 
-submitButton.addEventListener("click", function(e) {
-    if(inputCalle.value.length < 1 || inputAlturaCalle.length < 1 || inputPiso.length < 1 || inputDepto.length < 1|| inputCodigoPostal.length < 1 ) {
+submitButton.addEventListener("click", function (e) {
+    if (inputCalle.value.length < 1 || inputAlturaCalle.length < 1 || inputPiso.length < 1 || inputDepto.length < 1 || inputCodigoPostal.length < 1) {
         errorMessage.textContent = "Los campos marcados con * son obligatorios"
         e.preventDefault();
     }
@@ -36,11 +38,11 @@ submitButton.addEventListener("click", function(e) {
 async function getDomicilio(id) {
 
     form.style.display = "flex"
-    const res = await fetch("http://localhost:3000/api/usuarios/domicilio/"+id);
+    const res = await fetch("http://localhost:3000/api/usuarios/domicilio/" + id);
     const data = await res.json()
     console.log(data)
 
-    if(data.entregadefault === 1) {
+    if (data.entregadefault === 1) {
         checkboxSetDefault.checked = true
     } else {
         checkboxSetDefault.checked = false
@@ -55,22 +57,48 @@ async function getDomicilio(id) {
     inputPiso.value = data.piso
     inputDepto.value = data.depto
     inputCodigoPostal.value = data.cp
-    
+
 }
 
 async function modificarDireccion() {
+    console.log(checkboxSetDefault.value)
+ 
+    var formData = {
+        codigoDomicilio: codigoDomicilio.value,
+        inputAlias: inputAlias.value,
+        inputProvincia: inputProvincia.value,
+        inputPais: inputPais.value,
+        inputCalle: inputCalle.value,
+        inputAlturaCalle: inputAlturaCalle.value,
+        inputPiso: inputPiso.value,
+        inputDepto: inputDepto.value,
+        inputCodigoPostal: inputCodigoPostal.value,
+        checkboxSetDefault: checkboxSetDefault.value
+    };
+    $.ajax({
+        type: "put",
+        url: 'http://localhost:3000/api/usuarios/domicilio/',
+        data: formData,
+        dataType: "json",
+        encode: true,
 
-    var data = new FormData(form);
-    var req = new XMLHttpRequest();
-    req.open("PUT", "http://localhost:3000/api/usuarios/domicilio/"+codigoDomicilio.value);
-    console.log(data)
-    req.send(data);
-    if(setDefault==="on") {
-        const res = await fetch("http://localhost:3000/api/usuarios/domicilio/"+id, 
-           { method: "PUT"});
+    });
+    location.reload()
+  
+
+    if (checkboxSetDefault === "on") {
+        const res = await fetch("http://localhost:3000/api/usuarios/domicilio/" + id,
+            {
+                method: 'PUT',
+                body: data,
+                headers: {
+                    Accept: 'multipart/form-data',
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                }
+            });
         const data2 = await res.json()
         console.log(data2)
     }
-    location.reload();
+    // location.reload();
 
 }

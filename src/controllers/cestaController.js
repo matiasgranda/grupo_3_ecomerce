@@ -354,16 +354,13 @@ let cestaController = {
     req.session.basketProducts = [];
     sesion.basketProducts = [];
     req.session.totalProductos = 0;
-    console.log('metodo buy redireccionando a finalizar compra')
-    ////////////////////////////////////////////////////////
-    //res.render(path.resolve(__dirname, "../views/purchase.ejs"));
-    console.log('metodo finalizar compra')
+ 
     const ultimaventa = await db.Ventas.findOne({
       where: { idusuario: req.session.idusuario },
       order: [["idventa", "desc"]],
       limit: 1
     });
-    console.log('//////////////////////////')
+    
     const detalleDeVenta3 = await db.DetalleVenta.findAll({
       where: {
         idventa: ultimaventa.idventa,
@@ -376,7 +373,7 @@ let cestaController = {
       detalleVenta2.push(venta3.producto);
     }
 
-    console.log('//////////////////////////')
+    
     const domicilioDeEntrega = await db.Domicilios.findOne({
       where: {
         iddomicilios: ultimaventa.domicilioentrega,

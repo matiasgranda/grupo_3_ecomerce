@@ -1,226 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('./partials/head') %>
+
+<head>
+  <%- include('./partials/head') %>
     <link rel="stylesheet" href="/css/userProfile.css" />
     <script src="https://kit.fontawesome.com/91393ea5bf.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>Perfil de usuario</title>
-  </head>
+</head>
 
-  <body>
-    <%- include('./partials/navbar') %>
+<body>
+  <%- include('./partials/navbar') %>
     <main>
       <section>
         <div class="contenedorprincipal">
-        <div class="principal">
+          <div class="principal">
             <div class="seccion-superior">
-            
-                <div class="contenedorimagen">
-                  <div class="itemsimagen">
-                    <h2 class="usuario">Hola <%= usuario.nombre %>!</h2>
-                  <div class="imagen"><img src="img/profiles/<%= locals.session.imagen %> "/></div>
-                 
+
+              <div class="contenedorimagen">
+                <div class="itemsimagen">
+                  <h2 class="usuario">Hola <%= usuario.nombre %>!</h2>
+                  <div class="imagen"><img src="img/profiles/<%= locals.session.imagen %> " /></div>
+
                   <a href="#" title="Cambiar Imagen"><i class="fa-solid fa-camera cambiar-foto"></i></a>
-                  <input type="file" id="imagenperfil" name="imagenperfil" style="display:none;" class="inputimagen" accept="image/*" />
-                  </div>
-                  
+                  <input type="file" id="imagenperfil" name="imagenperfil" style="display:none;" class="inputimagen"
+                    accept="image/*" />
                 </div>
-                
+
               </div>
-<hr class="hr">
-              <div class="userdata">
-                
-               
+
+            </div>
+            <hr class="hr">
+            <div class="userdata">
+
+
               <div class="user-info">
                 <h2>Mis Datos</h2>
                 <form action="#" method="get" name="perfil" id="perfil">
                   <table>
-                      <tbody>
-                          <tr>
-                              <td><input class="form__field" type="text" id="nombre" name="nombre" placeholder="Nombre" value="<%= usuario.nombre %>">
-                                </td>
-                              <td><input class="form__field" type="text" id="apellido" name="apellido" placeholder="Apellido" value="<%= usuario.apellido %>"></td>
-                          </tr>
-                          <tr>
-                              <td><input class="form__field" type="tel" id="telefono" name="telefono" placeholder="Teléfono" value="<%= usuario.telefono %>"></td>
-                              <td><input class="form__field" type="date" id="fechanac" name="fechanac" placeholder="Fecha de Nac." value="<%= usuario.fechanac %>"></td>
-                         <tr>
-                              <td colspan="2" scope="colgroup"><input class="form__field" type="email" id="email" name="email" value="<%= usuario.email %>"></td>
-                             
-                          </tr>
-                      </tbody>
-      
+                    <tbody>
+                      <tr>
+                        <td><input class="form__field" type="text" id="nombre" name="nombre" placeholder="Nombre"
+                            value="<%= usuario.nombre %>">
+                        </td>
+                        <td><input class="form__field" type="text" id="apellido" name="apellido" placeholder="Apellido"
+                            value="<%= usuario.apellido %>"></td>
+                      </tr>
+                      <tr>
+                        <td><input class="form__field" type="tel" id="telefono" name="telefono" placeholder="Teléfono"
+                            value="<%= usuario.telefono %>"></td>
+                        <td><input class="form__field" type="date" id="fechanac" name="fechanac"
+                            placeholder="Fecha de Nac." value="<%= usuario.fechanac %>"></td>
+                      <tr>
+                        <td colspan="2" scope="colgroup"><input class="form__field" type="email" id="email" name="email"
+                            value="<%= usuario.email %>"></td>
+
+                      </tr>
+                    </tbody>
+
                   </table>
                   <button type="submit" class="button">Guardar</button>
                 </form>
                 <div>
-                  
-                  
+
+
                 </div>
                 <div>
-                 
-                  
+
+
                 </div>
               </div>
-              </div>
-        </div>
-        <div class="derecha">
+            </div>
+          </div>
+          <div class="derecha">
             <div class="direcciones">
-                <div class="contenedordirecciones">
+              <div class="contenedordirecciones">
                 <h3>Direcciones</h3>
-                  <a href="#/" onclick="getDomicilio(<%=domicilio.iddomicilios%>)">
-                <div class="direcciones-items">
-                  <div class="direcciones-item">
-                    <h4>Dirección de envío</h4>
-                    <% if(domicilio) { %>
-                    <div class="direcciones-item-info">
-                      <p>Alias: <%=domicilio.alias%> </p>
-                      <p>Pais: <%=domicilio.pais.PaisNombre%></p>
-                      <p>Provincia: <%=domicilio.provincia.Provincia%></p>
-                      <p>Calle: <%= domicilio.calle %></p>
-                      <p>Altura: <%= domicilio.altura %> </p>
-                      <p>Codigo postal: <%= domicilio.cp %> </p>
+                <a href="#/" onclick="getDomicilio(<%=domicilio.iddomicilios%>)">
+                  <div class="direcciones-items">
+                    <div class="direcciones-item">
+                      <h4>Dirección de envío</h4>
+                      <% if(domicilio) { %>
+                        <div class="direcciones-item-info">
+                          <p>Alias: <%=domicilio.alias%>
+                          </p>
+                          <p>Pais: <%=domicilio.pais.PaisNombre%>
+                          </p>
+                          <p>Provincia: <%=domicilio.provincia.Provincia%>
+                          </p>
+                          <p>Calle: <%= domicilio.calle %>
+                          </p>
+                          <p>Altura: <%= domicilio.altura %>
+                          </p>
+                          <p>Codigo postal: <%= domicilio.cp %>
+                          </p>
+                        </div>
+                        <% } else { %>
+                          <div class="direcciones-item-info">
+                            <p>Pais:</p>
+                            <p>Provincia:</p>
+                            <p>Calle:</p>
+                            <p>Altura:</p>
+                            <p>Codigo postal:</p>
+                          </div>
+                          <% } %>
                     </div>
-                    <% } else { %>
-                      <div class="direcciones-item-info">
-                        <p>Pais:</p>
-                        <p>Provincia:</p>
-                        <p>Calle:</p>
-                        <p>Altura:</p>
-                        <p>Codigo postal:</p>
-                      </div>
-                    <% } %>
                   </div>
-                </div>
-              </a>
+                </a>
               </div>
-              <small style="text-align: right; margin:10px;display: block; "><a class="gestionarDireccionBtn" style="color: black;text-decoration: none;">Gestionar direcciones</a></small>
+              <small style="text-align: right; margin:10px;display: block; "><a class="gestionarDireccionBtn"
+                  style="color: black;text-decoration: none;">Gestionar direcciones</a></small>
             </div>
-              <div class="publicaciones">
-                <div class="contenedorpublicaciones">
+            <div class="publicaciones">
+              <div class="contenedorpublicaciones">
                 <h3>Tus Publicaciones</h3>
-                <% if(publicaciones.length > 0) { %>
+                <% if(publicaciones.length> 0) { %>
                   <div class="publicaciones-items">
-                      <% for(let i = 0; i < 5; i++) { %> 
+                    <% for(let i=0; i < 5; i++) { %>
 
-                        <a href="/product/<%= publicaciones[i].idpublicacion %> " target="_blank"><%= publicaciones[i].titulo %> </a>
-                        
-                      <% } %> 
-                  </div>
-                <% } else { %> 
-                  <div class="publicaciones-items">
-                    <p>Aun no tienes publicaciones.</p>
-                  </div>
-                <% } %>
-                <% if(publicaciones) { %>
-                <small style="text-align: right; margin-top: 10px; display: block; "><a href="/admin/" style="color: black;">Ver todas (<%= publicaciones.length %>)</a></small>
-                <% } %>
-                </div>
-              </div>
+                      <a href="/product/<%= publicaciones[i].idpublicacion %> " target="_blank">
+                        <%= publicaciones[i].titulo %>
+                      </a>
 
-              <div class="tusCompras">
-                <h3>Historial de Compras</h3>
-                <% if(compras.length > 0) { %>
-                  <% compras.forEach((compra) => { %>
-                    <hr>
-                    <div class="detalleCompra">
-                      <a href="#/" id="<%=compra.idventa%>"  class="idCompra">ID: <%= compra.idventa %> </a>
-                      <p class="precioCompra">Precio total: <br>  <%= compra.montototal %> </p>
-                      <p class="fechaCompra">Fecha: <br> <%= compra.fechayhora.toISOString().slice(0, 10) %> </p>
+                      <% } %>
+                  </div>
+                  <% } else { %>
+                    <div class="publicaciones-items">
+                      <p>Aun no tienes publicaciones.</p>
                     </div>
-                  <% }) %>
-                <% } else { %>
-                  <p>Aun no realizaste compras.</p>
-                <% } %> 
+                    <% } %>
+                      <% if(publicaciones) { %>
+                        <small style="text-align: right; margin-top: 10px; display: block; "><a href="/admin/"
+                            style="color: black;">Ver todas (<%= publicaciones.length %>)</a></small>
+                        <% } %>
               </div>
             </div>
-            
-                <div class="divDetallesVenta">
-                  <div class="subContainer"></div>
-                </div>
-             
-              <form class="gestionarDireccionForm">
 
-                <div class="closeBtnDiv">
-                  <p class="errorMessage"></p>
-                  <div class="closeBtn"><i class="fa-solid fa-xmark"></i></div>
-                </div>
-                <input type="hidden" readonly name="codigoDomicilio" class="codigoDomicilio">
-                <div class="gestionarDireccionInputDiv">
-                  <div class="gestionarDireccionAlias">
-                    <label for="direccionAlias">Alias:*</label>
-                    <input minlength="1" maxlength="60" class="direccionAlias" type="text" name="direccionAlias">
+            <div class="tusCompras">
+              <h3>Historial de Compras</h3>
+              <% if(compras.length> 0) { %>
+                <% compras.forEach((compra)=> { %>
+                  <hr>
+                  <div class="detalleCompra">
+                    <a href="#/" id="<%=compra.idventa%>" class="idCompra">ID: <%= compra.idventa %> </a>
+                    <p class="precioCompra">Precio total: <br>
+                      <%= compra.montototal %>
+                    </p>
+                    <p class="fechaCompra">Fecha: <br>
+                      <%= compra.fechayhora.toISOString().slice(0, 10) %>
+                    </p>
                   </div>
+                  <% }) %>
+                    <% } else { %>
+                      <p>Aun no realizaste compras.</p>
+                      <% } %>
+            </div>
+          </div>
 
-                  <div class="gestionarDireccionPais">
-                    <label for="direccionPais">Pais:*</label>
-                    <select class="direccionPais" name="direccionPais">
-                      <% paises.forEach(pais => { %>
-                        <option value="<%= pais.idpais %>"><%= pais.PaisNombre%></option>
-                      <% }) %>
-                    </select>
-                  </div>
+          <div class="divDetallesVenta">
+            <div class="subContainer"></div>
+          </div>
 
-                  <div class="gestionarDireccionProvincia">
-                    <label for="direccionProvincia">Provincia:*</label>
-                    <select class="direccionProvincia" name="direccionProvincia">
-                    <% provincias.forEach(provincia => { %>   
-                      <option value="<%= provincia.idProvincia %>"><%= provincia.Provincia %></option>
+          <form class="gestionarDireccionForm" id="formDatos">
+
+            <div class="closeBtnDiv">
+              <p class="errorMessage"></p>
+              <div class="closeBtn"><i class="fa-solid fa-xmark"></i></div>
+            </div>
+            <input type="hidden" readonly name="codigoDomicilio" class="codigoDomicilio">
+            <div class="gestionarDireccionInputDiv">
+              <div class="gestionarDireccionAlias">
+                <label for="direccionAlias">Alias:*</label>
+                <input minlength="1" maxlength="60" class="direccionAlias" type="text" name="direccionAlias">
+              </div>
+
+              <div class="gestionarDireccionPais">
+                <label for="direccionPais">Pais:*</label>
+                <select class="direccionPais" name="direccionPais">
+                  <% paises.forEach(pais=> { %>
+                    <option value="<%= pais.idpais %>">
+                      <%= pais.PaisNombre%>
+                    </option>
                     <% }) %>
-                  </select>
-                  </div>
+                </select>
+              </div>
 
-                  <div class="gestionarDireccionCalle">
-                    <label for="direccionCalle">Calle:*</label>
-                    <input minlength="1" maxlength="60" class="direccionCalle" type="text" name="direccionCalle">
-                  </div>
+              <div class="gestionarDireccionProvincia">
+                <label for="direccionProvincia">Provincia:*</label>
+                <select class="direccionProvincia" name="direccionProvincia">
+                  <% provincias.forEach(provincia=> { %>
+                    <option value="<%= provincia.idProvincia %>">
+                      <%= provincia.Provincia %>
+                    </option>
+                    <% }) %>
+                </select>
+              </div>
 
-                  <div class="gestionarDireccionAltura">
-                    <label for="direccionAltura">Altura:*</label>
-                    <input minlength="1" maxlength="11" class="direccionAltura" type="text" name="direccionAltura">
-                  </div>
+              <div class="gestionarDireccionCalle">
+                <label for="direccionCalle">Calle:*</label>
+                <input minlength="1" maxlength="60" class="direccionCalle" type="text" name="direccionCalle">
+              </div>
 
-                  <div class="gestionarDireccionPiso">
-                    <label for="direccionPiso">Piso:</label>
-                    <input maxlength="11" class="direccionPiso" type="text" name="direccionPiso">
-                  </div>
+              <div class="gestionarDireccionAltura">
+                <label for="direccionAltura">Altura:*</label>
+                <input minlength="1" maxlength="11" class="direccionAltura" type="text" name="direccionAltura">
+              </div>
 
-                  <div class="gestionarDireccionDepto">
-                    <label for="direccionDepto">Depto:</label>
-                    <input maxlength="3" class="direccionDepto" type="text" name="direccionDepto">
-                  </div>
+              <div class="gestionarDireccionPiso">
+                <label for="direccionPiso">Piso:</label>
+                <input maxlength="11" class="direccionPiso" type="text" name="direccionPiso">
+              </div>
 
-                  <div class="gestionarDireccionCp">
-                    <label for="direccionCp">Codigo postal:*</label>
-                    <input minlength="1" maxlength="6" class="direccionCp" type="text" name="direccionCp">
-                  </div>
-                </div>
-                <div class="gestionarDireccionDefault">
-                  <label for="setDefault">Establecer como predeterminado:</label>
-                  <input type="checkbox" name="setDefault" class="checkboxSetDefault">
-                </div>
-                
-                <div class="confirmarDireccionDiv">
-                  <button onclick="modificarDireccion()" class="confirmSubmitButton" type="submit">Confirmar</button>
-                </div>
+              <div class="gestionarDireccionDepto">
+                <label for="direccionDepto">Depto:</label>
+                <input maxlength="3" class="direccionDepto" type="text" name="direccionDepto">
+              </div>
 
-              </form>
+              <div class="gestionarDireccionCp">
+                <label for="direccionCp">Codigo postal:*</label>
+                <input minlength="1" maxlength="6" class="direccionCp" type="text" name="direccionCp">
+              </div>
+            </div>
+            <div class="gestionarDireccionDefault">
+              <label for="setDefault">Establecer como predeterminado:</label>
+              <input type="checkbox" name="setDefault" class="checkboxSetDefault">
+            </div>
+
+            <div class="confirmarDireccionDiv">
+              <button onclick="modificarDireccion()" class="confirmSubmitButton" type="button">Confirmar</button>
+            </div>
+
+          </form>
         </div>
-        
+
         </div>
-        
-        
-        
+
+
+
       </section>
     </main>
-    <%- include('./partials/footer') %> <%- include('./partials/sidenav') %>
-    <script>
-        document.querySelector('.cambiar-foto').addEventListener('click', function(){
+    <%- include('./partials/footer') %>
+      <%- include('./partials/sidenav') %>
+        <script>
+          document.querySelector('.cambiar-foto').addEventListener('click', function () {
             document.querySelector('.inputimagen').click();
-        });
-    </script>
-    <div class="wrapper"></div>
-  </body>
-  <script src="/js/userDetalleVentas.js"></script>
-  <script src="/js/gestionarDireccion.js"></script>
+          });
+        </script>
+        <div class="wrapper"></div>
+</body>
+
+<script src="/js/userDetalleVentas.js"></script>
+<script src="/js/gestionarDireccion.js"></script>
+
 </html>
