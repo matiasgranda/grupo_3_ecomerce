@@ -177,7 +177,7 @@ let cestaController = {
 
     db.Domicilios.findOne({
       where: {
-        idusuario: sesion.idusuario, entregadefault: 1
+        idusuario: sesion.idusuario
       },
       include: [
         {
@@ -190,6 +190,7 @@ let cestaController = {
         },
       ],
     }).then(async (domicilio) => {
+     
       const paises = await db.Paises.findAll({
         attributes: ["PaisNombre", "idpais"],
       });

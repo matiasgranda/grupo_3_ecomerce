@@ -66,11 +66,24 @@ main {
     align-items: center;
 }
 
-.divConfirmarDireccionSelect {
+.divConfirmarDireccionSelect, 
+.divConfirmarDireccionCalleInput,
+.divConfirmarAliasSelect {
     height: 60px;
     display: flex;
     width: 90%;
     justify-content: space-evenly;
+    box-shadow: 0px 0px 3px 1px lightgray;
+    border-radius: 4px;
+    align-items: center;
+}
+
+.divConfirmarAliasSelect select {
+    height: 30px;
+    min-width: 200px;
+    outline: none;
+    border: none;
+    box-shadow: 0px 0px 3px 1px lightgray;
 }
 
 .divConfirmarDireccionSelect div {
@@ -79,13 +92,22 @@ main {
     justify-content: space-evenly;
     width: 45%;
     height: 60px;
+    align-items: center;
+}
+
+.gestionarDirecciones a {
+    color: #719edb;
+}
+
+.divConfirmarDireccionSelect div div {
+    height: 30px;
 }
 
 .divCalleAltura {
     display: flex;
     justify-content: space-evenly;
     width: 90%;
-    height: 60px;
+    height: 30px;
 }
 
 .divCalleAltura div {
@@ -93,22 +115,30 @@ main {
     flex-direction: column;
     justify-content: space-evenly;
     width: 45%;
-    height: 60px;
+    height: 30px;
+    align-items: center;
+}
+
+.divCalleAltura div div {
+    width: 100%;
 }
 
 .divPisoDepto {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     width: 90%;
     height: 60px;
+
 }
 
 .divPisoDepto div {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    align-items: center;
     width: 45%;
-    height: 60px;
+    height: 30px;
 }
 
 .divConfirmarCpInput {
@@ -117,7 +147,22 @@ main {
     flex-direction: column;
     width: 90%;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 3px 1px lightgray;
+}
+
+.divConfirmarCpInput div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.divConfirmarCpInput div label, .divConfirmarCpInput div div {
+    height: 24px;
+
 }
 
 label{
