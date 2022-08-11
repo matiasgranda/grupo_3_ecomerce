@@ -32,6 +32,7 @@
    
     
     <div class="sidenavContentHeader"><a href="/categorias">Categorias</a></div>
+    <div class="itemscategorias">
     <a href="#" onclick="openTecno()">
       <div class="sidenavRow">
         <div>Tecnología</div>
@@ -95,13 +96,13 @@
           <i class="fas fa-chevron-right" style="color: #8e9090"></i>
         </div>
       </a>
-      
+      </div>
     </div>
-    <div class="sidenavRowDropdown" id="firstDropDown" onclick="firstDropDown()">
+    <!-- <div class="sidenavRowDropdown" id="firstDropDown" onclick="firstDropDown()">
       <div>Ver más</div>
       <i class="fas fa-chevron-down" style="color: #8e9090; margin-left: 10px">
       </i>
-    </div>
+    </div> -->
     <hr />
 
     <!--inicia el segundo sidenavContainer-->
@@ -132,6 +133,24 @@
   </div>
 </div>
 
-
+<script>
+  async function getCategorias() {
+    const response = await fetch('/categorias/api');
+    const data = await response.json();
+    console.log(data);
+    document.querySelector('.itemscategorias').innerHTML = data.map(categoria => {
+      return `
+        <a href="/categorias/${categoria.idcategoria}">
+          <div class="sidenavRow">
+            <div>${categoria.descripcion}</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+          </div>
+        </a>
+      `;
+    }).join('');
+    
+  };
+  getCategorias();
+</script>
 
 <script src="../../js/navscript.js"></script>

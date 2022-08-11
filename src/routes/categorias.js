@@ -6,6 +6,7 @@ let categoriasController = require("../controllers/categoriasController.js");
 
 
 router.get("/", categoriasController.list);
+router.get("/api", categoriasController.getCategorias);
 router.get("/:idcategoria", categoriasController.listCategoria);
 
 module.exports = router;

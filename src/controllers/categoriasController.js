@@ -48,6 +48,16 @@ let categoriasController = {
       categorias: categorias,
     });
   },
+  getCategorias: async (req, res) => {
+    let db = require("../data/models/index.js");
+    const Op = require("Sequelize").Op;
+    const categorias = await db.Categorias.findAll({
+      order: [["descripcion"]],
+      attributes: ["idcategoria", "descripcion"],
+      where: { habilitado: 1 },
+    });
+    return res.json(categorias);
+  }
 };
 
 module.exports = categoriasController;
