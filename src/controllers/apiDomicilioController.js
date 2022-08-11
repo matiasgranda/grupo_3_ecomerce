@@ -74,7 +74,7 @@ let apiDomicilioController = {
     const domiciliodefault = await db.Domicilios.update({
       entregadefault: 1
     }, {
-      where: { idusuario: sesion.idusuario, iddomicilios: req.body.iddomicilio }
+      where: { idusuario: sesion.idusuario, iddomicilios: req.body.codigoDomicilio }
     });
 
     res.status(200).send("Ok");

@@ -62,7 +62,7 @@ async function getDomicilio(id) {
 
 async function modificarDireccion() {
     console.log(checkboxSetDefault.value)
- 
+
     var formData = {
         codigoDomicilio: codigoDomicilio.value,
         inputAlias: inputAlias.value,
@@ -83,22 +83,37 @@ async function modificarDireccion() {
         encode: true,
 
     });
-    location.reload()
-  
 
-    if (checkboxSetDefault === "on") {
-        const res = await fetch("http://localhost:3000/api/usuarios/domicilio/" + id,
-            {
-                method: 'PUT',
-                body: data,
-                headers: {
-                    Accept: 'multipart/form-data',
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                }
-            });
-        const data2 = await res.json()
-        console.log(data2)
+
+
+    if (checkboxSetDefault.value === "on") {
+        let id=parseInt( codigoDomicilio.value)
+        var formDataDefault = {
+            codigoDomicilio: codigoDomicilio.value,
+           
+        };
+        $.ajax({
+            type: "put",
+            url: "http://localhost:3000/api/usuarios/domicilio/" + id + "/setdefault",
+            data: formDataDefault,
+            dataType: "json",
+            encode: true,
+    
+        });
+    
+        // const res = await fetch("http://localhost:3000/api/usuarios/domicilio/" + id + "/setdefault",
+        //     {
+        //         method: 'PUT',
+        //         body: data,
+        //         headers: {
+        //             Accept: 'multipart/form-data',
+        //             'Content-Type': 'application/x-www-form-urlencoded',
+        //         }
+        //     });
+        // const data2 = await res.json()
+        // console.log(data2)
+        
     }
-    // location.reload();
+     location.reload();
 
 }
