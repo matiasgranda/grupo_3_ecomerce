@@ -19,7 +19,7 @@ let userController = {
       const compras = await db.Ventas.findAll({
         where: { idusuario: req.session.idusuario}
       });
-      console.log(domicilios);
+      
       db.Publicaciones.findAll({
         where: { idusuario: req.session.idusuario }}).then(publicaciones => {
           db.Usuarios.findOne({

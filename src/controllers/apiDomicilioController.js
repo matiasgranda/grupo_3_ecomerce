@@ -54,7 +54,7 @@ let apiDomicilioController = {
       depto: req.body.inputDepto || null,
       cp: req.body.inputCodigoPostal
     }
-    console.log(datosusuario);
+    
     db.Domicilios.update(datosusuario, { where: { iddomicilios: req.body.codigoDomicilio, idusuario: req.session.idusuario } })
 
 
