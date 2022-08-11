@@ -50,8 +50,8 @@ let apiDomicilioController = {
       idprovincia: req.body.inputProvincia,
       calle: req.body.inputCalle,
       altura: req.body.inputAlturaCalle,
-      piso: req.body.inputPiso,
-      depto: req.body.inputDepto,
+      piso: req.body.inputPiso || null,
+      depto: req.body.inputDepto || null,
       cp: req.body.inputCodigoPostal
     }
     console.log(datosusuario);

@@ -3,12 +3,13 @@ const fs = require("fs");
 const actions = require("../data/actions");
 const session = require("express-session");
 const domicilio = require("../data/models/domicilio");
+const { Console } = require("console");
 
 let userController = {
     main: async (req, res) => {
       const db = require("../data/models/");
       let sesion = req.session;
-      const domicilio = await db.Domicilios.findOne({where: {idusuario: req.session.idusuario}, include: [{association: "pais", attributes: ["PaisNombre"]}, {association: "provincia", attributes: ["Provincia"]}]});
+      const domicilios = await db.Domicilios.findAll({where: {idusuario: req.session.idusuario}, include: [{association: "pais", attributes: ["PaisNombre"]}, {association: "provincia", attributes: ["Provincia"]}]});
       const provincias = await db.Provincias.findAll({
         attributes: ["Provincia", "idProvincia"]
       });
@@ -18,7 +19,7 @@ let userController = {
       const compras = await db.Ventas.findAll({
         where: { idusuario: req.session.idusuario}
       });
-      
+      console.log(domicilios);
       db.Publicaciones.findAll({
         where: { idusuario: req.session.idusuario }}).then(publicaciones => {
           db.Usuarios.findOne({
@@ -29,7 +30,7 @@ let userController = {
                 usuario: usuario,
                 paises: paises,
                 provincias: provincias,
-                domicilio: domicilio,
+                domicilio: domicilios,
                 compras: compras
                 });
             })
