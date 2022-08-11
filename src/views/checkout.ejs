@@ -21,12 +21,13 @@
             <% } %>
             
             <form class="formConfirmarDireccion">
+                <div class="divConfirmarAliasSelect">
                 <select name="usuarioMetodoDePago" id="usuarioMetodoDePago" onchange="getDomicilio(this.value);">
                     <% domiciliosUsuario.forEach(domicilio => { %>
                     <option value="<%= domicilio.iddomicilios %>" <% if (domicilio.entregadefault==1) { %> selected
                         <% } %> </option> <%= domicilio.alias + ' - ' +domicilio.calle %> </option> <% }) %> 
                 </select>
-
+            </div>
                 <div class="divConfirmarDireccionSelect">
                     <div>
                         <label for="usuarioDomicilioPais">Pais:</label>
@@ -46,13 +47,13 @@
                     <div class="divCalleAltura">
                         <div>
                             <label for="usuarioDomicilioCalle">Calle:</label>
-                            <div id="calleentrega"><%= domicilio.calle %></div>
+                            <div id="calleentrega"> <% if(locals.domicilio) { %> <%=domicilio.calle%> <% } %></div>
 
                         </div>
 
                         <div>
                             <label for="usuarioDomicilioAlturaCalle">Altura:</label>
-                            <div id="alturaentrega"><%= domicilio.altura %></div>
+                            <div id="alturaentrega"><% if(locals.domicilio) { %> <%=domicilio.altura%> <% } %></div>
 
                         </div>
                     </div>
@@ -60,13 +61,13 @@
                     <div class="divPisoDepto">
                         <div>
                             <label for="usuarioDomicilioDepto">Depto:</label>
-                            <div id="deptoentrega"><%= domicilio.depto %></div>
+                            <div id="deptoentrega"><% if(locals.domicilio) { %> <%=domicilio.depto%> <% } %></div>
 
                         </div>
 
                         <div>
                             <label for="usuarioDomicilioPiso">Piso:</label>
-                            <div id="pisoentrega"><%= domicilio.piso %></div>
+                            <div id="pisoentrega"><% if(locals.domicilio) { %> <%=domicilio.piso%> <% } %></div>
 
                         </div>
                     </div>
@@ -76,13 +77,13 @@
                 <div class="divConfirmarCpInput">
                     <div>
                         <label for="usuarioDomicilioCp">Codigo postal:</label>
-                        <div id="cpentrega"><%= domicilio.cp %></div>
+                        <div id="cpentrega"><% if(locals.domicilio) { %> <%=domicilio.cp%> <% } %></div>
 
                     </div>
                 </div>
-
-            
-
+                <div class="gestionarDirecciones">
+                    <a href="/perfil">Agregar nueva direccion de envio!</a>
+                </div>
                 </form>
 
             </div>
