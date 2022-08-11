@@ -317,7 +317,7 @@ table {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 360px;
-  height: 540px;
+  height: 600px;
   background-color: #fff;
   display: none;
   padding: 10px;
@@ -393,6 +393,19 @@ table {
   padding-left: 10px;
   border-radius: 4px;
   border: 1px solid lightgray;
+}
+
+.gestionarDireccionDefault {
+  display: flex;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.gestionarDireccionDefault input {
+  height: 20px;
+  width: 20px;
+  margin-left: 5px;
 }
 
 .confirmarDireccionDiv {

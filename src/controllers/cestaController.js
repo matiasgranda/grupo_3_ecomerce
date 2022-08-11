@@ -177,7 +177,7 @@ let cestaController = {
 
     db.Domicilios.findOne({
       where: {
-        idusuario: sesion.idusuario,
+        idusuario: sesion.idusuario, entregadefault: 1
       },
       include: [
         {
@@ -205,12 +205,28 @@ let cestaController = {
         attributes: ["nombre", "idmediosdepago"],
       });
 
+      const domiciliosUsuario = await db.Domicilios.findAll({
+        where: {
+          idusuario: sesion.idusuario
+        },
+        include: [{
+            association: "pais",
+            attributes: ["PaisNombre"]
+          },
+          {
+            association: "provincia",
+            attributes: ["Provincia"]
+          },
+        ],
+      })
+
 
       return res.render(path.resolve(__dirname, "../views/checkout.ejs"), {
         query: req.query.data,
         session: sesion,
         domicilio: domicilio,
         paises: paises,
+        domiciliosUsuario: domiciliosUsuario,
         provincias: provincias,
         mediosPago: mediosPago,
       });
@@ -318,7 +334,8 @@ let cestaController = {
     };
 
     const ultimaVenta = await db.Ventas.create(venta);
-    sesion.basketProducts.forEach(async (producto) => {
+
+    for (const producto of sesion.basketProducts) {
       let detalleVenta = {
         cantidad: producto.cantidad,
         producto: producto.titulo,
@@ -332,7 +349,8 @@ let cestaController = {
         where: { idpublicacion: producto.id },
       });
 
-    });
+    }
+
     req.session.basketProducts = [];
     sesion.basketProducts = [];
     req.session.totalProductos = 0;
@@ -353,17 +371,19 @@ let cestaController = {
     });
 
     const detalleVenta2 = [];
-    detalleDeVenta3.forEach((venta3) => {
+
+    for (const venta3 of detalleDeVenta3) {
       detalleVenta2.push(venta3.producto);
-    });
+    }
+
     console.log('//////////////////////////')
     const domicilioDeEntrega = await db.Domicilios.findOne({
       where: {
         iddomicilios: ultimaventa.domicilioentrega,
       },
     });
-    const ultfecha = ultimaventa.fechayhora.toISOString().slice(0, 10);
 
+    const ultfecha = ultimaventa.fechayhora.toISOString().slice(0, 10);
 
     return res.render(path.resolve(__dirname, "../views/purchase.ejs"), {
       session: req.session,
@@ -374,30 +394,7 @@ let cestaController = {
       resumen: detalleVenta2,
     });
   },
-  getdomicilio: async (req, res) => {
-    // let respuesta={mensaje:"ok"}
-    // return res.send(respuesta);
-    let sesion = req.session;
-    if (!isNaN(parseInt(req.params.id))) {
-      let domicilio = await db.Domicilios.findOne({
-        where: {
-          idusuario: sesion.idusuario,
-          iddomicilios: req.params.id,
-        },
-        include: [
-          {
-            association: "pais",
-            attributes: ["PaisNombre"],
-          },
-          {
-            association: "provincia",
-            attributes: ["Provincia"],
-          },
-        ],
-      });
-      return res.send(domicilio);
-    }
-  },
+  
 
   finalizarCompra: async (req, res) => {
     console.log('metodo finalizar compra')

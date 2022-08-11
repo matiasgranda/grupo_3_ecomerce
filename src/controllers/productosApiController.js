@@ -51,6 +51,7 @@ let productosApiController = {
                     description: producto.descripcion,
                     array: ["colores: "+producto.colores, "Marca: "+producto.marcas.marca],
                     detail: "api/productos/"+producto.idpublicacion,
+                    precio: producto.precio,
                     imagenes: []
                 }
                 

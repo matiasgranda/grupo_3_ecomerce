@@ -19,7 +19,141 @@
             <% } else { %>
             <h3>Confirme su dirección de envio:</h3>
             <% } %>
-            <form class="formConfirmarDireccion" method="POST" action="/cesta/confirmardireccion">
+            
+            <form class="formConfirmarDireccion">
+                <select name="usuarioMetodoDePago" id="usuarioMetodoDePago" onchange="getDomicilio(this.value);">
+                    <% domiciliosUsuario.forEach(domicilio => { %>
+                    <option value="<%= domicilio.iddomicilios %>" <% if (domicilio.entregadefault==1) { %> selected
+                        <% } %> </option> <%= domicilio.alias + ' - ' +domicilio.calle %> </option> <% }) %> 
+                </select>
+
+                <div class="divConfirmarDireccionSelect">
+                    <div>
+                        <label for="usuarioDomicilioPais">Pais:</label>
+                        <div id="paisentrega"></div>
+                       
+                    </div>
+
+                    <div>
+                        <label for="usuarioDomicilioProvincia">Provincia:</label>
+                        <div id="provinciaentrega"></div>
+                      
+                    </div>
+                </div>
+
+
+                <div class="divConfirmarDireccionCalleInput">
+                    <div class="divCalleAltura">
+                        <div>
+                            <label for="usuarioDomicilioCalle">Calle:</label>
+                            <div id="calleentrega"><%= domicilio.calle %></div>
+
+                        </div>
+
+                        <div>
+                            <label for="usuarioDomicilioAlturaCalle">Altura:</label>
+                            <div id="alturaentrega"><%= domicilio.altura %></div>
+
+                        </div>
+                    </div>
+
+                    <div class="divPisoDepto">
+                        <div>
+                            <label for="usuarioDomicilioDepto">Depto:</label>
+                            <div id="deptoentrega"><%= domicilio.depto %></div>
+
+                        </div>
+
+                        <div>
+                            <label for="usuarioDomicilioPiso">Piso:</label>
+                            <div id="pisoentrega"><%= domicilio.piso %></div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="divConfirmarCpInput">
+                    <div>
+                        <label for="usuarioDomicilioCp">Codigo postal:</label>
+                        <div id="cpentrega"><%= domicilio.cp %></div>
+
+                    </div>
+                </div>
+
+            
+
+                </form>
+
+            </div>
+
+            <form class="confirmarProductos" method="POST" action="/cesta/buy">
+
+                <% if(session.basketProducts != undefined) { %>
+                <div class="cantidadProductos">
+                    <% var total = 0; %>
+                    <% session.basketProducts.forEach(producto => { %>
+                    <div class="detalleProductos">
+                        <div class="detalleTituloCantidad">
+                            <p>Producto: <%=  producto.titulo %></p>
+                            <p>Cantidad: <%=  producto.cantidad %></p>
+                        </div>
+                        <div class="detallePrecio">
+                            <p>Precio por unidad: <%=  parseFloat(producto.precio) %></p>
+                        </div>
+
+
+                    </div>
+                    <% total = (producto.precio * producto.cantidad) + total %>
+
+                    <% }) %>
+                </div>
+                <% } %>
+
+                <div class="confirmarPago">
+                    <label for="metodoDePago">Seleccione su metodo de pago</label>
+                    <select name="usuarioMetodoDePago" id="usuarioMetodoDePago">
+                        <% mediosPago.forEach(metodo => { %>
+                        <option value="<%= metodo.idmediosdepago %>"> <%= metodo.nombre %> </option>
+                        <% }) %>
+
+                    </select>
+                </div>
+
+                <div class="total">
+                    <p>Precio total: <%= total.toLocaleString() %></p>
+                </div>
+
+                <div class="confirmarButtonDiv">
+                    <button id="confirmBuyButton">Confirmar y enviar!</button>
+                </div>
+
+            </form>
+
+    </main>
+    <script>
+        function getDomicilio(domicilio) {
+            fetch('/api/usuarios/domicilio/'+domicilio).then(function (response) {
+                response.json().then(function (data) {
+                    console.log(data)
+                    document.querySelector('#paisentrega').innerHTML = data.pais.PaisNombre;
+                    document.querySelector('#provinciaentrega').innerHTML = data.provincia.Provincia;
+                    document.querySelector('#calleentrega').innerHTML = data.calle;
+                    document.querySelector('#alturaentrega').innerHTML = data.altura;
+                    document.querySelector('#deptoentrega').innerHTML = data.depto || "-";
+                    document.querySelector('#pisoentrega').innerHTML = data.piso || "-";
+                    document.querySelector('#cpentrega').innerHTML = data.cp;
+                });
+            });
+        }
+    </script>
+    <%- include('./partials/footer') %>
+</body>
+
+</html>
+
+<!--
+    <form class="formConfirmarDireccion" method="POST" action="/cesta/confirmardireccion">
 
                 <div class="divConfirmarDireccionSelect">
                     <div>
@@ -84,54 +218,4 @@
                 </div>
 
             </form>
-
-            </div>
-
-            <form class="confirmarProductos" method="POST" action="/cesta/buy">
-
-                <% if(session.basketProducts != undefined) { %>
-                <div class="cantidadProductos">
-                    <% var total = 0; %>
-                    <% session.basketProducts.forEach(producto => { %>
-                    <div class="detalleProductos">
-                        <div class="detalleTituloCantidad">
-                            <p>Producto: <%=  producto.titulo %></p>
-                            <p>Cantidad: <%=  producto.cantidad %></p>
-                        </div>
-                        <div class="detallePrecio">
-                            <p>Precio por unidad: <%=  parseFloat(producto.precio) %></p>
-                        </div>
-
-
-                    </div>
-                    <% total = (producto.precio * producto.cantidad) + total %>
-
-                    <% }) %>
-                </div>
-                <% } %>
-
-                <div class="confirmarPago">
-                    <label for="metodoDePago">Seleccione su metodo de pago</label>
-                    <select name="usuarioMetodoDePago" id="usuarioMetodoDePago">
-                        <% mediosPago.forEach(metodo => { %>
-                        <option value="<%= metodo.idmediosdepago %>"> <%= metodo.nombre %> </option>
-                        <% }) %>
-
-                    </select>
-                </div>
-
-                <div class="total">
-                    <p>Precio total: <%= total.toLocaleString() %></p>
-                </div>
-
-                <div class="confirmarButtonDiv">
-                    <button id="confirmBuyButton">Confirmar y enviar!</button>
-                </div>
-
-            </form>
-
-    </main>
-    <%- include('./partials/footer') %>
-</body>
-
-</html>
+-->

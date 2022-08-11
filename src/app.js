@@ -14,7 +14,6 @@ let logOutRoutes = require("./routes/logout.js");
 let apiUsuarios = require("./routes/apiUsuarios.js")
 let apiProductos = require("./routes/apiProductos.js")
 let autoSignInMiddleware =require("./middelwares/autoSignInMiddleware");
-const exp = require("constants");
 let session=require("express-session");
 const publicPath = (path.resolve(__dirname, "../public"));
 var cookieParser = require('cookie-parser');

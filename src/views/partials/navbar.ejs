@@ -71,7 +71,7 @@
     <div class="links">
       
       <ul>
-        <li><a href="#">Ofertas del dia</a></li>
+        <li><a onclick="productRandom(10)" href="#">Ofertas del dia</a></li>
         <li><a href="#">Mas populares</a></li>
         <li><a href="#">Gift Cards</a></li>
         <li><a href="#">Servicio al cliente</a></li>
@@ -79,7 +79,17 @@
     </div>
   </nav>
 </header>
+
 <script>
+
+  function productRandom(max) {
+
+    let randomNumber = Math.floor(Math.random() * max);
+
+
+    window.location.href = "http://localhost:3000/product/"+randomNumber
+
+  }
   
   function show_search_results() {
 

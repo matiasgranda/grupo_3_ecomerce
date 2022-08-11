@@ -1,19 +1,22 @@
-let button = document.querySelector(".gestionarDireccionBtn");
+var button = document.querySelector(".gestionarDireccionBtn");
 
-let closeButton = document.querySelector(".closeBtn");
+var closeButton = document.querySelector(".closeBtn");
 
-let form = document.querySelector(".gestionarDireccionForm");
+var form = document.querySelector(".gestionarDireccionForm");
 
-let submitButton = document.querySelector(".confirmSubmitButton")
-let inputPais = document.querySelector(".direccionPais")
-let inputProvincia = document.querySelector(".direccionProvincia")
-let inputCalle = document.querySelector(".direccionCalle")
-let inputAlturaCalle = document.querySelector(".direccionAltura")
-let inputPiso = document.querySelector(".direccionPiso")
-let inputDepto = document.querySelector(".direccionDepto")
-let inputCodigoPostal = document.querySelector(".direccionCp")
+var inputAlias = document.querySelector(".direccionAlias");
+var submitButton = document.querySelector(".confirmSubmitButton")
+var inputPais = document.querySelector(".direccionPais")
+var inputProvincia = document.querySelector(".direccionProvincia")
+var inputCalle = document.querySelector(".direccionCalle")
+var inputAlturaCalle = document.querySelector(".direccionAltura")
+var inputPiso = document.querySelector(".direccionPiso")
+var inputDepto = document.querySelector(".direccionDepto")
+var inputCodigoPostal = document.querySelector(".direccionCp")
+var codigoDomicilio = document.querySelector(".codigoDomicilio");
+var checkboxSetDefault = document.querySelector(".checkboxSetDefault");
 
-let errorMessage = document.querySelector(".errorMessage")
+var errorMessage = document.querySelector(".errorMessage")
 
 button.addEventListener("click", function() {
     form.style.display = "flex"
@@ -29,3 +32,45 @@ submitButton.addEventListener("click", function(e) {
         e.preventDefault();
     }
 })
+
+async function getDomicilio(id) {
+
+    form.style.display = "flex"
+    const res = await fetch("http://localhost:3000/api/usuarios/domicilio/"+id);
+    const data = await res.json()
+    console.log(data)
+
+    if(data.entregadefault === 1) {
+        checkboxSetDefault.checked = true
+    } else {
+        checkboxSetDefault.checked = false
+    }
+
+    codigoDomicilio.value = data.iddomicilios
+    inputAlias.value = data.alias
+    inputPais.value = data.idpais
+    inputProvincia.value = data.idprovincia
+    inputCalle.value = data.calle
+    inputAlturaCalle.value = data.altura
+    inputPiso.value = data.piso
+    inputDepto.value = data.depto
+    inputCodigoPostal.value = data.cp
+    
+}
+
+async function modificarDireccion() {
+
+    var data = new FormData(form);
+    var req = new XMLHttpRequest();
+    req.open("PUT", "http://localhost:3000/api/usuarios/domicilio/"+codigoDomicilio.value);
+    console.log(data)
+    req.send(data);
+    if(setDefault==="on") {
+        const res = await fetch("http://localhost:3000/api/usuarios/domicilio/"+id, 
+           { method: "PUT"});
+        const data2 = await res.json()
+        console.log(data2)
+    }
+    location.reload();
+
+}
