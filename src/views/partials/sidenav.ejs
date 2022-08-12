@@ -137,7 +137,7 @@
   async function getCategorias() {
     const response = await fetch('/categorias/api');
     const data = await response.json();
-    console.log(data);
+    
     document.querySelector('.itemscategorias').innerHTML = data.map(categoria => {
       return `
         <a href="/categorias/${categoria.idcategoria}">

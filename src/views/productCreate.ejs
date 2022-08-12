@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/css/productCreate.css" />
 
-  <%- include('./partials/head') %>
+  <%- include('./partials/head') %>  
+  <script src="https://cdn.tiny.cloud/1/rvmdz6g9c20khbxfhvjrgczx6dwm6gyebku2lc5xh4hgmkla/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
   <title>Nueva Publicación</title>
 </head>
 
@@ -99,4 +100,14 @@
     
 </body>
   <script src="/js/productCreateValidation.js"></script>
+  <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',
+      
+      toolbar_mode: 'floating',
+      tinycomments_mode: 'embedded',
+      
+    });
+  </script>
 </html>

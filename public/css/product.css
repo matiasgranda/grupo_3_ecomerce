@@ -13,6 +13,7 @@ body {
   background-color: rgb(255, 255, 255);
   position: absolute;
 }
+
 /* ----------------------------------- MAIN -----------------------*/
 
 main {
@@ -23,6 +24,7 @@ main {
   position: relative;
   margin-top: 90px;
 }
+
 .loginMessage {
   text-align: center;
   font-size: 18pt;
@@ -31,6 +33,7 @@ main {
   margin: 20px;
   padding: 5px;
 }
+
 .images {
   height: 600px;
   width: 40%;
@@ -74,8 +77,8 @@ main {
 }
 
 .mini-image img {
-  width: 100%;
-  height: auto;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .main-image {
@@ -124,18 +127,23 @@ main {
   width: 100%;
   font-size: 1.6em;
 }
+
 .calfiarriba {
   padding-left: 10px;
 }
+
 .productDescription {
   width: 100%;
   height: fit-content;
   padding: 10px;
   line-height: 36px;
+  overflow-y: auto;
 }
+
 .calfiarriba .fa-star {
   color: #febd6a;
 }
+
 .productDescription p {
   margin-top: 10px;
 }
@@ -289,9 +297,11 @@ main {
   justify-content: center;
   align-items: flex-start;
 }
+
 .preguntas h2 {
   margin-left: 20px;
 }
+
 .itempreguntas {
   display: flex;
   flex-direction: row;
@@ -305,6 +315,7 @@ main {
   /*box-shadow: 0px 0px 2px 0px lightgray;*/
   padding: 10px;
 }
+
 .preg-resp {
   display: flex;
   flex-direction: column;
@@ -314,6 +325,7 @@ main {
   align-items: flex-start;
   width: 90%;
 }
+
 .respuesta {
   margin: 2px 0px;
   width: 98%;
@@ -400,9 +412,11 @@ main {
   align-items: center;
   justify-content: space-around;
 }
+
 .postComentario button {
   margin-top: 10px;
 }
+
 form section {
   display: flex;
   width: 60%;
@@ -447,6 +461,7 @@ form section {
   border-radius: 4px;
   cursor: pointer;
 }
+
 .seaparaseccion {
   width: 98%;
   color: #aaa;
@@ -464,6 +479,7 @@ form section {
   flex-direction: column;
   align-content: center;
 }
+
 .respuestaForm {
   display: flex;
   flex-direction: column;
@@ -487,7 +503,7 @@ form section {
 }
 
 .respuestaBtn {
-  margin-top:10px;
+  margin-top: 10px;
   align-self: center;
   height: 30px;
   width: 100px;
@@ -503,6 +519,7 @@ form section {
   .seaparaseccion {
     display: block;
   }
+
   main {
     flex-wrap: wrap;
   }
@@ -525,20 +542,26 @@ form section {
   .botoncomprar {
     width: 40%;
   }
+
   .calfiarriba {
     display: none;
   }
+
   .preg-resp {
     width: 100%;
   }
+
   .usuario {
     width: fit-content;
   }
 }
+
 .postComentario section {
   width: 90%;
 }
+
 @media (max-width: 1024px) {
+
   .images,
   .productInfo,
   .barraderecha {
@@ -547,6 +570,7 @@ form section {
     margin-top: 20px;
     box-shadow: none;
   }
+
   main {
     display: flex;
     align-items: stretch;
@@ -561,25 +585,32 @@ form section {
 }
 
 @media (max-width: 700px) {
+
   .botonagregar,
   .botoncomprar {
     width: 100%;
   }
+
   .itempreguntas {
     flex-direction: row;
   }
+
   .respuesta {
     padding-left: 10px;
   }
+
   .usuario {
     width: fit-content;
   }
+
   .images {
     height: 450px;
   }
+
   .productInfo {
     height: 400px;
   }
+
   .barraderecha {
     height: 500px;
   }
@@ -606,15 +637,16 @@ form section {
   @include transition(0.2s);
 }
 
-.rating input[type="radio"]:checked ~ input + label {
+.rating input[type="radio"]:checked~input+label {
   background: none;
   color: #aaa;
 }
 
-.rating input + label {
+.rating input+label {
   color: #febd6a;
   margin: 0 0 1em 0;
 }
+
 .btnenviar {
   padding: 10px;
 }
@@ -624,12 +656,16 @@ form section {
   color: red;
   font-size: 10px;
 }
+
 .stock-agotado {
   background-color: rgba(255, 213, 98, 0.4);
   padding: 5px;
   color: red;
 }
-link, a , link:visited{
+
+link,
+a,
+link:visited {
   text-decoration: none;
   color: rgb(47, 56, 182);
 }

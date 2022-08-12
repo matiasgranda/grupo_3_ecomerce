@@ -1,5 +1,5 @@
 const path = require("path");
-const fs = require("fs");
+//const fs = require("fs");
 const actions = require("../data/actions");
 const {
   parse
@@ -9,7 +9,7 @@ const {
 } = require("console");
 const session = require("express-session");
 
-let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
+//let productos = JSON.parse(fs.readFileSync("./src/data/productos.json"));
 
 let productsController = {
   product: (req, res) => {
