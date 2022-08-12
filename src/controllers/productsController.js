@@ -130,6 +130,7 @@ let productsController = {
     let productoNuevo = {
       titulo: req.body.titulo,
       descripcion: req.body.descripcion,
+      detallepublicacion: req.body.detallepublicacion,
       idcategoria: req.body.categoria,
       precio: req.body.precio,
       idmarca: req.body.marca,
