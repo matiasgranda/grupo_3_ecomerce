@@ -31,13 +31,13 @@
                 <div class="divConfirmarDireccionSelect">
                     <div>
                         <label for="usuarioDomicilioPais">Pais:</label>
-                        <div id="paisentrega"></div>
+                        <div id="paisentrega"><% if(locals.domicilio) { %> <%=domicilio.pais.PaisNombre%> <% } %></div>
                        
                     </div>
 
                     <div>
                         <label for="usuarioDomicilioProvincia">Provincia:</label>
-                        <div id="provinciaentrega"></div>
+                        <div id="provinciaentrega"><% if(locals.domicilio) { %> <%=domicilio.provincia.Provincia%> <% } %></div>
                       
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="gestionarDirecciones">
-                    <a href="/perfil">Agregar nueva direccion de envio!</a>
+                    <a href="/perfil" style="text-decoration:none;"> <i class="fa-solid fa-circle-plus"></i>&nbsp;Agregar nueva direccion de envio!</a>
                 </div>
                 </form>
 
@@ -100,7 +100,7 @@
                             <p>Cantidad: <%=  producto.cantidad %></p>
                         </div>
                         <div class="detallePrecio">
-                            <p>Precio por unidad: <%=  parseFloat(producto.precio) %></p>
+                            <p>P.U.: $ <%=  parseFloat(producto.precio) %></p>
                         </div>
 
 
@@ -122,7 +122,7 @@
                 </div>
 
                 <div class="total">
-                    <p>Precio total: <%= total.toLocaleString() %></p>
+                    <p>Precio total: $ <%= total.toLocaleString() %></p>
                 </div>
 
                 <div class="confirmarButtonDiv">
