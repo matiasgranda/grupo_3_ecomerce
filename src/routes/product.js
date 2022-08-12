@@ -21,6 +21,7 @@ const logMiddelware = require("../middelwares/logMiddleware");
 
 router.get("/create", authMiddleware, productsController.create);
 router.get("/search/:keyword", productsController.search);
+router.get("/search/:keyword/categoria/:category", productsController.search);
 router.get("/edit/:id", productsController.edit);
 router.put("/edit/:id", fileupload.any(),productsController.editProduct);
 router.get("/:id", productsController.product);

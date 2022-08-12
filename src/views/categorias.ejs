@@ -20,6 +20,11 @@
                     <li class="textocategoria"><a href="/categorias/<%= categoria.idcategoria %>"><%= categoria.descripcion %></a></li>
                 <% } %>
             </ul>
+            <select id="categorias" name="categorias" class="selectecategorias" onchange="goCategory(this.value)">
+                <% for (let categoria of categorias) { %>
+                    <option value="<%= categoria.idcategoria %>"><%= categoria.descripcion %></option>
+                <% } %>
+            </select>
         </div>
       </section>
       <section class="listadoproductos">
@@ -42,6 +47,11 @@
       
     </main>
     <div class="relleno"></div>
+    <script>
+        function goCategory(id) {
+            window.location.href = "/categorias/" + id;
+        }
+    </script>
     <%- include('./partials/footer') %>
     <%- include('./partials/sidenav') %>
 

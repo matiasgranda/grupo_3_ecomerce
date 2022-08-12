@@ -14,13 +14,35 @@
         <h2 class="productosNoEncontrados">No se encontraron productos.</h2>
       <% } %>
       <section class="categoriasSection">
+        <% if (locals.filtrado===true) { %>
+          <div class="categoriaContainer">
+            <a class="categoriaLink"  onclick="history.back()" style="cursor:pointer;">
+              <p class="categoriaText">Volver</p>
+            </a>
+          </div>
+        <% } else { %>
         <% uniqueCategory.forEach(categoria => { %>
           <div class="categoriaContainer">
-            <a class="categoriaLink" href="/categorias/<%= categoria.id %>">
+            <a class="categoriaLink"  onclick="goCategory(<%= categoria.id %>)" style="cursor:pointer;">
               <p class="categoriaText"><%= categoria.titulo %></p>
             </a>
           </div>
          <%  }) %>
+         <% } %> 
+         <% if (uniqueCategory.length>0) { %>
+          <label for="categorias" class="labelcategorias">Categorias</label>
+          <select id="categorias" name="categorias" class="selectecategorias" onchange="goCategory(this.value)" >
+            <% uniqueCategory.forEach(categoria => { %>
+              <option value="<%= categoria.id %>"><%= categoria.titulo %></option>
+            <%  }) %>
+            </select>
+         <% } %>
+         
+          <div class=" mobile">
+            <a class="categoriaLink"  onclick="history.back()" style="cursor:pointer;">
+              <p class="categoriaText">Volver</p>
+            </a>
+          </div>
       </section>
 
       <section class="productosSection">
@@ -62,6 +84,17 @@
           </div>
         <% } %>
       </section>
+      <script>
+        function goCategory(id) {
+          let myArray = window.location.href.split("/");
+          if (myArray.includes("categorias")) {
+            window.location.href = "/categorias/" + id;
+          } else {
+            window.location.href = window.location.href +"/categorias/" + id;
+          }
+          window.location.href = location.href+"/categoria/" + id;
+        }
+      </script>
     </main>
   </body>
 

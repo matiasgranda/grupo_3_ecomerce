@@ -2,7 +2,7 @@ const path = require("path");
 const fs = require("fs");
 const actions = require("../data/actions");
 const { parse } = require("path");
-const { Console } = require("console");
+const { Console, log } = require("console");
 const session = require("express-session");
 const db = require("../data/models/");
 
@@ -16,7 +16,7 @@ let productsController = {
     var datosPublicacion = {};
     var productoSeleccionado = parseInt(req.params.id);
     if (productoSeleccionado > 0) {
-      
+
       db.Publicaciones.findOne({
         include: [
           {
@@ -196,14 +196,14 @@ let productsController = {
   respuesta: async (req, res) => {
     const timeElapsed = Date.now();
     const today = new Date(timeElapsed);
-    const fecha=today.toLocaleDateString()+ " "+today.getHours()+ ":"+('0'+today.getMinutes()).slice(-2)+ ":"+('0'+today.getSeconds()).slice(-2);
+    const fecha = today.toLocaleDateString() + " " + today.getHours() + ":" + ('0' + today.getMinutes()).slice(-2) + ":" + ('0' + today.getSeconds()).slice(-2);
 
     let respuesta = {
       idpregunta: req.params.resId,
       respuesta: req.body.respuestaInput,
       fecharepuesta: fecha
     }
-    
+
     const nuevaRespuesta = await db.Respuesta.create(respuesta);
 
     return res.redirect("/product/" + req.params.id);
@@ -221,7 +221,7 @@ let productsController = {
     const imagenes = await db.Imagenes.findAll({
       where: { [Op.and]: [{ idpublicacion: req.params.id }] },
     });
-    
+
     const marcas = await db.Marcas.findAll();
     productoSeleccionado.imagenes = imagenes;
     productoSeleccionado.marcas = marcas;
@@ -334,41 +334,77 @@ let productsController = {
     let sesion = req.session;
     const db = require("../data/models/");
     const Op = require("Sequelize").Op;
-    let productos = await db.Publicaciones.findAll({
-      attributes: [
-        "idpublicacion",
-        "titulo",
-        "precio",
-        "idmarca",
-        "idcategoria",
-        "idsubcategoria",
-        "stock"
-      ],
-      include: [{ association: "marcas", attributes: ["marca"], required:true},
-      { association: "categorias", attributes: ["descripcion", "idcategoria"],required:true },
-      {
-        association: "imagenes",
-        attributes: ["imagen"],
-        where: { imagenprincipal: 1 },
-        require:true
-      }
-    ],
-      
-      where: {
-        visible: 1,
-        titulo: {
-          [Op.like]: "%" + req.params.keyword + "%",
-        },
-      },
-    });
+    var filtrado=false;
+    if (req.params.category != undefined) {
+      filtrado=true;
+      var productos = await db.Publicaciones.findAll({
+        attributes: [
+          "idpublicacion",
+          "titulo",
+          "precio",
+          "idmarca",
+          "idcategoria",
+          "idsubcategoria",
+          "stock"
+        ],
+        include: [{ association: "marcas", attributes: ["marca"], required: true },
+        { association: "categorias", attributes: ["descripcion", "idcategoria"], required: true },
+        {
+          association: "imagenes",
+          attributes: ["imagen"],
+          where: { imagenprincipal: 1 },
+          require: true
+        }
+        ],
 
+        where: {
+          idcategoria: Number(req.params.category),
+          visible: 1,
+
+          titulo: {
+            [Op.like]: "%" + req.params.keyword + "%",
+          },
+        },
+      });
+    }
+    else {
+      var productos = await db.Publicaciones.findAll({
+        attributes: [
+          "idpublicacion",
+          "titulo",
+          "precio",
+          "idmarca",
+          "idcategoria",
+          "idsubcategoria",
+          "stock"
+        ],
+        include: [{ association: "marcas", attributes: ["marca"], required: true },
+        { association: "categorias", attributes: ["descripcion", "idcategoria"], required: true },
+        {
+          association: "imagenes",
+          attributes: ["imagen"],
+          where: { imagenprincipal: 1 },
+          require: true
+        }
+        ],
+
+        where: {
+          
+          visible: 1,
+
+          titulo: {
+            [Op.like]: "%" + req.params.keyword + "%",
+          },
+        },
+      });
+    }
     let uniqueCategory = [];
 
-      for(let i = 0; i < productos.length; i++) {
+    for (let i = 0; i < productos.length; i++) {
 
       const found = uniqueCategory.some(item => item.titulo === productos[i].categorias.descripcion);
-      console.log(found)
-      if(!found) {
+      
+      if (!found) {
         let categoria = {
           titulo: productos[i].categorias.descripcion,
           id: productos[i].categorias.idcategoria
@@ -380,7 +416,8 @@ let productsController = {
     res.render(path.resolve(__dirname, "../views/search.ejs"), {
       productos: productos,
       session: sesion,
-      uniqueCategory: uniqueCategory
+      uniqueCategory: uniqueCategory,
+      filtrado:filtrado
     });
 
     //res.send(productos)
