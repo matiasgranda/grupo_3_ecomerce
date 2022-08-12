@@ -1,101 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include('./partials/head') %>
+
+<head>
+  <%- include('./partials/head') %>
     <link rel="stylesheet" href="/css/search.css" />
 
     <title>Amazona | Proyecto Grupo 3</title>
-  </head>
+</head>
 
-  <body>
-    <%- include('./partials/navbar') %>
+<body>
+  <%- include('./partials/navbar') %>
     <main>
-      <% if(productos.length == 0) { %>
-        <h2 class="productosNoEncontrados">No se encontraron productos.</h2>
-      <% } %>
-      <section class="categoriasSection">
-        <% if (locals.filtrado===true) { %>
-          <div class="categoriaContainer">
-            <a class="categoriaLink"  onclick="history.back()" style="cursor:pointer;">
-              <p class="categoriaText">Volver</p>
-            </a>
-          </div>
-        <% } else { %>
-        <% uniqueCategory.forEach(categoria => { %>
-          <div class="categoriaContainer">
-            <a class="categoriaLink"  onclick="goCategory(<%= categoria.id %>)" style="cursor:pointer;">
-              <p class="categoriaText"><%= categoria.titulo %></p>
-            </a>
-          </div>
-         <%  }) %>
-         <% } %> 
-         <% if (uniqueCategory.length>0) { %>
-          <label for="categorias" class="labelcategorias">Categorias</label>
-          <select id="categorias" name="categorias" class="selectecategorias" onchange="goCategory(this.value)" >
-            <% uniqueCategory.forEach(categoria => { %>
-              <option value="<%= categoria.id %>"><%= categoria.titulo %></option>
-            <%  }) %>
-            </select>
-         <% } %>
-         
-          <div class=" mobile">
-            <a class="categoriaLink"  onclick="history.back()" style="cursor:pointer;">
-              <p class="categoriaText">Volver</p>
-            </a>
-          </div>
-      </section>
+      <% if(productos.length==0) { %>
+        <h2 class="productosNoEncontrados"
+          style="display: flex;  flex-direction: column; align-items: center; align-content: center; justify-content: center;">
+          No se encontraron productos.<br>
+          <a class="" onclick="history.back()"
+            style="cursor:pointer;  width: 120px; padding: 5px; text-decoration: underline; text-align: center;">
+            <i class="fa-solid fa-chevron-left"></i> Volver
+          </a>
+        </h2>
 
-      <section class="productosSection">
-        <% for(let i = 0; i < productos.length; i++) { %>
-          
-          <div class="productContainer">
-            <div class="productImgDiv">
-              <a href="/product/<%= productos[i].idpublicacion %>">
-              <img class="productImg" src="/img/<%= productos[i].imagenes[0].imagen %>">
-            </a>
-            </div>
 
-            <div class="productInfoContainer">
-              <div class="productTitleDiv">
-                <a href="/product/<%= productos[i].idpublicacion %>">
-                  <span class="marca"><%= productos[i].marcas.marca %></span>
-                  <h3><%= productos[i].titulo %></h3>
-                </a>
-                
-              </div>
-              <div class="productInfoDiv">
-                <div class="precio">
-                  <p>$ <%= productos[i].precio %></p>
-                </div>
-                <div style="display: none;">
-                  <p>Marca: <%= productos[i].marcas.marca %></p>
-                </div>
-                <div style="display: none;">
-                  <p>En stock: <%= productos[i].stock %></p>
-                </div>
-              </div>
-              
-            </div>
 
-            
-            
-            <div></div>
-
-          </div>
+        <div style="height: 600px;"></div>
         <% } %>
-      </section>
-      <script>
-        function goCategory(id) {
-          let myArray = window.location.href.split("/");
-          if (myArray.includes("categorias")) {
-            window.location.href = "/categorias/" + id;
-          } else {
-            window.location.href = window.location.href +"/categorias/" + id;
-          }
-          window.location.href = location.href+"/categoria/" + id;
-        }
-      </script>
+          <section class="categoriasSection">
+            <% if (locals.filtrado===true) { %>
+              <div class="categoriaContainer">
+                <a class="categoriaLink" onclick="history.back()" style="cursor:pointer;">
+                  <p class="categoriaText">Volver</p>
+                </a>
+              </div>
+              <% } else { %>
+                <% uniqueCategory.forEach(categoria=> { %>
+                  <div class="categoriaContainer">
+                    <a class="categoriaLink" onclick="goCategory(<%= categoria.id %>)" style="cursor:pointer;">
+                      <p class="categoriaText">
+                        <%= categoria.titulo %>
+                      </p>
+                    </a>
+                  </div>
+                  <% }) %>
+                    <% } %>
+                      <% if (uniqueCategory.length>0) { %>
+                        <label for="categorias" class="labelcategorias">Categorias</label>
+                        <select id="categorias" name="categorias" class="selectecategorias"
+                          onchange="goCategory(this.value)">
+                          <% uniqueCategory.forEach(categoria=> { %>
+                            <option value="<%= categoria.id %>">
+                              <%= categoria.titulo %>
+                            </option>
+                            <% }) %>
+                        </select>
+                        <% } %>
+
+                          <div class=" mobile">
+                            <a class="categoriaLink" onclick="history.back()" style="cursor:pointer;">
+                              <p class="categoriaText">Volver</p>
+                            </a>
+                          </div>
+          </section>
+
+          <section class="productosSection">
+            <% for(let i=0; i < productos.length; i++) { %>
+
+              <div class="productContainer">
+                <div class="productImgDiv">
+                  <a href="/product/<%= productos[i].idpublicacion %>">
+                    <img class="productImg" src="/img/<%= productos[i].imagenes[0].imagen %>">
+                  </a>
+                </div>
+
+                <div class="productInfoContainer">
+                  <div class="productTitleDiv">
+                    <a href="/product/<%= productos[i].idpublicacion %>">
+                      <span class="marca">
+                        <%= productos[i].marcas.marca %>
+                      </span>
+                      <h3>
+                        <%= productos[i].titulo %>
+                      </h3>
+                    </a>
+
+                  </div>
+                  <div class="productInfoDiv">
+                    <div class="precio">
+                      <p>$ <%= productos[i].precio %>
+                      </p>
+                    </div>
+                    <div style="display: none;">
+                      <p>Marca: <%= productos[i].marcas.marca %>
+                      </p>
+                    </div>
+                    <div style="display: none;">
+                      <p>En stock: <%= productos[i].stock %>
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+
+
+
+                <div></div>
+
+              </div>
+              <% } %>
+          </section>
+
+          <script>
+            function goCategory(id) {
+              let myArray = window.location.href.split("/");
+              if (myArray.includes("categorias")) {
+                window.location.href = "/categorias/" + id;
+              } else {
+                window.location.href = window.location.href + "/categorias/" + id;
+              }
+              window.location.href = location.href + "/categoria/" + id;
+            }
+          </script>
     </main>
-  </body>
+    <%- include('./partials/sidenav') %>
+      <br>
+      <%- include('./partials/footer') %>
+</body>
 
 </html>
