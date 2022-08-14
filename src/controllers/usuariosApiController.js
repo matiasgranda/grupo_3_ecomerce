@@ -61,6 +61,19 @@ let usuariosApiController = {
         }
         return res.json()
 
+    },
+
+    "modificardatos": async (req, res) => {
+        const user = await db.Usuarios.findByPk(req.session.idusuario)
+        await user.update({
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            telefono: req.body.telefono,
+            fechanac: req.body.fechanac,
+            email: req.body.email
+        });
+
+        return res.status(200).send("Ok")
     }
 
 };

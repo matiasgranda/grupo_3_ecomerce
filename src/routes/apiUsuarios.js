@@ -7,6 +7,7 @@ const apiDomicilioController = require("../controllers/apiDomicilioController")
 router.get("/", usuariosApiController.lista);
 router.get("/:id", usuariosApiController.detalle);
 router.post("/adminlogin", usuariosApiController.adminLogin);
+router.put("/modificardatos", usuariosApiController.modificardatos)
 
 router.get("/domicilio/:id", apiDomicilioController.getdomicilio);
 router.post("/domicilio", apiDomicilioController.createdomicilio);
