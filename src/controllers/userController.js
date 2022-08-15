@@ -71,7 +71,7 @@ let userController = {
 
       return res.redirect("/perfil")
 
-    }
+    },
 }
 
 module.exports = userController

@@ -75,45 +75,50 @@ async function modificarDireccion() {
         inputCodigoPostal: inputCodigoPostal.value,
         checkboxSetDefault: checkboxSetDefault.value
     };
-    $.ajax({
-        type: "put",
-        url: 'http://localhost:3000/api/usuarios/domicilio/',
-        data: formData,
-        dataType: "json",
-        encode: true,
-
-    });
-
-
-
-    if (checkboxSetDefault.value === "on") {
-        let id=parseInt( codigoDomicilio.value)
-        var formDataDefault = {
-            codigoDomicilio: codigoDomicilio.value,
-           
-        };
+    if(codigoDomicilio.value !== "") {
+       
         $.ajax({
             type: "put",
-            url: "http://localhost:3000/api/usuarios/domicilio/" + id + "/setdefault",
-            data: formDataDefault,
+            url: 'http://localhost:3000/api/usuarios/domicilio/',
+            data: formData,
             dataType: "json",
             encode: true,
     
         });
     
-        // const res = await fetch("http://localhost:3000/api/usuarios/domicilio/" + id + "/setdefault",
-        //     {
-        //         method: 'PUT',
-        //         body: data,
-        //         headers: {
-        //             Accept: 'multipart/form-data',
-        //             'Content-Type': 'application/x-www-form-urlencoded',
-        //         }
-        //     });
-        // const data2 = await res.json()
-        // console.log(data2)
+        if (checkboxSetDefault.value === "on") {
+            let id=parseInt( codigoDomicilio.value)
+            var formDataDefault = {
+                codigoDomicilio: codigoDomicilio.value,
+               
+            };
+            $.ajax({
+                type: "put",
+                url: "http://localhost:3000/api/usuarios/domicilio/" + id + "/setdefault",
+                data: formDataDefault,
+                dataType: "json",
+                encode: true,
         
-    }
-     location.reload();
+            });
+
+        }
+    } else {
+        $.ajax({
+            type: "post",
+            url: 'http://localhost:3000/api/usuarios/domicilio/',
+            data: formData,
+            dataType: "json",
+            encode: true,
+            success: function (data, status, xhr) {// success callback function
+            }
+        })
+    
+        setTimeout(() => {
+            location.reload();
+        }, 1000)
 
 }
+}
+
+
+

@@ -53,8 +53,8 @@ let usuariosApiController = {
             loginUsername: req.body.loginUsername,
             loginPassword: req.body.loginPassword
         }
-
-        if(user.loginUsername === process.env.USER_ADMIN && user.loginPassword === process.env.PASS_ADMIN) {
+        console.log(user)
+        if(user.loginUsername === "amazonadmin" && user.loginPassword === "amazonadmin") {
             next();
         } else {
             throw new Error("Invalid credentials")

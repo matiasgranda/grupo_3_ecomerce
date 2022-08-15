@@ -80,8 +80,36 @@ let apiDomicilioController = {
     res.status(200).send("Ok");
 
   },
-  createdomicilio: (req, res) => {
-    return null
+  createdomicilio: async (req, res) => {
+    let sesion = req.session;
+    const db = require("../data/models/");
+
+    let datosusuario = {
+      idusuario: sesion.idusuario,
+      alias: req.body.inputAlias,
+      idpais: req.body.inputPais,
+      idprovincia: req.body.inputProvincia,
+      calle: req.body.inputCalle,
+      altura: req.body.inputAlturaCalle,
+      piso: req.body.inputPiso || null,
+      depto: req.body.inputDepto || null,
+      cp: req.body.inputCodigoPostal
+    }
+
+    console.log(req.body.checkboxSetDefault)
+
+    const domicilioNuevo = await db.Domicilios.create(datosusuario)
+
+    if(req.body.checkboxSetDefault == "on") {
+      domicilioNuevo.update({
+        entregadefault: 1
+      }, {
+        where: { idusuario: sesion.idusuario, iddomicilios: domicilioNuevo.iddomicilios }
+      })
+    }
+
+   res.status(200).send("Ok")
+
   }
 
 }
