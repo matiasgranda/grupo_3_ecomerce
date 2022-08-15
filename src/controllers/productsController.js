@@ -143,6 +143,7 @@ let productsController = {
         idmarca: nuevaMarcaCreada.idmarca,
         colores: req.body.color,
         idusuario: req.session.idusuario,
+        stock: req.body.stock
       };
     } else {
       var productoNuevo = {
@@ -154,6 +155,7 @@ let productsController = {
         idmarca: req.body.idmarca,
         colores: req.body.color,
         idusuario: req.session.idusuario,
+        stock: req.body.stock
       };
     }
     
