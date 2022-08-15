@@ -58,8 +58,23 @@
         <select name="marca" id="marca">
           <% for(let j = 0; j < marca.length; j++) { %> 
           <option value="<%= marca[j].idmarca %> "><%= marca[j].marca %> </option>
-          <% } %> 
+          <% } %>
+          <option value="otra">Otra..</option>
         </select>
+      </div>
+      <div class="marcaInputDiv">
+        <div>
+          <label>Nueva marca:</label>
+          <input type="text" name="nuevaMarca" id="marcaInput" class="marcaInput" placeholder="Marca:"></input>
+        </div>
+        <div>
+          <label>Categoria nueva marca:</label>
+          <select name="nuevaMarcaCategoria" id="nuevaMarcaCategoria">
+            <% for(let i = 0; i < categoria.length; i++) { %> 
+              <option value="<%= categoria[i].idcategoria %> "><%= categoria[i].descripcion %> </option>
+            <% } %> 
+          </select>
+        </div>
       </div>
       <div class="precioForm">
         <label for="precio">Precio:</label>
@@ -104,6 +119,7 @@
     
 </body>
   <script src="/js/productCreateValidation.js"></script>
+  <script src="/js/nuevaMarca.js"></script>
   <script>
     tinymce.init({
       selector: 'textarea',

@@ -87,6 +87,7 @@ let productsController = {
 
   create: (req, res) => {
     db.Marcas.findAll().then((marca) => {
+      marca.sort((a, b) => a.marca.localeCompare(b.marca))
       db.Categorias.findAll().then((categoria) => {
         res.render(path.resolve(__dirname, "../views/productCreate.ejs"), {
           session: req.session,
@@ -97,7 +98,7 @@ let productsController = {
     });
   },
 
-  save: (req, res, next) => {
+  save: async (req, res, next) => {
     let sesion = session;
     let db = require("../data/models/");
     let nombreimagenOrig;
@@ -127,16 +128,35 @@ let productsController = {
       return next(error);
     }
     console.log(imagenesAdicionales);
-    let productoNuevo = {
-      titulo: req.body.titulo,
-      descripcion: req.body.descripcion,
-      detallepublicacion: req.body.detallepublicacion,
-      idcategoria: req.body.categoria,
-      precio: req.body.precio,
-      idmarca: req.body.marca,
-      colores: req.body.color,
-      idusuario: req.session.idusuario,
-    };
+    if(req.body.marca == "otra") {
+      var nuevaMarca = {
+        marca: req.body.nuevaMarca,
+        idcategoria: req.body.nuevaMarcaCategoria
+      }
+      const nuevaMarcaCreada = await db.Marcas.create(nuevaMarca)
+      var productoNuevo = {
+        titulo: req.body.titulo,
+        descripcion: req.body.descripcion,
+        detallepublicacion: req.body.detallepublicacion,
+        idcategoria: req.body.categoria,
+        precio: req.body.precio,
+        idmarca: nuevaMarcaCreada.idmarca,
+        colores: req.body.color,
+        idusuario: req.session.idusuario,
+      };
+    } else {
+      var productoNuevo = {
+        titulo: req.body.titulo,
+        descripcion: req.body.descripcion,
+        detallepublicacion: req.body.detallepublicacion,
+        idcategoria: req.body.categoria,
+        precio: req.body.precio,
+        idmarca: req.body.idmarca,
+        colores: req.body.color,
+        idusuario: req.session.idusuario,
+      };
+    }
+    
 
     db.Publicaciones.create(productoNuevo).then(() => {
       db.Publicaciones.findAll({
