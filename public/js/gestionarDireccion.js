@@ -102,6 +102,7 @@ async function modificarDireccion() {
             });
 
         }
+        location.reload();
     } else {
         $.ajax({
             type: "post",

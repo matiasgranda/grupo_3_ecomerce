@@ -272,7 +272,7 @@ let productsController = {
         descripcion: "Debe ingresar una imagen principal",
       };
     }
-    console.log(req.files[0].filename);
+    //console.log(req.files[0].filename);
     res.send(req.files[0].filename);
   },
   delete: (req, res) => {
